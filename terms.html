@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Celeritas Health</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B3A4B;
+  --navy-deep: #122A38;
+  --amber: #D4883C;
+  --amber-dark: #B8722E;
+  --teal: #3A8F7A;
+  --mint: #4ECBA5;
+  --cream: #FAF8F5;
+  --warm-white: #FFFFFF;
+  --sand: #E5E0DA;
+  --charcoal: #2C3038;
+  --warm-gray: #6B6A6E;
+  --light-gray: #A09C97;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Source Sans 3', Georgia, serif;
+  color: var(--charcoal);
+  background: var(--cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+nav {
+  padding: 1.15rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--sand);
+  position: sticky; top: 0; z-index: 100;
+}
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem; color: var(--navy);
+  text-decoration: none; letter-spacing: -0.02em;
+}
+.logo span { color: var(--amber); }
+.nav-back {
+  font-size: 0.82rem; font-weight: 500; color: var(--warm-gray);
+  text-decoration: none; display: flex; align-items: center; gap: 0.35rem;
+  transition: color 0.3s ease;
+}
+.nav-back:hover { color: var(--navy); }
+.tos-header {
+  padding: 4rem 0 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--sand);
+  background: var(--warm-white);
+}
+.tos-header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--navy); margin-bottom: 0.5rem;
+}
+.tos-meta { font-size: 0.88rem; color: var(--light-gray); }
+.tos-meta strong { color: var(--warm-gray); font-weight: 600; }
+.container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+.tos-body { padding: 3rem 0 5rem; }
+.tos-body h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem; color: var(--navy);
+  margin: 2.5rem 0 0.75rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--sand);
+}
+.tos-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+.tos-body h3 {
+  font-size: 1rem; font-weight: 600; color: var(--navy);
+  margin: 1.5rem 0 0.5rem;
+}
+.tos-body p {
+  font-size: 0.95rem; color: var(--charcoal); line-height: 1.75;
+  margin-bottom: 0.85rem;
+}
+.tos-body ul, .tos-body ol {
+  margin: 0.5rem 0 1rem 1.5rem;
+}
+.tos-body li {
+  font-size: 0.95rem; color: var(--charcoal); line-height: 1.75;
+  margin-bottom: 0.35rem;
+}
+.tos-body a {
+  color: var(--amber-dark); text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.tos-body a:hover { color: var(--amber); }
+.tos-callout {
+  background: var(--warm-white);
+  border: 1px solid var(--sand);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+}
+.tos-callout p { margin-bottom: 0; font-size: 0.92rem; }
+.tos-callout strong { color: var(--navy); }
+.tos-callout.clinical { border-left-color: var(--teal); }
+.tos-callout.critical { border-left-color: #C0392B; }
+.tos-toc {
+  background: var(--warm-white);
+  border: 1px solid var(--sand);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+}
+.tos-toc h3 {
+  font-size: 0.82rem; font-weight: 700; color: var(--amber);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+.tos-toc ol {
+  margin: 0 0 0 1.25rem;
+  columns: 2; column-gap: 2rem;
+}
+.tos-toc li {
+  font-size: 0.85rem; color: var(--warm-gray); margin-bottom: 0.25rem;
+}
+.tos-toc li a { color: var(--warm-gray); text-decoration: none; }
+.tos-toc li a:hover { color: var(--amber); }
+.caps-block {
+  font-size: 0.92rem; line-height: 1.7; color: var(--charcoal);
+  margin-bottom: 0.85rem; text-transform: uppercase;
+}
+footer {
+  padding: 2rem; text-align: center;
+  border-top: 1px solid var(--sand);
+}
+footer p { font-size: 0.78rem; color: var(--light-gray); }
+@media (max-width: 600px) {
+  .container { padding: 0 1.25rem; }
+  .tos-toc ol { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Celeritas<span>Health</span></a>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to Home
+  </a>
+</nav>
+
+<div class="tos-header">
+  <div class="container">
+    <h1>Terms of Service</h1>
+    <p class="tos-meta"><strong>Effective Date:</strong> February 17, 2026 &nbsp;·&nbsp; <strong>Version:</strong> 1.1 &nbsp;·&nbsp; <strong>Last Reviewed:</strong> February 17, 2026</p>
+  </div>
+</div>
+
+<div class="tos-body">
+  <div class="container">
+
+    <div class="tos-callout critical">
+      <p><strong>IMPORTANT: These Terms contain a binding arbitration provision, a class action waiver, and a jury trial waiver in Section 19. Please read Section 19 carefully, as it affects your legal rights, including your right to file a lawsuit in court, to have a jury trial, and to participate in a class action.</strong></p>
+    </div>
+
+    <div class="tos-toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#s1">Overview &amp; Acceptance</a></li>
+        <li><a href="#s2">Definitions</a></li>
+        <li><a href="#s3">Eligibility</a></li>
+        <li><a href="#s4">Nature of the Service</a></li>
+        <li><a href="#s5">Clinical Disclaimer &amp; Assumption of Risk</a></li>
+        <li><a href="#s6">Regulatory Classification</a></li>
+        <li><a href="#s7">Pre-Commercial Status</a></li>
+        <li><a href="#s8">Acceptable Use</a></li>
+        <li><a href="#s9">Consent to Electronic Communications</a></li>
+        <li><a href="#s10">Privacy &amp; Data Handling</a></li>
+        <li><a href="#s11">De-Identification &amp; HIPAA</a></li>
+        <li><a href="#s12">Data Retention &amp; Storage</a></li>
+        <li><a href="#s13">Data Security &amp; Breach Notification</a></li>
+        <li><a href="#s14">Third-Party Services</a></li>
+        <li><a href="#s15">International Use &amp; Export Controls</a></li>
+        <li><a href="#s16">Intellectual Property</a></li>
+        <li><a href="#s17">Feedback &amp; Suggestions</a></li>
+        <li><a href="#s18">Service Availability &amp; Force Majeure</a></li>
+        <li><a href="#s19">Dispute Resolution, Arbitration &amp; Jury Waiver</a></li>
+        <li><a href="#s20">Disclaimer of Warranties</a></li>
+        <li><a href="#s21">Limitation of Liability</a></li>
+        <li><a href="#s22">Indemnification</a></li>
+        <li><a href="#s23">Time Limitation on Claims</a></li>
+        <li><a href="#s24">Modifications to Terms</a></li>
+        <li><a href="#s25">Termination</a></li>
+        <li><a href="#s26">General Provisions</a></li>
+        <li><a href="#s27">Contact Information</a></li>
+      </ol>
+    </div>
+
+
+    <!-- 1 -->
+    <h2 id="s1">1. Overview &amp; Acceptance</h2>
+    <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and Celeritas Health LLC, a South Dakota limited liability company ("Company," "we," "us," or "our"), governing your access to and use of the CodeBluePediatrics clinical decision support service ("Service").</p>
+    <p>The Service is accessible via SMS and WhatsApp messaging platforms. <strong>You accept these Terms and agree to be bound by them when you:</strong></p>
+    <ul>
+      <li>Send any message to a CodeBluePediatrics phone number;</li>
+      <li>Reply "AGREE" to our Terms of Service prompt delivered via SMS or WhatsApp; or</li>
+      <li>Otherwise access or use the Service in any manner.</li>
+    </ul>
+    <p>Your acceptance is recorded electronically, including the phone number hash, timestamp, consent version identifier (corresponding to this document version), and channel (SMS or WhatsApp) through which consent was provided. This record constitutes your electronic signature and acceptance under applicable law, including the federal Electronic Signatures in Global and National Commerce Act (E-SIGN Act, 15 U.S.C. § 7001 et seq.) and the South Dakota Uniform Electronic Transactions Act (SDCL § 53-12). Your reply of "AGREE" via SMS or WhatsApp shall have the same legal force and effect as a handwritten signature on a paper document for all purposes under these Terms and applicable law.</p>
+
+    <h3>1.1 Consideration</h3>
+    <p>Adequate consideration exists for these Terms. The Company provides you with access to the Service (including AI-generated clinical decision support, calculator tools, citation verification, and related features) at no charge. Your agreement to abide by these Terms, including the limitations, disclaimers, and obligations contained herein, constitutes consideration flowing from you to the Company.</p>
+
+    <h3>1.2 Controlling Language</h3>
+    <p>These Terms are drafted in the English language. The Service may generate responses in languages other than English based on the language of your query. In the event of any conflict or ambiguity between these English-language Terms and any translation, communication, or Service response in another language, the English-language version of these Terms shall control for all legal purposes.</p>
+
+    <p><strong>If you do not agree to these Terms in their entirety, do not use the Service.</strong> You may discontinue use at any time by ceasing to send messages to the Service.</p>
+
+
+    <!-- 2 -->
+    <h2 id="s2">2. Definitions</h2>
+    <p>As used in these Terms, the following definitions apply:</p>
+    <ul>
+      <li><strong>"Artificial Intelligence" or "AI"</strong> means machine learning models, including large language models, that generate text-based outputs in response to inputs. AI is not a licensed healthcare professional, does not hold a medical degree, and cannot exercise independent clinical judgment.</li>
+      <li><strong>"Clinical Decision Support" or "CDS"</strong> means software that provides clinical knowledge and patient-related information, intelligently filtered or presented, to assist healthcare professionals in making clinical decisions. CDS does not replace clinical judgment.</li>
+      <li><strong>"Company Parties"</strong> means Celeritas Health LLC and its officers, directors, members, managers, employees, agents, contractors, affiliates, successors, and assigns, collectively.</li>
+      <li><strong>"Content"</strong> means all text, data, clinical information, calculations, citations, and other materials generated by or through the Service.</li>
+      <li><strong>"De-Identified Data"</strong> means health information from which all 18 categories of identifiers specified under 45 CFR § 164.514(b)(2) have been removed such that there is no reasonable basis to believe the information can be used to identify an individual.</li>
+      <li><strong>"PHI" or "Protected Health Information"</strong> has the meaning given under the Health Insurance Portability and Accountability Act of 1996 (HIPAA), as amended.</li>
+      <li><strong>"Service"</strong> means the CodeBluePediatrics clinical decision support platform operated by the Company, including all features, specialist modules, clinical calculators, safety validation layers, and related functionality accessible via SMS and WhatsApp messaging, as well as any successor or replacement platforms, but excluding any third-party platforms or services referenced in Section 14.</li>
+      <li><strong>"User," "you," or "your"</strong> means any individual who accesses or uses the Service.</li>
+    </ul>
+
+
+    <!-- 3 -->
+    <h2 id="s3">3. Eligibility</h2>
+    <p>The Service is intended exclusively for use by licensed healthcare professionals, including but not limited to physicians (MD/DO), physician assistants (PA/PA-C), nurse practitioners (NP/APRN), registered nurses (RN), and other advanced practice providers who are authorized to make or contribute to clinical decisions within their jurisdiction and scope of practice.</p>
+    <p>By using the Service, you represent and warrant that:</p>
+    <ul>
+      <li>You hold a valid, active, unrestricted clinical license or credential in your jurisdiction of practice, and that such license has not been suspended, revoked, or subject to disciplinary action that would affect your ability to practice.</li>
+      <li>You are using the Service solely in a professional healthcare capacity in connection with the care of patients.</li>
+      <li>You are at least 18 years of age (or the age of legal majority in your jurisdiction, whichever is greater).</li>
+      <li>You have the legal capacity and authority to enter into these Terms.</li>
+      <li>You maintain professional liability insurance (or equivalent coverage) as required by your jurisdiction and employer, and you understand that the Service does not provide, replace, or supplement professional liability insurance of any kind.</li>
+    </ul>
+    <p>The Service is <strong>not</strong> intended for use by patients, caregivers, or members of the general public. Healthcare trainees (including medical students, residents, and fellows) may use the Service only under the direct supervision of a licensed provider who has independently accepted these Terms. Both the trainee and the supervising provider are independently bound by these Terms. The supervising provider assumes full responsibility for any clinical decisions informed by the Service under their supervision, including compliance with these Terms and applicable professional standards. Trainee use does not relieve the trainee of their own obligations under these Terms.</p>
+    <p>We reserve the right to suspend or terminate access for any user who does not meet these eligibility requirements or who we reasonably believe has misrepresented their eligibility.</p>
+    <p>The representations and warranties in this Section are ongoing and shall survive for the duration of your use of the Service and thereafter as set forth in Section 25.3.</p>
+
+
+    <!-- 4 -->
+    <h2 id="s4">4. Nature of the Service</h2>
+    <p>CodeBluePediatrics is a clinical decision support tool that provides evidence-based clinical information, specialist-routed guidance, drug dosing calculations, clinical calculator results, equipment sizing references, and literature references in response to clinical questions submitted via text message.</p>
+    <p>The Service uses artificial intelligence models developed by third parties (currently Anthropic, PBC) to generate responses. These AI-generated responses are processed through multiple automated safety validation layers, including:</p>
+    <ul>
+      <li>Automated de-identification of protected health information prior to AI processing;</li>
+      <li>Specialist routing to domain-specific clinical modules;</li>
+      <li>Drug dosing validation against pediatric safety thresholds for 50+ medications;</li>
+      <li>Citation verification against the PubMed/NCBI database;</li>
+      <li>Secondary AI-based review for hallucination and accuracy;</li>
+      <li>Programmatic clinical calculator execution using verified mathematical formulas (the AI model does not perform arithmetic); and</li>
+      <li>Escalation detection for emergent clinical scenarios.</li>
+    </ul>
+    <p><strong>Despite these safety measures, the Service relies on AI-generated content and is inherently subject to the limitations of such technology, including the possibility of errors, omissions, inaccuracies, outdated information, and hallucinated content.</strong> No automated safety system can eliminate all risk of incorrect clinical information.</p>
+
+
+    <!-- 5 -->
+    <h2 id="s5">5. Clinical Disclaimer &amp; Assumption of Risk</h2>
+
+    <div class="tos-callout clinical">
+      <p><strong>CRITICAL: CodeBluePediatrics is a clinical decision support tool. It is not a substitute for professional clinical judgment, independent verification, peer consultation, or the applicable standard of care in your jurisdiction.</strong></p>
+    </div>
+
+    <h3>5.1 Clinical Disclaimers</h3>
+    <p>YOU EXPRESSLY ACKNOWLEDGE, UNDERSTAND, AND AGREE THAT:</p>
+    <ul>
+      <li><strong>Not the practice of medicine.</strong> The Service does not constitute the practice of medicine, nursing, pharmacy, or any other licensed healthcare profession in any jurisdiction. The Company is a technology company, not a healthcare provider. No doctor-patient, provider-patient, or provider-to-provider consultative relationship is created between you and the Company, its officers, employees, contractors, AI systems, or any other party through your use of the Service.</li>
+      <li><strong>No practice of medicine across jurisdictional lines.</strong> The Service does not practice medicine in your state, territory, or country. The Company is not licensed to practice medicine in any jurisdiction. The AI system is not a licensed healthcare professional and does not hold medical credentials of any kind.</li>
+      <li><strong>AI is not a clinician.</strong> The AI models powering this Service are statistical language models. They do not understand medicine the way a trained physician does. They cannot examine patients, review imaging, hear heart sounds, or exercise the holistic clinical judgment that defines competent medical practice. AI-generated outputs are computational predictions, not medical opinions.</li>
+      <li><strong>Your clinical judgment controls.</strong> All clinical decisions remain solely and entirely your professional responsibility. Information provided by the Service is supplementary and must be independently verified against current authoritative references, institutional protocols, formularies, and your own clinical training and experience before being applied to any patient.</li>
+      <li><strong>Verify everything independently.</strong> You must independently verify all drug dosages, drug interactions, contraindications, clinical recommendations, guideline citations, PMID references, calculator outputs, equipment sizing, and any other clinical content before applying it to patient care. The Service may contain errors.</li>
+      <li><strong>Not a substitute for specialist consultation.</strong> The Service does not replace real-time consultation with a qualified specialist physician, pharmacist, or other healthcare professional. When specialist consultation is clinically indicated, it must be obtained through appropriate clinical channels regardless of any information provided by the Service.</li>
+      <li><strong>Not for sole reliance in emergencies.</strong> While the Service may provide guidance relevant to emergent clinical scenarios, it must never be used as the sole basis for clinical decision-making in any situation — emergency or otherwise. Standard emergency protocols, institutional resources, poison control, and direct specialist consultation must be pursued in parallel.</li>
+      <li><strong>No guarantee of accuracy or completeness.</strong> Medical knowledge evolves continuously. The Service may not reflect the most current evidence, guidelines, drug approvals, safety alerts, or recalls. Institutional protocols vary. Patient-specific factors that are not communicated to the Service (or that are lost during de-identification) may materially affect the appropriateness of any guidance provided.</li>
+      <li><strong>Pediatric focus.</strong> The Service is designed for pediatric clinical decision support. Any responses generated outside the pediatric domain may not undergo the same level of specialized safety validation and should be treated with additional caution.</li>
+      <li><strong>Professional liability.</strong> Your use of the Service does not alter, reduce, or transfer your professional liability obligations. You remain fully responsible under applicable law, professional standards, and malpractice frameworks for all clinical decisions you make, regardless of whether those decisions were informed by the Service.</li>
+    </ul>
+
+    <h3>5.2 Assumption of Risk</h3>
+    <p><strong>YOU VOLUNTARILY ASSUME ALL RISKS ASSOCIATED WITH YOUR USE OF THE SERVICE, WHETHER KNOWN OR UNKNOWN, FORESEEN OR UNFORESEEN.</strong> You understand that the Service generates AI-powered clinical information that may contain errors, and you accept the inherent risks of using such a tool in a clinical context. These risks include, but are not limited to: inaccurate drug dosing suggestions; incorrect or fabricated citations; incomplete differential diagnoses; outdated guideline references; failure to identify contraindications or drug interactions; hallucinated clinical content; and loss of clinically relevant information during de-identification. You acknowledge that you are a trained healthcare professional capable of independently evaluating clinical information, and that your decision to use or act upon any Content from the Service is made at your own professional risk and discretion.</p>
+
+    <h3>5.3 General Release of Unknown Claims</h3>
+    <p>To the fullest extent permitted by applicable law, you expressly waive and relinquish all rights and benefits under Section 1542 of the California Civil Code, and under any analogous statute, regulation, or common law principle of any other state, territory, or jurisdiction that limits the scope of a general release to known claims. California Civil Code Section 1542 provides:</p>
+    <p><em>"A general release does not extend to claims that the creditor or releasing party does not know or suspect to exist in his or her favor at the time of executing the release and that, if known by him or her, would have materially affected his or her settlement with the debtor or released party."</em></p>
+    <p>You understand and acknowledge that you may discover facts or claims in the future that are different from, or in addition to, those you currently know or believe to exist regarding the Service, and you agree that this assumption of risk and release shall remain effective in all respects notwithstanding the discovery of such additional or different facts or claims. This waiver applies regardless of the governing law of these Terms and to the fullest extent permitted by applicable law in any jurisdiction.</p>
+
+
+    <!-- 6 -->
+    <h2 id="s6">6. Regulatory Classification</h2>
+    <p>The Company intends for the Service to qualify as <strong>non-device clinical decision support software (non-locked CDS)</strong> that is exempt from regulation as a medical device under Section 3060 of the 21st Century Cures Act (codified at 21 U.S.C. § 360j(o)(1)(E)). Under this provision, certain software functions are excluded from the Federal Food, Drug, and Cosmetic Act's definition of "device" when all four of the following criteria are met:</p>
+    <ol>
+      <li>The software is not intended to acquire, process, or analyze a medical image, signal, or pattern from an in vitro diagnostic device or a signal acquisition system;</li>
+      <li>The software is intended for the purpose of displaying, analyzing, or printing medical information about a patient or other medical information;</li>
+      <li>The software is intended for the purpose of supporting or providing recommendations to a healthcare professional about prevention, diagnosis, or treatment of a disease or condition; and</li>
+      <li>The software is intended for the purpose of enabling such healthcare professional to independently review the basis for such recommendations so that the professional is not intended to rely primarily on any of such recommendations to make a clinical diagnosis or treatment decision regarding an individual patient without independently reviewing the recommendations.</li>
+    </ol>
+    <p>The Service is designed to meet all four criteria of this non-locked CDS exemption. It provides recommendations with supporting evidence (including citations, guidelines, and clinical reasoning) that enable you to independently review and evaluate the basis for those recommendations. <strong>You are not intended to rely primarily on Service-generated recommendations without independent clinical review.</strong></p>
+    <p>This classification is the Company's good-faith interpretation of applicable law as of the Effective Date of these Terms. The Company acknowledges that the FDA's interpretation of CDS exemptions continues to evolve through guidance documents (including the FDA's September 2022 final guidance, "Clinical Decision Support Software"), enforcement actions, and rulemaking. The Company will monitor regulatory developments and update its classification and compliance posture as necessary. Nothing in this Section constitutes legal advice or a definitive determination regarding the regulatory status of the Service. The Company makes no representation that the Service meets the regulatory requirements of any particular jurisdiction outside the United States.</p>
+
+
+    <!-- 7 -->
+    <h2 id="s7">7. Pre-Commercial Status</h2>
+
+    <div class="tos-callout">
+      <p><strong>The Service is currently in a pre-commercial, early-access phase.</strong> While the platform has undergone extensive automated testing (5,200+ tests) and safety validation, it has not yet been deployed at scale in clinical environments. You acknowledge this status and accept the associated limitations and risks.</p>
+    </div>
+
+    <p>By using the Service during this phase, you acknowledge and agree that:</p>
+    <ul>
+      <li>The Service may contain bugs, errors, or deficiencies that have not yet been identified.</li>
+      <li>Features, safety thresholds, specialist modules, and clinical content may change without prior notice.</li>
+      <li>The Service has not undergone formal clinical trials, peer-reviewed validation studies (though these are planned), or regulatory review.</li>
+      <li>Your use during this phase constitutes acceptance of a higher degree of risk than would be expected of a fully validated, commercially available product.</li>
+      <li>You must exercise heightened clinical vigilance when using the Service and independently verify all outputs.</li>
+    </ul>
+    <p>The Company intends to publish peer-reviewed validation studies as part of its clinical evidence program. This Section will be updated to reflect the Service's status as it progresses through validation milestones.</p>
+
+
+    <!-- 8 -->
+    <h2 id="s8">8. Acceptable Use</h2>
+    <p>You agree to use the Service only for its intended clinical decision support purpose. You agree <strong>not</strong> to:</p>
+    <ul>
+      <li>Use the Service for any purpose other than clinical decision support in connection with the professional care of patients;</li>
+      <li>Use the Service, or any Content generated by it, for offensive litigation support, expert witness testimony adverse to the Company, or as the basis for regulatory complaints against the Company; <em>provided, however,</em> that nothing in this clause prevents you from (a) referencing your own consultation history in your own legal defense, (b) responding to lawful subpoenas or compulsory legal process, or (c) filing good-faith reports with state licensing boards or patient safety organizations as required by law or professional obligation;</li>
+      <li>Submit messages containing protected health information beyond what is reasonably necessary for a clinical question (while the Service de-identifies all inbound messages, you should minimize unnecessary PHI — use age, weight, and clinical details rather than patient names, dates of birth, and medical record numbers);</li>
+      <li>Attempt to circumvent, disable, test, probe, or interfere with any safety, security, de-identification, or rate-limiting features of the Service;</li>
+      <li>Attempt to re-identify any de-identified data or reverse-engineer any cryptographic hash;</li>
+      <li>Use automated systems, bots, scripts, or other non-human mechanisms to send messages to the Service;</li>
+      <li>Use the Service for competitive analysis, reverse engineering, benchmarking for commercial purposes, scraping, or developing a competing product or service;</li>
+      <li>Redistribute, republish, sublicense, or commercially exploit any Content generated by the Service without the Company's prior written consent;</li>
+      <li>Submit messages that are abusive, threatening, harassing, defamatory, obscene, fraudulent, or otherwise unlawful;</li>
+      <li>Use the Service in any manner that violates applicable law, regulation, or professional standard;</li>
+      <li>Exceed usage limits established by the Company (currently: 10 messages per 60-second window and 50 consultations per calendar day per phone number); or</li>
+      <li>Impersonate any person, misrepresent your professional credentials, or provide false information to the Service.</li>
+    </ul>
+    <p>Violation of this Section may result in immediate termination of access without notice.</p>
+
+
+    <!-- 9 -->
+    <h2 id="s9">9. Consent to Electronic Communications</h2>
+    <p>By using the Service, you affirmatively consent to receive communications from the Company electronically, including via SMS and WhatsApp messages to the phone number from which you contact the Service. These communications may include:</p>
+    <ul>
+      <li>Clinical decision support responses;</li>
+      <li>Terms of Service acceptance prompts and updates;</li>
+      <li>Service availability notifications;</li>
+      <li>Satisfaction surveys (estimated frequency: one survey per consultation session, no more than once per day); and</li>
+      <li>Other communications reasonably related to the Service.</li>
+    </ul>
+    <p><strong>Message frequency varies based on your use.</strong> Each clinical question you send will generate one response message. Satisfaction survey messages, if enabled, occur at most once per consultation session. Service notification messages are infrequent and limited to material changes (e.g., Terms updates, service interruptions). You will not receive marketing, advertising, or promotional messages.</p>
+    <p>You agree that all communications provided to you electronically satisfy any legal requirement that such communications be in writing. <strong>You further agree that electronic records of your interactions with the Service (including consent records, de-identified message logs, and timestamps) constitute valid and enforceable records equivalent to paper records, and you waive any argument that such records are inadmissible or insufficient due to their electronic nature.</strong></p>
+    <p>Standard messaging rates from your carrier may apply. You may withdraw consent to receive non-essential communications (such as satisfaction surveys) at any time by texting STOP, but doing so may limit Service functionality. To stop all messages, cease sending messages to the Service; no formal opt-out is required for clinical response messages as they are sent only in response to your queries.</p>
+    <p>This consent is provided pursuant to the federal Telephone Consumer Protection Act (47 U.S.C. § 227), the E-SIGN Act (15 U.S.C. § 7001 et seq.), and applicable state law.</p>
+
+
+    <!-- 10 -->
+    <h2 id="s10">10. Privacy &amp; Data Handling</h2>
+    <p>Your privacy and the privacy of your patients are fundamental to the design and operation of this Service. This Section, together with Sections 11, 12, and 13, constitutes the Company's privacy disclosure and serves as the Company's privacy notice until a standalone Privacy Policy is published and incorporated by reference into these Terms.</p>
+
+    <h3>10.1 Information We Process</h3>
+    <ul>
+      <li><strong>Clinical messages.</strong> Your clinical questions are received via Twilio's messaging infrastructure. Inbound messages are immediately and automatically processed through our de-identification engine before any AI processing, storage, or human review occurs. Only the de-identified version is retained.</li>
+      <li><strong>Phone number (temporarily).</strong> Your phone number is used solely to maintain your messaging session and deliver responses. It is immediately converted to a one-way cryptographic hash (HMAC-SHA256) that cannot be mathematically reversed to recover your phone number. This hash is automatically purged within 2 hours via scheduled automated processes.</li>
+      <li><strong>Usage metadata.</strong> We collect de-identified operational data including: specialist type used, response time, messaging channel (SMS or WhatsApp), country code (derived from phone number country prefix, not geolocation), session identifiers (UUID with no reverse mapping to phone numbers), and feature utilization flags. This data contains no PHI.</li>
+      <li><strong>Consent records.</strong> We record your Terms of Service acceptance, including a timestamp, consent version, channel, and the phone number hash (which is subsequently purged as described above).</li>
+    </ul>
+
+    <h3>10.2 Information We Do Not Collect or Store</h3>
+    <ul>
+      <li>Your original phone number (only a temporary, irreversible cryptographic hash)</li>
+      <li>Patient names, dates of birth, Social Security numbers, addresses, or any of the 18 HIPAA Safe Harbor identifiers post-de-identification</li>
+      <li>Original, un-de-identified message text</li>
+      <li>Geolocation data, GPS coordinates, or IP addresses of users</li>
+      <li>Device identifiers, browser fingerprints, or cookies (the Service operates via SMS/WhatsApp, not a web browser)</li>
+    </ul>
+
+    <h3>10.3 How We Use Data</h3>
+    <p>De-identified data is used for: (a) delivering clinical decision support responses; (b) quality improvement and safety monitoring; (c) aggregate analytics and performance benchmarking; (d) research and publication (using only de-identified, aggregate data); (e) Service improvement; and (f) due diligence disclosures to prospective investors, acquirers, or strategic partners, limited to aggregate, de-identified, non-individually-identifiable performance and usage metrics. We do not sell, rent, or lease any user data to third parties for marketing or advertising purposes.</p>
+
+
+    <!-- 11 -->
+    <h2 id="s11">11. De-Identification &amp; HIPAA</h2>
+    <p>The Service implements the <strong>HIPAA Safe Harbor method of de-identification</strong> as specified in 45 CFR § 164.514(b)(2). All 18 categories of identifiers are automatically removed from inbound messages before AI processing or data storage, including: names; geographic data below state level; dates (except year) relating to an individual; telephone numbers; fax numbers; email addresses; Social Security numbers; medical record numbers; health plan beneficiary numbers; account numbers; certificate or license numbers; vehicle identifiers and serial numbers; device identifiers and serial numbers; web URLs; IP addresses; biometric identifiers; full-face photographs and comparable images; and any other unique identifying number, characteristic, or code.</p>
+
+    <div class="tos-callout">
+      <p><strong>Minimize PHI in your messages.</strong> While our de-identification engine is comprehensive and tested against 1,483 test cases covering all 18 identifier types, no automated system achieves 100% accuracy in all circumstances. We strongly encourage you to minimize unnecessary PHI in your clinical questions. Use age, weight, and clinical details — avoid patient names, dates of birth, and medical record numbers when possible.</p>
+    </div>
+
+    <h3>11.1 De-Identification Architecture</h3>
+    <p>The Service is designed and intended to remove all PHI from messages prior to AI processing and data storage. The Company does not intentionally maintain, store, transmit, or have access to protected health information as defined by HIPAA, and the data retained by the Service is intended to consist solely of de-identified health information that is not individually identifiable.</p>
+    <p>However, as disclosed in the callout above, no automated de-identification system achieves 100% accuracy in all circumstances. In the event that residual PHI is discovered in stored data despite the Company's de-identification processes, the Company will take prompt steps to remove or further de-identify such data upon discovery. The existence of any residual PHI resulting from de-identification limitations does not, by itself, establish a business associate relationship or trigger BAA obligations under HIPAA, as the Company's systems are not designed or intended to create, receive, maintain, or transmit PHI on behalf of any covered entity.</p>
+    <p>To the extent any provision of these Terms conflicts with mandatory requirements of HIPAA or any applicable federal health privacy law, such federal law shall control with respect to the specific conflict.</p>
+
+    <h3>11.2 No Business Associate Agreement Required or Offered</h3>
+    <p><strong>The Company does not enter into HIPAA Business Associate Agreements (BAAs) in connection with the Service.</strong> Because the Service is designed to process only de-identified data and does not create, receive, maintain, or transmit PHI on behalf of any covered entity, no BAA is required under HIPAA. If a future version of the Service processes PHI, this Section will be updated and BAA availability will be addressed at that time.</p>
+
+    <h3>11.3 Your HIPAA Obligations</h3>
+    <p>If you are a covered entity or business associate under HIPAA, you remain responsible for your own HIPAA compliance obligations, including ensuring that any PHI you transmit to any system is appropriately authorized and safeguarded. Your decision to use this Service does not transfer any of your HIPAA obligations to the Company.</p>
+
+
+    <!-- 12 -->
+    <h2 id="s12">12. Data Retention &amp; Storage</h2>
+    <ul>
+      <li><strong>De-identified consultations:</strong> Retained for up to 7 years for quality improvement, clinical record-keeping, safety monitoring, research, and regulatory purposes. AI-generated responses are encrypted at rest using AES-256-GCM encryption.</li>
+      <li><strong>Phone number hashes:</strong> Automatically and irrevocably purged within 2 hours via scheduled background processes running at 15-minute intervals.</li>
+      <li><strong>Session data:</strong> Sessions expire after 2 hours of inactivity or 12 messages, whichever occurs first. Session metadata is retained with consultations; phone hashes within sessions are purged per the schedule above.</li>
+      <li><strong>Audit logs:</strong> Retained for 1 year for compliance and security investigation purposes.</li>
+      <li><strong>Operational logs:</strong> Retained for 90 days. All logs are filtered to remove any residual PHI patterns before storage.</li>
+    </ul>
+    <p>All data is stored on infrastructure hosted within the United States. The Company does not intentionally transfer data outside the United States, though third-party service providers may process data in other jurisdictions as described in Section 14.</p>
+
+
+    <!-- 13 -->
+    <h2 id="s13">13. Data Security &amp; Breach Notification</h2>
+    <p>The Company implements administrative, technical, and physical safeguards to protect Service data, including:</p>
+    <ul>
+      <li>AES-256-GCM encryption of stored AI responses;</li>
+      <li>HMAC-SHA256 one-way hashing of phone numbers with time-limited retention;</li>
+      <li>TLS encryption for all data in transit;</li>
+      <li>Webhook signature validation (HMAC-SHA1) to prevent forged inbound messages;</li>
+      <li>Rate limiting and loop protection to prevent abuse;</li>
+      <li>Append-only audit logging;</li>
+      <li>Role-based access controls with bcrypt-hashed credentials; and</li>
+      <li>Automated CI/CD security scanning for committed secrets.</li>
+    </ul>
+
+    <h3>13.1 Breach Notification</h3>
+    <p>In the event the Company discovers a security breach that results in unauthorized access to user data, the Company will:</p>
+    <ul>
+      <li>Investigate the scope and nature of the breach promptly;</li>
+      <li>Take reasonable steps to contain and remediate the breach;</li>
+      <li>Notify affected users within the timeframe required by the shortest applicable statutory deadline in any relevant jurisdiction (including, without limitation, state data breach notification statutes that may require notification within 30, 45, or 60 days of discovery), unless a delay is specifically requested by a law enforcement agency to the extent such delay is permitted under applicable law; and</li>
+      <li>Provide information regarding the nature of the breach, the data involved, steps taken, and recommended protective measures.</li>
+    </ul>
+    <p>Because the Service is designed to store only de-identified data with no persistent phone number linkage, the risk that any breach would result in the exposure of individually identifiable information is significantly mitigated by design. You acknowledge that, due to the automatic purging of phone number hashes within 2 hours, the Company may not be able to directly contact affected users following a breach. In such cases, the Company will provide notification through publicly accessible channels, including posting a notice on its website and, where feasible, through the Service itself to users who contact the Service following the breach. If you wish to receive breach notifications by email, you may provide an email address by contacting the Company at the address in Section 27; such email will be used solely for security notifications and will not be shared with third parties.</p>
+
+
+    <!-- 14 -->
+    <h2 id="s14">14. Third-Party Services</h2>
+    <p>The Service relies on the following third-party services to operate. Only de-identified data is shared with these services:</p>
+    <ul>
+      <li><strong>Twilio Inc.</strong> — SMS and WhatsApp message delivery and receipt. Subject to <a href="https://www.twilio.com/legal/tos" target="_blank" rel="noopener">Twilio's Terms of Service</a> and <a href="https://www.twilio.com/legal/privacy" target="_blank" rel="noopener">Privacy Policy</a>. Twilio necessarily processes your phone number to deliver messages; the Company's 2-hour phone hash purge (described in Section 12) applies only to data within the Company's own systems and does not affect Twilio's independent retention of phone numbers under Twilio's own data retention policies, which the Company does not control.</li>
+      <li><strong>Anthropic, PBC</strong> — AI model provider (Claude). Subject to <a href="https://www.anthropic.com/legal/aup" target="_blank" rel="noopener">Anthropic's Acceptable Use Policy</a>. De-identified messages are sent to Anthropic's API for AI response generation. Anthropic's data retention and processing practices are governed by its own policies.</li>
+      <li><strong>National Center for Biotechnology Information (NCBI)</strong> — PubMed/MEDLINE citation verification. A public service of the U.S. National Library of Medicine. No user data is shared; only PMID identifiers are queried.</li>
+      <li><strong>Railway Corp.</strong> — Application hosting, database, and cache infrastructure. Data stored on Railway infrastructure within the United States.</li>
+    </ul>
+    <p>We select third-party providers that maintain security practices appropriate to the data they process. However, the Company is not responsible for the acts, omissions, or data practices of third-party service providers. Your use of the Service constitutes your acknowledgment of these third-party relationships.</p>
+
+
+    <!-- 15 -->
+    <h2 id="s15">15. International Use &amp; Export Controls</h2>
+
+    <h3>15.1 Operating Modes</h3>
+    <p>The Service operates in two modes based on the country code of your phone number:</p>
+    <ul>
+      <li><strong>United States (+1):</strong> Full clinical decision support mode ("Consultation Mode"), including drug dosing validation, clinical calculator execution, escalation detection, and satisfaction surveys.</li>
+      <li><strong>All other countries:</strong> Medical reference information mode ("Reference Mode"). Responses in Reference Mode are provided for educational and informational reference purposes only and include an explicit disclaimer that the content is medical reference information, not clinical advice. The Service does not purport to provide clinical advice governed by the laws or standards of any non-U.S. jurisdiction.</li>
+    </ul>
+
+    <h3>15.2 Jurisdictional Limitations</h3>
+    <p>The Service is designed and operated from the United States. It is not tailored to comply with the laws, regulations, clinical guidelines, drug formularies, or professional standards of any jurisdiction outside the United States. International users are solely responsible for determining whether their use of the Service complies with applicable local laws and professional standards.</p>
+
+    <h3>15.3 Export Controls &amp; Sanctions</h3>
+    <p>The Service may be subject to U.S. export control laws and regulations, including the Export Administration Regulations (EAR) administered by the Bureau of Industry and Security. You agree not to access or use the Service in violation of any U.S. export control or sanctions laws. You represent that you are not: (a) located in, a resident of, or organized under the laws of any country or territory subject to comprehensive U.S. sanctions as maintained and updated from time to time by the Office of Foreign Assets Control (OFAC) of the U.S. Department of the Treasury; (b) listed on any U.S. government restricted party list, including the Specially Designated Nationals and Blocked Persons List (SDN List), as updated from time to time; or (c) owned or controlled by any such person or entity.</p>
+
+    <h3>15.4 International Privacy</h3>
+    <p>If you are located in the European Economic Area, United Kingdom, or another jurisdiction with data protection laws, your use of the Service involves the transfer of data to the United States, which may not provide an equivalent level of data protection. By using the Service, you consent to this transfer. The Company's primary data protection mechanism is its de-identification architecture — because no individually identifiable data is retained, the privacy risk associated with cross-border transfer is substantially mitigated.</p>
+
+    <h3>15.5 Anti-Corruption</h3>
+    <p>You represent that your use of the Service does not and will not violate any applicable anti-corruption or anti-bribery law, including the U.S. Foreign Corrupt Practices Act (FCPA). You will not use the Service as part of or in furtherance of any scheme to obtain or retain an improper business advantage.</p>
+
+
+    <!-- 16 -->
+    <h2 id="s16">16. Intellectual Property</h2>
+    <p>All intellectual property rights in the Service — including but not limited to the software, source code, algorithms, safety pipelines, specialist prompts and configurations, RAG content, calculator implementations, clinical protocols, user interface design, documentation, the names "Celeritas Health," "CodeBluePediatrics," and all related trademarks, service marks, and trade dress — are and shall remain the exclusive property of Celeritas Health LLC (or its licensors, as applicable).</p>
+    <p>Subject to your compliance with these Terms, the Company grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to use the Service for its intended clinical decision support purpose. This license does not convey any ownership interest in the Service or its Content.</p>
+    <p>You may use clinical guidance generated by the Service in your direct clinical practice and patient documentation. You may not commercially redistribute, republish, sublicense, create derivative works from, or otherwise exploit Service-generated Content without the Company's prior written consent.</p>
+
+
+    <!-- 17 -->
+    <h2 id="s17">17. Feedback &amp; Suggestions</h2>
+    <p>If you provide the Company with any feedback, suggestions, ideas, enhancement requests, or other input regarding the Service ("Feedback"), you hereby assign to the Company all right, title, and interest in and to such Feedback. The Company shall be free to use, disclose, reproduce, license, distribute, and otherwise exploit the Feedback in any manner without obligation, attribution, or compensation to you. This assignment applies regardless of whether the Feedback is provided verbally, in writing, or through use patterns observed in de-identified Service data.</p>
+    <p>To the extent such assignment is not effective under applicable law, you grant the Company a perpetual, irrevocable, worldwide, royalty-free, fully paid-up, sublicensable license to use the Feedback for any purpose.</p>
+
+
+    <!-- 18 -->
+    <h2 id="s18">18. Service Availability &amp; Force Majeure</h2>
+
+    <h3>18.1 Availability</h3>
+    <p>The Company strives to maintain the availability of the Service but does not guarantee uninterrupted, timely, or error-free operation. The Service may be temporarily or permanently unavailable due to scheduled or unscheduled maintenance, third-party service outages, capacity constraints, or other operational factors.</p>
+    <p>The Service includes automated circuit breakers and graceful degradation mechanisms. If the AI service is temporarily unavailable, you will receive an error message. <strong>The Service is designed to fail safely — it will refuse to deliver unverified or partially processed clinical content rather than risk providing inaccurate information.</strong></p>
+    <p>We reserve the right to modify, suspend, or discontinue the Service (or any feature or component thereof) at any time, with or without notice and with or without cause.</p>
+
+    <h3>18.2 Force Majeure</h3>
+    <p>Neither party shall be liable for any failure or delay in performing its obligations under these Terms to the extent such failure or delay results from circumstances beyond its reasonable control, including but not limited to: acts of God; natural disasters; pandemics or epidemics; war, terrorism, or civil unrest; government actions, regulations, or embargoes; labor disputes; power failures; internet or telecommunications failures; failures of third-party service providers (including Twilio, Anthropic, NCBI, or hosting providers); distributed denial-of-service attacks or other cyberattacks; or any other event beyond the affected party's reasonable control ("Force Majeure Event"). The affected party's obligations shall be suspended for the duration of such Force Majeure Event, and neither party shall have any liability to the other for the period during which performance is prevented or delayed by a Force Majeure Event.</p>
+
+
+    <!-- 19 -->
+    <h2 id="s19">19. Dispute Resolution, Arbitration &amp; Jury Waiver</h2>
+
+    <div class="tos-callout critical">
+      <p><strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS, INCLUDING YOUR RIGHT TO FILE A LAWSUIT IN COURT, YOUR RIGHT TO A JURY TRIAL, AND YOUR RIGHT TO PARTICIPATE IN A CLASS ACTION.</strong></p>
+    </div>
+
+    <h3>19.1 Informal Resolution</h3>
+    <p>Before initiating any formal dispute resolution proceeding, you agree to first attempt to resolve the dispute informally by sending a written notice to the Company at the address in Section 27 ("Dispute Notice"). The Dispute Notice must include: (a) your name and contact information; (b) a detailed description of the dispute; and (c) the specific relief sought. The Company will attempt to resolve the dispute within 60 days of receiving the Dispute Notice. If the dispute is not resolved within 60 days, either party may proceed to arbitration as set forth below.</p>
+
+    <h3>19.2 Binding Arbitration</h3>
+    <p>Any dispute, claim, or controversy arising out of or relating to these Terms, the Service, or the relationship between you and the Company (including claims arising before the effective date of these Terms) that cannot be resolved through informal resolution shall be resolved by <strong>final and binding individual arbitration</strong> administered by the American Arbitration Association ("AAA") under its then-current Consumer Arbitration Rules, as modified by this Section. The Federal Arbitration Act (9 U.S.C. §§ 1-16) governs the interpretation and enforcement of this arbitration agreement.</p>
+    <p>The arbitration shall be conducted by a single arbitrator with relevant healthcare or technology experience. The arbitration shall take place in Sioux Falls, South Dakota, or, at your election, may be conducted by telephone, video conference, or based on written submissions. The arbitrator shall apply South Dakota substantive law (or federal law where applicable).</p>
+    <p>The arbitrator may award any relief that a court of competent jurisdiction could award, including injunctive or declaratory relief, but only to the extent required to satisfy your individual claim. The arbitrator's award shall be final and binding, and judgment on the award may be entered in any court of competent jurisdiction.</p>
+
+    <h3>19.3 Arbitration Costs</h3>
+    <p>Payment of arbitration filing fees, arbitrator fees, and administrative costs shall be governed by the AAA's Consumer Arbitration Rules. To the extent the AAA rules are silent or inapplicable, each party shall bear its own costs and attorneys' fees unless the arbitrator determines that applicable law requires a different allocation. The Company will pay any arbitration filing fees and arbitrator costs that exceed what you would have paid to file a claim in court, provided that you have complied with the informal resolution requirement in Section 19.1.</p>
+
+    <h3>19.4 Class Action &amp; Class Certification Waiver</h3>
+    <p><strong>YOU AND THE COMPANY AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, CONSOLIDATED, REPRESENTATIVE, OR MULTI-PARTY ACTION OR PROCEEDING.</strong> The arbitrator may not consolidate more than one person's claims, may not preside over any form of representative or class proceeding, may not certify or maintain any class of claimants, and may not award relief to any person other than the individual party seeking relief. If this class action and class certification waiver is found to be unenforceable, then the entirety of this arbitration provision (Sections 19.2 through 19.5) shall be null and void, but the jury trial waiver in Section 19.7 and all other provisions of these Terms shall remain in full force and effect.</p>
+
+    <h3>19.5 Opt-Out Right</h3>
+    <p>You may opt out of the binding arbitration and class action waiver provisions of this Section by sending written notice to the Company at the address in Section 27 within 30 days of your first use of the Service. The opt-out notice must include your name, phone number (or other identifying information sufficient for us to identify your account), and a clear statement that you wish to opt out of arbitration. If you opt out, the Governing Law and Venue provisions in Section 19.6, and the Jury Trial Waiver in Section 19.7, shall apply to all disputes. Opting out of arbitration will not affect any other provision of these Terms.</p>
+
+    <h3>19.6 Governing Law &amp; Venue</h3>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of South Dakota, without regard to its conflict of law principles. For any dispute not subject to arbitration (including where arbitration is validly opted out of, where the arbitration provision is found unenforceable, or for matters excepted under Section 19.8), exclusive jurisdiction and venue shall lie in the state or federal courts located in Minnehaha County, South Dakota, and you irrevocably consent to the personal jurisdiction of such courts.</p>
+
+    <h3>19.7 Jury Trial Waiver</h3>
+    <p><strong>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, YOU AND THE COMPANY EACH IRREVOCABLY WAIVE THE RIGHT TO A TRIAL BY JURY IN ANY LEGAL PROCEEDING ARISING OUT OF OR RELATING TO THESE TERMS, THE SERVICE, OR THE RELATIONSHIP BETWEEN YOU AND THE COMPANY, WHETHER SUCH PROCEEDING IS IN COURT, IN ARBITRATION, OR IN ANY OTHER FORUM.</strong> This jury trial waiver is independent of, and shall survive the invalidity, unenforceability, or opt-out of, the arbitration agreement in Sections 19.2 through 19.5. This waiver applies regardless of whether you have opted out of binding arbitration under Section 19.5, regardless of whether the class action waiver in Section 19.4 is found unenforceable, and regardless of whether any other provision of this Section 19 is modified or severed. If a court determines that this jury trial waiver is unenforceable as a standalone provision, then the arbitration agreement in Section 19.2 shall apply with full force to the relevant dispute.</p>
+
+    <h3>19.8 Exceptions to Arbitration</h3>
+    <p>Notwithstanding the foregoing: (a) either party may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation, or violation of intellectual property rights; (b) claims within the jurisdiction of a small claims court may be filed in such court; and (c) nothing in this Section prevents either party from filing a complaint with any applicable government agency.</p>
+
+
+    <!-- 20 — Warranties BEFORE Liability -->
+    <h2 id="s20">20. Disclaimer of Warranties</h2>
+
+    <p class="caps-block">THE SERVICE, INCLUDING ALL CONTENT, IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. THE COMPANY PARTIES EXPRESSLY DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO: (A) IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT; (B) WARRANTIES ARISING FROM COURSE OF DEALING, COURSE OF PERFORMANCE, OR USAGE OF TRADE; AND (C) WARRANTIES RELATING TO THE ACCURACY, RELIABILITY, COMPLETENESS, OR TIMELINESS OF ANY CONTENT PROVIDED THROUGH THE SERVICE.</p>
+
+    <p class="caps-block">WITHOUT LIMITING THE FOREGOING, THE COMPANY DOES NOT WARRANT THAT: (A) THE SERVICE WILL MEET YOUR REQUIREMENTS OR EXPECTATIONS; (B) THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE; (C) THE CLINICAL INFORMATION, DRUG DOSAGES, CALCULATOR OUTPUTS, CITATIONS, OR OTHER CONTENT PROVIDED WILL BE ACCURATE, COMPLETE, CURRENT, OR FREE FROM ERROR; (D) ANY ERRORS IN THE SERVICE WILL BE CORRECTED; OR (E) THE SERVICE WILL BE COMPATIBLE WITH ANY PARTICULAR HARDWARE, SOFTWARE, OR NETWORK CONFIGURATION.</p>
+
+    <p>No oral or written information or advice given by the Company or its representatives shall create a warranty not expressly stated in these Terms.</p>
+
+
+    <!-- 21 — Liability AFTER Warranties -->
+    <h2 id="s21">21. Limitation of Liability</h2>
+
+    <p class="caps-block">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
+
+    <p class="caps-block">IN NO EVENT SHALL THE COMPANY PARTIES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO DAMAGES FOR LOSS OF PROFITS, REVENUE, GOODWILL, DATA, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH: (A) YOUR USE OF OR INABILITY TO USE THE SERVICE; (B) ANY CONTENT PROVIDED BY OR THROUGH THE SERVICE; (C) ANY CLINICAL DECISIONS MADE OR ACTIONS TAKEN BASED ON INFORMATION PROVIDED BY THE SERVICE; (D) UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR MESSAGES OR DATA; (E) ANY THIRD-PARTY CONDUCT RELATED TO THE SERVICE; OR (F) ANY OTHER MATTER RELATING TO THE SERVICE — REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, TORT, STRICT LIABILITY, NEGLIGENCE, OR OTHERWISE) AND EVEN IF THE COMPANY PARTIES HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+
+    <p class="caps-block">THE COMPANY PARTIES' TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THESE TERMS, YOUR USE OF THE SERVICE, OR ANY CONTENT PROVIDED THROUGH THE SERVICE — WHETHER ARISING UNDER THESE TERMS, BY OPERATION OF LAW, IN INDEMNIFICATION, OR OTHERWISE, AND WHETHER IN CONTRACT, TORT, STRICT LIABILITY, OR ANY OTHER LEGAL OR EQUITABLE THEORY — SHALL NOT EXCEED THE GREATER OF: (I) THE TOTAL FEES ACTUALLY PAID BY YOU TO THE COMPANY FOR USE OF THE SERVICE DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM; OR (II) FIVE HUNDRED DOLLARS ($500.00). FOR THE AVOIDANCE OF DOUBT, DURING ANY PERIOD IN WHICH THE SERVICE IS PROVIDED WITHOUT CHARGE, THE AGGREGATE LIABILITY CAP SHALL BE FIVE HUNDRED DOLLARS ($500.00). THIS CAP IS A SINGLE, UNIFIED CAP THAT APPLIES TO ALL CAUSES OF ACTION IN THE AGGREGATE, INCLUDING WITHOUT LIMITATION ANY OBLIGATIONS ARISING UNDER THE COMPANY'S INDEMNIFICATION OBLIGATIONS IN SECTION 22.2.</p>
+
+    <p class="caps-block">SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL, CONSEQUENTIAL, OR CERTAIN OTHER DAMAGES. IN SUCH JURISDICTIONS, THE LIABILITY OF THE COMPANY PARTIES SHALL BE LIMITED TO THE GREATEST EXTENT PERMITTED BY APPLICABLE LAW.</p>
+
+    <p>You acknowledge that the limitations of liability and disclaimers of warranties set forth in Sections 20 and 21 are a fundamental basis of the bargain between you and the Company, reflect a reasonable allocation of risk given that the Service is provided without charge to a professional audience capable of independent clinical judgment, and that the Service would not be provided to you without such limitations. You further acknowledge that you are a licensed healthcare professional who independently verifies all clinical information before application to patient care, and that the Service is one of many resources — not a sole source of clinical guidance — available to you. These limitations shall apply notwithstanding any failure of essential purpose of any limited remedy.</p>
+
+
+    <!-- 22 -->
+    <h2 id="s22">22. Indemnification</h2>
+
+    <h3>22.1 Your Indemnification Obligations</h3>
+    <p>You agree to indemnify, defend, and hold harmless the Company Parties from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees and court costs) arising out of or relating to:</p>
+    <ul>
+      <li>Your use of the Service;</li>
+      <li>Any clinical decisions you make or actions you take (or fail to take) based in whole or in part on information provided by the Service;</li>
+      <li>Your violation of these Terms;</li>
+      <li>Your violation of any applicable law, regulation, or professional standard;</li>
+      <li>Any claim by a third party (including patients, their families, employers, insurers, or regulatory bodies) arising from your use of the Service;</li>
+      <li>Your negligence or willful misconduct; or</li>
+      <li>Your misrepresentation of your eligibility, credentials, or professional status.</li>
+    </ul>
+
+    <h3>22.2 Company Indemnification</h3>
+    <p>The Company agrees to indemnify and hold harmless you from and against third-party claims to the extent directly and proximately caused by: (a) the Company's gross negligence or willful misconduct in operating the Service; or (b) the Company's knowing infringement of a third party's valid and enforceable intellectual property rights through the Service itself (excluding claims arising from your use of Content generated by the Service or from the combination of Service outputs with other materials). The Company's obligations under this Section 22.2 are expressly subject to and capped by the aggregate liability limitation set forth in Section 21, and in no event shall the Company's total indemnification obligations under this Section exceed that cap.</p>
+
+    <h3>22.3 Indemnification Procedures</h3>
+    <p>The indemnifying party's obligations are conditioned upon the indemnified party: (a) providing prompt written notice of the claim (provided that failure to give prompt notice shall reduce the indemnifying party's obligations only to the extent that the indemnifying party demonstrates it was materially prejudiced by the delay — the burden of proving such material prejudice rests on the indemnifying party); (b) granting the indemnifying party sole control of the defense and settlement (provided that no settlement admitting liability on behalf of the indemnified party or imposing non-monetary obligations on the indemnified party may be made without the indemnified party's prior written consent, not to be unreasonably withheld); and (c) providing reasonable cooperation at the indemnifying party's expense.</p>
+
+
+    <!-- 23 -->
+    <h2 id="s23">23. Time Limitation on Claims</h2>
+    <p><strong>Any cause of action or claim arising out of or relating to these Terms, the Service, or any Content provided through the Service must be commenced within one (1) year after the cause of action accrues.</strong> After this one-year period, such cause of action or claim is permanently barred. This limitation applies regardless of the form of action, whether in contract, tort, strict liability, or otherwise.</p>
+    <p>To the extent this provision conflicts with a mandatory statutory limitation period in your jurisdiction that cannot be shortened by agreement — including, without limitation, statutes of limitation applicable to claims for personal injury, wrongful death, fraud, or claims under consumer protection statutes — the mandatory statutory period shall apply to those specific claims. All other claims remain subject to the one-year limitation set forth herein.</p>
+    <p>For purposes of this Section, a cause of action accrues on the date you first knew or reasonably should have known of the facts giving rise to the claim.</p>
+
+
+    <!-- 24 -->
+    <h2 id="s24">24. Modifications to Terms</h2>
+    <p>The Company reserves the right to modify these Terms at any time. When material changes are made, we will:</p>
+    <ul>
+      <li>Update the "Effective Date" and "Last Reviewed" dates at the top of this document;</li>
+      <li>Increment the version number;</li>
+      <li>Send a notification via the Service to active users with a summary of material changes; and</li>
+      <li>Require re-acceptance of the updated Terms (by replying "AGREE") before continued use.</li>
+    </ul>
+    <p>Non-material changes (such as typographical corrections or formatting updates) may be made without notice. Your continued use of the Service after the effective date of any modification constitutes your acceptance of the modified Terms. If you do not agree to any modification, your sole and exclusive remedy is to discontinue use of the Service.</p>
+    <p>Each version of these Terms is identified by a unique version number (e.g., "1.1"). The consent version identifier recorded in the system at the time of your acceptance corresponds to the version of these Terms you accepted. If you accepted version 1.0 and version 2.0 is subsequently published with material changes (including changes to the arbitration or dispute resolution provisions), you will be required to affirmatively re-accept the updated Terms before continued use of the Service. The most recently accepted version governs.</p>
+    <p>Prior versions of these Terms will be archived and available upon request.</p>
+
+
+    <!-- 25 -->
+    <h2 id="s25">25. Termination</h2>
+
+    <h3>25.1 Termination by You</h3>
+    <p>You may stop using the Service at any time by ceasing to send messages. No formal cancellation process is required.</p>
+    <p>If you wish to request deletion of your de-identified consultation history, you may submit a written request to the Company at the address in Section 27. The Company will acknowledge your request within 30 days and, where deletion is permissible under applicable law and consistent with the Company's data retention obligations (including clinical record-keeping and audit requirements), will complete the deletion within 90 days of acknowledgment. The Company will inform you if any data cannot be deleted and the legal basis for its retention. You acknowledge that de-identified data that has been included in aggregate analytics, backup archives, or data previously shared with third-party service providers pursuant to Section 14 may not be individually recoverable or deletable; the Company's deletion obligation extends only to data within the Company's direct operational control.</p>
+
+    <h3>25.2 Termination by the Company</h3>
+    <p>The Company may suspend or terminate your access to the Service immediately, with or without cause and with or without prior notice, including but not limited to cases of:</p>
+    <ul>
+      <li>Violation of these Terms or any applicable law;</li>
+      <li>Suspected misuse, abuse, fraudulent activity, or security threat;</li>
+      <li>Use by ineligible individuals;</li>
+      <li>Conduct that could harm the Service, its users, patients, or the Company's reputation;</li>
+      <li>Non-payment of fees (if applicable in the future); or</li>
+      <li>Discontinuation of the Service.</li>
+    </ul>
+
+    <h3>25.3 Survival</h3>
+    <p>Upon termination, your license to use the Service ceases immediately. The following provisions shall survive termination and continue in full force and effect: Definitions (§2), Eligibility representations and warranties (§3), Clinical Disclaimer &amp; Assumption of Risk (§5), Regulatory Classification (§6), Pre-Commercial Status acknowledgments (§7), Acceptable Use restrictions (§8), Consent to Electronic Communications (§9), Privacy &amp; Data Handling (§10), De-Identification &amp; HIPAA (§11), Data Retention (§12), Data Security &amp; Breach Notification (§13), Third-Party Services (§14), International Use &amp; Export Controls (§15), Intellectual Property (§16), Feedback (§17), Service Availability &amp; Force Majeure (§18), Dispute Resolution, Arbitration &amp; Jury Waiver (§19), Disclaimer of Warranties (§20), Limitation of Liability (§21), Indemnification (§22), Time Limitation on Claims (§23), this Section 25.3, General Provisions (§26), and Contact Information (§27).</p>
+
+
+    <!-- 26 -->
+    <h2 id="s26">26. General Provisions</h2>
+
+    <h3>26.1 Entire Agreement</h3>
+    <p>These Terms, together with any Privacy Policy published by the Company and incorporated by reference, constitute the entire agreement between you and the Company with respect to the Service and supersede all prior or contemporaneous communications, proposals, representations, and agreements, whether oral or written, regarding the Service.</p>
+
+    <h3>26.2 Severability</h3>
+    <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court or arbitrator of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it valid, legal, and enforceable while preserving the parties' original intent, or if modification is not possible, shall be severed from these Terms. The invalidity or unenforceability of any provision shall not affect the validity or enforceability of any other provision, and the remaining provisions shall continue in full force and effect.</p>
+
+    <h3>26.3 Waiver</h3>
+    <p>The failure of the Company to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. Any waiver of any provision of these Terms shall be effective only if in writing and signed by an authorized representative of the Company. No waiver shall constitute a continuing waiver or a waiver of any other provision.</p>
+
+    <h3>26.4 Assignment</h3>
+    <p>You may not assign, transfer, or delegate your rights or obligations under these Terms without the Company's prior written consent. The Company may freely assign, transfer, or delegate its rights and obligations under these Terms, in whole or in part, without your consent, including in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of its assets. The Company will provide notice to active users within 30 days following any such assignment through the Service or other available communication channels. Upon any such assignment by the Company, the assignee shall assume all of the Company's obligations under these Terms. These Terms shall be binding upon and inure to the benefit of the parties and their respective successors and permitted assigns.</p>
+
+    <h3>26.5 No Third-Party Beneficiaries</h3>
+    <p>These Terms are for the sole benefit of you and the Company and do not confer any rights, remedies, obligations, or liabilities on any third party (including patients, employers, insurers, or healthcare institutions) unless expressly stated. No third party shall have any right to enforce any provision of these Terms.</p>
+
+    <h3>26.6 Cumulative Remedies</h3>
+    <p>Except as expressly limited by these Terms, the rights and remedies of the parties under these Terms are cumulative and in addition to, not in lieu of, any other rights or remedies available at law or in equity. The exercise of one remedy shall not preclude the exercise of any other remedy.</p>
+
+    <h3>26.7 Notices</h3>
+    <p>The Company may provide notices to you via: (a) the Service (SMS or WhatsApp message); (b) email (if you have provided an email address); or (c) posting on the Company's website. Notices to the Company must be sent to the physical or email address in Section 27 and are deemed received upon actual receipt.</p>
+
+    <h3>26.8 Headings</h3>
+    <p>Section headings are for convenience only and shall not affect the interpretation of these Terms.</p>
+
+    <h3>26.9 Relationship of the Parties</h3>
+    <p>Nothing in these Terms shall be construed to create a partnership, joint venture, agency, employment, or fiduciary relationship between you and the Company. Neither party has the authority to bind the other or to incur any obligation on the other's behalf.</p>
+
+    <h3>26.10 Construction &amp; Interpretation</h3>
+    <p>These Terms shall not be construed against the Company solely because the Company drafted them. Both parties acknowledge that they have had the opportunity to review these Terms and to consult with independent legal counsel of their choosing prior to acceptance. The words "include," "includes," and "including" shall be deemed to be followed by the phrase "without limitation." The word "or" is not exclusive. Any ambiguity in these Terms shall be resolved by reference to the parties' intent as expressed in these Terms as a whole, giving effect to all provisions and avoiding any interpretation that would render any provision meaningless or superfluous.</p>
+
+    <h3>26.11 Independent Legal Advice</h3>
+    <p>You acknowledge that you have had the opportunity to seek independent legal advice regarding these Terms prior to your acceptance. Your decision to accept these Terms without consulting legal counsel does not diminish the enforceability of any provision. The Company recommends that you review these Terms with counsel if you have questions about your rights and obligations.</p>
+
+    <h3>26.12 Accessibility</h3>
+    <p>The Company is committed to making the Service accessible to all qualified healthcare professionals. If you experience accessibility barriers when using the Service, please contact us at the address in Section 27. We will make reasonable efforts to accommodate accessibility needs consistent with the nature of an SMS/WhatsApp-based service.</p>
+
+
+    <!-- 27 -->
+    <h2 id="s27">27. Contact Information</h2>
+    <p>For questions, concerns, dispute notices, arbitration opt-out requests, data deletion requests, breach notification email registration, or other communications regarding these Terms or the Service:</p>
+    <p>
+      <strong>Celeritas Health LLC</strong><br>
+      Attn: Legal — Terms of Service<br>
+      Sioux Falls, South Dakota 57108<br>
+      United States
+    </p>
+    <p>
+      Email (Legal): <a href="mailto:legal@celeritashealth.com">legal@celeritashealth.com</a><br>
+      Email (General): <a href="mailto:benson.hsu@celeritashealth.com">benson.hsu@celeritashealth.com</a>
+    </p>
+
+    <br>
+    <p style="font-size: 0.85rem; color: var(--light-gray); font-style: italic; border-top: 1px solid var(--sand); padding-top: 1.25rem;">
+      These Terms of Service were last updated on February 17, 2026. This is version 1.1. The version identifier referenced in the SMS/WhatsApp consent flow ("1.1") corresponds to this document. Prior versions, if any, are available upon written request.
+    </p>
+
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Celeritas Health LLC · South Dakota · All rights reserved</p>
+</footer>
+
+</body>
+</html>
