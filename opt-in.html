@@ -196,7 +196,7 @@ footer a:hover { color: var(--amber); }
 <div class="page-header">
   <div class="container">
     <h1>SMS &amp; WhatsApp Messaging Consent</h1>
-    <p class="page-meta"><strong>Service:</strong> CodeBluePediatrics &nbsp;·&nbsp; <strong>Operator:</strong> Celeritas Health LLC &nbsp;·&nbsp; <strong>Last Updated:</strong> February 26, 2026</p>
+    <p class="page-meta"><strong>Service:</strong> CodeBluePediatrics &nbsp;·&nbsp; <strong>Operator:</strong> Celeritas Health LLC &nbsp;·&nbsp; <strong>Last Updated:</strong> February 27, 2026</p>
   </div>
 </div>
 
@@ -206,42 +206,49 @@ footer a:hover { color: var(--amber); }
     <!-- About -->
     <h2>About the Service</h2>
     <p>CodeBluePediatrics is a clinical decision support platform operated by <strong>Celeritas Health LLC</strong>, a South Dakota limited liability company. The Service provides specialist-level pediatric clinical guidance to licensed healthcare providers via SMS and WhatsApp messaging.</p>
-    <p>The Service is designed for physicians, nurse practitioners, physician assistants, and other credentialed clinicians practicing in settings where pediatric subspecialty consultation is not readily available. When a provider sends a clinical question by text message, the platform returns a structured, evidence-based response with verified citations — functioning like an on-demand curbside consult available 24/7.</p>
+    <p>The Service is designed for physicians, nurse practitioners, physician assistants, and other credentialed clinicians practicing in settings where pediatric subspecialty consultation is not readily available.</p>
+
+    <!-- Voluntary consent -->
+    <h2>Voluntary Messaging Consent</h2>
+
+    <div class="callout clinical">
+      <p><strong>Messaging consent is entirely voluntary.</strong> Opting in to receive SMS or WhatsApp messages from CodeBluePediatrics is not a condition of purchasing any goods or services from Celeritas Health LLC. You are never required to provide your phone number or consent to messaging.</p>
+    </div>
+
+    <p>Healthcare providers who wish to receive clinical decision support via text messaging may voluntarily opt in by following the process described below. Providers who prefer not to receive text messages are under no obligation to do so.</p>
 
     <!-- How opt-in works -->
-    <h2>How Providers Opt In to Receive Messages</h2>
-    <p>Messaging is initiated exclusively by the healthcare provider. The Service does not send unsolicited outbound messages. Consent to receive messages is obtained through the following process:</p>
+    <h2>How Providers Voluntarily Opt In</h2>
+    <p>Messaging is always initiated by the healthcare provider. The Service does not send unsolicited outbound messages. The voluntary opt-in process works as follows:</p>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-text">
-          <strong>Provider-initiated contact.</strong> A licensed healthcare provider sends an initial text message (SMS or WhatsApp) to the CodeBluePediatrics service number. The provider must have received the service number through an authorized channel: institutional onboarding, direct enrollment with Celeritas Health, or a partnering healthcare organization.
+          <strong>Provider voluntarily texts the service number.</strong> A healthcare provider who wishes to use the Service sends an initial text message (SMS or WhatsApp) to the CodeBluePediatrics number. This is a voluntary action — no one is required to text this number.
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-text">
-          <strong>Terms of Service presented.</strong> Upon first contact, the system delivers a Terms of Service prompt that clearly discloses: (a) the Service is a clinical decision support tool, not a replacement for clinical judgment; (b) all messages are de-identified before AI processing; (c) no Protected Health Information (PHI) is stored; and (d) the Service is restricted to licensed healthcare providers.
+          <strong>Disclosure is presented.</strong> The system responds with information about the Service, including that it is a clinical decision support tool, that messages are de-identified before processing, and that no Protected Health Information is stored.
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-text">
-          <strong>Explicit consent required.</strong> The provider must reply <code>AGREE</code> to accept the Terms of Service and opt in to receiving messages. No clinical responses, surveys, or other messages are sent until this affirmative consent is received and recorded.
+          <strong>Provider chooses to opt in.</strong> The provider may reply <code>AGREE</code> to voluntarily consent to receiving clinical decision support messages. This is a separate, voluntary action — the provider may choose not to reply and will receive no further messages.
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-text">
-          <strong>Service begins.</strong> After opting in, the provider may send clinical questions and will receive evidence-based clinical decision support responses via the same messaging channel.
+          <strong>Messages begin only after voluntary consent.</strong> After the provider has opted in, they may send clinical questions and will receive evidence-based responses via the same messaging channel. The provider may opt out at any time.
         </div>
       </div>
     </div>
 
-    <div class="callout clinical">
-      <p><strong>Consent is recorded electronically</strong> with a timestamp, consent version identifier, and messaging channel (SMS or WhatsApp). No provider is added to the Service without their own explicit, affirmative opt-in action. Consent records are maintained in accordance with the Company's data retention policies and the <a href="/terms">Terms of Service</a>.</p>
-    </div>
+    <p>Providers who do not reply <code>AGREE</code> will not receive any additional messages. Consent is never assumed, inherited, or obtained through any mechanism other than the provider's own voluntary action.</p>
 
 
     <!-- Message details -->
@@ -252,9 +259,9 @@ footer a:hover { color: var(--amber); }
         <tr><th>Detail</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td>Message types</td><td>Clinical decision support responses, Terms of Service prompts, service notifications (e.g., session timeout, rate limit notice), and optional satisfaction surveys</td></tr>
+        <tr><td>Message types</td><td>Clinical decision support responses, service notifications (e.g., session timeout), and optional satisfaction surveys</td></tr>
         <tr><td>Channels</td><td>SMS and WhatsApp</td></tr>
-        <tr><td>Frequency</td><td>Conversational and reply-based. Each clinical question generates one response. Satisfaction surveys occur at most once per consultation session. Service notifications are infrequent.</td></tr>
+        <tr><td>Frequency</td><td>Conversational and reply-based. Each clinical question generates one response. Service notifications are infrequent.</td></tr>
         <tr><td>Recurring?</td><td>No. Messages are sent only in direct response to provider-initiated queries or as transactional notifications related to active sessions.</td></tr>
         <tr><td>Marketing?</td><td>No. The Service does not send marketing, advertising, or promotional messages of any kind.</td></tr>
         <tr><td>Cost</td><td>Celeritas Health does not charge for messages. Standard message and data rates from your mobile carrier may apply.</td></tr>
@@ -264,24 +271,20 @@ footer a:hover { color: var(--amber); }
 
     <!-- Opt-out -->
     <h2>How to Opt Out</h2>
-    <p>Providers may stop receiving messages at any time using any of the following methods:</p>
+    <p>Providers may stop receiving messages at any time, for any reason, using any of the following methods:</p>
     <ul>
       <li><strong>Reply <code>STOP</code></strong> to any message from CodeBluePediatrics. This immediately unsubscribes the phone number from all future messages.</li>
       <li><strong>Reply <code>HELP</code></strong> to receive support information and contact details.</li>
       <li><strong>Email</strong> <a href="mailto:support@celeritashealth.com">support@celeritashealth.com</a> to request removal.</li>
-      <li><strong>Cease sending messages</strong> to the Service. Because messages are reply-based, no formal opt-out is required if you simply stop texting the service number.</li>
+      <li><strong>Simply stop texting</strong> the service number. Because messages are reply-based, no further messages will be sent if you stop initiating contact.</li>
     </ul>
-    <p>After opting out via <code>STOP</code>, no further messages will be sent to that phone number. A provider may re-enroll at any time by texting the service number again and completing the opt-in process from the beginning.</p>
-
-    <div class="callout">
-      <p><strong>Note:</strong> Replying <code>STOP</code> ends all messages, including clinical responses. If you wish to stop only non-essential messages (such as satisfaction surveys) while continuing clinical use, contact <a href="mailto:support@celeritashealth.com">support@celeritashealth.com</a> for assistance.</p>
-    </div>
+    <p>After opting out via <code>STOP</code>, no further messages will be sent to that phone number. Opting out is immediate and carries no penalty or consequence of any kind. A provider may re-enroll at any time by texting the service number again and completing the voluntary opt-in process.</p>
 
 
     <!-- Standard disclosures -->
     <h2>Standard Disclosures</h2>
-    <p>Message and data rates may apply depending on your mobile carrier and plan. Message frequency varies based on your usage of the Service. Celeritas Health LLC does not charge for messages sent or received through the platform.</p>
-    <p>This messaging service is provided in accordance with the federal Telephone Consumer Protection Act (47 U.S.C. § 227) and applicable state regulations.</p>
+    <p>Message and data rates may apply depending on your mobile carrier and plan. Message frequency varies based on your usage. Celeritas Health LLC does not charge for messages sent or received through the platform.</p>
+    <p>Consent to receive messages is not a condition of any purchase or service agreement. You may use other means to contact Celeritas Health (such as email) without opting in to text messaging.</p>
     <p>For questions or support, text <code>HELP</code> to the service number or email <a href="mailto:support@celeritashealth.com">support@celeritashealth.com</a>.</p>
 
 
@@ -294,12 +297,12 @@ footer a:hover { color: var(--amber); }
 
     <!-- Governing documents -->
     <h2>Governing Documents</h2>
-    <p>Use of the CodeBluePediatrics Service is governed by the Celeritas Health LLC <a href="/terms">Terms of Service</a> (Version 1.1, effective February 17, 2026). A standalone Privacy Policy will be published and incorporated by reference; until that time, the privacy and data handling provisions of the Terms of Service (Sections 10–13) serve as the Company's privacy disclosure.</p>
+    <p>Use of the CodeBluePediatrics Service is governed by the Celeritas Health LLC <a href="/terms">Terms of Service</a>. A standalone Privacy Policy will be published and incorporated by reference; until that time, the privacy and data handling provisions of the Terms of Service (Sections 10–13) serve as the Company's privacy disclosure.</p>
 
 
     <!-- Contact -->
     <h2>Contact Information</h2>
-    <p>For questions about this messaging consent, the opt-in process, or the Service:</p>
+    <p>For questions about messaging consent, the opt-in process, or the Service:</p>
     <p>
       <strong>Celeritas Health LLC</strong><br>
       Sioux Falls, South Dakota 57108<br>
