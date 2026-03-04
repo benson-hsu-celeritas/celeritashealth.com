@@ -7,115 +7,118 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #1B3A4B;
-  --navy-deep: #122A38;
-  --amber: #D4883C;
-  --amber-dark: #B8722E;
-  --teal: #3A8F7A;
-  --mint: #4ECBA5;
-  --cream: #FAF8F5;
-  --warm-white: #FFFFFF;
-  --sand: #E5E0DA;
-  --charcoal: #2C3038;
-  --warm-gray: #6B6A6E;
-  --light-gray: #A09C97;
+  --bg-deep: #0C1820;
+  --bg-surface: #132631;
+  --bg-elevated: #1A3242;
+  --border-subtle: rgba(255,255,255,0.06);
+  --text-primary: #EDE8E2;
+  --text-secondary: rgba(237,232,226,0.65);
+  --text-tertiary: rgba(237,232,226,0.50);
+  --mint: #3BE8B0;
+  --mint-dim: rgba(59,232,176,0.12);
+  --gold: #E8B84B;
+  --gold-dim: rgba(232,184,75,0.10);
+  --clinical-red: #E85D5D;
+  --clinical-blue: #5BA4E6;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
-  font-family: 'Source Sans 3', Georgia, serif;
-  color: var(--charcoal);
-  background: var(--cream);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-deep);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 nav {
   padding: 1.15rem 2rem;
   display: flex; justify-content: space-between; align-items: center;
-  background: rgba(250, 248, 245, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--sand);
+  background: rgba(12, 24, 32, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
   position: sticky; top: 0; z-index: 100;
 }
 .logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.3rem; color: var(--navy);
-  text-decoration: none; letter-spacing: -0.02em;
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem; color: var(--text-primary);
+  text-decoration: none; letter-spacing: -0.02em; font-weight: 600;
 }
-.logo span { color: var(--amber); }
+.logo span { color: var(--gold); }
 .nav-back {
-  font-size: 0.82rem; font-weight: 500; color: var(--warm-gray);
+  font-size: 0.82rem; font-weight: 500; color: var(--text-secondary);
   text-decoration: none; display: flex; align-items: center; gap: 0.35rem;
   transition: color 0.3s ease;
 }
-.nav-back:hover { color: var(--navy); }
+.nav-back:hover { color: var(--text-primary); }
 .tos-header {
-  padding: 4rem 0 2.5rem;
+  padding: 4.5rem 0 2.5rem;
   text-align: center;
-  border-bottom: 1px solid var(--sand);
-  background: var(--warm-white);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
 }
 .tos-header h1 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--navy); margin-bottom: 0.5rem;
+  color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 300;
 }
-.tos-meta { font-size: 0.88rem; color: var(--light-gray); }
-.tos-meta strong { color: var(--warm-gray); font-weight: 600; }
+.tos-meta { font-size: 0.85rem; color: var(--text-tertiary); }
+.tos-meta strong { color: var(--text-secondary); font-weight: 600; }
 .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
 .tos-body { padding: 3rem 0 5rem; }
 .tos-body h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.35rem; color: var(--navy);
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem; color: var(--text-primary);
   margin: 2.5rem 0 0.75rem; padding-top: 1.5rem;
-  border-top: 1px solid var(--sand);
+  border-top: 1px solid var(--border-subtle); font-weight: 400;
 }
 .tos-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
 .tos-body h3 {
-  font-size: 1rem; font-weight: 600; color: var(--navy);
+  font-size: 1rem; font-weight: 600; color: var(--text-primary);
   margin: 1.5rem 0 0.5rem;
 }
 .tos-body p {
-  font-size: 0.95rem; color: var(--charcoal); line-height: 1.75;
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75;
   margin-bottom: 0.85rem;
 }
 .tos-body ul, .tos-body ol {
   margin: 0.5rem 0 1rem 1.5rem;
 }
 .tos-body li {
-  font-size: 0.95rem; color: var(--charcoal); line-height: 1.75;
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75;
   margin-bottom: 0.35rem;
 }
 .tos-body a {
-  color: var(--amber-dark); text-decoration: underline;
+  color: var(--gold); text-decoration: underline;
   text-underline-offset: 2px;
 }
-.tos-body a:hover { color: var(--amber); }
+.tos-body a:hover { color: #F0C45A; }
+.tos-body strong { color: var(--text-primary); }
+.tos-body em { color: var(--text-secondary); }
 .tos-callout {
-  background: var(--warm-white);
-  border: 1px solid var(--sand);
-  border-left: 4px solid var(--amber);
-  border-radius: 0 10px 10px 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 0;
 }
 .tos-callout p { margin-bottom: 0; font-size: 0.92rem; }
-.tos-callout strong { color: var(--navy); }
-.tos-callout.clinical { border-left-color: var(--teal); }
-.tos-callout.critical { border-left-color: #C0392B; }
+.tos-callout strong { color: var(--text-primary); }
+.tos-callout.clinical { border-left-color: var(--mint); }
+.tos-callout.critical { border-left-color: var(--clinical-red); }
 .tos-toc {
-  background: var(--warm-white);
-  border: 1px solid var(--sand);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 1.5rem 2rem;
   margin-bottom: 2rem;
 }
 .tos-toc h3 {
-  font-size: 0.82rem; font-weight: 700; color: var(--amber);
-  letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.72rem; font-weight: 700; color: var(--mint);
+  letter-spacing: 0.1em; text-transform: uppercase;
   margin: 0 0 0.75rem;
 }
 .tos-toc ol {
@@ -123,19 +126,24 @@ nav {
   columns: 2; column-gap: 2rem;
 }
 .tos-toc li {
-  font-size: 0.85rem; color: var(--warm-gray); margin-bottom: 0.25rem;
+  font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: 0.25rem;
 }
-.tos-toc li a { color: var(--warm-gray); text-decoration: none; }
-.tos-toc li a:hover { color: var(--amber); }
+.tos-toc li a { color: var(--text-tertiary); text-decoration: none; }
+.tos-toc li a:hover { color: var(--gold); }
 .caps-block {
-  font-size: 0.92rem; line-height: 1.7; color: var(--charcoal);
+  font-size: 0.92rem; line-height: 1.7; color: var(--text-secondary);
   margin-bottom: 0.85rem; text-transform: uppercase;
 }
 footer {
   padding: 2rem; text-align: center;
-  border-top: 1px solid var(--sand);
+  border-top: 1px solid var(--border-subtle);
 }
-footer p { font-size: 0.78rem; color: var(--light-gray); }
+footer p { font-size: 0.78rem; color: var(--text-tertiary); }
+footer a { color: var(--text-secondary); text-decoration: underline; text-underline-offset: 2px; }
+footer a:hover { color: var(--gold); }
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; }
+}
 @media (max-width: 600px) {
   .container { padding: 0 1.25rem; }
   .tos-toc ol { columns: 1; }
@@ -145,8 +153,8 @@ footer p { font-size: 0.78rem; color: var(--light-gray); }
 <body>
 
 <nav>
-  <a href="/" class="logo">Celeritas<span>Health</span></a>
-  <a href="/" class="nav-back">
+  <a href="index.html" class="logo">Celeritas<span>Health</span></a>
+  <a href="index.html" class="nav-back">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
     Back to Home
   </a>
@@ -685,7 +693,7 @@ footer p { font-size: 0.78rem; color: var(--light-gray); }
     </p>
 
     <br>
-    <p style="font-size: 0.85rem; color: var(--light-gray); font-style: italic; border-top: 1px solid var(--sand); padding-top: 1.25rem;">
+    <p style="font-size: 0.85rem; color: var(--text-tertiary); font-style: italic; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
       These Terms of Service were last updated on February 17, 2026. This is version 1.1. The version identifier referenced in the SMS/WhatsApp consent flow ("1.1") corresponds to this document. Prior versions, if any, are available upon written request.
     </p>
 
@@ -693,7 +701,7 @@ footer p { font-size: 0.78rem; color: var(--light-gray); }
 </div>
 
 <footer>
-  <p>&copy; 2026 Celeritas Health LLC · South Dakota · All rights reserved</p>
+  <p>&copy; 2026 <a href="index.html">Celeritas Health LLC</a> · South Dakota · All rights reserved &nbsp;·&nbsp; <a href="opt-in.html">Messaging Consent</a></p>
 </footer>
 
 </body>

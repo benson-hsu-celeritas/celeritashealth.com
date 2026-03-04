@@ -7,176 +7,180 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #1B3A4B;
-  --navy-deep: #122A38;
-  --amber: #D4883C;
-  --amber-dark: #B8722E;
-  --teal: #3A8F7A;
-  --mint: #4ECBA5;
-  --cream: #FAF8F5;
-  --warm-white: #FFFFFF;
-  --sand: #E5E0DA;
-  --charcoal: #2C3038;
-  --warm-gray: #6B6A6E;
-  --light-gray: #A09C97;
+  --bg-deep: #0C1820;
+  --bg-surface: #132631;
+  --bg-elevated: #1A3242;
+  --bg-warm: #1A1610;
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-warm: rgba(232,184,75,0.12);
+  --text-primary: #EDE8E2;
+  --text-secondary: rgba(237,232,226,0.65);
+  --text-tertiary: rgba(237,232,226,0.50);
+  --mint: #3BE8B0;
+  --mint-dim: rgba(59,232,176,0.12);
+  --gold: #E8B84B;
+  --gold-dim: rgba(232,184,75,0.10);
+  --gold-dark: #C49A3A;
+  --clinical-blue: #5BA4E6;
+  --clinical-blue-dim: rgba(91,164,230,0.10);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
-  font-family: 'Source Sans 3', Georgia, serif;
-  color: var(--charcoal);
-  background: var(--cream);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-deep);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
+
+/* NAV */
 nav {
   padding: 1.15rem 2rem;
   display: flex; justify-content: space-between; align-items: center;
-  background: rgba(250, 248, 245, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--sand);
+  background: rgba(12, 24, 32, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
   position: sticky; top: 0; z-index: 100;
 }
 .logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.3rem; color: var(--navy);
-  text-decoration: none; letter-spacing: -0.02em;
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem; color: var(--text-primary);
+  text-decoration: none; letter-spacing: -0.02em; font-weight: 600;
 }
-.logo span { color: var(--amber); }
+.logo span { color: var(--gold); }
 .nav-back {
-  font-size: 0.82rem; font-weight: 500; color: var(--warm-gray);
+  font-size: 0.82rem; font-weight: 500; color: var(--text-secondary);
   text-decoration: none; display: flex; align-items: center; gap: 0.35rem;
   transition: color 0.3s ease;
 }
-.nav-back:hover { color: var(--navy); }
+.nav-back:hover { color: var(--text-primary); }
+
+/* PAGE HEADER */
 .page-header {
-  padding: 4rem 0 2.5rem;
+  padding: 4.5rem 0 2.5rem;
   text-align: center;
-  border-bottom: 1px solid var(--sand);
-  background: var(--warm-white);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
 }
 .page-header h1 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Fraunces', serif;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--navy); margin-bottom: 0.5rem;
+  color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 300;
 }
-.page-meta { font-size: 0.88rem; color: var(--light-gray); }
-.page-meta strong { color: var(--warm-gray); font-weight: 600; }
+.page-meta { font-size: 0.85rem; color: var(--text-tertiary); }
+.page-meta strong { color: var(--text-secondary); font-weight: 600; }
+
+/* CONTENT */
 .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
 .page-body { padding: 3rem 0 5rem; }
 .page-body h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.35rem; color: var(--navy);
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem; color: var(--text-primary);
   margin: 2.5rem 0 0.75rem; padding-top: 1.5rem;
-  border-top: 1px solid var(--sand);
+  border-top: 1px solid var(--border-subtle); font-weight: 400;
 }
 .page-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
 .page-body h3 {
-  font-size: 1rem; font-weight: 600; color: var(--navy);
+  font-size: 1rem; font-weight: 600; color: var(--text-primary);
   margin: 1.5rem 0 0.5rem;
 }
 .page-body p {
-  font-size: 0.95rem; color: var(--charcoal); line-height: 1.75;
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75;
   margin-bottom: 0.85rem;
 }
-.page-body ul, .page-body ol {
-  margin: 0.5rem 0 1rem 1.5rem;
-}
+.page-body ul, .page-body ol { margin: 0.5rem 0 1rem 1.5rem; }
 .page-body li {
-  font-size: 0.95rem; color: var(--charcoal); line-height: 1.75;
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75;
   margin-bottom: 0.35rem;
 }
 .page-body a {
-  color: var(--amber-dark); text-decoration: underline;
+  color: var(--gold); text-decoration: underline;
   text-underline-offset: 2px;
 }
-.page-body a:hover { color: var(--amber); }
+.page-body a:hover { color: #F0C45A; }
+.page-body strong { color: var(--text-primary); }
+
+/* CALLOUT */
 .callout {
-  background: var(--warm-white);
-  border: 1px solid var(--sand);
-  border-left: 4px solid var(--amber);
-  border-radius: 0 10px 10px 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 0;
 }
 .callout p { margin-bottom: 0; font-size: 0.92rem; }
-.callout strong { color: var(--navy); }
-.callout.clinical { border-left-color: var(--teal); }
+.callout strong { color: var(--text-primary); }
+.callout.clinical { border-left-color: var(--mint); }
 
-/* Steps */
+/* STEPS */
 .steps { margin: 1.25rem 0; }
 .step {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  display: flex; gap: 1rem; align-items: flex-start;
   margin-bottom: 1rem;
 }
 .step-num {
   flex-shrink: 0;
   width: 30px; height: 30px;
-  background: var(--navy);
-  color: var(--warm-white);
+  background: var(--gold);
+  color: var(--bg-deep);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 0.82rem;
   margin-top: 3px;
 }
-.step-text { font-size: 0.95rem; color: var(--charcoal); line-height: 1.75; }
-.step-text strong { color: var(--navy); }
+.step-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; }
+.step-text strong { color: var(--text-primary); }
 
-/* Info table */
+/* TABLE */
 .info-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 0.92rem;
+  width: 100%; border-collapse: collapse;
+  margin: 1rem 0; font-size: 0.92rem;
 }
 .info-table th {
   text-align: left;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--amber);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.72rem; font-weight: 700; color: var(--mint);
+  letter-spacing: 0.1em; text-transform: uppercase;
   padding: 0.65rem 1rem;
-  border-bottom: 2px solid var(--sand);
-  background: var(--warm-white);
+  border-bottom: 2px solid var(--border-subtle);
+  background: var(--bg-surface);
 }
 .info-table td {
   padding: 0.65rem 1rem;
-  border-bottom: 1px solid var(--sand);
-  color: var(--charcoal);
-  vertical-align: top;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-secondary); vertical-align: top;
 }
 .info-table td:first-child {
-  font-weight: 600;
-  color: var(--navy);
-  white-space: nowrap;
-  width: 35%;
+  font-weight: 600; color: var(--text-primary);
+  white-space: nowrap; width: 35%;
 }
 
 code {
   display: inline-block;
-  background: var(--cream);
-  border: 1px solid var(--sand);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: 4px;
   padding: 0.1em 0.45em;
   font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--amber-dark);
+  font-size: 0.88rem; font-weight: 600;
+  color: var(--gold);
 }
 
 footer {
   padding: 2rem; text-align: center;
-  border-top: 1px solid var(--sand);
+  border-top: 1px solid var(--border-subtle);
 }
-footer p { font-size: 0.78rem; color: var(--light-gray); }
-footer a { color: var(--amber-dark); text-decoration: underline; text-underline-offset: 2px; }
-footer a:hover { color: var(--amber); }
+footer p { font-size: 0.78rem; color: var(--text-tertiary); }
+footer a { color: var(--text-secondary); text-decoration: underline; text-underline-offset: 2px; }
+footer a:hover { color: var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; }
+}
 @media (max-width: 600px) {
   .container { padding: 0 1.25rem; }
   .info-table td:first-child { white-space: normal; }
@@ -186,8 +190,8 @@ footer a:hover { color: var(--amber); }
 <body>
 
 <nav>
-  <a href="/" class="logo">Celeritas<span>Health</span></a>
-  <a href="/" class="nav-back">
+  <a href="index.html" class="logo">Celeritas<span>Health</span></a>
+  <a href="index.html" class="nav-back">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
     Back to Home
   </a>
@@ -203,57 +207,39 @@ footer a:hover { color: var(--amber); }
 <div class="page-body">
   <div class="container">
 
-    <!-- About -->
     <h2>About the Service</h2>
     <p>CodeBluePediatrics is a clinical decision support platform operated by <strong>Celeritas Health LLC</strong>, a South Dakota limited liability company. The Service provides specialist-level pediatric clinical guidance to licensed healthcare providers via SMS and WhatsApp messaging.</p>
     <p>The Service is designed for physicians, nurse practitioners, physician assistants, and other credentialed clinicians practicing in settings where pediatric subspecialty consultation is not readily available.</p>
 
-    <!-- Voluntary consent -->
     <h2>Voluntary Messaging Consent</h2>
-
     <div class="callout clinical">
       <p><strong>Messaging consent is entirely voluntary.</strong> Opting in to receive SMS or WhatsApp messages from CodeBluePediatrics is not a condition of purchasing any goods or services from Celeritas Health LLC. You are never required to provide your phone number or consent to messaging.</p>
     </div>
-
     <p>Healthcare providers who wish to receive clinical decision support via text messaging may voluntarily opt in by following the process described below. Providers who prefer not to receive text messages are under no obligation to do so.</p>
 
-    <!-- How opt-in works -->
     <h2>How Providers Voluntarily Opt In</h2>
     <p>Messaging is always initiated by the healthcare provider. The Service does not send unsolicited outbound messages. The voluntary opt-in process works as follows:</p>
-
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <div class="step-text">
-          <strong>Provider voluntarily texts the service number.</strong> A healthcare provider who wishes to use the Service sends an initial text message (SMS or WhatsApp) to the CodeBluePediatrics number. This is a voluntary action — no one is required to text this number.
-        </div>
+        <div class="step-text"><strong>Provider voluntarily texts the service number.</strong> A healthcare provider who wishes to use the Service sends an initial text message (SMS or WhatsApp) to the CodeBluePediatrics number. This is a voluntary action — no one is required to text this number.</div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-text">
-          <strong>Disclosure is presented.</strong> The system responds with information about the Service, including that it is a clinical decision support tool, that messages are de-identified before processing, and that no Protected Health Information is stored.
-        </div>
+        <div class="step-text"><strong>Disclosure is presented.</strong> The system responds with information about the Service, including that it is a clinical decision support tool, that messages are de-identified before processing, and that no Protected Health Information is stored.</div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-text">
-          <strong>Provider chooses to opt in.</strong> The provider may reply <code>AGREE</code> to voluntarily consent to receiving clinical decision support messages. This is a separate, voluntary action — the provider may choose not to reply and will receive no further messages.
-        </div>
+        <div class="step-text"><strong>Provider chooses to opt in.</strong> The provider may reply <code>AGREE</code> to voluntarily consent to receiving clinical decision support messages. This is a separate, voluntary action — the provider may choose not to reply and will receive no further messages.</div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <div class="step-text">
-          <strong>Messages begin only after voluntary consent.</strong> After the provider has opted in, they may send clinical questions and will receive evidence-based responses via the same messaging channel. The provider may opt out at any time.
-        </div>
+        <div class="step-text"><strong>Messages begin only after voluntary consent.</strong> After the provider has opted in, they may send clinical questions and will receive evidence-based responses via the same messaging channel. The provider may opt out at any time.</div>
       </div>
     </div>
-
     <p>Providers who do not reply <code>AGREE</code> will not receive any additional messages. Consent is never assumed, inherited, or obtained through any mechanism other than the provider's own voluntary action.</p>
 
-
-    <!-- Message details -->
     <h2>Message Details</h2>
-
     <table class="info-table">
       <thead>
         <tr><th>Detail</th><th>Description</th></tr>
@@ -268,8 +254,6 @@ footer a:hover { color: var(--amber); }
       </tbody>
     </table>
 
-
-    <!-- Opt-out -->
     <h2>How to Opt Out</h2>
     <p>Providers may stop receiving messages at any time, for any reason, using any of the following methods:</p>
     <ul>
@@ -280,27 +264,19 @@ footer a:hover { color: var(--amber); }
     </ul>
     <p>After opting out via <code>STOP</code>, no further messages will be sent to that phone number. Opting out is immediate and carries no penalty or consequence of any kind. A provider may re-enroll at any time by texting the service number again and completing the voluntary opt-in process.</p>
 
-
-    <!-- Standard disclosures -->
     <h2>Standard Disclosures</h2>
     <p>Message and data rates may apply depending on your mobile carrier and plan. Message frequency varies based on your usage. Celeritas Health LLC does not charge for messages sent or received through the platform.</p>
     <p>Consent to receive messages is not a condition of any purchase or service agreement. You may use other means to contact Celeritas Health (such as email) without opting in to text messaging.</p>
     <p>For questions or support, text <code>HELP</code> to the service number or email <a href="mailto:support@celeritashealth.com">support@celeritashealth.com</a>.</p>
 
-
-    <!-- Privacy -->
     <h2>Privacy &amp; Data Handling</h2>
     <p>The Service implements the HIPAA Safe Harbor method of de-identification (45 CFR § 164.514(b)(2)). All 18 categories of identifiers are automatically removed from inbound messages before AI processing or data storage. Phone numbers are immediately converted to one-way cryptographic hashes (HMAC-SHA256) that are automatically purged within 2 hours. No Protected Health Information is retained.</p>
     <p>De-identified usage data is used for service delivery, quality improvement, safety monitoring, and aggregate analytics. The Company does not sell, rent, or share any user data with third parties for marketing or advertising purposes.</p>
-    <p>For complete privacy and data handling details, see the <a href="/terms">Terms of Service</a>, Sections 10–13.</p>
+    <p>For complete privacy and data handling details, see the <a href="terms.html">Terms of Service</a>, Sections 10–13.</p>
 
-
-    <!-- Governing documents -->
     <h2>Governing Documents</h2>
-    <p>Use of the CodeBluePediatrics Service is governed by the Celeritas Health LLC <a href="/terms">Terms of Service</a>. A standalone Privacy Policy will be published and incorporated by reference; until that time, the privacy and data handling provisions of the Terms of Service (Sections 10–13) serve as the Company's privacy disclosure.</p>
+    <p>Use of the CodeBluePediatrics Service is governed by the Celeritas Health LLC <a href="terms.html">Terms of Service</a>. A standalone Privacy Policy will be published and incorporated by reference; until that time, the privacy and data handling provisions of the Terms of Service (Sections 10–13) serve as the Company's privacy disclosure.</p>
 
-
-    <!-- Contact -->
     <h2>Contact Information</h2>
     <p>For questions about messaging consent, the opt-in process, or the Service:</p>
     <p>
@@ -317,7 +293,7 @@ footer a:hover { color: var(--amber); }
 </div>
 
 <footer>
-  <p>&copy; 2025–2026 Celeritas Health LLC. All rights reserved. &nbsp;·&nbsp; <a href="/terms">Terms of Service</a></p>
+  <p>&copy; 2025–2026 <a href="index.html">Celeritas Health LLC</a>. All rights reserved. &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
 </footer>
 
 </body>
