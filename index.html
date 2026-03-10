@@ -4,715 +4,445 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Celeritas Health — Pediatric Expertise, Instantly</title>
-<meta name="description" content="CodeBluePediatrics: AI-powered pediatric clinical decision support delivered via SMS and WhatsApp. Specialist-level guidance in under 30 seconds.">
-<meta property="og:title" content="Celeritas Health — Pediatric Expertise, Instantly">
-<meta property="og:description" content="AI-powered pediatric clinical decision support via SMS and WhatsApp. Specialist-level guidance in under 30 seconds.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Celeritas Health — Pediatric Expertise, Instantly">
-<meta name="twitter:description" content="AI-powered pediatric clinical decision support via SMS and WhatsApp. Specialist-level guidance in under 30 seconds.">
-<meta name="theme-color" content="#0C1820">
+<meta name="description" content="CodeBluePediatrics: AI-powered pediatric clinical decision support delivered via SMS and WhatsApp. Specialist-level guidance in under 15 seconds.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* Dark Authority + Warm Story */
-  --bg-deep: #0C1820;
-  --bg-surface: #132631;
-  --bg-elevated: #1A3242;
-  --bg-warm: #1C1812;
-  --bg-warm-surface: #262014;
-  --border-subtle: rgba(255,255,255,0.06);
-  --border-warm: rgba(232,184,75,0.12);
-
-  --text-primary: #EDE8E2;
-  --text-secondary: rgba(237,232,226,0.65);
-  --text-tertiary: rgba(237,232,226,0.50);
-
-  --mint: #3BE8B0;
-  --mint-dim: rgba(59,232,176,0.12);
-  --mint-glow: rgba(59,232,176,0.25);
-  --gold: #E8B84B;
-  --gold-dim: rgba(232,184,75,0.10);
-  --gold-dark: #C49A3A;
-  --clinical-red: #E85D5D;
-  --clinical-red-dim: rgba(232,93,93,0.12);
-  --clinical-blue: #5BA4E6;
-  --clinical-blue-dim: rgba(91,164,230,0.10);
+  --navy: #13253D;
+  --blue: #2563A8;
+  --blue-dark: #1E4F85;
+  --green: #1B9E6E;
+  --green-dark: #147A55;
+  --red: #C4392B;
+  --bg: #FAFAFA;
+  --white: #FFFFFF;
+  --border: #E2E5EA;
+  --body: #4A5568;
+  --muted: #6B7280;
+  --heading: #13253D;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--text-primary);
-  background: var(--bg-deep);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+body { font-family: 'Source Sans 3', sans-serif; color: var(--body); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+.serif { font-family: 'DM Serif Display', serif; }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 1.15rem 2rem;
+  padding: 0.9rem 2.5rem;
   display: flex; justify-content: space-between; align-items: center;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: all 0.4s ease;
 }
-nav.scrolled {
-  background: rgba(12, 24, 32, 0.92);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 1px 30px rgba(0,0,0,0.3);
-  border-bottom: 1px solid var(--border-subtle);
-}
-.logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.3rem; color: var(--text-primary);
-  text-decoration: none; letter-spacing: -0.02em;
-  font-weight: 600;
-}
-.logo span { color: var(--gold); }
-.nav-links { display: flex; gap: 2rem; align-items: center; }
-.nav-links a {
-  font-size: 0.82rem; font-weight: 500; color: var(--text-secondary);
-  text-decoration: none; letter-spacing: 0.02em; transition: color 0.3s ease;
-}
-.nav-links a:hover { color: var(--text-primary); }
-.nav-links a.nav-cta {
-  font-weight: 600; color: var(--gold);
-  padding: 0.5rem 1.3rem; border: 1.5px solid rgba(232,184,75,0.55);
-  border-radius: 100px; transition: all 0.3s ease;
-  letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem;
-}
-.nav-links a.nav-cta:hover { background: var(--gold); color: var(--bg-deep); border-color: var(--gold); }
+nav.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); box-shadow: 0 1px 0 var(--border); }
+.logo { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--heading); text-decoration: none; }
+.logo span { color: var(--blue); }
+.nav-r { display: flex; gap: 1.75rem; align-items: center; }
+.nav-r a { font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-r a:hover { color: var(--heading); }
+.nav-r .cta { color: var(--white); background: var(--heading); padding: 0.45rem 1.15rem; border-radius: 6px; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.02em; }
+.nav-r .cta:hover { background: var(--blue); }
 
-/* UTILITY */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-.section-label {
-  font-size: 0.72rem; font-weight: 600; color: var(--mint);
-  letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem;
-  display: flex; align-items: center; gap: 0.75rem;
+/* ── HERO: full-bleed split ── */
+.hero { display: grid; grid-template-columns: 1fr 420px; min-height: 100vh; }
+.hero-text {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 4rem 5rem 6vw; max-width: 740px;
 }
-.section-label::before {
-  content: ''; width: 20px; height: 1px; background: var(--mint); opacity: 0.5;
-  display: var(--label-line, block);
-}
-
-/* HERO */
-.hero {
-  min-height: 100vh; display: flex; align-items: center;
-  padding: 8rem 0 5rem; position: relative; overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; top: -20%; right: -15%;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(59,232,176,0.04) 0%, transparent 65%);
-  border-radius: 50%;
-}
-.hero::after {
-  content: ''; position: absolute; bottom: -30%; left: -10%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(232,184,75,0.03) 0%, transparent 65%);
-  border-radius: 50%;
-}
-.hero-grid {
-  display: grid; grid-template-columns: 1fr 420px;
-  gap: 4rem; align-items: center;
-}
-.hero-content { position: relative; z-index: 2; }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-size: 0.72rem; font-weight: 600; color: var(--mint);
-  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.5rem;
-  opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
-}
-.hero-eyebrow::before {
-  content: ''; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--mint); box-shadow: 0 0 12px var(--mint-glow);
-  animation: pulse 2s ease-in-out infinite;
+.hero-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem; font-weight: 600; color: var(--blue);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;
+  opacity: 0; animation: up 0.7s ease 0.1s forwards;
 }
 .hero h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.6rem, 5.2vw, 3.8rem);
-  line-height: 1.1; color: var(--text-primary);
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.6rem, 4.5vw, 3.6rem);
+  line-height: 1.08; color: var(--heading);
   letter-spacing: -0.025em; margin-bottom: 1.5rem;
-  font-weight: 300;
-  opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
+  opacity: 0; animation: up 0.7s ease 0.2s forwards;
 }
-.hero h1 em {
-  font-style: italic; color: var(--gold);
-  font-weight: 300;
-}
+.hero h1 em { font-style: italic; color: var(--blue); }
 .hero-sub {
-  font-size: 1.08rem; color: var(--text-secondary); line-height: 1.75;
-  max-width: 500px; margin-bottom: 2.5rem; font-weight: 400;
-  opacity: 0; animation: fadeUp 0.6s ease 0.3s forwards;
-}
-.hero-founder-line {
-  font-size: 0.78rem; color: var(--text-tertiary); font-weight: 500;
-  letter-spacing: 0.04em; text-transform: uppercase;
-  margin-bottom: 1.75rem;
-  opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards;
-}
-.hero-ctas {
-  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
-  opacity: 0; animation: fadeUp 0.6s ease 0.45s forwards;
-}
-.btn-primary {
-  display: inline-block; padding: 0.9rem 2.2rem;
-  background: var(--gold); color: var(--bg-deep);
-  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
-  text-decoration: none; border-radius: 100px; transition: all 0.3s ease;
-  letter-spacing: 0.01em;
-}
-.btn-primary:hover {
-  background: #F0C45A; transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(232,184,75,0.3);
-}
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: 0.35rem;
-  padding: 0.9rem 1.5rem; color: var(--text-secondary);
-  font-weight: 500; font-size: 0.9rem;
-  text-decoration: none; transition: color 0.3s ease;
-}
-.btn-ghost:hover { color: var(--mint); }
-.btn-ghost svg { transition: transform 0.3s ease; }
-.btn-ghost:hover svg { transform: translateX(3px); }
-.hero-status {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-size: 0.76rem; font-weight: 500; color: var(--text-secondary);
-  margin-top: 1.5rem;
-  opacity: 0; animation: fadeUp 0.6s ease 0.55s forwards;
-}
-.status-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--mint);
-  box-shadow: 0 0 8px var(--mint-glow);
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* PHONE MOCKUP */
-.phone-wrapper {
-  position: relative; z-index: 2;
-  opacity: 0; animation: fadeUp 0.6s ease 0.35s forwards;
-}
-.phone-frame {
-  background: #080D12; border-radius: 40px;
-  padding: 2.25rem 1.35rem 1.75rem; position: relative;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow:
-    0 30px 100px rgba(0,0,0,0.5),
-    0 0 0 1px rgba(255,255,255,0.06),
-    0 0 80px rgba(59,232,176,0.08);
-}
-.phone-notch {
-  width: 120px; height: 30px; background: #080D12;
-  border-radius: 0 0 18px 18px; position: absolute;
-  top: 0; left: 50%; transform: translateX(-50%);
-}
-.phone-header {
-  text-align: center; padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 1rem;
-}
-.phone-header-name {
-  font-weight: 600; font-size: 0.82rem; color: rgba(255,255,255,0.9);
-}
-.phone-header-sub {
-  font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-top: 0.15rem;
-}
-.chat-messages { display: flex; flex-direction: column; gap: 0.6rem; }
-.msg {
-  max-width: 88%; padding: 0.7rem 0.9rem;
-  border-radius: 18px; font-size: 0.76rem; line-height: 1.55;
-  animation: msgAppear 0.5s ease forwards; opacity: 0;
-}
-@keyframes msgAppear {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.msg-out {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: var(--bg-deep); align-self: flex-end;
-  border-bottom-right-radius: 4px; animation-delay: 1s;
-  font-weight: 500;
-}
-.msg-in {
-  background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.88);
-  align-self: flex-start; border-bottom-left-radius: 4px;
-  border: 1px solid rgba(255,255,255,0.04);
-}
-.msg-in.m1 { animation-delay: 1.6s; }
-.msg-in.m2 { animation-delay: 2.1s; }
-.msg-in strong { color: var(--mint); font-weight: 600; }
-.msg-time {
-  font-size: 0.62rem; color: rgba(255,255,255,0.25);
-  text-align: right; margin-top: 0.6rem;
-  opacity: 0; animation: msgAppear 0.4s ease 2.5s forwards;
-}
-.msg-citation {
-  font-size: 0.66rem; color: rgba(255,255,255,0.35);
-  margin-top: 0.25rem; font-style: italic;
-}
-.msg-badge {
-  display: inline-block; font-size: 0.58rem; font-weight: 700;
-  padding: 0.18rem 0.45rem; border-radius: 4px;
-  background: var(--mint-dim); color: var(--mint);
-  margin-top: 0.35rem; letter-spacing: 0.03em;
-}
-
-/* ACT 1: URGENCY — dark stats */
-.urgency { padding: 6rem 0; position: relative; }
-.urgency::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-  height: 1px; background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
-}
-.urgency h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.3; color: var(--text-primary);
-  max-width: 720px; margin-bottom: 3rem;
-  font-weight: 400;
-}
-.urgency h2 strong { color: var(--clinical-red); font-weight: 400; }
-.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.stat-card {
-  padding: 2rem 1.75rem; border-radius: 16px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.stat-card:hover {
-  transform: translateY(-2px); border-color: rgba(232,93,93,0.2);
-}
-.stat-number {
-  font-family: 'Fraunces', serif;
-  font-size: 2.8rem; color: var(--clinical-red); line-height: 1;
-  margin-bottom: 0.6rem; font-weight: 300;
-}
-.stat-label {
-  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.55;
-  font-weight: 400;
-}
-.stat-source {
-  display: block; margin-top: 0.65rem;
-  font-size: 0.7rem; color: var(--text-tertiary); font-style: italic; line-height: 1.4;
-}
-.stat-source a { color: var(--text-tertiary); text-decoration: underline; text-underline-offset: 2px; }
-.stat-source a:hover { color: var(--text-secondary); }
-
-/* COMPARISON — dark, vivid contrast */
-.comparison { padding: 6rem 0; position: relative; }
-.comparison::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-  height: 1px; background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
-}
-.comparison h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--text-primary); margin-bottom: 0.5rem;
-  text-align: center; font-weight: 400;
-}
-.comparison-sub {
-  text-align: center; color: var(--text-secondary); font-size: 1rem;
-  max-width: 520px; margin: 0 auto 3rem; font-weight: 400;
-}
-.compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.compare-card {
-  padding: 2rem 1.5rem; border-radius: 16px;
-  border: 1px solid var(--border-subtle); background: var(--bg-surface);
-}
-.compare-card.highlight {
-  border-color: var(--mint);
-  background: linear-gradient(180deg, rgba(59,232,176,0.04) 0%, var(--bg-surface) 100%);
-  box-shadow: 0 0 40px rgba(59,232,176,0.06);
-  position: relative;
-}
-.compare-card.highlight::before {
-  content: 'CodeBluePeds'; position: absolute;
-  top: -10px; left: 1.5rem;
-  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--bg-deep);
-  background: var(--mint); padding: 0.2rem 0.7rem;
-  border-radius: 100px;
-}
-.compare-card h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem; margin-bottom: 0.85rem; font-weight: 400;
-}
-.compare-card h3.dim { color: var(--text-tertiary); }
-.compare-card.highlight h3 { color: var(--text-primary); }
-.compare-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.compare-list li {
-  font-size: 0.85rem; line-height: 1.5;
-  padding-left: 1.4rem; position: relative;
-}
-.compare-list li::before {
-  content: ''; position: absolute; left: 0; top: 7px;
-  width: 6px; height: 6px; border-radius: 50%;
-}
-.dim-card .compare-list li { color: var(--text-tertiary); }
-.dim-card .compare-list li::before { background: var(--text-tertiary); opacity: 0.35; }
-.highlight .compare-list li { color: var(--text-primary); }
-.highlight .compare-list li::before { background: var(--mint); box-shadow: 0 0 6px var(--mint-dim); }
-
-/* HOW IT WORKS */
-.how-it-works { padding: 6rem 0; position: relative; background: var(--bg-surface); }
-.how-it-works h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 400;
-}
-.section-desc {
-  color: var(--text-secondary); font-size: 1rem;
-  max-width: 520px; margin-bottom: 3rem; font-weight: 450;
-}
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
-.steps::before {
-  content: ''; position: absolute; top: 44px;
-  left: calc(16.66% + 24px); right: calc(16.66% + 24px);
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), var(--mint));
-  opacity: 0.2;
-}
-.step { text-align: center; position: relative; }
-.step-icon {
-  width: 88px; height: 88px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.25rem; position: relative; z-index: 2;
-}
-.step:nth-child(1) .step-icon {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  box-shadow: 0 8px 30px rgba(232,184,75,0.15);
-}
-.step:nth-child(2) .step-icon {
-  background: linear-gradient(135deg, #1E3A4D, #132631);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.04);
-}
-.step:nth-child(3) .step-icon {
-  background: linear-gradient(135deg, var(--mint), #2BC494);
-  box-shadow: 0 8px 30px rgba(59,232,176,0.15);
-}
-.step-icon svg { width: 36px; height: 36px; color: white; }
-.step:nth-child(1) .step-icon svg { color: var(--bg-deep); }
-.step:nth-child(3) .step-icon svg { color: var(--bg-deep); }
-.step h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 400;
-}
-.step p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; max-width: 270px; margin: 0 auto; }
-
-/* SPECIALISTS */
-.specialists { padding: 6rem 0; }
-.specialists h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 400;
-}
-.spec-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 0.75rem;
-}
-.spec-chip {
-  display: flex; align-items: center; gap: 0.6rem;
-  padding: 0.85rem 1rem; border-radius: 10px;
-  background: var(--bg-surface); border: 1px solid var(--border-subtle);
-  transition: all 0.3s ease;
-}
-.spec-chip:hover { border-color: rgba(59,232,176,0.2); }
-.spec-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.spec-dot.active { background: var(--mint); box-shadow: 0 0 8px var(--mint-dim); }
-.spec-dot.coming { background: var(--text-tertiary); }
-.spec-name { font-size: 0.85rem; font-weight: 500; color: var(--text-primary); }
-.spec-detail { font-size: 0.72rem; color: var(--text-tertiary); margin-top: 0.1rem; }
-.spec-tag {
-  font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.06em; margin-left: auto;
-  padding: 0.15rem 0.45rem; border-radius: 4px;
-}
-.spec-tag.on { background: var(--mint-dim); color: var(--mint); }
-.spec-tag.off { background: rgba(255,255,255,0.04); color: var(--text-tertiary); }
-
-/* ENGINEERING */
-.engineering {
-  padding: 6rem 0; background: var(--bg-surface);
-  position: relative; overflow: hidden;
-}
-.engineering::before {
-  content: ''; position: absolute; top: -40%; right: -15%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(91,164,230,0.04) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.engineering .section-label { color: var(--clinical-blue); }
-.engineering .section-label::before { background: var(--clinical-blue); }
-.engineering h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--text-primary); margin-bottom: 0.75rem; font-weight: 400;
-}
-.engineering .section-desc { color: var(--text-secondary); }
-.eng-metrics {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem; margin-bottom: 3rem;
-}
-.eng-metric {
-  text-align: center; padding: 1.5rem 0.75rem;
-  border-radius: 14px; background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border-subtle);
-}
-.eng-metric .num {
-  font-family: 'Fraunces', serif;
-  font-size: 2.2rem; color: var(--clinical-blue); line-height: 1;
-  margin-bottom: 0.35rem; font-weight: 300;
-}
-.eng-metric .label {
-  font-size: 0.76rem; color: var(--text-tertiary); line-height: 1.35;
-}
-.eng-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-.eng-item {
-  padding: 1.5rem; border-radius: 14px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border-subtle);
-}
-.eng-item h3 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.4rem; font-weight: 600; }
-.eng-item p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
-
-/* MID-PAGE CTA */
-.mid-cta {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-}
-.mid-cta::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 1px; background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
-}
-.mid-cta::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-  height: 1px; background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
-}
-.mid-cta p {
-  color: var(--text-secondary); font-size: 1rem; margin-bottom: 1.25rem;
-  font-weight: 400;
-}
-.mid-cta .btn-primary { font-size: 0.85rem; padding: 0.75rem 1.8rem; }
-
-/* === THE WARM TURN === */
-
-/* Gradient transition band */
-.warm-transition {
-  height: 140px;
-  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-warm) 100%);
-  position: relative;
-}
-.warm-transition::after {
-  content: ''; position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(232,184,75,0.25), transparent);
-}
-
-/* FOUNDER — warm zone */
-.founder {
-  padding: 5rem 0 6rem;
-  background: var(--bg-warm);
-  position: relative; overflow: hidden;
-}
-.founder::before {
-  content: ''; position: absolute; top: -30%; left: -10%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(232,184,75,0.05) 0%, transparent 65%);
-  border-radius: 50%;
-}
-.founder .section-label { color: var(--gold); }
-.founder .section-label::before { background: var(--gold); }
-.founder-inner {
-  display: grid; grid-template-columns: 1fr 1.4fr;
-  gap: 4rem; align-items: start;
-}
-.founder-card {
-  background: var(--bg-warm-surface);
-  border: 1px solid var(--border-warm);
-  border-radius: 20px; padding: 2.5rem;
-}
-.founder-initials {
-  width: 80px; height: 80px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Fraunces', serif; font-size: 1.5rem;
-  color: var(--bg-deep); margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-.founder-card h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.25rem;
-  font-weight: 400;
-}
-.founder-card .role {
-  color: var(--gold); font-size: 0.85rem;
-  font-weight: 500; margin-bottom: 1.25rem;
-}
-.credentials { display: flex; flex-direction: column; gap: 0.5rem; }
-.credential {
-  display: flex; align-items: flex-start; gap: 0.6rem;
-  font-size: 0.82rem; color: var(--text-secondary); line-height: 1.45;
-}
-.credential svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; margin-top: 3px; }
-.founder-story h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-  color: var(--text-primary); line-height: 1.25; margin-bottom: 1.5rem;
-  font-weight: 300;
-}
-.founder-story p {
-  color: var(--text-secondary); font-size: 1rem;
-  line-height: 1.75; margin-bottom: 1rem; font-weight: 400;
-}
-.founder-story p strong { color: var(--gold); font-weight: 600; }
-.founder-story p em { color: var(--text-primary); }
-.advisory-note {
-  margin-top: 1.5rem; padding-top: 1.25rem;
-  border-top: 1px solid var(--border-warm);
-  font-size: 0.85rem; color: var(--text-tertiary); font-style: italic;
-}
-
-/* MARKET — warm zone */
-.market {
-  padding: 6rem 0; background: var(--bg-warm-surface);
-  position: relative;
-}
-.market-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
-.market h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--text-primary); line-height: 1.3; margin-bottom: 1.25rem;
-  font-weight: 400;
-}
-.market p {
-  color: var(--text-secondary); font-size: 1rem;
-  line-height: 1.75; margin-bottom: 1rem; font-weight: 400;
-}
-.market p em { color: var(--text-primary); font-style: italic; }
-.market-highlights { display: flex; flex-direction: column; gap: 1rem; }
-.highlight {
-  display: flex; align-items: flex-start; gap: 1rem;
-  padding: 1.35rem; background: var(--bg-warm); border-radius: 14px;
-  border: 1px solid var(--border-warm);
-}
-.highlight-icon {
-  width: 42px; height: 42px; border-radius: 10px;
-  background: var(--gold-dim);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; color: var(--gold);
-}
-.highlight-icon svg { width: 20px; height: 20px; }
-.highlight h4 { font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.2rem; font-weight: 600; }
-.highlight p { font-size: 0.85rem; color: var(--text-secondary); margin: 0; line-height: 1.5; }
-
-/* WHY NOW */
-.why-now {
-  padding: 5rem 0;
-  background: var(--bg-warm);
-  border-top: 1px solid var(--border-warm);
-  border-bottom: 1px solid var(--border-warm);
-}
-.why-now .section-label { color: var(--gold); }
-.why-now .section-label::before { background: var(--gold); }
-.why-now h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--text-primary); margin-bottom: 1.25rem; font-weight: 400;
-}
-.why-now p {
-  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75;
-  max-width: 620px; margin-bottom: 0.85rem;
-}
-.why-now p strong { color: var(--text-primary); }
-
-/* CTA — golden close */
-.cta-section {
-  padding: 8rem 0; text-align: center;
-  background: var(--bg-warm);
-  position: relative; overflow: hidden;
-}
-.cta-section::before {
-  content: ''; position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%); width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(232,184,75,0.06) 0%, transparent 65%);
-  border-radius: 50%; pointer-events: none;
-}
-.cta-section h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2rem, 3.8vw, 2.8rem);
-  color: var(--text-primary); margin-bottom: 0.85rem;
-  position: relative; font-weight: 300;
-}
-.cta-section p {
-  color: var(--text-secondary); font-size: 1.05rem;
-  max-width: 480px; margin: 0 auto 2.5rem; font-weight: 400;
-}
-.cta-email-display {
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-size: 1.1rem; color: var(--body); line-height: 1.7;
+  max-width: 480px; margin-bottom: 2.25rem; font-weight: 300;
+  opacity: 0; animation: up 0.7s ease 0.35s forwards;
+}
+.hero-actions {
+  display: flex; gap: 0.75rem; align-items: center;
+  opacity: 0; animation: up 0.7s ease 0.65s forwards;
+}
+.btn { display: inline-block; padding: 0.75rem 1.75rem; font-weight: 600; font-size: 0.88rem; text-decoration: none; border-radius: 6px; transition: all 0.25s ease; }
+.btn-fill { background: var(--blue); color: white; }
+.btn-fill:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,168,0.2); }
+.btn-outline { color: var(--muted); border: 1.5px solid var(--border); background: transparent; }
+.btn-outline:hover { border-color: var(--heading); color: var(--heading); }
+.hero-live {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.76rem; font-weight: 600; color: var(--green-dark);
   margin-top: 1.25rem;
-  font-size: 0.9rem; color: var(--text-tertiary);
-  letter-spacing: 0.01em;
+  opacity: 0; animation: up 0.7s ease 0.65s forwards;
 }
-.cta-email-display svg { color: var(--text-tertiary); opacity: 0.7; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+@keyframes up { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
 
-/* FOOTER */
-footer {
+/* phone column */
+.hero-phone {
+  background: var(--navy); display: flex; align-items: center; justify-content: center;
+  padding: 3rem 2rem; position: relative; overflow: hidden;
+}
+.hero-phone::after { content:''; position:absolute; top:-30%; left:-30%; width:160%; height:160%; background: radial-gradient(circle at 40% 50%, rgba(37,99,168,0.12), transparent 60%); }
+.phone {
+  width: 280px; background: #0B1824; border-radius: 28px;
+  padding: 1.75rem 1rem 1.25rem; position: relative; z-index: 2;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+.phone-notch { width: 90px; height: 22px; background: #0B1824; border-radius: 0 0 12px 12px; position: absolute; top: 0; left: 50%; transform: translateX(-50%); }
+.phone-hdr { text-align: center; font-weight: 600; font-size: 0.75rem; color: rgba(255,255,255,0.85); padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 0.75rem; }
+.phone-hdr small { display: block; font-size: 0.6rem; color: rgba(255,255,255,0.3); font-weight: 400; margin-top: 0.1rem; }
+.chat { display: flex; flex-direction: column; gap: 0.45rem; }
+.bub { max-width: 90%; padding: 0.55rem 0.75rem; border-radius: 14px; font-size: 0.72rem; line-height: 1.5; }
+.bub-out { background: var(--blue); color: white; align-self: flex-end; border-bottom-right-radius: 3px; }
+.bub-in { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.85); align-self: flex-start; border-bottom-left-radius: 3px; }
+.bub-verify { display: block; font-size: 0.58rem; font-weight: 700; color: #5DE8B5; margin-top: 0.3rem; letter-spacing: 0.02em; }
+.bub-time { font-size: 0.56rem; color: rgba(255,255,255,0.25); text-align: right; margin-top: 0.4rem; }
+
+/* ── STATS BAND ── */
+.stats-band {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+.stat-item {
   padding: 2.5rem 2rem; text-align: center;
-  background: var(--bg-deep);
-  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border);
 }
-footer p { font-size: 0.78rem; color: var(--text-tertiary); }
-footer a { color: var(--text-secondary); text-decoration: underline; text-underline-offset: 2px; }
-footer a:hover { color: var(--gold); }
+.stat-item:last-child { border-right: none; }
+.stat-item .n { font-family: 'JetBrains Mono', monospace; font-size: 2.8rem; font-weight: 600; color: var(--heading); line-height: 1; }
+.stat-item .t { font-size: 0.88rem; color: var(--body); margin-top: 0.4rem; line-height: 1.4; }
+.stat-item .src { font-size: 0.66rem; color: var(--muted); margin-top: 0.35rem; font-style: italic; }
+.stat-item .src a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
 
-/* ANIMATIONS */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+/* ── BENTO GRID ── */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 8px;
+  padding: 8px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.tile {
+  background: var(--white);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+/* Tile sizes */
+.tile-12 { grid-column: span 12; }
+.tile-8 { grid-column: span 8; }
+.tile-6 { grid-column: span 6; }
+.tile-4 { grid-column: span 4; }
+.tile-3 { grid-column: span 3; }
+.tile-pad { padding: 2.25rem; }
+.tile-pad-sm { padding: 1.5rem; }
+.tile h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--heading); line-height: 1.2; margin-bottom: 0.6rem; }
+.tile h3 { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--heading); line-height: 1.25; margin-bottom: 0.5rem; }
+.tile p { font-size: 0.88rem; line-height: 1.6; }
+.tile .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 0.75rem;
+}
+.label-blue { color: var(--blue); }
+.label-green { color: var(--green); }
+.label-red { color: var(--red); }
+.label-muted { color: var(--muted); }
 
-/* REDUCED MOTION */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+/* big number in tile */
+.big { font-family: 'JetBrains Mono', monospace; font-weight: 600; line-height: 1; }
+.big-xl { font-size: 4rem; }
+.big-lg { font-size: 2.8rem; }
+.big-md { font-size: 2rem; }
+.c-blue { color: var(--blue); }
+.c-green { color: var(--green); }
+.c-navy { color: var(--heading); }
+.c-red { color: var(--red); }
+
+/* ── INTERACTIVE COMPARISON ── */
+.cmp-wrap { position: relative; }
+.cmp-tabs {
+  display: flex; gap: 6px; margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.cmp-tab {
+  padding: 0.5rem 1rem; font-size: 0.78rem; font-weight: 600;
+  border: 1.5px solid var(--border); background: transparent;
+  color: var(--muted); cursor: pointer; transition: all 0.2s ease;
+  font-family: 'Source Sans 3', sans-serif; border-radius: 4px;
+}
+.cmp-tab:hover { border-color: var(--heading); color: var(--heading); }
+.cmp-tab.active { background: var(--heading); color: var(--white); border-color: var(--heading); }
+.cmp-lanes {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 1px solid var(--border); overflow: hidden;
+}
+.cmp-lane { padding: 0; }
+.lane-them { border-left: 1px solid var(--border); }
+.cmp-lane-hdr {
+  padding: 1rem 1.25rem; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 2px solid var(--border);
+}
+.lane-cbp .cmp-lane-hdr { color: var(--blue); background: rgba(37,99,168,0.03); border-bottom-color: var(--blue); }
+.lane-them .cmp-lane-hdr { color: var(--red); background: rgba(196,57,43,0.02); border-bottom-color: var(--red); }
+.cmp-step {
+  display: flex; gap: 0.75rem; padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+  min-height: 62px;
+  transition: background 0.25s ease;
+}
+.cmp-step:last-child { border-bottom: none; }
+.cmp-step-n {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; font-weight: 600; color: var(--muted);
+  min-width: 1.1rem; padding-top: 0.2rem;
+}
+.cmp-step-body { flex: 1; }
+.cmp-step-title { font-size: 0.85rem; font-weight: 600; color: var(--heading); line-height: 1.3; }
+.cmp-step-desc { font-size: 0.75rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.4; }
+.cmp-step .stag {
+  display: inline-block; font-size: 0.55rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 0.08rem 0.3rem; border-radius: 2px; margin-left: 0.3rem;
+  vertical-align: middle;
+}
+.stag-ok { background: rgba(27,158,110,0.08); color: var(--green-dark); }
+.stag-miss { background: rgba(196,57,43,0.08); color: var(--red); }
+
+/* lane-them step styling */
+.lane-them .cmp-step-title { color: var(--body); }
+.lane-them .cmp-step.gap { background: rgba(196,57,43,0.03); }
+.lane-them .cmp-step.gap .cmp-step-title { color: var(--red); }
+.lane-them .cmp-step.gap .cmp-step-desc { color: var(--red); opacity: 0.75; }
+.lane-them .cmp-step.extra { background: rgba(196,57,43,0.02); border-left: 3px solid var(--red); }
+.lane-them .cmp-step.extra .cmp-step-title { color: var(--red); font-weight: 500; }
+.lane-cbp .cmp-step.advantage { background: rgba(27,158,110,0.02); }
+.lane-cbp .cmp-step.advantage .cmp-step-title { color: var(--green-dark); }
+
+.cmp-verdict {
+  margin-top: 1rem; padding: 1rem 1.25rem;
+  background: rgba(196,57,43,0.03); border: 1px solid rgba(196,57,43,0.1);
+  font-size: 0.82rem; color: var(--red); line-height: 1.5;
+  display: none;
+}
+.cmp-verdict.show { display: block; }
+.cmp-verdict strong { color: var(--heading); }
+.cmp-time {
+  display: flex; justify-content: space-between; margin-top: 0.75rem;
+  padding: 0.75rem 1.25rem; border-top: 1px solid var(--border);
+}
+.cmp-time-item { text-align: center; }
+.cmp-time-item .tt {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem; font-weight: 600; line-height: 1;
+}
+.cmp-time-item .tt.fast { color: var(--green); }
+.cmp-time-item .tt.slow { color: var(--red); }
+.cmp-time-item .tl { font-size: 0.68rem; color: var(--muted); margin-top: 0.15rem; }
+
+/* dark mode additions for comparison */
+@media (prefers-color-scheme: dark) {
+  .cmp-tab { border-color: var(--border); color: var(--muted); }
+  .cmp-tab:hover { border-color: var(--heading); color: var(--heading); }
+  .cmp-tab.active { background: var(--heading); color: #111318; border-color: var(--heading); }
+  .cmp-lanes { border-color: var(--border); }
+  .cmp-lane-hdr { border-color: var(--border); }
+  .lane-cbp .cmp-lane-hdr { background: rgba(91,159,228,0.04); border-bottom-color: var(--blue); }
+  .lane-them .cmp-lane-hdr { background: rgba(232,102,90,0.03); border-bottom-color: var(--red); }
+  .cmp-step { border-color: var(--border); }
+  .lane-them .cmp-step.gap { background: rgba(232,102,90,0.04); }
+  .lane-them .cmp-step.extra { background: rgba(232,102,90,0.03); border-left-color: var(--red); }
+  .lane-cbp .cmp-step.advantage { background: rgba(60,201,142,0.03); }
+  .cmp-verdict { background: rgba(232,102,90,0.04); border-color: rgba(232,102,90,0.12); }
+  .cmp-time { border-color: var(--border); }
+}
+
+/* ── PIPELINE STRIP ── */
+.pipe-list { display: flex; flex-direction: column; gap: 0; }
+.pipe-row {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  padding: 0.6rem 0; position: relative;
+}
+.pipe-n { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 600; color: var(--muted); min-width: 1.2rem; padding-top: 0.1rem; }
+.pipe-txt { font-size: 0.78rem; color: var(--body); line-height: 1.45; }
+.pipe-txt strong { color: var(--heading); font-weight: 600; }
+.ptag { display: inline-block; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.08rem 0.3rem; border-radius: 2px; margin-left: 0.35rem; vertical-align: middle; }
+.ptag-s { background: rgba(196,57,43,0.08); color: var(--red); }
+.ptag-v { background: rgba(27,158,110,0.08); color: var(--green-dark); }
+.ptag-d { background: rgba(37,99,168,0.08); color: var(--blue-dark); }
+
+/* ── SAFETY TOWER ── */
+.tower-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.tower-table th { text-align: left; padding: 0.75rem 1rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--border); }
+.tower-table th:last-child { color: var(--red); }
+.tower-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+.tower-table tr:last-child td { border-bottom: none; }
+.tower-table .ln { color: var(--heading); font-weight: 600; white-space: nowrap; }
+.tower-table .ld { color: var(--body); }
+.tower-table .lw { color: var(--red); font-weight: 500; font-size: 0.8rem; }
+.tower-table tr:hover { background: rgba(196,57,43,0.02); }
+
+/* ── EDITORIAL COLUMN (founder, market) ── */
+.editorial { max-width: 680px; margin: 0 auto; padding: 6rem 2rem; }
+.editorial .label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 1rem; }
+.editorial h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--heading); line-height: 1.2; margin-bottom: 1.5rem; }
+.editorial p { font-size: 1.02rem; color: var(--body); line-height: 1.75; margin-bottom: 1rem; font-weight: 300; }
+.editorial p strong { color: var(--heading); font-weight: 500; }
+.editorial .sig {
+  display: flex; align-items: center; gap: 1rem;
+  margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+}
+.editorial .sig-avatar {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: white; flex-shrink: 0;
+}
+.editorial .sig-name { font-weight: 600; color: var(--heading); font-size: 0.92rem; }
+.editorial .sig-title { font-size: 0.8rem; color: var(--muted); }
+.editorial .sig-creds { font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin-top: 0.5rem; }
+
+/* ── SPECIALIST CHIPS ── */
+.specs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
+.spec {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.75rem; font-size: 0.76rem; font-weight: 500;
+  color: var(--heading); background: var(--bg);
+  border: 1px solid var(--border);
+}
+.spec .sd { width: 6px; height: 6px; border-radius: 50%; }
+.spec .sd-on { background: var(--green); }
+.spec .sd-off { background: var(--muted); opacity: 0.3; }
+
+/* ── CTA ── */
+.cta-band {
+  text-align: center; padding: 5rem 2rem;
+  background: var(--white); border-top: 1px solid var(--border);
+}
+.cta-band h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--heading); margin-bottom: 0.6rem; }
+.cta-band p { font-size: 1rem; color: var(--body); max-width: 440px; margin: 0 auto 2rem; font-weight: 300; }
+
+/* ── FOOTER ── */
+footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
+footer .fl { font-size: 0.72rem; color: var(--muted); }
+footer .fr { display: flex; gap: 1.25rem; align-items: center; }
+footer .fr a { font-size: 0.72rem; color: var(--muted); text-decoration: none; }
+footer .fr a:hover { color: var(--blue); }
+.trust { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.7rem; font-weight: 600; color: var(--green-dark); }
+.trust svg { width: 11px; height: 11px; }
+
+/* ── REVEAL ── */
+.rv { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.vis { opacity: 1; transform: translateY(0); }
+
+/* ── DARK MODE ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --navy: #E8ECF0;
+    --blue: #5B9FE4;
+    --blue-dark: #4A8CD4;
+    --green: #3CC98E;
+    --green-dark: #3CC98E;
+    --red: #E8665A;
+    --bg: #111318;
+    --white: #1A1D24;
+    --border: #2A2D35;
+    --body: #A0A6B2;
+    --muted: #8B919D;
+    --heading: #E8ECF0;
+    --phone-bg: #0A0D12;
   }
-  .reveal { opacity: 1; transform: none; }
+  body { background: var(--bg); color: var(--body); }
+  nav.scrolled { background: rgba(17,19,24,0.92); box-shadow: 0 1px 0 var(--border); }
+  .hero { background: var(--white); }
+  .hero-phone { background: #0A0E14; }
+  .hero-phone::after { background: radial-gradient(circle at 40% 50%, rgba(91,159,228,0.08), transparent 60%); }
+  .phone { background: #060A0F; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  .phone-notch { background: #060A0F; }
+  .stats-band { background: var(--white); border-color: var(--border); }
+  .stat-item { border-color: var(--border); }
+  .stat-item .n { color: var(--heading); }
+  .stat-item .src a { color: var(--muted); }
+  .tile { background: var(--white); border-color: var(--border); }
+  .tower-table th { color: var(--muted); border-color: var(--border); }
+  .tower-table td { border-color: var(--border); }
+  .tower-table .ln { color: var(--heading); }
+  .tower-table .ld { color: var(--body); }
+  .tower-table .lw { color: var(--red); }
+  .tower-table tr:hover { background: rgba(232,102,90,0.03); }
+  .sep-stat { background: var(--bg); border-color: var(--border); }
+  .sep-number { color: var(--border); }
+  .spec { background: var(--bg); border-color: var(--border); }
+  .btn-fill { background: var(--blue); color: #111318; }
+  .btn-fill:hover { background: var(--blue-dark); box-shadow: 0 6px 20px rgba(91,159,228,0.2); }
+  .btn-outline { border-color: var(--border); color: var(--body); }
+  .btn-outline:hover { border-color: var(--heading); color: var(--heading); }
+  .nav-r .cta { background: var(--heading); color: #111318; }
+  .nav-r .cta:hover { background: var(--blue); }
+  .editorial .sig { border-color: var(--border); }
+  .editorial .sig-avatar { background: var(--blue); }
+  .founder-card { background: var(--bg); border-color: var(--border); }
+  .founder-initials { background: var(--blue); }
+  .cta-band { background: var(--white); border-color: var(--border); }
+  footer { border-color: var(--border); }
+  .trust { color: var(--green); }
+  .mkt-highlight { background: var(--bg); border-color: var(--border); }
+  .mkt-highlight-icon { background: rgba(91,159,228,0.08); color: var(--blue); }
+  .metric-card { background: var(--bg); border-color: var(--border); }
+  .ptag-s { background: rgba(232,102,90,0.12); color: var(--red); }
+  .ptag-v { background: rgba(60,201,142,0.12); color: var(--green); }
+  .ptag-d { background: rgba(91,159,228,0.12); color: var(--blue); }
+  .pipeline-question .msg-example { background: #060A0F; color: rgba(255,255,255,0.8); }
+  .hero-live { color: var(--green); }
+  .bub-in { background: rgba(255,255,255,0.05); }
 }
 
-/* RESPONSIVE */
-@media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .phone-wrapper { max-width: 380px; margin: 0 auto; }
-  .stat-grid, .compare-grid { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr; gap: 2.5rem; }
-  .steps::before { display: none; }
-  .eng-metrics { grid-template-columns: repeat(2, 1fr); }
-  .eng-grid, .founder-inner, .market-inner { grid-template-columns: 1fr; }
-  .spec-grid { grid-template-columns: repeat(2, 1fr); }
-  .warm-transition { height: 80px; }
+/* ── RESPONSIVE ── */
+@media (max-width: 1080px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-text { padding: 7rem 2rem 3rem; max-width: 100%; }
+  .hero-phone { min-height: 420px; }
+  .bento { grid-template-columns: repeat(6, 1fr); }
+  .tile-12 { grid-column: span 6; }
+  .tile-8 { grid-column: span 6; }
+  .tile-4 { grid-column: span 6; }
+  .tile-3 { grid-column: span 3; }
+  .stats-band { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
+  .eng-top { grid-template-columns: 1fr 1fr !important; }
+  .eng-bottom { grid-template-columns: repeat(3, 1fr) !important; }
 }
-@media (max-width: 600px) {
-  .hero { min-height: auto; padding: 7rem 0 3rem; }
-  .hero-ctas { flex-direction: column; align-items: flex-start; }
-  nav .nav-links a:not(.nav-cta) { display: none; }
-  .eng-metrics { grid-template-columns: 1fr 1fr; }
-  .spec-grid { grid-template-columns: 1fr; }
-  .container { padding: 0 1.25rem; }
-  .warm-transition { height: 50px; }
-  .urgency, .comparison, .how-it-works, .specialists, .engineering {
-    border-bottom: 1px solid var(--border-subtle);
-  }
+@media (max-width: 700px) {
+  .bento { grid-template-columns: 1fr; }
+  .tile-12, .tile-8, .tile-6, .tile-4, .tile-3 { grid-column: span 1; }
+  .hero-text { padding: 6rem 1.5rem 2rem; }
+  .hero-phone { padding: 2rem 1.5rem; }
+  .phone { width: 260px; }
+  nav { padding: 0.8rem 1.25rem; }
+  .nav-r a:not(.cta) { display: none; }
+  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  .editorial { padding: 4rem 1.5rem; }
+  .big-xl { font-size: 2.8rem; }
+  .big-lg { font-size: 2rem; }
+  .eng-top { grid-template-columns: 1fr !important; }
+  .eng-bottom { grid-template-columns: repeat(3, 1fr) !important; }
+  .cmp-lanes { grid-template-columns: 1fr; }
+  .lane-cbp { border-bottom: 2px solid var(--border); }
+  .lane-them { border-left: none; }
 }
 </style>
 </head>
@@ -721,365 +451,388 @@ footer a:hover { color: var(--gold); }
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="logo">Celeritas<span>Health</span></a>
-  <div class="nav-links">
-    <a href="#how-it-works">How It Works</a>
+  <div class="nav-r">
+    <a href="#compare">Compare</a>
+    <a href="#how">How It Works</a>
     <a href="#founder">Founder</a>
-    <a href="#contact" class="nav-cta">Get in Touch</a>
+    <a href="#contact" class="cta">Get in Touch</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO: full-bleed split -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <div class="hero-eyebrow">CodeBluePediatrics</div>
-        <h1>A child's life shouldn't depend on <em>geography</em></h1>
-        <p class="hero-sub">Text a pediatric clinical question via SMS or WhatsApp. Specialist-level guidance — cited, safety-checked — in under 30 seconds. No app. No login.</p>
-        <div class="hero-founder-line">Built by a practicing pediatric intensivist in rural America</div>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn-primary">Talk to the Founder</a>
-          <a href="#how-it-works" class="btn-ghost">See how it works <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-        <div class="hero-status">
-          <span class="status-dot"></span>
-          In active development · Launching 2026
-        </div>
-      </div>
-
-      <!-- Phone Mockup -->
-      <div class="phone-wrapper">
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <div class="phone-header">
-            <div class="phone-header-name">CodeBluePeds</div>
-            <div class="phone-header-sub">SMS · WhatsApp</div>
-          </div>
-          <div class="chat-messages">
-            <div class="msg msg-out">8yo 32kg with suspected sepsis, HR 155, BP 78/42, lactate 4.2. On NS bolus. Next steps?</div>
-            <div class="msg msg-in m1">
-              <strong>PICU — Septic Shock, Fluid-Refractory</strong><br><br>
-              ⚡ Immediate priorities:<br>
-              1. Start epinephrine 0.1 mcg/kg/min (0.2 mL/hr of 1 mg in 50 mL NS via central/IO)<br>
-              2. Second 20 mL/kg NS bolus (640 mL) if not already given — max 60 mL/kg in first hour<br>
-              3. Consider stress-dose hydrocortisone 2 mg/kg (64 mg) IV if vasopressor-refractory
-            </div>
-            <div class="msg msg-in m2">
-              Reassess after each bolus. Target MAP ≥55 for age.<br>
-              <span class="msg-citation">PMID: 32032273</span>
-              <br><span class="msg-badge">✓ DOSING VERIFIED · ✓ PMID VERIFIED</span>
-            </div>
-            <div class="msg-time">Delivered · 14 seconds</div>
-          </div>
-        </div>
+  <div class="hero-text">
+    <div class="hero-tag">CodeBluePediatrics</div>
+    <h1>A child's life shouldn't depend on <em>geography</em></h1>
+    <p class="hero-sub">Text a pediatric clinical question. Get specialist-level guidance — structured, cited, safety-validated — in under 15 seconds. Via SMS or WhatsApp. No app. No login. Free.</p>
+    <p style="font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--heading);line-height:1.4;max-width:500px;margin-bottom:2.25rem;opacity:0;animation:up 0.7s ease 0.5s forwards;">Like texting the specialist you had access to at the academic center — and when your health system customizes, it's <em style="color:var(--blue);">your</em> specialist, following <em style="color:var(--blue);">your</em> protocols.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-fill">Talk to the Founder</a>
+      <a href="#compare" class="btn btn-outline">See how it's different</a>
+    </div>
+    <div class="hero-live"><span class="dot"></span> Live system · Raising angel round</div>
+  </div>
+  <div class="hero-phone">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-hdr">CodeBluePeds<small>SMS · WhatsApp</small></div>
+      <div class="chat">
+        <div class="bub bub-out">1 month old with fever and irritability, I'm worried about meningitis, what's the workup?</div>
+        <div class="bub bub-in"><strong>PEDS EM — Neonatal Fever, Meningitis Workup</strong><br><br>⚡ Full sepsis evaluation required:<br>1. CBC w/ diff, CRP, procalcitonin<br>2. Blood culture<br>3. UA + urine culture (cath)<br>4. <strong>LP — CSF cell count, glucose, protein, gram stain, culture</strong><br>5. Consider HSV PCR if &lt;21 days or seizures<br><br>Empiric abx: ampicillin 75 mg/kg + gentamicin 4 mg/kg (or cefotaxime 50 mg/kg)<br><br>Do not delay LP for imaging unless focal neuro signs.<br><span class="bub-verify">✓ CodeBluePeds Protocol Verified</span></div>
+        <div class="bub-time">Delivered · 14 seconds</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ACT 1: URGENCY -->
-<section class="urgency">
-  <div class="container">
-    <div class="section-label reveal">The Problem</div>
-    <h2 class="reveal">When a critically ill child arrives at a rural ED, the clinician is often alone — <strong>without pediatric specialists, without a PICU</strong>, and the transfer line has them on hold.</h2>
-    <div class="stat-grid">
-      <div class="stat-card reveal">
-        <div class="stat-number">~80%</div>
-        <div class="stat-label">of U.S. emergency departments are not fully prepared to care for children</div>
-        <span class="stat-source"><a href="https://doi.org/10.1377/hlthaff.2023.01489" target="_blank" rel="noopener">Weyant et al., <em>Health Affairs</em>, Oct 2024</a></span>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-number">88%</div>
-        <div class="stat-label">of completely rural U.S. counties have no general pediatrician at all</div>
-        <span class="stat-source"><a href="https://doi.org/10.1001/jamanetworkopen.2023.33467" target="_blank" rel="noopener">Ramesh &amp; Yu, <em>JAMA Network Open</em>, 2023</a> / <a href="https://www.abp.org/dashboards/general-pediatricians-us-state-and-county-maps" target="_blank" rel="noopener">ABP data</a></span>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-number">24M+</div>
-        <div class="stat-label">children lack timely access to high-readiness pediatric emergency care</div>
-        <span class="stat-source"><a href="https://doi.org/10.1016/j.jpeds.2025.114834" target="_blank" rel="noopener">Joseph et al., <em>J Pediatrics</em>, 2025</a></span>
-      </div>
-    </div>
+<!-- STATS BAND -->
+<div class="stats-band rv">
+  <div class="stat-item">
+    <div class="n">~80%</div>
+    <div class="t">of U.S. emergency departments are not fully prepared to care for children</div>
+    <div class="src"><a href="https://doi.org/10.1377/hlthaff.2023.01489" target="_blank" rel="noopener">Weyant et al., <em>Health Affairs</em>, Oct 2024</a></div>
   </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="comparison">
-  <div class="container">
-    <div class="section-label reveal" style="justify-content:center; --label-line: none;">Why This Is Different</div>
-    <h2 class="reveal">Not a search engine. Not a chatbot.</h2>
-    <p class="comparison-sub reveal">Existing reference tools give you textbooks. General-purpose AI hallucinates. Neither works at the bedside at 2 AM.</p>
-    <div class="compare-grid">
-      <div class="compare-card dim-card reveal">
-        <h3 class="dim">Reference Tools</h3>
-        <ul class="compare-list">
-          <li>Textbook-length answers</li>
-          <li>Requires you to find the relevant section</li>
-          <li>Not tailored to your patient</li>
-          <li>Minutes to navigate</li>
-        </ul>
-      </div>
-      <div class="compare-card dim-card reveal">
-        <h3 class="dim">General-Purpose AI</h3>
-        <ul class="compare-list">
-          <li>No citation verification</li>
-          <li>Hallucinates drug doses</li>
-          <li>No safety pipeline</li>
-          <li>No HIPAA compliance</li>
-        </ul>
-      </div>
-      <div class="compare-card highlight reveal">
-        <h3>Specialist Colleague</h3>
-        <ul class="compare-list">
-          <li>Actionable, structured guidance</li>
-          <li>Every dose safety-validated</li>
-          <li>PubMed citations verified</li>
-          <li>HIPAA de-identified · 15 seconds</li>
-        </ul>
-      </div>
-    </div>
+  <div class="stat-item">
+    <div class="n">88%</div>
+    <div class="t">of completely rural U.S. counties have no general pediatrician at all</div>
+    <div class="src"><a href="https://doi.org/10.1001/jamanetworkopen.2023.33467" target="_blank" rel="noopener">Ramesh &amp; Yu, <em>JAMA Network Open</em>, 2023</a> / <a href="https://www.abp.org/dashboards/general-pediatricians-us-state-and-county-maps" target="_blank" rel="noopener">ABP Census data</a></div>
   </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how-it-works" id="how-it-works">
-  <div class="container">
-    <div class="section-label reveal">How It Works</div>
-    <h2 class="reveal">Text a question. Get a real answer.</h2>
-    <p class="section-desc reveal">Clinical decision support via the tools clinicians already carry — starting with PICU and pediatric emergency medicine.</p>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <h3>Text your question</h3>
-        <p>Send a clinical scenario via SMS or WhatsApp — like texting a colleague for a curbside consult.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>De-identified &amp; routed</h3>
-        <p>All 18 HIPAA identifiers scrubbed. Your question routes to the right specialist AI — automatically.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <h3>Actionable answer</h3>
-        <p>Specific guidance with verified citations and safety-checked dosing. What a specialist would tell you, in under 30 seconds.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ENGINEERING -->
-<section class="engineering">
-  <div class="container">
-    <div class="section-label reveal">Built for Trust</div>
-    <h2 class="reveal">Production-grade before launch</h2>
-    <p class="section-desc reveal">Every layer designed for the scrutiny that clinical AI demands. Fail-closed architecture throughout — the system refuses to operate in a compromised state.</p>
-    <div class="eng-metrics">
-      <div class="eng-metric reveal">
-        <div class="num">29</div>
-        <div class="label">Processing steps<br>per message</div>
-      </div>
-      <div class="eng-metric reveal">
-        <div class="num">5,243</div>
-        <div class="label">Automated tests<br>across 202 files</div>
-      </div>
-      <div class="eng-metric reveal">
-        <div class="num">55</div>
-        <div class="label">Clinical calculators<br>100% verified accuracy</div>
-      </div>
-      <div class="eng-metric reveal">
-        <div class="num">15s</div>
-        <div class="label">Median response<br>time</div>
-      </div>
-    </div>
-    <div class="eng-grid">
-      <div class="eng-item reveal">
-        <h3>HIPAA Safe Harbor de-identification</h3>
-        <p>All 18 identifier types removed before AI processing. Phone hashes purged within 2 hours. No PHI ever persists.</p>
-      </div>
-      <div class="eng-item reveal">
-        <h3>Citation verification</h3>
-        <p>Every PMID verified against PubMed via 3-layer cache and NCBI E-utilities. Invalid citations stripped automatically.</p>
-      </div>
-      <div class="eng-item reveal">
-        <h3>Hallucination review</h3>
-        <p>Every response audited by a second AI before delivery. Fail-closed on error or timeout — no unreviewed content reaches clinicians.</p>
-      </div>
-      <div class="eng-item reveal">
-        <h3>Tiered dosing safety</h3>
-        <p>50+ drugs validated with RED / YELLOW / GREEN alerts. Weight-based calculations executed programmatically — the AI never does arithmetic.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SPECIALIST MODULES -->
-<section class="specialists">
-  <div class="container">
-    <div class="section-label reveal">Specialist Modules</div>
-    <h2 class="reveal">Five specialties active. Two more ready.</h2>
-    <p class="section-desc reveal">Questions auto-route to the right specialist — or force routing with a simple command.</p>
-    <div class="spec-grid">
-      <div class="spec-chip reveal">
-        <span class="spec-dot active"></span>
-        <div><div class="spec-name">General Pediatrics</div><div class="spec-detail">Default for all questions</div></div>
-        <span class="spec-tag on">Active</span>
-      </div>
-      <div class="spec-chip reveal">
-        <span class="spec-dot active"></span>
-        <div><div class="spec-name">PICU / Emergency</div><div class="spec-detail">Ventilators, shock, arrest, RSI</div></div>
-        <span class="spec-tag on">Active</span>
-      </div>
-      <div class="spec-chip reveal">
-        <span class="spec-dot active"></span>
-        <div><div class="spec-name">Infectious Disease</div><div class="spec-detail">Antibiotics, sepsis, meningitis</div></div>
-        <span class="spec-tag on">Active</span>
-      </div>
-      <div class="spec-chip reveal">
-        <span class="spec-dot active"></span>
-        <div><div class="spec-name">Gastroenterology</div><div class="spec-detail">GI bleed, liver, IBD</div></div>
-        <span class="spec-tag on">Active</span>
-      </div>
-      <div class="spec-chip reveal">
-        <span class="spec-dot active"></span>
-        <div><div class="spec-name">Nephrology</div><div class="spec-detail">AKI, dialysis, hyperkalemia</div></div>
-        <span class="spec-tag on">Active</span>
-      </div>
-      <div class="spec-chip reveal">
-        <span class="spec-dot coming"></span>
-        <div><div class="spec-name">Neonatology</div><div class="spec-detail">NICU, surfactant, NEC, HIE</div></div>
-        <span class="spec-tag off">Ready</span>
-      </div>
-      <div class="spec-chip reveal">
-        <span class="spec-dot coming"></span>
-        <div><div class="spec-name">Tropical / Global</div><div class="spec-detail">Malaria, dengue, WHO/IMCI</div></div>
-        <span class="spec-tag off">Ready</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MID-PAGE CTA -->
-<div class="mid-cta">
-  <div class="container">
-    <p class="reveal">Want to see the product in action?</p>
-    <a href="#contact" class="btn-primary reveal">Talk to Benson</a>
+  <div class="stat-item">
+    <div class="n">24M+</div>
+    <div class="t">children lack timely access to high-readiness pediatric emergency care</div>
+    <div class="src"><a href="https://doi.org/10.1016/j.jpeds.2025.114834" target="_blank" rel="noopener">Joseph et al., <em>J Pediatrics</em>, 2025</a></div>
   </div>
 </div>
 
-<!-- THE WARM TURN -->
-<div class="warm-transition"></div>
+<!-- ═══ BENTO GRID ═══ -->
+<div class="bento" id="compare">
 
-<!-- FOUNDER -->
-<section class="founder" id="founder">
-  <div class="container">
-    <div class="founder-inner">
-      <div class="reveal">
-        <div class="founder-card">
-          <div class="founder-initials">BH</div>
-          <h3>Benson Hsu, MD, MBA, FAAP, FCCM</h3>
-          <div class="role">Founder &amp; CEO, Celeritas Health</div>
-          <div class="credentials">
-            <div class="credential"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Actively practicing pediatric intensivist in rural America</div>
-            <div class="credential"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Ex-McKinsey · Former VP, Enterprise Data &amp; Analytics and Population Health</div>
-            <div class="credential"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Elected national leadership — American Academy of Pediatrics &amp; American College of Critical Care Medicine</div>
-            <div class="credential"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Published in NEJM Catalyst &amp; Harvard Business Review; 75+ peer-reviewed publications</div>
-            <div class="credential"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Presidential Leadership Scholar · Bush Fellow · Aspen Health Innovators Fellow</div>
-            <div class="credential"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Princeton AB (Economics) · Duke MBA (Fuqua Scholar) · Harvard Kennedy School</div>
-          </div>
-        </div>
+<!-- INTERACTIVE COMPARISON -->
+<div class="tile tile-12 tile-pad rv">
+  <div class="label label-muted">HEAD TO HEAD — SAME QUESTION, DIFFERENT JOURNEYS</div>
+  <h2 style="margin-bottom:0.35rem;">How does the physician get an answer?</h2>
+  <p style="margin-bottom:1.5rem;">Select a system to compare. CodeBluePeds stays on the left. <span style="color:var(--red);font-weight:600;">Red</span> highlights where the other system falls short.</p>
+
+  <div class="cmp-wrap">
+    <div class="cmp-tabs">
+      <button class="cmp-tab active" data-cmp="uptodate">UpToDate</button>
+      <button class="cmp-tab" data-cmp="openevidence">OpenEvidence</button>
+      <button class="cmp-tab" data-cmp="chatgpt">ChatGPT</button>
+      <button class="cmp-tab" data-cmp="textbook">Textbook / Paper</button>
+    </div>
+
+    <div class="cmp-lanes">
+      <!-- LEFT: CBP always visible -->
+      <div class="cmp-lane lane-cbp">
+        <div class="cmp-lane-hdr">CodeBluePediatrics</div>
+        <div class="cmp-step advantage"><span class="cmp-step-n">01</span><div class="cmp-step-body"><div class="cmp-step-title">Text your question via SMS or WhatsApp <span class="stag stag-ok">Free</span></div><div class="cmp-step-desc">No app, no login, no NPI verification. Works from any phone.</div></div></div>
+        <div class="cmp-step"><span class="cmp-step-n">02</span><div class="cmp-step-body"><div class="cmp-step-title">PHI automatically stripped <span class="stag stag-ok">Safety</span></div><div class="cmp-step-desc">18 HIPAA identifiers removed before AI processing.</div></div></div>
+        <div class="cmp-step"><span class="cmp-step-n">03</span><div class="cmp-step-body"><div class="cmp-step-title">Specialist-routed AI generates response</div><div class="cmp-step-desc">Routed to the correct pediatric module. RAG context from 150 pathways.</div></div></div>
+        <div class="cmp-step advantage"><span class="cmp-step-n">04</span><div class="cmp-step-body"><div class="cmp-step-title">Second AI independently verifies <span class="stag stag-ok">Verify</span></div><div class="cmp-step-desc">Hallucination check by a separate model. No self-validation.</div></div></div>
+        <div class="cmp-step advantage"><span class="cmp-step-n">05</span><div class="cmp-step-body"><div class="cmp-step-title">Python computes the dose <span class="stag stag-ok">Deterministic</span></div><div class="cmp-step-desc">100% MEDCALC-BENCH accuracy. The AI never does arithmetic.</div></div></div>
+        <div class="cmp-step advantage"><span class="cmp-step-n">06</span><div class="cmp-step-body"><div class="cmp-step-title">Citations verified via NCBI <span class="stag stag-ok">Deterministic</span></div><div class="cmp-step-desc">PubMed API lookup. Not LLM-generated references.</div></div></div>
+        <div class="cmp-step advantage"><span class="cmp-step-n">07</span><div class="cmp-step-body"><div class="cmp-step-title">Dose checked against 87-drug safety DB <span class="stag stag-ok">Safety</span></div><div class="cmp-step-desc">RED/YELLOW/GREEN tiered alerts. 115 drug name aliases.</div></div></div>
+        <div class="cmp-step"><span class="cmp-step-n">08</span><div class="cmp-step-body"><div class="cmp-step-title">Answer delivered to your phone</div><div class="cmp-step-desc">Structured workup, weight-adjusted doses, protocol citations, safety caveats. 15 seconds total.</div></div></div>
       </div>
-      <div class="founder-story">
-        <div class="section-label">The Founder</div>
-        <h2 class="reveal">Built by the specialist on the other end of the phone</h2>
-        <p class="reveal">As a PICU attending in rural America, I've been the specialist that physicians call at 2 AM when a child is deteriorating and they need help <em>now</em>. I know what those calls sound like — the urgency, the limited resources, the clinician doing their best with what they have.</p>
-        <p class="reveal"><strong>The bottleneck isn't knowledge. It's access.</strong> The clinical guidance that saves children's lives shouldn't require a transfer line, a callback, or luck. It should be as immediate as texting a colleague.</p>
-        <p class="reveal">CodeBluePediatrics takes what I do on those calls and makes it available to every clinician who needs it, through the device already in their pocket. We're not replacing specialists. <strong>We're extending their reach.</strong></p>
-        <div class="advisory-note reveal">Currently building an advisory board in pediatric critical care and health AI.</div>
+
+      <!-- RIGHT: competitor (swapped by JS) -->
+      <div class="cmp-lane lane-them" id="cmpRight">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <div class="cmp-time">
+      <div class="cmp-time-item"><div class="tt fast">~15s</div><div class="tl">CodeBluePeds</div></div>
+      <div class="cmp-time-item" id="cmpThemTime"><div class="tt slow" id="cmpThemTT">2–5 min</div><div class="tl" id="cmpThemTL">UpToDate</div></div>
+    </div>
+
+    <div class="cmp-verdict" id="cmpVerdict"></div>
+  </div>
+</div>
+
+<!-- THREE SEPARATIONS — as bento tiles -->
+<div class="tile tile-4 tile-pad rv">
+  <div class="label label-blue">SEPARATION 1</div>
+  <h3>No model validates its own output</h3>
+  <p>Sonnet generates. Haiku reviews. NCBI verifies citations. Three models. Zero trust.</p>
+  <div class="big big-xl c-blue" style="margin-top:1rem;">99.6%</div>
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">of LLM-generated PMIDs were fabricated. Eliminated by deterministic lookup.</p>
+</div>
+
+<div class="tile tile-4 tile-pad rv">
+  <div class="label label-green">SEPARATION 2</div>
+  <h3>The AI doesn't do the math</h3>
+  <p>Claude extracts parameters. Python computes the dose. The arithmetic never touches the model.</p>
+  <div class="big big-xl c-green" style="margin-top:1rem;">100%</div>
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">MEDCALC-BENCH accuracy (1,103 calculations) vs ~50% for GPT-4.</p>
+</div>
+
+<div class="tile tile-4 tile-pad rv">
+  <div class="label label-muted">SEPARATION 3</div>
+  <h3>Silent failure is never acceptable</h3>
+  <p>PostgreSQL state machine tracks every message. Watchdog sweeps every 15s. Stuck &gt;90s = auto-recovery.</p>
+  <div class="big big-xl c-navy" style="margin-top:1rem;">90s</div>
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:0.25rem;">Max time-to-recovery. The system knows it failed and tells the physician.</p>
+</div>
+
+<!-- PIPELINE -->
+<div class="tile tile-4 tile-pad rv" id="how" style="grid-row: span 2;">
+  <div class="label label-blue">THE PIPELINE · 15 SECONDS</div>
+  <h3 style="font-size:1.05rem;">What happens between question and answer</h3>
+  <div class="pipe-list" style="margin-top:1rem;">
+    <div class="pipe-row"><span class="pipe-n">01</span><div class="pipe-txt"><strong>PHI stripped</strong> <span class="ptag ptag-s">Safety</span></div></div>
+    <div class="pipe-row"><span class="pipe-n">02</span><div class="pipe-txt"><strong>Specialist routing</strong> → 5 active modules</div></div>
+    <div class="pipe-row"><span class="pipe-n">03</span><div class="pipe-txt"><strong>Claude Sonnet</strong> generates response</div></div>
+    <div class="pipe-row"><span class="pipe-n">04</span><div class="pipe-txt"><strong>Claude Haiku</strong> reviews <span class="ptag ptag-v">Verify</span></div></div>
+    <div class="pipe-row"><span class="pipe-n">05</span><div class="pipe-txt"><strong>Python dose calc</strong> <span class="ptag ptag-d">Determ.</span></div></div>
+    <div class="pipe-row"><span class="pipe-n">06</span><div class="pipe-txt"><strong>NCBI verifies PMIDs</strong> <span class="ptag ptag-d">Determ.</span></div></div>
+    <div class="pipe-row"><span class="pipe-n">07</span><div class="pipe-txt"><strong>87-drug validator</strong> <span class="ptag ptag-s">Safety</span></div></div>
+    <div class="pipe-row"><span class="pipe-n">08</span><div class="pipe-txt"><strong>Escalation detector</strong> <span class="ptag ptag-s">Safety</span><br><span style="font-size:0.68rem;color:var(--red);">13 emergency conditions</span></div></div>
+    <div class="pipe-row"><span class="pipe-n">09</span><div class="pipe-txt"><strong>Confidence scored</strong></div></div>
+    <div class="pipe-row"><span class="pipe-n">10</span><div class="pipe-txt"><strong>Truncated</strong> → 1,600 chars for WhatsApp</div></div>
+    <div class="pipe-row"><span class="pipe-n">11</span><div class="pipe-txt"><strong>Delivered</strong> via Twilio · SMS fallback</div></div>
+  </div>
+  <div style="margin-top:1.25rem;">
+    <div class="specs">
+      <div class="spec"><span class="sd sd-on"></span>PICU</div>
+      <div class="spec"><span class="sd sd-on"></span>Peds EM</div>
+      <div class="spec"><span class="sd sd-on"></span>General</div>
+      <div class="spec"><span class="sd sd-on"></span>Neonatology</div>
+      <div class="spec"><span class="sd sd-on"></span>Toxicology</div>
+    </div>
+  </div>
+</div>
+
+<!-- SAFETY TOWER -->
+<div class="tile tile-8 tile-pad rv" style="grid-row: span 2;">
+  <div class="label" style="color:var(--red);">WHICH LAYER WOULD YOU REMOVE?</div>
+  <table class="tower-table">
+    <thead><tr><th>Layer</th><th>What It Does</th><th>Without It</th></tr></thead>
+    <tbody>
+      <tr><td class="ln">PHI De-identification</td><td class="ld">Strips 18 HIPAA identifiers before LLM</td><td class="lw">Patient data in training corpora</td></tr>
+      <tr><td class="ln">Dosing Validator</td><td class="ld">87 drugs, RED/YELLOW/GREEN tiers</td><td class="lw">Hallucinated doses reach physicians</td></tr>
+      <tr><td class="ln">Hallucination Checker</td><td class="ld">Second model cross-checks first</td><td class="lw">Fabricated claims delivered as fact</td></tr>
+      <tr><td class="ln">PMID Verification</td><td class="ld">Deterministic NCBI lookup</td><td class="lw">99.6% fabricated citations</td></tr>
+      <tr><td class="ln">Escalation Detector</td><td class="ld">13 emergency conditions + context</td><td class="lw">DKA misidentified as routine</td></tr>
+      <tr><td class="ln">Cache Poisoning Guard</td><td class="ld">Only validated responses cached</td><td class="lw">Bad response repeats forever</td></tr>
+      <tr><td class="ln">Circuit Breaker</td><td class="ld">Auto-opens after failures, recovers</td><td class="lw">Cascading failures crash system</td></tr>
+      <tr><td class="ln">Watchdog + Timeout</td><td class="ld">15s sweep, 85s hard timeout chain</td><td class="lw">Silent infinite waits</td></tr>
+      <tr><td class="ln">Deterministic Calcs</td><td class="ld">55 calculators — Python, not LLM</td><td class="lw">~50% arithmetic accuracy</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ENGINEERING: full-width tile with hierarchy -->
+<div class="tile tile-12 tile-pad rv">
+  <div class="label label-muted">ENGINEERING</div>
+  <h2 style="margin-bottom:1.75rem;">Production-grade. Solo-built. Every line accounted for.</h2>
+  <div class="eng-top" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;">
+    <div>
+      <div class="big big-xl c-navy">75,301</div>
+      <div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Lines of source code</div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">241 files across 34,693 lines of test code. One physician built this between PICU shifts in 20 days. Every line is understood by one person — that's an asset for due diligence, not a liability.</p>
+    </div>
+    <div>
+      <div class="big big-xl c-blue">7,809</div>
+      <div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Automated tests · ~90% coverage</div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">293 test files. Every assessment finding becomes a permanent regression test. Every test runs in CI with real PostgreSQL 15 + Redis 7 containers before any code reaches production.</p>
+    </div>
+    <div>
+      <div class="big big-xl c-green">0</div>
+      <div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Critical findings</div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">After 9 adversarial assessment cycles. 4-phase methodology with simulated expert panels. 140 total findings identified across all cycles — every one resolved and regression-tested.</p>
+    </div>
+  </div>
+  <div class="eng-bottom" style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+    <div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">87</span><br><span style="font-size:0.75rem;color:var(--muted);">Drugs · 115 aliases</span></div>
+    <div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">150</span><br><span style="font-size:0.75rem;color:var(--muted);">Validated pathways</span></div>
+    <div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">55</span><br><span style="font-size:0.75rem;color:var(--muted);">Clinical calculators</span></div>
+    <div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">100%</span><br><span style="font-size:0.75rem;color:var(--muted);">MEDCALC-BENCH accuracy</span></div>
+    <div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">$0.03</span><br><span style="font-size:0.75rem;color:var(--muted);">Cost per consultation</span></div>
+  </div>
+</div>
+
+</div><!-- /bento -->
+
+<!-- ═══ EDITORIAL: FOUNDER ═══ -->
+<div class="editorial rv" id="founder">
+  <div class="label">The Founder</div>
+  <h2>Built by the specialist on the other end of the phone</h2>
+
+  <p>As a PICU attending in rural America, I've been the specialist that physicians call at 2 AM when a child is deteriorating and they need help <em>now</em>. I know what those calls sound like — the urgency, the limited resources, the clinician doing their best with what they have. I've taken thousands of those calls. CodeBluePediatrics is what I wish every one of those physicians had in their pocket.</p>
+
+  <p><strong>The bottleneck isn't knowledge. It's access.</strong> The clinical guidance that saves children's lives shouldn't require a transfer line, a callback, or luck. It should be as immediate as texting a colleague. That's what this is — the specialist you had access to at the academic center, available everywhere, all the time.</p>
+
+  <p>I didn't build this as a side project. I built it because I've spent my career at the intersection of clinical medicine, health system operations, and technology — and this is the problem I was put together to solve.</p>
+
+  <div style="margin:2rem 0;padding:1.5rem 1.75rem;border-left:4px solid var(--blue);background:rgba(37,99,168,0.03);">
+    <p style="font-size:0.95rem;color:var(--heading);line-height:1.65;margin:0;"><strong style="color:var(--blue);">Clinical depth.</strong> Board-certified pediatric intensivist. I manage ventilators, vasopressors, and cardiac arrests in children. I know which drug doses are life-or-death and which guidelines are actually followed at the bedside — because I follow them. Every safety layer in this system exists because I've seen what happens when clinical information is wrong.</p>
+  </div>
+
+  <div style="margin:0 0 2rem;padding:1.5rem 1.75rem;border-left:4px solid var(--blue);background:rgba(37,99,168,0.03);">
+    <p style="font-size:0.95rem;color:var(--heading);line-height:1.65;margin:0;"><strong style="color:var(--blue);">Operational scale.</strong> Former McKinsey consultant. Former VP of Enterprise Data & Analytics and Population Health at a major health system, where I led teams building data infrastructure across dozens of hospitals. I understand how health systems buy, implement, and scale technology — because I've been the buyer and the operator.</p>
+  </div>
+
+  <div style="margin:0 0 2rem;padding:1.5rem 1.75rem;border-left:4px solid var(--blue);background:rgba(37,99,168,0.03);">
+    <p style="font-size:0.95rem;color:var(--heading);line-height:1.65;margin:0;"><strong style="color:var(--blue);">National leadership.</strong> Elected to national leadership in both the American Academy of Pediatrics and the American College of Critical Care Medicine — the two professional organizations that set the standard for pediatric critical care in the United States. When guidelines change, I'm in the room.</p>
+  </div>
+
+  <div style="margin:0 0 2rem;padding:1.5rem 1.75rem;border-left:4px solid var(--blue);background:rgba(37,99,168,0.03);">
+    <p style="font-size:0.95rem;color:var(--heading);line-height:1.65;margin:0;"><strong style="color:var(--blue);">Published and peer-reviewed.</strong> 75+ peer-reviewed publications. Published in NEJM Catalyst and Harvard Business Review on health system innovation. This isn't my first time making the case that technology can transform how care is delivered — it's the first time I've built the technology myself.</p>
+  </div>
+
+  <p>I built CodeBluePediatrics in 20 days between PICU shifts — 75,000 lines of code, 7,809 automated tests, a system that passed a Staff/Principal-level engineering review. The velocity came from 20 years of knowing exactly what a physician needs at 2 AM and exactly what can go wrong if they get the wrong answer. One person understands every line. That's an asset for due diligence, not a liability.</p>
+
+  <p>We're not replacing specialists. <strong>We're extending their reach.</strong></p>
+
+  <div class="sig">
+    <div class="sig-avatar">BH</div>
+    <div>
+      <div class="sig-name">Benson Hsu, MD, MBA, FAAP, FCCM</div>
+      <div class="sig-title">Founder & CEO, Celeritas Health</div>
+      <div class="sig-creds" style="display:grid;grid-template-columns:1fr 1fr;gap:0.25rem 1.5rem;margin-top:0.65rem;">
+        <span>Princeton AB (Economics)</span>
+        <span>Duke MBA (Fuqua Scholar)</span>
+        <span>Harvard Kennedy School</span>
+        <span>Ex-McKinsey & Company</span>
+        <span>Former VP, Enterprise Data & Analytics</span>
+        <span>AAP & ACCM National Leadership</span>
+        <span>75+ peer-reviewed publications</span>
+        <span>NEJM Catalyst · Harvard Business Review</span>
+        <span>Presidential Leadership Scholar</span>
+        <span>Bush Fellow</span>
+        <span>Aspen Health Innovators Fellow</span>
+        <span>Board certified: Pediatrics, PCCM</span>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- MARKET -->
-<section class="market">
-  <div class="container">
-    <div class="market-inner">
-      <div>
-        <div class="section-label reveal">The Opportunity</div>
-        <h2 class="reveal">Free for clinicians. Built to scale.</h2>
-        <p class="reveal">CodeBluePediatrics is free for every clinician who uses it — physicians, APPs, anyone making pediatric clinical decisions. Revenue comes from health system partnerships that layer institutional protocols on top of the platform's clinical knowledge.</p>
-        <p class="reveal">Two markets, one platform: HIPAA-compliant clinical consultation for U.S. clinicians, and educational reference content internationally via WhatsApp across 195 countries.</p>
-        <p class="reveal"><em>Pediatrics is where we start. The architecture is built to extend to any specialty, any setting, anywhere a clinician needs expert guidance and doesn't have it.</em></p>
-      </div>
-      <div class="market-highlights">
-        <div class="highlight reveal">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-          <div><h4>Global from day one</h4><p>WhatsApp reach across 195 countries. Rural EDs in South Dakota and district hospitals in sub-Saharan Africa — same platform, same quality.</p></div>
-        </div>
-        <div class="highlight reveal">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
-          <div><h4>Network effects at every layer</h4><p>Every consultation strengthens the platform. Health system partnerships generate revenue while the product improves with use.</p></div>
-        </div>
-        <div class="highlight reveal">
-          <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <div><h4>Publication pipeline</h4><p>Three peer-reviewed manuscripts planned — technical validation, competitive benchmarking, and clinical implementation.</p></div>
-        </div>
-      </div>
-    </div>
+<!-- ═══ EDITORIAL: MARKET ═══ -->
+<div class="editorial rv" style="padding-top:0;">
+  <div class="label">The Opportunity</div>
+  <h2>Free for clinicians. Built to scale.</h2>
+  <p>CodeBluePediatrics is free for every clinician — physicians, APPs, anyone making pediatric clinical decisions. Revenue comes from health system partnerships that layer institutional protocols on top of the platform.</p>
+  <p>Two markets, one platform: HIPAA-compliant clinical consultation for U.S. clinicians, and educational reference content internationally via WhatsApp across 195 countries.</p>
+  <div style="margin:1.75rem 0 0;padding:1.5rem 1.75rem;border-left:4px solid var(--blue);background:rgba(37,99,168,0.03);">
+    <p style="font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--heading);line-height:1.35;margin:0;font-weight:400;">Pediatrics is where we start. The architecture extends to any specialty, any setting, anywhere a clinician needs expert guidance and doesn't have it.</p>
   </div>
-</section>
-
-<!-- WHY NOW -->
-<section class="why-now">
-  <div class="container">
-    <div class="section-label reveal">Why Now</div>
-    <h2 class="reveal">The technology finally matches what clinicians need</h2>
-    <p class="reveal">For decades, the gap between what medicine knows and what clinicians can access in real time has been a structural failure — not a knowledge failure. <strong>AI capabilities have now crossed the threshold that makes this solvable.</strong></p>
-    <p class="reveal">Large language models can synthesize clinical literature, perform structured reasoning, and generate actionable guidance at a level that was impossible two years ago. What was missing was the safety architecture — citation verification, dosing validation, hallucination review, HIPAA-compliant delivery — to make it trustworthy enough for the bedside.</p>
-    <p class="reveal"><strong>That's what we built.</strong> The AI can now reason. We built the system that makes it safe to trust.</p>
-  </div>
-</section>
+</div>
 
 <!-- CTA -->
-<section class="cta-section" id="contact">
-  <div class="container">
-    <h2 class="reveal">Let's talk about what we're building</h2>
-    <p class="reveal">Whether you're investing in clinical AI or looking to bring pediatric expertise to your clinicians — we'd welcome the conversation.</p>
-    <a href="mailto:benson.hsu@celeritashealth.com" class="btn-primary reveal">Start a Conversation</a>
-    <div class="cta-email-display reveal">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      benson.hsu@celeritashealth.com
-    </div>
-  </div>
-</section>
+<div class="cta-band rv" id="contact">
+  <h2>Let's talk about what we're building</h2>
+  <p>Celeritas Health is raising its angel round. Clinical AI safety, pediatric medicine, global health equity — we should connect.</p>
+  <a href="mailto:benson.hsu@celeritashealth.com" class="btn btn-fill">benson.hsu@celeritashealth.com</a>
+</div>
 
 <footer>
-  <p>&copy; 2026 <a href="terms.html">Celeritas Health LLC</a> · South Dakota · All rights reserved &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="opt-in.html">Messaging Consent</a></p>
+  <div class="fl">&copy; 2026 Celeritas Health LLC · South Dakota</div>
+  <div class="fr">
+    <a href="/terms.html">Terms of Service</a>
+    <span class="trust">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      HIPAA Safe Harbor · No PHI retained
+    </span>
+  </div>
 </footer>
 
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 40); });
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
-      const idx = Array.from(siblings).indexOf(entry.target);
-      entry.target.style.transitionDelay = `${idx * 0.08}s`;
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+var competitors = {
+  uptodate: {
+    name: 'UpToDate',
+    time: '2\u20135 min',
+    verdict: '<strong>UpToDate</strong> gives you the knowledge \u2014 but you do all the work. You navigate, extract, calculate, and verify yourself. CodeBluePeds does all of that in 15 seconds and delivers the answer to your phone.',
+    steps: [
+      { n:'01', title:'Open a browser or app', desc:'Requires internet and a subscription login.', gap:false },
+      { n:'02', title:'Log in with institutional credentials', desc:'$559/yr per physician. Not available in many rural settings.', gap:true },
+      { n:'03', title:'Search for the condition', desc:'Navigate to the correct article among thousands of results.', gap:false },
+      { n:'04', title:'Read a textbook-length article', desc:'Find the relevant dosing section within 5,000+ words. Not tailored to your patient.', gap:true },
+      { n:'05', title:'Extract the dosing formula', desc:'No computation assistance. You find and interpret it yourself.', gap:false },
+      { n:'06', title:'Do the math yourself', desc:'No deterministic calculator. You compute weight-adjusted doses manually.', gap:true, extra:true },
+      { n:'07', title:'No dosing safety check', desc:'No database validates your manual calculation against known pediatric limits.', gap:true, extra:true },
+      { n:'08', title:'Apply to patient', desc:'No PHI was at risk \u2014 but also no patient-specific answer.', gap:false }
+    ]
+  },
+  openevidence: {
+    name: 'OpenEvidence',
+    time: '30\u201390s',
+    verdict: '<strong>OpenEvidence</strong> is fast and well-sourced \u2014 but uses a single LLM for everything: generation, arithmetic, and verification. No independent hallucination check, no deterministic dose computation, no pediatric specialization, no dosing safety database.',
+    steps: [
+      { n:'01', title:'Open app and verify NPI', desc:'Requires app download and National Provider Identifier on file.', gap:true },
+      { n:'02', title:'Type your clinical question', desc:'Natural language input. HIPAA compliant.', gap:false },
+      { n:'03', title:'AI synthesizes from NEJM/JAMA', desc:'Strong evidence partnerships. But general medicine \u2014 not pediatric-specialized.', gap:true },
+      { n:'04', title:'Same model generates everything', desc:'No independent second-model hallucination review.', gap:true, extra:true },
+      { n:'05', title:'LLM computes the dose', desc:'The AI does the arithmetic \u2014 ~50% accuracy on clinical calculation benchmarks.', gap:true, extra:true },
+      { n:'06', title:'Citations from journal partnerships', desc:'Grounded in sources, but no deterministic PMID verification via PubMed API.', gap:true },
+      { n:'07', title:'No dosing safety database', desc:'No independent check of the computed dose against known pediatric limits.', gap:true, extra:true },
+      { n:'08', title:'Read and interpret the response', desc:'Detailed synthesis. You extract the actionable answer from the evidence summary.', gap:false }
+    ]
+  },
+  chatgpt: {
+    name: 'ChatGPT',
+    time: '15\u201345s',
+    verdict: '<strong>ChatGPT</strong> is fast but unverified. No hallucination check, no dosing database, fabricated citations 99.6% of the time, and patient data enters training. In clinical medicine, plausible-but-wrong is more dangerous than slow.',
+    steps: [
+      { n:'01', title:'Open browser or app', desc:'No NPI verification \u2014 anyone can ask clinical questions.', gap:false },
+      { n:'02', title:'Type your question with patient details', desc:'No PHI de-identification. Data enters model training.', gap:true, extra:true },
+      { n:'03', title:'Single LLM generates response', desc:'No specialist routing. No pediatric-specific safety thresholds.', gap:true },
+      { n:'04', title:'No hallucination check', desc:'The model that generated the answer is the only model that saw it.', gap:true, extra:true },
+      { n:'05', title:'LLM does the arithmetic', desc:'~50% accuracy on MEDCALC-BENCH. The model guesses drug doses.', gap:true, extra:true },
+      { n:'06', title:'Citations are 99.6% fabricated', desc:'PMIDs look real but do not exist. No verification against any database.', gap:true, extra:true },
+      { n:'07', title:'No dosing safety database', desc:'No check against known pediatric dosing limits.', gap:true, extra:true },
+      { n:'08', title:'If it fails, you stare at a spinner', desc:'No watchdog, no recovery message, no fallback. Silent failure.', gap:true, extra:true }
+    ]
+  },
+  textbook: {
+    name: 'Textbook / Paper',
+    time: '5\u201315 min',
+    verdict: '<strong>Textbooks</strong> are the gold standard for depth \u2014 but they cannot respond in real time. During a resuscitation, you need a weight-adjusted dose in seconds, not a chapter you have to find, interpret, and calculate from.',
+    steps: [
+      { n:'01', title:'Locate the correct reference book', desc:'Hope it is at the bedside and the current edition.', gap:true },
+      { n:'02', title:'Look up the condition in the index', desc:'Navigate to the relevant chapter. Cross-reference dosing tables.', gap:false },
+      { n:'03', title:'Read the relevant section', desc:'Authoritative but not tailored to this patient weight or age.', gap:true },
+      { n:'04', title:'Find the dosing formula', desc:'If it exists in this edition. May reference a different source.', gap:false },
+      { n:'05', title:'Calculate the dose by hand', desc:'Weight x dose/kg. Hope you do not make an arithmetic error under pressure.', gap:true, extra:true },
+      { n:'06', title:'No way to verify your calculation', desc:'No safety database. No second opinion. No cross-check.', gap:true, extra:true },
+      { n:'07', title:'Information may be outdated', desc:'Textbooks are 1-5 years behind current evidence at time of printing.', gap:true, extra:true },
+      { n:'08', title:'Apply to patient', desc:'The entire process took 5-15 minutes. In a resuscitation, that is an eternity.', gap:true }
+    ]
+  }
+};
+
+function renderComparison(key) {
+  var c = competitors[key];
+  var right = document.getElementById('cmpRight');
+  var html = '<div class="cmp-lane-hdr">' + c.name + '</div>';
+  c.steps.forEach(function(s) {
+    var cls = s.extra ? 'gap extra' : (s.gap ? 'gap' : '');
+    var tag = s.gap ? ' <span class="stag stag-miss">Gap</span>' : '';
+    html += '<div class="cmp-step ' + cls + '"><span class="cmp-step-n">' + s.n + '</span><div class="cmp-step-body"><div class="cmp-step-title">' + s.title + tag + '</div><div class="cmp-step-desc">' + s.desc + '</div></div></div>';
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  right.innerHTML = html;
+  document.getElementById('cmpThemTT').textContent = c.time;
+  document.getElementById('cmpThemTL').textContent = c.name;
+  var v = document.getElementById('cmpVerdict');
+  v.innerHTML = c.verdict;
+  v.classList.add('show');
+}
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.cmp-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.cmp-tab').forEach(function(t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+    renderComparison(tab.dataset.cmp);
+  });
+});
+renderComparison('uptodate');
 </script>
-
 </body>
 </html>
