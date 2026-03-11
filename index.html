@@ -75,7 +75,7 @@ nav.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); 
 .hero { display: grid; grid-template-columns: 1fr 420px; min-height: 100vh; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 8rem 4rem 5rem clamp(2rem, 6vw, 4rem); max-width: 740px; }
 .hero-founder-badge { display: inline-flex; align-items: center; gap: 0.85rem; margin-top: 1.5rem; padding: 0.9rem 1.35rem; background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--blue); box-shadow: 0 2px 10px rgba(0,0,0,0.06); opacity: 0; animation: up 0.7s ease 0.8s forwards; }
-.hero-founder-badge .hfb-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 0.85rem; color: white; flex-shrink: 0; box-shadow: 0 0 0 2px var(--white), 0 0 0 3px var(--blue); }
+.hero-founder-badge .hfb-avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex-shrink: 0; box-shadow: 0 0 0 2px var(--white), 0 0 0 3px var(--blue); }
 .hero-founder-badge .hfb-text { font-size: 0.82rem; color: var(--heading); font-weight: 600; line-height: 1.35; }
 .hero-founder-badge .hfb-text span { display: block; font-weight: 400; font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
 .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 600; color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; opacity: 0; animation: up 0.7s ease 0.1s forwards; }
@@ -182,8 +182,8 @@ nav.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); 
 .pipe-list { display: flex; flex-direction: column; gap: 0; }
 .pipe-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
 .pipe-row:last-child { border-bottom: none; }
-.pipe-n { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; font-weight: 600; color: var(--muted); min-width: 1.2rem; padding-top: 0.1rem; }
-.pipe-txt { font-size: 0.78rem; color: var(--body); line-height: 1.45; }
+.pipe-n { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; color: var(--muted); min-width: 1.2rem; padding-top: 0.1rem; }
+.pipe-txt { font-size: 0.82rem; color: var(--body); line-height: 1.45; }
 .pipe-txt strong { color: var(--heading); font-weight: 600; }
 .ptag { display: inline-block; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.08rem 0.3rem; border-radius: 2px; margin-left: 0.35rem; vertical-align: middle; }
 .ptag-s { background: rgba(196,57,43,0.08); color: var(--red); }
@@ -263,9 +263,7 @@ nav.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); 
 .founder-card-top { text-align: center; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.25rem; }
 .founder-avatar {
   width: 88px; height: 88px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: white;
+  object-fit: cover;
   margin: 0 auto 1rem;
   box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--blue), 0 4px 12px rgba(37,99,168,0.15);
 }
@@ -283,7 +281,7 @@ nav.scrolled { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); 
 }
 .founder-stat-n {
   font-family: 'JetBrains Mono', monospace; font-size: 1.1rem;
-  font-weight: 600; color: var(--heading); min-width: 3rem;
+  font-weight: 600; color: var(--heading); min-width: 3.5rem;
 }
 .founder-stat-t { font-size: 0.78rem; color: var(--muted); line-height: 1.35; }
 .founder-story { }
@@ -368,7 +366,7 @@ footer .fr a:hover { color: var(--blue); }
   .editorial .sig { border-color: var(--border); }
   .editorial .sig-avatar { background: var(--blue); }
   .founder-card { background: var(--white); border-color: var(--border); }
-  .founder-avatar { background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%); box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--blue), 0 4px 12px rgba(91,159,228,0.2); }
+  .founder-avatar { box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--blue), 0 4px 12px rgba(91,159,228,0.2); }
   .founder-qual { background: var(--bg); border-color: var(--border); }
   .founder-pillar { background: rgba(91,159,228,0.03); }
   footer { border-color: var(--border); }
@@ -463,7 +461,7 @@ details summary::-webkit-details-marker { display: none; }
     <p class="hero-sub" style="font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--heading);line-height:1.4;max-width:500px;font-weight:400;">Like texting the specialist you had access to at the academic center — via SMS anywhere in the U.S., or WhatsApp in 195 countries. No app. No login. Free for clinicians.</p>
     <div class="hero-actions"><a href="#contact" class="btn btn-fill">Talk to the Founder</a><a href="#compare" class="btn btn-outline">See how it's different</a></div>
     <div class="hero-live"><span class="dot"></span> Live system · Raising angel round</div>
-    <div class="hero-founder-badge"><div class="hfb-avatar">BH</div><div class="hfb-text">Benson Hsu, MD, MBA, FAAP, FCCM<span>Pediatric Intensivist &amp; Professor · Princeton · Duke · McKinsey · Presidential Leadership Scholar</span></div></div>
+    <div class="hero-founder-badge"><img class="hfb-avatar" src="headshot.jpg" alt="Benson Hsu" width="42" height="42"><div class="hfb-text">Benson Hsu, MD, MBA, FAAP, FCCM<span>Pediatric Intensivist &amp; Professor · Princeton · Duke · McKinsey · Presidential Leadership Scholar</span></div></div>
   </div>
   <div class="hero-phone">
     <div class="phone">
@@ -486,6 +484,8 @@ details summary::-webkit-details-marker { display: none; }
   <div class="stat-item"><div class="n" data-target="88" data-suffix="%">0%</div><div class="t">of completely rural U.S. counties have no general pediatrician at all</div><div class="t-human">Nearly 9 in 10 rural counties have zero pediatricians</div><div class="src"><a href="https://doi.org/10.1001/jamanetworkopen.2023.33467" target="_blank" rel="noopener">Ramesh &amp; Yu, <em>JAMA Network Open</em>, 2023</a> / <a href="https://www.abp.org/dashboards/general-pediatricians-us-state-and-county-maps" target="_blank" rel="noopener">ABP Census</a></div></div>
   <div class="stat-item"><div class="n" data-target="24" data-suffix="M+">0M+</div><div class="t">children lack timely access to high-readiness pediatric emergency care</div><div class="t-human">24 million children without emergency pediatric access</div><div class="src"><a href="https://doi.org/10.1016/j.jpeds.2025.114834" target="_blank" rel="noopener">Joseph et al., <em>J Pediatrics</em>, 2025</a></div></div>
 </div>
+
+<div class="pullquote rv"><blockquote>It's 2 AM. A six-month-old arrives seizing in a rural ER. The nearest pediatric specialist is 200 miles away. I've been on the other end of that call a thousand times. CodeBluePediatrics is what I wish every one of those physicians had in their pocket.</blockquote></div>
 
 <div class="solution-band rv" id="solutionBand">
   <div class="stat-item"><div class="n" data-target="8930" data-comma="1">0</div><div class="t">Automated tests</div><div class="t-human">2,149 safety-marked · 312 test files</div></div>
@@ -547,7 +547,7 @@ details summary::-webkit-details-marker { display: none; }
 </div>
 
 <div class="section-divider"><div class="sd-label">Engineering</div></div>
-<div class="tile tile-12 tile-pad rv" style="max-width:1400px;margin:0 auto 8px;"><div class="label label-muted">ENGINEERING</div><h2 style="margin-bottom:0.3rem;">11 assessment cycles. 8,930 tests. Zero critical findings.</h2><p style="margin-bottom:1.75rem;max-width:700px;">Solo-founded and architected. Every line is understood by one person — that's an asset for due diligence, not a liability.</p><div class="eng-top" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;"><div><div class="big big-xl c-navy">120,898</div><div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Lines of Python</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">570 files (258 source + 312 test). One physician-founder built this between PICU shifts — solo-founded and architected with AI-accelerated development that compressed build time while freeing capacity for rigorous testing and safety architecture.</p></div><div><div class="big big-xl c-blue">8,930</div><div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Automated tests · 2,149 safety-marked</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">312 test files. Every assessment finding becomes a permanent regression test. CI runs real PostgreSQL 15 + Redis 7 containers before any code reaches production.</p></div><div><div class="big c-green" style="font-size:5rem;line-height:0.9;">0</div><div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.4rem;">Critical findings</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">After 11 assessment cycles of escalating rigor — culminating in an independent Staff/Principal-level engineering panel scoring 8.3/10. Every finding resolved and regression-tested.</p></div></div><div style="margin-top:2rem;padding:1.25rem 1.5rem;border-left:3px solid var(--blue);background:rgba(37,99,168,0.02);font-size:0.88rem;color:var(--heading);line-height:1.6;"><strong style="color:var(--blue);">Why this is hard to replicate:</strong> 16 safety layers built by a board-certified pediatric intensivist who knows which drug doses kill children. The engineering is reproducible. The clinical judgment is not. Open architecture, documented API, full test coverage — the codebase is built for handoff, not dependency.</div><div class="eng-bottom" style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);"><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">132</span><br><span style="font-size:0.75rem;color:var(--muted);">Drugs · 229 aliases</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">150</span><br><span style="font-size:0.75rem;color:var(--muted);">Validated pathways</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">55</span><br><span style="font-size:0.75rem;color:var(--muted);">Clinical calculators</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">100%</span><br><span style="font-size:0.75rem;color:var(--muted);">MEDCALC-BENCH accuracy</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">$0.03–0.15</span><br><span style="font-size:0.75rem;color:var(--muted);">Cost per consultation</span></div></div></div>
+<div class="tile tile-12 tile-pad rv" style="max-width:1400px;margin:0 auto 8px;"><div class="label label-muted">ENGINEERING</div><h2 style="margin-bottom:0.3rem;">11 assessment cycles. 8,930 tests. Zero critical findings.</h2><p style="margin-bottom:1.75rem;max-width:700px;">Solo-founded and architected. Every line is understood by one person — that's an asset for due diligence, not a liability.</p><div class="eng-top" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.5rem;"><div><div class="big big-xl c-navy">120,898</div><div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Lines of Python</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">570 files (258 source + 312 test). One physician-founder built this between PICU shifts — solo-founded and architected with AI-accelerated development that compressed build time while freeing capacity for rigorous testing and safety architecture.</p></div><div><div class="big big-xl c-blue">8,930</div><div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Automated tests · 2,149 safety-marked</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">312 test files. Every assessment finding becomes a permanent regression test. CI runs real PostgreSQL 15 + Redis 7 containers before any code reaches production.</p></div><div><div class="big big-xl c-green">0</div><div style="font-size:0.92rem;color:var(--heading);font-weight:600;margin-top:0.35rem;">Critical findings</div><p style="font-size:0.82rem;color:var(--muted);margin-top:0.35rem;">After 11 assessment cycles of escalating rigor — culminating in an independent Staff/Principal-level engineering panel scoring 8.3/10. Every finding resolved and regression-tested.</p></div></div><div style="margin-top:2rem;padding:1.25rem 1.5rem;border-left:3px solid var(--blue);background:rgba(37,99,168,0.02);font-size:0.88rem;color:var(--heading);line-height:1.6;"><strong style="color:var(--blue);">Why this is hard to replicate:</strong> 16 safety layers built by a board-certified pediatric intensivist who knows which drug doses kill children. The engineering is reproducible. The clinical judgment is not. Open architecture, documented API, full test coverage — the codebase is built for handoff, not dependency.</div><div class="eng-bottom" style="display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);"><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">132</span><br><span style="font-size:0.75rem;color:var(--muted);">Drugs · 229 aliases</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">150</span><br><span style="font-size:0.75rem;color:var(--muted);">Validated pathways</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">55</span><br><span style="font-size:0.75rem;color:var(--muted);">Clinical calculators</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">100%</span><br><span style="font-size:0.75rem;color:var(--muted);">MEDCALC-BENCH accuracy</span></div><div><span class="mono" style="font-size:1.3rem;font-weight:600;color:var(--heading);">$0.03–0.15</span><br><span style="font-size:0.75rem;color:var(--muted);">Cost per consultation</span></div></div></div>
 
 <div style="max-width:1400px;margin:0 auto;padding:8px;display:flex;flex-direction:column;gap:8px;">
 <div class="tile tile-12 tile-pad rv" id="architecture">
@@ -576,31 +576,29 @@ details summary::-webkit-details-marker { display: none; }
 </div>
 </div>
 
-<div class="pullquote rv"><blockquote>I've been the specialist that physicians call at 2 AM when a child is crashing. CodeBluePediatrics is what I wish every one of those physicians had in their pocket.</blockquote></div>
-
 <div class="founder-hero rv" id="founder">
   <div class="label">THE FOUNDER</div>
   <div class="founder-panels">
     <!-- LEFT: Founder card — sticky, prominent -->
     <div class="founder-card">
       <div class="founder-card-top">
-        <div class="founder-avatar">BH</div>
+        <img class="founder-avatar" src="headshot.jpg" alt="Benson Hsu" width="88" height="88">
         <div class="founder-name">Benson Hsu</div>
         <div class="founder-title">Pediatric Intensivist · Founder, Celeritas Health</div>
         <div style="font-size:0.75rem;color:var(--muted);margin-top:0.15rem;">MD, MBA, FAAP, FCCM</div>
         <div class="founder-quals">
           <span class="founder-qual">Princeton AB</span>
-          <span class="founder-qual">Duke MBA</span>
+          <span class="founder-qual">Duke MBA · Fuqua Scholar</span>
           <span class="founder-qual">Harvard Kennedy</span>
-          <span class="founder-qual">Ex-McKinsey</span>
+          <span class="founder-qual">McKinsey &amp; Bain Advisor</span>
           <span class="founder-qual">Board Certified: Peds, PCCM</span>
         </div>
       </div>
       <div class="founder-stats">
-        <div class="founder-stat"><span class="founder-stat-n">75+</span><span class="founder-stat-t">Peer-reviewed publications<br><span style="font-size:0.7rem;">NEJM Catalyst · Harvard Business Review</span></span></div>
-        <div class="founder-stat"><span class="founder-stat-n c-blue">2</span><span class="founder-stat-t">National leadership roles<br><span style="font-size:0.7rem;">AAP & ACCM — sets the standard for pediatric critical care</span></span></div>
-        <div class="founder-stat"><span class="founder-stat-n">32+</span><span class="founder-stat-t">Hospitals as VP, Enterprise Data & Analytics<br><span style="font-size:0.7rem;">Led data infrastructure teams across the health system</span></span></div>
-        <div class="founder-stat"><span class="founder-stat-n c-green">20y</span><span class="founder-stat-t">At the intersection of clinical medicine, health systems, and technology</span></div>
+        <div class="founder-stat"><span class="founder-stat-n">75+</span><span class="founder-stat-t">Publications &amp; 10+ national practice guidelines<br><span style="font-size:0.7rem;">NEJM Catalyst · Harvard Business Review · Surviving Sepsis Campaign</span></span></div>
+        <div class="founder-stat"><span class="founder-stat-n c-blue">ACCM</span><span class="founder-stat-t">Board of Regents (2025&ndash;)<br><span style="font-size:0.7rem;">Past AAP Section Chair · SCCM Executive Committee · SSC Children's Guidelines Panel</span></span></div>
+        <div class="founder-stat"><span class="founder-stat-n">$6B+</span><span class="founder-stat-t">Health system VP · 70-member team<br><span style="font-size:0.7rem;">Enterprise Data &amp; Analytics · $8M+ budget · Sanford Health</span></span></div>
+        <div class="founder-stat"><span class="founder-stat-n c-green">20y</span><span class="founder-stat-t">Clinical medicine, health systems, and technology<br><span style="font-size:0.7rem;">PICU attending · health system executive · McKinsey advisor · founder</span></span></div>
       </div>
       <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:4px;">
         <span class="founder-qual" style="color:var(--green-dark);border-color:rgba(27,158,110,0.2);background:rgba(27,158,110,0.04);">Bush Fellow</span>
