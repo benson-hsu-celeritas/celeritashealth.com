@@ -1,6 +1,12 @@
+# OS / editor cruft
 .DS_Store
+.claude/
 *.textClipping
+
+# Local archives (old site versions) — kept locally, never deployed
+_archive*/
+
+# Internal working docs — not part of the public site
 CELERITAS_WEB_PRESENCE_BRIEF.md
 CELERITAS_SITE_PANEL_PROMPT.md
-PANEL_PHASE1_REVIEW.md
-_archive_0626/
+PANEL_*.md
