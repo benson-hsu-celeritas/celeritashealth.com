@@ -1,0 +1,54 @@
+{
+  "site": { "name": "Celeritas Health", "domain": "celeritashealth.com", "last_updated": "TBD" },
+  "position": {
+    "identity": "Benson S. Hsu, MD, MBA. Pediatric intensivist and former health system executive. I build with AI, run the data, and decide what's worth it.",
+    "promise": "I help health systems, investors and companies decide which clinical AI to trust, invest in and build on, and how to get it adopted and grow it safely.",
+    "proof": "Every decision is backed by a lab: builds with current models, dated, with the results reported, including what broke, and a verdict on each.",
+    "method": "Four stages: Strategy, Build or buy, Rules, Proof. Every entry and every memo ends in a verdict: Build, Buy, Skip or Wait."
+  },
+  "signature_block": { "name": "Benson S. Hsu, MD, MBA", "line": "Pediatric intensivist. Former health system executive.", "brand": "CELERITAS HEALTH", "descriptor": ["Advisory", "Clinical AI lab"] },
+  "stages": [
+    { "key": "strategy", "name": "Strategy", "question": "Is it worth doing, worth investing in, and what will it cost, save or earn?" },
+    { "key": "build-or-buy", "name": "Build or buy", "question": "Build it, buy it, partner, or wait? Is the vendor's claim real? What should we innovate around?" },
+    { "key": "rules", "name": "Rules", "question": "How do we approve, govern, and keep it safe as it grows?", "frameworks": ["FDA clinical decision support criteria", "ONC HTI-1 decision-support transparency", "NIST AI RMF", "TRIPOD-LLM", "DECIDE-AI"] },
+    { "key": "proof", "name": "Proof", "question": "Is it working at our site, for our patients, and is it still true with this year's models?" }
+  ],
+  "verdicts": ["Build", "Buy", "Skip", "Wait"],
+  "card_types": ["Build", "Paper", "Memo", "Decision"],
+  "pivot_story": [
+    "I built five clinical AI tools in a year.",
+    "I tested whether any had a moat, and none did.",
+    "I learned the hard part is deciding what's safe and worth it, and proving it.",
+    "This site is how I do that, for my own tools and for yours."
+  ],
+  "doors": [
+    { "audience": "Health systems", "read_first": "CH-011", "line": "A decision memo that ends in Build, Buy, Skip or Wait, with the governance requirements attached." },
+    { "audience": "Funds", "read_first": "CH-012", "line": "A diligence read that says whether the clinical AI is real, safe and defensible, in five to ten business days." },
+    { "audience": "Consulting firms", "read_first": "method", "line": "The clinical half of an engagement: the four-stage method, by the day or by the project." }
+  ],
+  "offers": [
+    { "tier": "1", "name": "Red-flag read", "for": "Funds, health systems", "scope": "One tool or one company, deal-breakers only, one-page verdict", "turnaround": "5 business days", "note": "Credited against a tier 2 read on the same target within 90 days" },
+    { "tier": "2", "name": "Decision memo or diligence read", "for": "Health systems, funds", "scope": "Full four-stage memo, verdict, cost and governance requirements, one revision round, questions included", "turnaround": "10 business days" },
+    { "tier": "3", "name": "Multi-vendor or portfolio read", "for": "Health systems, funds", "scope": "Up to three tools or companies against one thesis", "turnaround": "15 business days" },
+    { "tier": "project", "name": "Clinical AI expert on a project", "for": "Consulting firms", "scope": "Clinical judgment on a client engagement, by the day or by the project" }
+  ],
+  "fee_line": "Fixed fee, quoted in writing before work starts. No hourly billing inside an engagement; questions are included.",
+  "engagement_steps": [
+    "A free 30-minute scope call.",
+    "Written scope, fee and turnaround.",
+    "The work.",
+    "The memo, and one revision round."
+  ],
+  "rules": {
+    "seat": "On any one company I sit on one side only: the fund's or the company's, never both.",
+    "will_not": ["No implementation.", "No product sales.", "No expert networks.", "Conflicts disclosed per engagement."],
+    "sells": "The practice sells decisions, not software."
+  },
+  "disclosure": "Tools were built on my own time with no institutional data. Advisory work is disclosed to my employer.",
+  "aequitas_separation": "Aequitas Health shares no money, staff or data with Celeritas Health.",
+  "employers_line": "TBD: employer names as they should appear, employers only, never endorsers.",
+  "contact": { "email": "TBD", "linkedin": "TBD", "reply": "Reply within two business days." },
+  "never_words": ["audit", "firm", "wing", "studio", "forthcoming"],
+  "reconciled_numbers_only": ["458 of 460", "93.6%", "217 topics", "150 approved pathways", "106 of 217", "160 / 19 / 38", "43 of 150 (28.7%)", "$55.31", "about 38 hours", "4.1% of about 2,517"],
+  "retired_numbers_never": ["10 findings", "31.3%", "103 hours", "12 societies", "217 pathways", "43-drug database", "53 reclassified"]
+}
