@@ -1,5 +1,5 @@
 {
-  "site": { "name": "Celeritas Health", "domain": "celeritashealth.com", "last_updated": "TBD" },
+  "site": { "name": "Celeritas Health", "domain": "celeritashealth.com", "last_updated": "derived from the newest non-draft entry at build", "show_drafts": true, "tagline": "Every experiment ends in a decision." },
   "position": {
     "identity": "Benson S. Hsu, MD, MBA. Pediatric intensivist and former health system executive. I build with AI, run the data, and decide what's worth it.",
     "promise": "I help health systems, investors and companies decide which clinical AI to trust, invest in and build on, and how to get it adopted and grow it safely.",
@@ -24,13 +24,13 @@
   "doors": [
     { "audience": "Health systems", "read_first": "CH-011", "line": "A decision memo that ends in Build, Buy, Skip or Wait, with the governance requirements attached." },
     { "audience": "Funds", "read_first": "CH-012", "line": "A diligence read that says whether the clinical AI is real, safe and defensible, in five to ten business days." },
-    { "audience": "Consulting firms", "read_first": "method", "line": "The clinical half of an engagement: the four-stage method, by the day or by the project." }
+    { "audience": "Consulting partners", "read_first": "method", "line": "The clinical half of an engagement: the four-stage method, by the day or by the project." }
   ],
   "offers": [
     { "tier": "1", "name": "Red-flag read", "for": "Funds, health systems", "scope": "One tool or one company, deal-breakers only, one-page verdict", "turnaround": "5 business days", "note": "Credited against a tier 2 read on the same target within 90 days" },
     { "tier": "2", "name": "Decision memo or diligence read", "for": "Health systems, funds", "scope": "Full four-stage memo, verdict, cost and governance requirements, one revision round, questions included", "turnaround": "10 business days" },
     { "tier": "3", "name": "Multi-vendor or portfolio read", "for": "Health systems, funds", "scope": "Up to three tools or companies against one thesis", "turnaround": "15 business days" },
-    { "tier": "project", "name": "Clinical AI expert on a project", "for": "Consulting firms", "scope": "Clinical judgment on a client engagement, by the day or by the project" }
+    { "tier": "project", "name": "Clinical AI expert on a project", "for": "Consulting partners", "scope": "Clinical judgment on a client engagement, by the day or by the project" }
   ],
   "fee_line": "Fixed fee, quoted in writing before work starts. No hourly billing inside an engagement; questions are included.",
   "engagement_steps": [
@@ -44,6 +44,19 @@
     "will_not": ["No implementation.", "No product sales.", "No expert networks.", "Conflicts disclosed per engagement."],
     "sells": "The practice sells decisions, not software."
   },
+  "lines": {
+    "lab_scope": "The lab's evidence to date is pediatric. The method is not.",
+    "candidate_not_clinical": "Pathways are research candidates for physician adjudication, not clinical documents.",
+    "verdict_definition": "A verdict is what a buyer should do: Build, Buy, Skip or Wait. It is not a grade of the work."
+  },
+  "how_entries_written": [
+    "Four sections in one order: worth doing, build or buy, rules, is it working.",
+    "The identity line first; the verdict last, with one line of reasoning and one line on what it is worth to a buyer.",
+    "Dated. Numbers only from a public deposit or a named source; retired figures never reappear.",
+    "Model names reported neutrally. Pathways are candidates, not clinical documents.",
+    "Journal status appears only in the status line; numbers may change after review.",
+    "One entry a quarter in 2027."
+  ],
   "disclosure": "Tools were built on my own time with no institutional data. Advisory work is disclosed to my employer.",
   "aequitas_separation": "Aequitas Health shares no money, staff or data with Celeritas Health.",
   "employers_line": "TBD: employer names as they should appear, employers only, never endorsers.",

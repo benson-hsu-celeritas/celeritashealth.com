@@ -60,7 +60,7 @@ Guideline author on more than fifteen national documents; more than 110 publicat
 - Tools were built on my own time with no institutional data. Advisory work is disclosed to my employer.
 - Aequitas Health shares no money, staff or data with Celeritas Health.
 - Past vendor advisory: GetWellNetwork (2020 to 2021). No current vendor ties.
-- Founder and president of Aequitas Health and Celeritas Health; equity in both.
+- Founder and president of Aequitas Health and of Celeritas Health. TBD: the ownership and compensation wording for each (Aequitas is a nonprofit).
 - On any one company I sit on one side only: the fund's or the company's.
 
 ## Contact
