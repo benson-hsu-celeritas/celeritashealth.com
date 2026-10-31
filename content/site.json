@@ -26,12 +26,12 @@
       "key": "strategy",
       "name": "Strategy",
       "question": "Is it worth doing, worth investing in, and what will it cost, save or earn?",
-      "background": "I was a health system vice president and worked on the payer side. Duke MBA. Advisory roles at McKinsey and Bain."
+      "background": "I was a health system vice president and worked on the payer side. Duke MBA. Advisory roles at McKinsey and Bain. TBD: what may be said publicly about McKinsey and Bain."
     },
     {
       "key": "build-or-buy",
       "name": "Build or buy",
-      "question": "Build, buy, partner or wait? Is the vendor's claim true? Where is it worth building our own?",
+      "question": "Build, buy, partner or wait? Is the vendor's claim true, and where is it worth building our own?",
       "background": "I built five tools with current models and agents in 2026, and before that ran a health system's data function."
     },
     {
@@ -51,7 +51,7 @@
       "key": "proof",
       "name": "Proof",
       "question": "Does it work here, on our patients, and does it still work on this year's models?",
-      "background": "I ran enterprise data and analytics. In 2026 I checked my own papers against their files and retired two. Verdicts are re-tested quarterly."
+      "background": "I ran enterprise data and analytics. In 2026 I checked my own papers against their files and retired two. A verdict is dated, and a re-test gets its own entry."
     }
   ],
   "verdicts": [
@@ -83,7 +83,7 @@
     {
       "audience": "Funds",
       "read_first": "CH-012",
-      "line": "A diligence read in five to ten business days. It says whether the clinical AI is real and safe, and what you could not defend later.",
+      "line": "A diligence read in ten business days, or a red-flag read in five. It says whether the clinical AI is real and safe, and what you could not defend later.",
       "link_label": "See the offer",
       "sample_label": "Sample read"
     },
@@ -91,7 +91,7 @@
       "audience": "Consulting partners",
       "read_first": "method",
       "line": "The clinical half of your engagement, by the day or by the project, run on the four-stage method.",
-      "link_label": "Start with the method"
+      "link_label": "See the method"
     }
   ],
   "offers": [
@@ -107,7 +107,7 @@
       "tier": "2",
       "name": "Decision memo or diligence read",
       "for": "Health systems, funds",
-      "scope": "The full four-stage memo with a verdict, the cost, and the governance requirements. One revision round. Your questions along the way are included.",
+      "scope": "The full four-stage memo with a verdict, the cost, and the governance requirements. One revision round.",
       "turnaround": "10 business days"
     },
     {
@@ -121,7 +121,7 @@
       "tier": "project",
       "name": "Clinical AI expert on a project",
       "for": "Consulting partners",
-      "scope": "Clinical judgment on a client engagement, by the day or by the project"
+      "scope": "Clinical judgment on a client engagement."
     }
   ],
   "fee_line": "Fixed fee, quoted in writing before work starts. No hourly billing inside an engagement; questions are included.",
@@ -199,7 +199,7 @@
     "about_description": "The two-minute story, the bio by the four stages, papers and deposits, disclosures."
   },
   "offers_summary": "Three reads, in 5, 10 or 15 business days, and a day rate for consulting partners. One fixed fee, in writing, before I start.",
-  "how_i_write": "Every entry runs in the same order: is it worth doing, build or buy, what rules apply, is it working. It opens with who I am and closes with a verdict, one line on why, and one line on what it is worth to you. Every number comes from a public deposit or a named source, and a figure I have retired does not come back in another form. I name the models I used and report them without favor. Where a paper is under review I say so, and its numbers may move. From 2027, one entry a quarter.",
+  "how_i_write": "Every entry runs in the same order: is it worth doing, build or buy, what rules apply, is it working. It opens with who I am and closes with a verdict, one line on why, and one line on what it is worth to you. Every number comes from a public deposit or a named source, and a figure I have retired does not come back in another form. I name the models I used and report what each did. Where a paper is under review I say so, and its numbers may move. From 2027, one entry a quarter.",
   "nav": [
     {
       "label": "Home",
@@ -226,7 +226,7 @@
     "lab_in_progress": "In progress",
     "advisory_offers": "Three reads and a day rate",
     "advisory_steps": "From first call to memo",
-    "advisory_samples": "Two sample memos",
+    "advisory_samples": "A sample memo and a sample read",
     "advisory_rules": "The seat rule",
     "advisory_contact": "Email me",
     "about_bio": "What I have done, by stage",
@@ -252,7 +252,7 @@
     "scope_call": "Start with a scope call",
     "write_to": "Write to me at",
     "sample_pdf": "PDF: TBD.",
-    "published_memo": "Until the samples exist, CH-004 is the one published memo on the wall. It is about my own papers, not a vendor, and it runs in the same four sections a client memo does.",
+    "published_memo": "Until the samples exist, CH-004 is the one published memo on the wall. It is about my own papers, not a vendor, and it runs in the same four sections a client memo does. It will not show you a cost or a governance list; it shows how a verdict is reasoned.",
     "reveal_link": "See what the checks caught, line by line, on CH-001.",
     "reveal_pending": "This space will hold a real excerpt from one pathway, copied from the deposit, with every line the gates caught marked. TBD: the excerpt.",
     "footer_copyright": "Nothing on this site is a clinical document.",
@@ -297,7 +297,8 @@
     "in_preparation_note": "in preparation",
     "lab_wall_link": "lab wall",
     "no_published_type": "No published entries of this type yet",
-    "bio_nav": "Sections of the bio"
+    "bio_nav": "Sections of the bio",
+    "note_label": "Note"
   },
   "figures": {
     "method": {

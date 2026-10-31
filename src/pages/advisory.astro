@@ -19,7 +19,7 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
     <p><a class="btn" href="#contact">{micro.scope_call}</a></p>
   </section>
   <section class="section wrap" id="method" aria-labelledby="method-h">
-    <h2 id="method-h" class="display">{site.position.method}</h2>
+    <h2 id="method-h" class="lede methodline">{site.position.method}</h2>
     <Cells entries={entries} />
     {drafts > 0 && <p class="mono muted prep">{drafts} {micro.entries_in_preparation} <a href="/lab/">{micro.lab_wall_link}</a>.</p>}
     <p class="muted scope">{site.lines.lab_scope}</p>
@@ -27,11 +27,6 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
   <section class="section wrap" id="offers" aria-labelledby="offers-h">
     <h2 id="offers-h">{headings.advisory_offers}</h2>
     <Offers />
-  </section>
-  <section class="section wrap" id="rules" aria-labelledby="rules-h">
-    <h2 id="rules-h">{headings.advisory_rules}</h2>
-    <p class="lede seat">{site.rules.seat}</p>
-    <p class="willnot">{site.rules.will_not.join(' ')}</p>
   </section>
   <section class="section wrap" aria-labelledby="steps-h">
     <h2 id="steps-h">{headings.advisory_steps}</h2>
@@ -53,6 +48,11 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
     </ul>
     <p class="memo" set:html={memoLine} />
   </section>
+  <section class="section wrap" id="seat" aria-labelledby="seat-h">
+    <h2 id="seat-h">{headings.advisory_rules}</h2>
+    <p class="lede seat">{site.rules.seat}</p>
+    <p class="willnot">{site.rules.will_not.join(' ')}</p>
+  </section>
   <section class="section wrap" id="contact" aria-labelledby="contact-h">
     <h2 id="contact-h">{headings.advisory_contact}</h2>
     <Contact subject="Scope call" />
@@ -63,7 +63,7 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
   h1 { font-size: clamp(1.6rem, 1rem + 2vw, 2.7rem); max-width: 30ch; }
   .summary { max-width: 46ch; font-size: 1.02rem; }
   h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin: 0 0 1.25rem; max-width: 30ch; }
-  h2.display { font-size: clamp(1.5rem, 1rem + 1.8vw, 2.4rem); }
+  .methodline { max-width: 40ch; margin-bottom: 1.5rem; }
   .samples { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
   .samples li { border-bottom: 1px solid var(--line); padding: 1.1rem 0; display: grid; gap: 0.5rem; }
   .samples h3 { font-size: 1.25rem; }

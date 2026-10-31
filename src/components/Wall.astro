@@ -17,13 +17,13 @@ const draftCount = (t: string) => drafts.filter((e) => e.data.type === t).length
     <fieldset>
       <legend class="eyebrow">{micro.filter_type}</legend>
       <button type="button" data-f-type="" aria-pressed="true">{micro.filter_all} <span class="n">{entries.length}</span></button>
-      {types.map((t) => <button type="button" data-f-type={t} aria-pressed="false" disabled={count(t) === 0 || undefined} title={count(t) === 0 ? micro.no_published_type : undefined}>{t} <span class="n">{count(t)}</span></button>)}
+      {types.filter((t) => count(t) > 0).map((t) => <button type="button" data-f-type={t} aria-pressed="false">{t} <span class="n">{count(t)}</span></button>)}
     </fieldset>
     <fieldset>
       <legend class="eyebrow">{micro.filter_stage}</legend>
       {stages.map((s) => <button type="button" data-f-stage={s.key} aria-pressed="false">{s.name}</button>)}
     </fieldset>
-    <p class="status mono muted" data-f-status aria-live="polite">{micro.showing_all} {entries.length} {micro.newest_first}</p>
+    <p class="status mono muted" data-f-status aria-live="polite"></p>
   </form>
 
   <table class="flowsheet">
@@ -112,6 +112,7 @@ const draftCount = (t: string) => drafts.filter((e) => e.data.type === t).length
   button:disabled { color: var(--muted); opacity: 0.6; cursor: not-allowed; }
   .n { opacity: 0.8; margin-left: 0.15rem; }
   .status { margin-top: 0.25rem; }
+  .status:empty { display: none; }
 
   .flowsheet { width: 100%; border-collapse: collapse; margin-bottom: 2.5rem; font-size: 0.92rem; }
   .flowsheet th { text-align: left; font-weight: 400; color: var(--muted); padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--ink); white-space: nowrap; }
@@ -144,6 +145,8 @@ const draftCount = (t: string) => drafts.filter((e) => e.data.type === t).length
     .flowsheet td.st { text-align: left; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
     .flowsheet td.st.on { color: var(--ink); }
     .flowsheet td.st::after { content: attr(data-label); margin-left: 0.35rem; }
+    .flowsheet .drafts td.st { display: none; }
+    .flowsheet .drafts tr.frow { padding: 0.5rem 0; }
   }
   .grid { display: grid; gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); grid-template-columns: 1fr; }
   @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }

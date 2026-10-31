@@ -16,6 +16,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn
     const dark = document.documentElement.dataset.theme === 'dark' ||
       (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
     btn.dataset.active = dark ? 'dark' : 'light';
+    document.querySelector('meta[data-theme-color]')?.setAttribute('content', dark ? '#161616' : '#F6F4EE');
     btn.setAttribute('aria-label', `Light / Dark. Color mode is ${dark ? 'dark' : 'light'}; switch to ${dark ? 'light' : 'dark'}.`);
   };
   btn.hidden = false;

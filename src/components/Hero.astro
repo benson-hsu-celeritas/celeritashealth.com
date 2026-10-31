@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import headshot from '../assets/headshot.jpg';
-import StageRail from './StageRail.astro';
 import { site, micro, identityParts, fmtDate, entryHref, spell, type Entry } from '../lib/site';
 import { tbd } from '../lib/tbd';
 /** The first screen: the identity line, the newest verdict, two doors as ruled rows, then promise, proof and method. */
@@ -11,7 +10,10 @@ const { name, rest } = identityParts();
 ---
 <section class="hero wrap" aria-labelledby="identity">
   <div class="text">
-    <h1 id="identity" class="identity"><span class="name">{name}</span> <span class="rest">{rest}</span></h1>
+    <div class="idrow">
+      <div class="photo-sm"><Image src={headshot} alt="Benson S. Hsu" widths={[144, 288]} sizes="72px" format="webp" quality={78} loading="eager" /></div>
+      <h1 id="identity" class="identity"><span class="name">{name}</span> <span class="rest">{rest}</span></h1>
+    </div>
     {newest && <p class="newest">
       <span class="eyebrow">{micro.newest_label}</span>
       <a class="nv" href={entryHref(newest)}>
@@ -26,10 +28,7 @@ const { name, rest } = identityParts();
     </nav>
     <p class="promise lede">{site.position.promise}</p>
     <p class="proof">{site.position.proof}</p>
-    <div class="method">
-      <p class="muted">{site.position.method}</p>
-      <StageRail lit={['strategy', 'build-or-buy', 'rules', 'proof']} />
-    </div>
+    <p class="method muted">{site.position.method}</p>
   </div>
   <div class="photo">
     <Image src={headshot} alt="Benson S. Hsu" widths={[320, 480, 720]} sizes="(min-width: 900px) 300px, 60vw" format="webp" quality={78} loading="eager" />
@@ -58,5 +57,9 @@ const { name, rest } = identityParts();
   .door:hover .label { text-decoration: underline; text-decoration-color: var(--rule); }
   .promise { max-width: 36ch; }
   .proof { max-width: var(--measure); font-size: 1.02rem; }
-  .method { display: grid; gap: 0.6rem; max-width: 44ch; font-size: 0.95rem; }
+  .method { max-width: 44ch; font-size: 0.95rem; }
+  .idrow { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 1rem; align-items: start; }
+  .photo-sm { width: 72px; }
+  .photo-sm img { width: 72px; height: auto; }
+  @media (min-width: 900px) { .idrow { grid-template-columns: 1fr; } .photo-sm { display: none; } }
 </style>

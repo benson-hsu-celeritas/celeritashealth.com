@@ -3,18 +3,18 @@ import { existsSync } from 'node:fs';
 import { tbd } from '../lib/tbd';
 import { micro } from '../lib/site';
 /** A drawn figure made in Canva, two exports (light and dark), with its notes beside it in HTML. Until the exports exist the slot shows a visible marker. */
-interface Props { figure: { title: string; src_light: string; src_dark: string; width: number; height: number; alt: string; notes: string[] }; status: string }
-const { figure: f, status } = Astro.props;
+interface Props { figure: { title: string; src_light: string; src_dark: string; width: number; height: number; alt: string; notes: string[] } }
+const { figure: f } = Astro.props;
 const have = existsSync(`public${f.src_light}`) && existsSync(`public${f.src_dark}`);
 ---
 <figure class="fig">
   <div class="art">
     {have
-      ? <><img class="light" src={f.src_light} width={f.width} height={f.height} alt={f.alt} loading="lazy" decoding="async" /><img class="dark" src={f.src_dark} width={f.width} height={f.height} alt={f.alt} loading="lazy" decoding="async" /></>
+      ? <><img class="light" src={f.src_light} width={f.width} height={f.height} alt={f.alt} loading="eager" fetchpriority="high" decoding="async" /><img class="dark" src={f.src_dark} width={f.width} height={f.height} alt={f.alt} loading="eager" decoding="async" /></>
       : <p class="mono muted pending" set:html={tbd(micro.figure_pending)} />}
   </div>
   <figcaption>
-    <p class="cap"><span class="serif t">{f.title}.</span> <span class="mono muted" set:html={tbd(status)} /></p>
+    <p class="cap"><span class="serif t">{f.title}</span></p>
     <p class="eyebrow">{micro.figure_notes}</p>
     <ol class="notes">{f.notes.map((n) => <li set:html={tbd(n)} />)}</ol>
   </figcaption>

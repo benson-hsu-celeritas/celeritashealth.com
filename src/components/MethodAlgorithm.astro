@@ -23,58 +23,73 @@ const verdicts = site.verdicts as string[];
           </li>)}
         </ol>
       </div>
-      <div class="exit">
-        <svg class="diamond" viewBox="0 0 240 160" width="240" height="160" aria-hidden="true">
-          <path d="M0 80 H20" pathLength="1" data-thread />
-          <path d="M20 80 L80 20 L140 80 L80 140 Z" />
-          <text x="80" y="84" text-anchor="middle" class="mono">{f.diamond_label}</text>
-          <path d="M140 80 H160 V20 H240" pathLength="1" data-thread />
-          <path d="M160 80 V60 H240" pathLength="1" data-thread />
-          <path d="M160 80 V100 H240" pathLength="1" data-thread />
-          <path d="M160 80 V140 H240" pathLength="1" data-thread />
-        </svg>
-        <ul class="verdicts mono" aria-label="Verdicts">{verdicts.map((v) => <li>{v}</li>)}</ul>
+      <div class="exitrow">
+        <div class="exit">
+          <svg class="diamond" viewBox="0 0 240 180" width="240" height="180" aria-hidden="true">
+            <path d="M80 0 V40" pathLength="1" data-thread />
+            <path d="M20 100 L80 40 L140 100 L80 160 Z" />
+            <text x="80" y="104" text-anchor="middle" class="mono">{f.diamond_label}</text>
+            <path d="M140 100 H160 V40 H240" pathLength="1" data-thread />
+            <path d="M160 100 V80 H240" pathLength="1" data-thread />
+            <path d="M160 100 V120 H240" pathLength="1" data-thread />
+            <path d="M160 100 V160 H240" pathLength="1" data-thread />
+          </svg>
+          <ul class="verdicts mono" aria-label="Verdicts">{verdicts.map((v) => <li>{v}</li>)}</ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
 <script>
   // One motion moment: the thread draws through the algorithm as it scrolls into view. Lazy, idle, never under reduced motion.
+  // The CSS hides the thread only while this script can run; if the import fails the thread is shown at once.
   const strip = document.querySelector<HTMLElement>('[data-strip]');
   const ok = strip && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const show = () => strip?.classList.add('drawn');
   const run = async () => {
-    const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo('[data-thread]', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: 'none', stagger: 0.05, scrollTrigger: { trigger: strip, start: 'top 80%', end: 'bottom 70%', scrub: 0.4 } });
+    try {
+      const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
+      gsap.registerPlugin(ScrollTrigger);
+      strip!.classList.add('animating');
+      gsap.fromTo('[data-thread]', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: 'none', stagger: 0.05, scrollTrigger: { trigger: strip, start: 'top 80%', end: 'bottom 70%', scrub: 0.4 } });
+    } catch { show(); }
   };
-  if (ok) ('requestIdleCallback' in window ? requestIdleCallback : (f: () => void) => setTimeout(f, 300))(run);
+  if (ok) ('requestIdleCallback' in window ? requestIdleCallback : (f: () => void) => setTimeout(f, 300))(run); else show();
 </script>
 <style>
   h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); max-width: 28ch; margin-bottom: 1.5rem; }
-  .fig { display: grid; gap: 1rem; }
-  .entry { font-size: 0.78rem; }
+  .fig { display: grid; gap: 0; }
+  .entry { font-size: 0.78rem; padding-left: 3.75rem; margin-bottom: 0.75rem; }
   .track { position: relative; }
-  .thread { position: absolute; display: block; }
+  .thread { position: absolute; display: block; overflow: visible; }
   .thread path { stroke: var(--ink); stroke-width: 2; fill: none; }
+  /* No flash: while the script can run, the thread starts hidden and GSAP draws it. */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js) .algo:not(.drawn) [data-thread] { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    :global(.js) .algo.animating [data-thread] { stroke-dasharray: 1; }
+  }
   .thread.h { left: 0; right: 0; top: 21px; width: 100%; height: 2px; display: none; }
-  .thread.v { left: 21px; top: 0; bottom: 0; width: 2px; height: 100%; }
+  .thread.v { left: 21px; top: -1.6rem; width: 2px; height: calc(100% + 1.6rem); }
   .nodes { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; grid-template-columns: 1fr; position: relative; }
   .nodes a { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0.15rem 1rem; align-items: start; text-decoration: none; }
   .box { grid-row: 1 / 3; width: 44px; height: 44px; border: 1.5px solid var(--ink); background: var(--canvas); display: grid; place-items: center; font-size: 0.8rem; box-sizing: border-box; }
   .name { font-family: var(--serif); font-size: 1.3rem; line-height: 1.15; }
   .q { font-size: 0.92rem; color: var(--muted); max-width: 34ch; }
   .nodes a:hover .name { text-decoration: underline; text-decoration-color: var(--rule); }
-  .exit { display: flex; align-items: center; gap: 0; padding-left: 0; }
-  .diamond { flex: none; width: 240px; height: 160px; max-width: 60%; }
+  .exitrow { display: grid; grid-template-columns: 1fr; }
+  .exit { display: flex; align-items: flex-start; margin-left: -58px; }
+  .diamond { flex: none; width: 240px; height: 180px; }
   .diamond path { fill: none; stroke: var(--ink); stroke-width: 1.5; }
   .diamond text { fill: var(--ink); font-size: 13px; font-family: var(--mono); }
-  .verdicts { list-style: none; padding: 0 0 0 0.6rem; margin: 0; display: grid; grid-auto-rows: 40px; align-items: center; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+  .verdicts { list-style: none; padding: 20px 0 0 0.6rem; margin: 0; display: grid; grid-auto-rows: 40px; align-items: center; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
   @media (min-width: 900px) {
+    .entry { padding-left: 0; }
     .thread.h { display: block; }
     .thread.v { display: none; }
     .nodes { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .nodes a { grid-template-columns: 1fr; gap: 0.5rem; }
     .box { grid-row: auto; }
-    .exit { padding-left: 0; }
+    .exitrow { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .exit { grid-column: 4; margin-left: -58px; margin-top: 0; }
   }
 </style>

@@ -32,10 +32,9 @@ TBD: confirm the team size and system revenue figures above.
 - Fellow of the American College of Critical Care Medicine, 2020; at the time the only critical care physician in North or South Dakota with that designation.
 
 ## Proof
-- Ran an enterprise data and analytics function at a $TBD billion system.
 - Code-to-claims reconciliation of my own manuscripts, June to July 2026: seven headline numbers failed, two papers retired.
 - Four public Zenodo records with DOIs; four manuscripts under review.
-- A research protocol run on Claude Science: pre-registered, every claim tagged with how it was verified, red-teamed before and after. Two of three briefs did not survive the re-check.
+- A research protocol run on Claude Science: pre-registered, every claim tagged with how it was verified, red-teamed before and after.
 
 ## Now
 - Professor of Pediatrics, University of South Dakota Sanford School of Medicine, since 2021.
@@ -54,7 +53,7 @@ Title, venue and status. The findings are on the lab cards.
 - More than 110 peer-reviewed publications and abstracts; more than 55 invited talks; NIH NIGMS P20 principal investigator, 2020 to 2021.
 
 ## For medical affairs readers
-I have authored more than fifteen national guideline documents and more than 110 publications. I published a verification standard for referenced, AI-produced medical content, omit-then-verify, with an open deposit. Evidence synthesis with AI agents under a pre-registered, red-teamed protocol is a Q1 2027 lab entry.
+I have authored more than fifteen national guideline documents and more than 110 publications. I wrote omit-then-verify, a verification method for referenced, AI-produced medical content, with an open deposit; the paper is under review. The next lab entry, due in the first quarter of 2027, is evidence synthesis with AI agents under a pre-registered, red-teamed protocol.
 
 ## Disclosures
 - Tools were built on my own time with no institutional data. Advisory work is disclosed to my employer.

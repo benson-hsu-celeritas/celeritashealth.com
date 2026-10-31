@@ -45,15 +45,17 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 | 39 | `disclosure` (doc-fixed) passive: "Tools were built on my own time with no institutional data." to "I built the tools on my own time with no institutional data." | content/site.json | Benson |
 | 40 | `lines.candidate_not_clinical` and `lines.verdict_definition` reworded (plainer, same meaning) while TBD 21 is open; `how_entries_written` is no longer rendered as a list and `how_i_write` carries the same six facts in one paragraph. Approve with TBD 21, or strike | content/site.json | Benson |
 | 41 | Link previews: `scripts/og.mjs` now renders one OG image per page with the site's fonts; check one in iMessage, Mail and LinkedIn after deploy | scripts/og.mjs | Benson |
+| 42 | The master lockup's C and H are filled with the alert token, which is #D9694E in dark mode, so the wordmark's rubric lightens with the page. Brand call: keep it tied to the alert token, or hold it at #B0482F in both modes (a glyph, not text, so contrast rules do not bind) | src/components/Wordmark.astro | Benson |
 
-## Visible markers by page (build of Oct 31, 2026)
+## Visible markers by page (build of Oct 31, 2026, iteration 2)
 
 | Page | Markers |
 |---|---|
 | / | 5 |
 | /lab/ | 11 |
-| /lab/ch-001/ | 14 |
-| /lab/ch-002/ to /lab/ch-006/ | 3 to 4 each (footer email, LinkedIn, employers line) |
+| /lab/ch-001/ | 15 |
+| /lab/ch-002/ to /lab/ch-006/ | 3 to 4 each (footer email, LinkedIn, employers line; the CH-005 deposit) |
 | /lab/ch-007/ to /lab/ch-012/ | 8 to 13 each (draft fields) |
-| /advisory/ | 11 |
-| /about/ | 20 |
+| /advisory/ | 8 |
+| /about/ | 19 |
+| /404 | 3 |

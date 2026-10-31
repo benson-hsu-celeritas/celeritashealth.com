@@ -27,7 +27,7 @@ const { entries, expand = 'CH-001' } = Astro.props;
           </article>
         </li>)}
     </ol>
-    <p class="more"><a class="btn btn-ghost" href="/lab/">{micro.whole_wall}</a></p>
+    <p class="more"><a class="rowlink" href="/lab/">{micro.whole_wall}</a></p>
   </div>
 </section>
 <style>
@@ -37,6 +37,7 @@ const { entries, expand = 'CH-001' } = Astro.props;
   .ledger > li { border-bottom: 1px solid var(--line); }
   .ledger > li.full { padding: 1rem 0 1.5rem; }
   .ledger > li.full > :global(.card) { max-width: 44rem; border-top: 0; padding-inline: 0; background: transparent; }
+  .ledger > li.full :global(.sigwrap) { max-width: 36rem; }
   .row { display: grid; gap: 0.5rem 2rem; padding: 1.1rem 0; grid-template-columns: 1fr; grid-template-areas: "byline" "meta" "title" "rail" "v"; }
   @media (min-width: 900px) { .row { grid-template-columns: minmax(0, 1fr) 20rem; grid-template-areas: "byline byline" "meta v" "title v" "rail v"; align-items: start; } }
   .byline { grid-area: byline; }
@@ -51,5 +52,7 @@ const { entries, expand = 'CH-001' } = Astro.props;
   .vw { font-family: var(--mono); font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; }
   .why { font-size: 0.92rem; }
   .doi { font-size: 0.78rem; }
-  .more { margin-top: 1.5rem; }
+  .more { margin-top: 0; }
+  .rowlink { display: block; padding: 0.9rem 0; border-bottom: 1px solid var(--ink); font-family: var(--serif); font-size: 1.2rem; text-decoration: none; }
+  .rowlink:hover { text-decoration: underline; text-decoration-color: var(--rule); }
 </style>

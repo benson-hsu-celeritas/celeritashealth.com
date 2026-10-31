@@ -42,10 +42,8 @@ const aboutPathways = ['pathways', 'citation-trace', 'access-gap'].includes(d.si
         </p>}
         {aboutPathways && <p class="muted small">{site.lines.candidate_not_clinical}</p>}
       </div>
-      <div class="body">
-        {d.figure && <Figure figure={d.figure} status={d.status} />}
-        <div class="prose"><Content /></div>
-      </div>
+      {d.figure && <div class="figcol"><Figure figure={d.figure} /></div>}
+      <div class="prose body"><Content /></div>
     </div>
     {d.id === 'CH-001' && <div class="revealwrap"><Reveal /></div>}
     <footer class="foot">
@@ -61,11 +59,11 @@ const aboutPathways = ['pathways', 'citation-trace', 'access-gap'].includes(d.si
   .writeup { padding-block: clamp(1.5rem, 4vw, 3rem) 2rem; display: grid; gap: 2rem; }
   .head { display: grid; gap: 0.8rem; }
   .id { color: var(--ink); font-weight: 600; }
-  .draftflag { color: var(--alert); }
+  .draftflag { color: var(--muted); }
   h1 { font-size: clamp(1.7rem, 1.1rem + 2.2vw, 2.9rem); max-width: 24ch; }
   .identity { font-size: 0.9rem; }
   .grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
-  @media (min-width: 900px) { .grid { grid-template-columns: 320px minmax(0, 1fr); align-items: start; } }
+  @media (min-width: 900px) { .grid { grid-template-columns: 320px minmax(0, 1fr); align-items: start; } .figcol { grid-column: 2; } .body { grid-column: 1 / -1; max-width: var(--measure); } }
   .side { display: grid; gap: 1rem; }
   .finding { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; font-size: 0.92rem; counter-reset: f; }
   .finding li { counter-increment: f; padding-left: 1.4rem; position: relative; }

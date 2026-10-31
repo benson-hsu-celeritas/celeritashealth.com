@@ -11,7 +11,7 @@ const { entries } = Astro.props;
     return <li id={s.key} class="cell">
       <h3>{s.name}</h3>
       <p class="q lede">{s.question}</p>
-      <p class="bg">{s.background}</p>
+      <p class="bg" set:html={tbd(s.background)} />
       {s.frameworks && <p class="fw">{micro.rules_frame} <span class="names">{s.frameworks.join(' · ')}.</span></p>}
       <p class="eyebrow">{micro.from_the_lab}</p>
       <ul class="cards">
