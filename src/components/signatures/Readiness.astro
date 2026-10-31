@@ -1,0 +1,14 @@
+---
+/** CH-006: a readiness scale 0 to 100 with the national median and the lowest-volume median marked. */
+const marks = [{ v: 70, l: 'median, national' }, { v: 64, l: 'median, lowest-volume departments' }];
+const W = 300;
+---
+<figure class="sig readiness">
+  <svg viewBox={`0 0 ${W} 60`} role="img" aria-labelledby="sig-ready-t">
+    <title id="sig-ready-t">A scale from 0 to 100 with two marks: 70, the national median readiness score, and 64 in the lowest-volume departments.</title>
+    <path class="draw" pathLength="1" d="M0 30 H300" stroke="var(--rule)" stroke-width="2" />
+    {[0, 25, 50, 75, 100].map((t) => <g><path d={`M${t * 3} 26 V34`} stroke="var(--rule)" /><text x={t * 3} y="48" text-anchor={t === 0 ? 'start' : t === 100 ? 'end' : 'middle'} class="lbl">{t}</text></g>)}
+    {marks.map((m, i) => <g><path d={`M${m.v * 3} 20 V40`} stroke="var(--ink)" stroke-width="2" /><text x={m.v * 3} y={i ? 58 : 12} text-anchor="middle" class="lbl ink">{m.v} {m.l}</text></g>)}
+  </svg>
+</figure>
+<style> figure { margin: 0; } svg { width: 100%; height: auto; display: block; } .lbl { font-family: var(--mono); font-size: 8.5px; fill: var(--muted); } .ink { fill: var(--ink); } </style>

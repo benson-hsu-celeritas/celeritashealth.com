@@ -1,0 +1,45 @@
+---
+import StageRail from './StageRail.astro';
+import VerdictChip from './VerdictChip.astro';
+import Signature from './Signature.astro';
+import { site, fmtDate, entryHref, type Entry } from '../lib/site';
+import { tbd } from '../lib/tbd';
+interface Props { entry: Entry; heading?: 'h2' | 'h3' }
+const { entry, heading: H = 'h3' } = Astro.props;
+const d = entry.data;
+const href = entryHref(entry);
+---
+<article class:list={['card lift', { draft: d.draft }]} data-type={d.type} data-stages={d.stages.join(' ')} data-id={d.id} id={d.id.toLowerCase()}>
+  <header class="meta mono">
+    <span class="id">{d.id}</span>
+    <span class="date" set:html={tbd(fmtDate(d.date))} />
+    <span class="type">{d.type}</span>
+    {d.draft && <span class="draftflag">Draft</span>}
+  </header>
+  <H class="title"><a href={href} set:html={tbd(d.title)} /></H>
+  <p class="identity">{site.position.identity}</p>
+  <div class="sigwrap"><Signature kind={d.signature} numbers={d.numbers} /></div>
+  <p class="status mono muted" set:html={tbd(d.status)} />
+  <ul class="finding">
+    {d.numbers.map((n) => <li set:html={tbd(n)} />)}
+  </ul>
+  <StageRail lit={d.stages} />
+  <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} compact />
+  <p class="more"><a href={href}>Read the write-up</a>{d.doi && <> · <a href={`https://doi.org/${d.doi}`} rel="noopener">Preprint</a></>}</p>
+</article>
+<style>
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 1.1rem 1.1rem 1rem; display: grid; gap: 0.8rem; align-content: start; }
+  .card.draft { border-style: dashed; }
+  .meta { display: flex; gap: 0.75rem; flex-wrap: wrap; color: var(--muted); }
+  .id { color: var(--ink); font-weight: 600; }
+  .type { border: 1px solid var(--rule); padding: 0 0.4rem; border-radius: 2px; }
+  .draftflag { color: var(--alert); border: 1px dashed var(--alert); padding: 0 0.4rem; border-radius: 2px; }
+  .title { font-size: 1.3rem; }
+  .title a { text-decoration: none; }
+  .title a:hover { text-decoration: underline; text-decoration-color: var(--rule); }
+  .identity { font-size: 0.82rem; color: var(--muted); line-height: 1.35; }
+  .finding { list-style: none; padding: 0; display: grid; gap: 0.35rem; font-size: 0.92rem; }
+  .finding li { padding-left: 0.9rem; text-indent: -0.9rem; }
+  .finding li::before { content: "–"; display: inline-block; width: 0.9rem; text-indent: 0; color: var(--muted); }
+  .more { font-size: 0.88rem; }
+</style>

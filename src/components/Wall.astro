@@ -1,0 +1,77 @@
+---
+import Card from './Card.astro';
+import { site, stages, type Entry } from '../lib/site';
+interface Props { entries: Entry[] }
+const { entries } = Astro.props;
+const types = site.card_types as string[];
+const count = (t: string) => entries.filter((e) => e.data.type === t).length;
+const draftCount = (t: string) => entries.filter((e) => e.data.type === t && e.data.draft).length;
+---
+<div class="wall" data-wall>
+  <form class="filters no-print" aria-label="Filter entries" onsubmit="return false">
+    <fieldset>
+      <legend class="eyebrow">Type</legend>
+      <button type="button" data-f-type="" aria-pressed="true">All <span class="n mono">{entries.length}</span></button>
+      {types.map((t) => <button type="button" data-f-type={t} aria-pressed="false">{t} <span class="n mono">{count(t)}</span></button>)}
+    </fieldset>
+    <fieldset>
+      <legend class="eyebrow">Stage</legend>
+      {stages.map((s) => <button type="button" data-f-stage={s.key} aria-pressed="false">{s.name}</button>)}
+    </fieldset>
+    <p class="status mono muted" data-f-status aria-live="polite">Showing all {entries.length} entries, newest first.</p>
+  </form>
+  <div class="grid" data-cards>
+    {entries.map((e) => <Card entry={e} heading="h2" />)}
+  </div>
+  <p class="empty mono muted" data-f-empty hidden>No entries match. {types.filter((t) => count(t) === draftCount(t) && draftCount(t) > 0).map((t) => `${t}: ${draftCount(t)} in preparation.`).join(' ')}</p>
+</div>
+<script>
+  const wall = document.querySelector<HTMLElement>('[data-wall]');
+  if (wall) {
+    const cards = Array.from(wall.querySelectorAll<HTMLElement>('[data-cards] > article'));
+    const typeBtns = Array.from(wall.querySelectorAll<HTMLButtonElement>('[data-f-type]'));
+    const stageBtns = Array.from(wall.querySelectorAll<HTMLButtonElement>('[data-f-stage]'));
+    const status = wall.querySelector<HTMLElement>('[data-f-status]')!;
+    const empty = wall.querySelector<HTMLElement>('[data-f-empty]')!;
+    let type = '';
+    const stagesOn = new Set<string>();
+    const apply = () => {
+      let n = 0;
+      for (const c of cards) {
+        const okT = !type || c.dataset.type === type;
+        const cs = (c.dataset.stages || '').split(' ');
+        const okS = stagesOn.size === 0 || [...stagesOn].every((s) => cs.includes(s));
+        c.hidden = !(okT && okS);
+        if (!c.hidden) n++;
+      }
+      empty.hidden = n > 0;
+      const parts = [type || 'all types', ...[...stagesOn].map((s) => s.replace(/-/g, ' '))];
+      status.textContent = `Showing ${n} of ${cards.length} entries (${parts.join(', ')}), newest first.`;
+    };
+    typeBtns.forEach((b) => b.addEventListener('click', () => {
+      type = b.dataset.fType || '';
+      typeBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      apply();
+    }));
+    stageBtns.forEach((b) => b.addEventListener('click', () => {
+      const k = b.dataset.fStage!;
+      const on = !stagesOn.has(k);
+      on ? stagesOn.add(k) : stagesOn.delete(k);
+      b.setAttribute('aria-pressed', String(on));
+      apply();
+    }));
+  }
+</script>
+<style>
+  .no-js .filters { display: none; }
+  .filters { display: grid; gap: 0.75rem; margin-bottom: 1.5rem; }
+  fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+  legend { float: left; margin-right: 0.6rem; padding: 0; }
+  button { font: inherit; font-size: 0.88rem; min-height: 36px; padding: 0.25rem 0.7rem; border: 1px solid var(--rule); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
+  button[aria-pressed="true"] { background: var(--ink); color: var(--canvas); border-color: var(--ink); }
+  .n { opacity: 0.7; margin-left: 0.2rem; }
+  .grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1080px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  .empty { margin-top: 1rem; }
+</style>

@@ -1,0 +1,19 @@
+---
+import { tbd } from "../../lib/tbd";
+/** CH-010: drawn from the card's own text only: four functions, one operator. No volumes are drawn because none are published. */
+const fns = ['Fundraising', 'Operations', 'Communications', 'Chapters'];
+---
+<figure class="sig agent-flow">
+  <svg viewBox="0 0 300 80" role="img" aria-labelledby="sig-flow-t">
+    <title id="sig-flow-t">Four boxes, fundraising, operations, communications and chapter management, each connected by a line to one box: one operator.</title>
+    {fns.map((f, i) => <g>
+      <rect x={i * 75 + 2} y="2" width="70" height="20" fill="none" stroke="var(--rule)" />
+      <text x={i * 75 + 37} y="15" text-anchor="middle" class="lbl">{f}</text>
+      <path class="draw" pathLength="1" d={`M${i * 75 + 37} 22 C ${i * 75 + 37} 45, 150 35, 150 56`} stroke="var(--ink)" stroke-width="1" fill="none" />
+    </g>)}
+    <rect x="105" y="56" width="90" height="20" fill="var(--ink)" />
+    <text x="150" y="69" text-anchor="middle" class="lbl rev">One operator</text>
+  </svg>
+  <figcaption class="mono muted" set:html={tbd("Functions as named on the card; volumes TBD.")} />
+</figure>
+<style> figure { margin: 0; } svg { width: 100%; height: auto; display: block; } .lbl { font-family: var(--mono); font-size: 8.5px; fill: var(--muted); } .rev { fill: var(--canvas); } figcaption { margin-top: 0.4rem; } </style>

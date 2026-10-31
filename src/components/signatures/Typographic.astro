@@ -1,0 +1,19 @@
+---
+import { tbd } from '../../lib/tbd';
+/** Cards without a data file: the first number, set plainly. Never a decorative drawing. */
+interface Props { numbers: string[] }
+const { numbers } = Astro.props;
+const first = numbers[0] ?? '';
+const m = first.match(/^([^,:;]*?\d[^,:;]*)(.*)$/);
+const big = m ? m[1].trim() : first;
+const rest = m ? m[2].replace(/^[,:;]\s*/, '') : '';
+---
+<p class="typo sig">
+  <span class="big" set:html={tbd(big)} />
+  {rest && <span class="rest muted" set:html={tbd(rest)} />}
+</p>
+<style>
+  .typo { display: grid; gap: 0.2rem; border-top: 1px solid var(--line); padding-top: 0.6rem; max-width: none; }
+  .big { font-family: var(--mono); font-size: clamp(1.1rem, 0.9rem + 1vw, 1.5rem); line-height: 1.2; letter-spacing: -0.01em; }
+  .rest { font-size: 0.85rem; }
+</style>

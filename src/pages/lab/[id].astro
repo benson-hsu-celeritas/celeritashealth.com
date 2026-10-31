@@ -1,0 +1,69 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StageRail from '../../components/StageRail.astro';
+import VerdictChip from '../../components/VerdictChip.astro';
+import Signature from '../../components/Signature.astro';
+import Reveal from '../../components/Reveal.astro';
+import { site, allEntries, fmtDate, entryHref } from '../../lib/site';
+import { tbd } from '../../lib/tbd';
+
+export async function getStaticPaths() {
+  const list = await allEntries();
+  return list.map((entry, i) => ({ params: { id: entry.data.id.toLowerCase() }, props: { entry, prev: list[i + 1], next: list[i - 1] } }));
+}
+const { entry, prev, next } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const title = `${d.id} ${d.title} | Celeritas Health`;
+---
+<BaseLayout title={title} description={d.reasoning} noindex={d.draft}>
+  <article class="wrap writeup">
+    <header class="head">
+      <p class="meta mono"><a href="/lab/">Clinical AI Lab</a> · <span class="id">{d.id}</span> · <span set:html={tbd(fmtDate(d.date))} /> · {d.type}{d.draft && <> · <span class="draftflag">Draft</span></>}</p>
+      <h1 set:html={tbd(d.title)} />
+      <p class="identity muted">{site.position.identity}</p>
+      <p class="status mono muted" set:html={tbd(d.status)} />
+      <StageRail lit={d.stages} size="md" links />
+    </header>
+    <div class="grid">
+      <div class="side">
+        <div class="sigwrap"><Signature kind={d.signature} numbers={d.numbers} /></div>
+        <ul class="finding">{d.numbers.map((n) => <li set:html={tbd(n)} />)}</ul>
+        {(d.doi || d.deposit) && <p class="links mono">
+          {d.doi && <a href={`https://doi.org/${d.doi}`} rel="noopener">Preprint doi:{d.doi}</a>}
+          {d.deposit && <><br /><a href={`https://doi.org/${d.deposit}`} rel="noopener">Deposit doi:{d.deposit}</a></>}
+        </p>}
+        <p class="muted small">{site.lines.candidate_not_clinical}</p>
+      </div>
+      <div class="prose body"><Content /></div>
+    </div>
+    <footer class="foot">
+      <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} />
+      <nav class="pn mono" aria-label="Other entries">
+        {next && <a href={entryHref(next)}>← {next.data.id}</a>}
+        {prev && <a href={entryHref(prev)}>{prev.data.id} →</a>}
+      </nav>
+    </footer>
+  </article>
+  {d.id === 'CH-001' && <section class="section wrap"><Reveal /></section>}
+</BaseLayout>
+<style>
+  .writeup { padding-block: clamp(1.5rem, 4vw, 3rem) 2rem; display: grid; gap: 2rem; }
+  .head { display: grid; gap: 0.8rem; }
+  .id { color: var(--ink); font-weight: 600; }
+  .draftflag { color: var(--alert); }
+  h1 { font-size: clamp(1.7rem, 1.1rem + 2.2vw, 2.9rem); max-width: 24ch; }
+  .identity { font-size: 0.9rem; }
+  .grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .grid { grid-template-columns: 320px minmax(0, 1fr); align-items: start; } .side { position: sticky; top: 1rem; } }
+  .side { display: grid; gap: 1rem; }
+  .finding { list-style: none; padding: 0; display: grid; gap: 0.4rem; font-size: 0.92rem; }
+  .finding li { padding-left: 0.9rem; text-indent: -0.9rem; }
+  .finding li::before { content: "–"; display: inline-block; width: 0.9rem; text-indent: 0; color: var(--muted); }
+  .links { font-size: 0.78rem; word-break: break-all; line-height: 2; }
+  .links a { display: inline-block; padding: 0.15rem 0; }
+  .small { font-size: 0.82rem; }
+  .foot { display: grid; gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+  .pn { display: flex; justify-content: space-between; gap: 1rem; }
+</style>

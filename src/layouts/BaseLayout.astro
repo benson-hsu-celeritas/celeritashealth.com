@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../lib/site';
+
+interface Props { title: string; description: string; noindex?: boolean; path?: string; home?: boolean; }
+const { title, description, noindex = false, home = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const og = new URL('/og.png', Astro.site).href;
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Person', '@id': `${Astro.site}#person`, name: site.signature_block.name, description: site.position.identity, url: String(Astro.site), image: new URL('/headshot.jpg', Astro.site).href, worksFor: { '@id': `${Astro.site}#org` } },
+    { '@type': 'Organization', '@id': `${Astro.site}#org`, name: site.site.name, url: String(Astro.site), founder: { '@id': `${Astro.site}#person` }, description: site.position.promise },
+    { '@type': 'WebSite', url: String(Astro.site), name: site.site.name, publisher: { '@id': `${Astro.site}#org` } },
+  ],
+};
+---
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href="/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/alegreya-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content={home ? 'website' : 'article'} />
+    <meta property="og:site_name" content={site.site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#161616" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      (function () {
+        var d = document.documentElement; d.classList.remove('no-js'); d.classList.add('js');
+        try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') d.dataset.theme = t; } catch (e) {}
+      })();
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import '../scripts/motion.ts';
+    </script>
+  </body>
+</html>

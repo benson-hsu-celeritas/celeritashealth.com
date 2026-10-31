@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import headshot from '../assets/headshot.jpg';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Contact from '../components/Contact.astro';
+import StageRail from '../components/StageRail.astro';
+import { site, stages, type StageKey } from '../lib/site';
+import { aboutSections } from '../lib/about';
+const sections = aboutSections();
+const by = (h: string) => sections.find((s) => s.heading.toLowerCase().startsWith(h.toLowerCase()));
+const story = by('The two-minute story');
+const stageSecs = stages.map((s) => ({ s, sec: by(s.name) }));
+const now = by('Now'), papers = by('Papers'), evidence = by('Evidence'), disclosures = by('Disclosures');
+---
+<BaseLayout title={site.seo.about_title} description={site.seo.about_description}>
+  <article class="wrap about">
+    <header class="head">
+      <p class="eyebrow">About</p>
+      <h1>{site.signature_block.name}</h1>
+      <p class="lede">{site.signature_block.line}</p>
+      <div class="photo"><Image src={headshot} alt="Benson S. Hsu" widths={[240, 480]} sizes="200px" format="webp" quality={78} /></div>
+    </header>
+    {story && <section class="section" id="story" aria-labelledby="story-h"><h2 id="story-h">{story.heading}</h2><div class="prose story" set:html={story.html} /></section>}
+    <section class="section" id="bio" aria-labelledby="bio-h">
+      <h2 id="bio-h">Bio by the four stages</h2>
+      <div class="stages">
+        {stageSecs.map(({ s, sec }) => sec && <section class="stage" id={`bio-${s.key}`} aria-labelledby={`bio-${s.key}-h`}>
+          <StageRail lit={[s.key as StageKey]} />
+          <h3 id={`bio-${s.key}-h`}>{s.name}</h3>
+          <div class="prose" set:html={sec.html} />
+        </section>)}
+      </div>
+    </section>
+    {now && <section class="section" id="now" aria-labelledby="now-h"><h2 id="now-h">Now</h2><div class="prose" set:html={now.html} /></section>}
+    {papers && <section class="section" id="papers" aria-labelledby="papers-h"><h2 id="papers-h">Papers and deposits</h2><p class="muted">Findings live on the lab cards; this list carries title, venue and status only.</p><div class="prose" set:html={papers.html} /></section>}
+    {evidence && <section class="section" id="evidence" aria-labelledby="evidence-h"><h2 id="evidence-h">Evidence</h2><div class="prose" set:html={evidence.html} /><p class="proofline lede">{site.position.proof}</p></section>}
+    {disclosures && <section class="section" id="disclosures" aria-labelledby="disc-h"><h2 id="disc-h">Disclosures</h2><div class="prose" set:html={disclosures.html} /></section>}
+    <section class="section" id="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Contact</h2>
+      <Contact subject="Hello" />
+      <p class="mono muted cv">CV (PDF): <mark class="tbd" title="Placeholder: not yet supplied">TBD</mark></p>
+    </section>
+  </article>
+</BaseLayout>
+<style>
+  .about { padding-top: clamp(1.5rem, 4vw, 3rem); }
+  .head { display: grid; gap: 0.75rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .head { grid-template-columns: 1fr 200px; grid-template-areas: "e p" "h p" "l p"; align-items: start; } .head .eyebrow { grid-area: e; } .head h1 { grid-area: h; } .head .lede { grid-area: l; } .photo { grid-area: p; } }
+  h1 { font-size: clamp(1.8rem, 1.1rem + 2.4vw, 3rem); }
+  .photo { max-width: 200px; }
+  .photo img { border-radius: 3px; }
+  h2 { font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin-bottom: 1rem; }
+  .story :global(p) { font-family: var(--serif); font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); line-height: 1.4; }
+  .story :global(blockquote) { display: none; }
+  .stages { display: grid; gap: 2rem; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .stages { grid-template-columns: 1fr 1fr; } }
+  .stage { display: grid; gap: 0.75rem; align-content: start; }
+  .stage h3 { font-size: 1.4rem; }
+  .proofline { margin-top: 1.5rem; }
+  .cv { margin-top: 1rem; }
+</style>

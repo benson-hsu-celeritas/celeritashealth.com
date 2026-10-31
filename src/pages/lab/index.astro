@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Wall from '../../components/Wall.astro';
+import Reveal from '../../components/Reveal.astro';
+import { site, wallEntries, lastUpdated, fmtDate } from '../../lib/site';
+import { tbd } from '../../lib/tbd';
+const entries = await wallEntries();
+const updated = await lastUpdated();
+const drafts = entries.filter((e) => e.data.draft).length;
+---
+<BaseLayout title={site.seo.lab_title} description={site.seo.lab_description}>
+  <section class="wrap head">
+    <p class="eyebrow">Clinical AI Lab</p>
+    <h1 class="identity">{site.position.identity}</h1>
+    <p class="lede">{site.site.tagline}</p>
+    <p class="proof">{site.position.proof}</p>
+    <p class="mono muted">Last updated <time datetime={updated} set:html={tbd(fmtDate(updated))} /> · {entries.length - drafts} published entries{drafts > 0 && <>, {drafts} drafts shown with their placeholders</>}</p>
+    <p class="scope muted">{site.lines.lab_scope} {site.lines.candidate_not_clinical}</p>
+  </section>
+  <section class="section wrap" aria-label="The wall">
+    <Wall entries={entries} />
+  </section>
+  <section class="section wrap" id="reveal">
+    <Reveal />
+  </section>
+  <section class="section wrap" aria-labelledby="how-h">
+    <p class="eyebrow">Method</p>
+    <h2 id="how-h">How entries are written</h2>
+    <ol class="how">{site.how_entries_written.map((l) => <li>{l}</li>)}</ol>
+    <p class="muted def">{site.lines.verdict_definition}</p>
+  </section>
+</BaseLayout>
+<style>
+  .head { padding-block: clamp(1.5rem, 4vw, 3rem) 0; display: grid; gap: 0.9rem; }
+  .identity { font-size: clamp(1.35rem, 1rem + 1.4vw, 2.1rem); max-width: 34ch; }
+  .proof { max-width: var(--measure); }
+  .scope { font-size: 0.92rem; }
+  h2 { font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin: 0.3rem 0 1rem; }
+  .how { max-width: var(--measure); display: grid; gap: 0.5rem; font-family: var(--serif); font-size: 1.1rem; padding-left: 1.4rem; }
+  .how li::marker { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+  .def { margin-top: 1rem; }
+</style>

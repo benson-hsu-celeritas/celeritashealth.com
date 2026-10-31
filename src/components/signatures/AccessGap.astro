@@ -1,0 +1,13 @@
+---
+/** CH-005: 150 marks, 43 lit, in the order the deposit counts them (no analogue first). */
+const total = 150, lit = 43, cols = 25, s = 10, g = 2;
+const W = cols * (s + g), H = Math.ceil(total / cols) * (s + g);
+---
+<figure class="sig access-gap">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="sig-gap-t">
+    <title id="sig-gap-t">{total} small squares; {lit} filled, one per pathway with no comparable public pathway at any of 18 peer sources.</title>
+    {Array.from({ length: total }, (_, i) => <rect x={(i % cols) * (s + g)} y={Math.floor(i / cols) * (s + g)} width={s} height={s} fill={i < lit ? 'var(--ink)' : 'none'} stroke="var(--rule)" stroke-width="1" />)}
+  </svg>
+  <figcaption class="mono muted">{lit} of {total} with no public analogue (28.7%)</figcaption>
+</figure>
+<style> figure { margin: 0; } svg { width: 100%; height: auto; display: block; } figcaption { margin-top: 0.4rem; } </style>

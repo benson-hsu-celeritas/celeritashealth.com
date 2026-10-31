@@ -1,0 +1,43 @@
+---
+import { stages } from '../lib/site';
+/** Four stages with the buyer's question; each links to its Advisory cell. The one GSAP moment on the site draws the connecting line. */
+---
+<section class="section strip" aria-labelledby="stages-h" data-strip>
+  <div class="wrap">
+    <p class="eyebrow">Method</p>
+    <h2 id="stages-h">Four stages. Every entry and every memo ends in a verdict.</h2>
+    <svg class="thread" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true"><path d="M0 1 H100" stroke="var(--alert)" stroke-width="2" pathLength="1" data-thread /></svg>
+    <ol class="cells">
+      {stages.map((s, i) => <li data-cell>
+        <a href={`/advisory/#${s.key}`}>
+          <span class="mono muted">0{i + 1}</span>
+          <span class="name">{s.name}</span>
+          <span class="q">{s.question}</span>
+        </a>
+      </li>)}
+    </ol>
+  </div>
+</section>
+<script>
+  // One motion moment: the thread draws across the strip as it scrolls into view. Lazy, idle, never under reduced motion.
+  const strip = document.querySelector<HTMLElement>('[data-strip]');
+  const ok = strip && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const run = async () => {
+    const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo('[data-thread]', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: 'none', scrollTrigger: { trigger: strip, start: 'top 80%', end: 'bottom 60%', scrub: 0.4 } });
+  };
+  if (ok) ('requestIdleCallback' in window ? requestIdleCallback : (f: () => void) => setTimeout(f, 300))(run);
+</script>
+<style>
+  h2 { font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin-top: 0.4rem; max-width: 24ch; }
+  .thread { display: block; width: 100%; height: 2px; margin: 1.5rem 0 0; }
+  .cells { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); }
+  @media (min-width: 640px) { .cells { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .cells { grid-template-columns: repeat(4, 1fr); } }
+  .cells a { display: grid; gap: 0.4rem; padding: 1.1rem 0; background: var(--canvas); text-decoration: none; padding-inline: 1rem; min-height: 100%; box-sizing: border-box; }
+  @media (min-width: 1000px) { .cells li:first-child a { padding-left: 0; } }
+  .name { font-family: var(--serif); font-size: 1.35rem; }
+  .q { font-size: 0.92rem; color: var(--muted); }
+  .cells a:hover .name { text-decoration: underline; text-decoration-color: var(--rule); }
+</style>
