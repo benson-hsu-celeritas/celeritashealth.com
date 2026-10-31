@@ -1,0 +1,19 @@
+---
+import Pathways from './signatures/Pathways.astro';
+import Fabrication from './signatures/Fabrication.astro';
+import AccessGap from './signatures/AccessGap.astro';
+import CitationTrace from './signatures/CitationTrace.astro';
+import Readiness from './signatures/Readiness.astro';
+import AgentFlow from './signatures/AgentFlow.astro';
+import Typographic from './signatures/Typographic.astro';
+/** Picks the drawing for a card. Only kinds backed by a data file or the card's own numbers draw anything. */
+interface Props { kind: string; numbers: string[] }
+const { kind, numbers } = Astro.props;
+---
+{kind === 'pathways' && <Pathways />}
+{kind === 'fabrication' && <Fabrication />}
+{kind === 'access-gap' && <AccessGap />}
+{kind === 'citation-trace' && <CitationTrace />}
+{kind === 'subtraction' && <Readiness />}
+{kind === 'agent-flow' && <AgentFlow />}
+{!['pathways', 'fabrication', 'access-gap', 'citation-trace', 'subtraction', 'agent-flow'].includes(kind) && <Typographic numbers={numbers} />}

@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cells from '../components/Cells.astro';
+import Offers from '../components/Offers.astro';
+import Steps from '../components/Steps.astro';
+import Contact from '../components/Contact.astro';
+import { site, allEntries, findEntry, entryHref } from '../lib/site';
+import { tbd } from '../lib/tbd';
+const entries = await allEntries();
+const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(Boolean);
+---
+<BaseLayout title={site.seo.advisory_title} description={site.seo.advisory_description}>
+  <section class="wrap head">
+    <p class="eyebrow">Advisory</p>
+    <h1>{site.position.promise}</h1>
+    <p class="lede">{site.rules.sells}</p>
+    <p class="muted">{site.lines.lab_scope}</p>
+    <p><a class="btn" href="#contact">Start with a scope call</a></p>
+  </section>
+  <section class="section wrap" id="method" aria-labelledby="method-h">
+    <p class="eyebrow">Method</p>
+    <h2 id="method-h">{site.position.method}</h2>
+    <Cells entries={entries} />
+    {entries.some((e) => e.data.draft) && <p class="mono muted prep">{entries.filter((e) => e.data.draft).length} entries in preparation, listed on the <a href="/lab/">lab wall</a>.</p>}
+  </section>
+  <section class="section wrap" id="offers" aria-labelledby="offers-h">
+    <p class="eyebrow">Offers</p>
+    <h2 id="offers-h">What you can buy</h2>
+    <Offers />
+  </section>
+  <section class="section wrap" aria-labelledby="steps-h">
+    <p class="eyebrow">Engagement</p>
+    <h2 id="steps-h">How an engagement runs</h2>
+    <Steps />
+  </section>
+  <section class="section wrap" id="samples" aria-labelledby="samples-h">
+    <p class="eyebrow">Samples</p>
+    <h2 id="samples-h">What you receive, in the format you receive it</h2>
+    <ul class="samples">
+      {samples.map((e) => <li>
+        <p class="mono muted">{e!.data.id} · {e!.data.type}</p>
+        <h3 set:html={tbd(e!.data.title)} />
+        <p set:html={tbd(e!.data.value)} />
+        <p class="mono">
+          {e!.data.draft
+            ? <span set:html={tbd(`Download (PDF): TBD, ${e!.data.status}`)} />
+            : <a href={entryHref(e!)}>Read</a>}
+        </p>
+      </li>)}
+    </ul>
+  </section>
+  <section class="section wrap" id="rules" aria-labelledby="rules-h">
+    <p class="eyebrow">Rules</p>
+    <h2 id="rules-h">The seat rule, and what the practice does not do</h2>
+    <p class="lede seat">{site.rules.seat}</p>
+    <ul class="willnot">{site.rules.will_not.map((w) => <li>{w}</li>)}</ul>
+  </section>
+  <section class="section wrap" id="contact" aria-labelledby="contact-h">
+    <p class="eyebrow">Contact</p>
+    <h2 id="contact-h">Start with a scope call</h2>
+    <Contact subject="Scope call" />
+  </section>
+</BaseLayout>
+<style>
+  .head { padding-block: clamp(1.5rem, 4vw, 3rem) 0; display: grid; gap: 1rem; }
+  h1 { font-size: clamp(1.6rem, 1rem + 2vw, 2.7rem); max-width: 30ch; }
+  h2 { font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin: 0.3rem 0 1.25rem; max-width: 30ch; }
+  .samples { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .samples { grid-template-columns: 1fr 1fr; } }
+  .samples li { border: 1px dashed var(--rule); border-radius: 3px; padding: 1.1rem; display: grid; gap: 0.5rem; background: var(--surface); }
+  .samples h3 { font-size: 1.25rem; }
+  .seat { max-width: 40ch; }
+  .prep { margin-top: 1rem; }
+  .willnot { margin-top: 1rem; display: grid; gap: 0.3rem; font-family: var(--serif); font-size: 1.1rem; }
+</style>

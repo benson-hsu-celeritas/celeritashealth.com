@@ -1,0 +1,16 @@
+---
+import { site, mailto } from '../lib/site';
+import { tbd } from '../lib/tbd';
+interface Props { subject: string }
+const { subject } = Astro.props;
+const m = mailto(subject);
+const linkedin = /TBD/.test(site.contact.linkedin) ? '' : site.contact.linkedin;
+---
+<div class="contact">
+  {m ? <a class="btn" href={m}>{site.contact.email}</a> : <p class="lede" set:html={tbd('Email: TBD')} />}
+  {linkedin ? <a class="btn btn-ghost" href={linkedin} rel="me">LinkedIn</a> : <p set:html={tbd('LinkedIn: TBD')} />}
+  <p class="muted">{site.contact.reply}</p>
+</div>
+<style>
+  .contact { display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: center; }
+</style>

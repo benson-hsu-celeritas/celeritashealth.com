@@ -1,0 +1,35 @@
+---
+import { stages, type Entry, entryHref } from '../lib/site';
+import { tbd } from '../lib/tbd';
+/** The Advisory page's four cells: the buyer's question, what you get, the lab cards that show it. */
+interface Props { entries: Entry[] }
+const { entries } = Astro.props;
+---
+<ol class="cells">
+  {stages.map((s, i) => {
+    const all = entries.filter((e) => e.data.stages.includes(s.key));
+    const cards = all.filter((e) => !e.data.draft);
+    const drafts = all.length - cards.length;
+    return <li id={s.key} class="cell">
+      <p class="mono muted">0{i + 1}</p>
+      <h3>{s.name}</h3>
+      <p class="q lede">{s.question}</p>
+      <p class="bg">{s.background}</p>
+      {s.frameworks && <p class="fw"><span class="eyebrow">Written against</span> {s.frameworks.join(' · ')}. The memo attaches the governance requirements.</p>}
+      <p class="eyebrow">Shown in the lab</p>
+      <ul class="cards">
+        {cards.map((e) => <li><a href={entryHref(e)} class="mono">{e.data.id}</a> <span set:html={tbd(e.data.title)} /></li>)}
+      </ul>
+    </li>;
+  })}
+</ol>
+<style>
+  .cells { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; background: var(--line); grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .cells { grid-template-columns: repeat(2, 1fr); } }
+  .cell { background: var(--canvas); padding: 1.25rem 1.25rem 1.25rem 0; display: grid; gap: 0.6rem; align-content: start; scroll-margin-top: 1rem; }
+  @media (min-width: 760px) { .cell { padding-inline: 1.25rem; } .cell:nth-child(odd) { padding-left: 0; } }
+  h3 { font-size: 1.5rem; }
+  .q { max-width: 34ch; }
+  .bg, .fw { font-size: 0.92rem; color: var(--muted); }
+  .cards { list-style: none; padding: 0; display: grid; gap: 0.35rem; font-size: 0.92rem; }
+</style>

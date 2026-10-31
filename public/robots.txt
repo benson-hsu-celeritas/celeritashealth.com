@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://celeritashealth.com/sitemap-index.xml

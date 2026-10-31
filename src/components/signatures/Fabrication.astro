@@ -1,0 +1,20 @@
+---
+/** CH-002: two labelled measurements with their own denominators. Rubric where the lookup caught a wrong identifier. */
+const a = { wrong: 458, total: 460 };
+const b = { verified: 279, total: 298 };
+const W = 300, bh = 14;
+---
+<figure class="sig fabrication">
+  <svg viewBox={`0 0 ${W} 38`} role="img" aria-labelledby="sig-fab-t">
+    <title id="sig-fab-t">Two bars. Naive generation: {a.wrong} of {a.total} model-proposed identifiers wrong. Deployed library after omit-then-verify: {b.verified} of {b.total} references verified.</title>
+    <rect x="0" y="0" width={W} height={bh} fill="var(--line)" />
+    <path class="draw" pathLength="1" d={`M0 ${bh / 2} H${(W * a.wrong) / a.total}`} stroke="var(--alert)" stroke-width={bh} fill="none" />
+    <rect x="0" y="24" width={W} height={bh} fill="var(--line)" />
+    <path class="draw" pathLength="1" d={`M0 ${24 + bh / 2} H${(W * b.verified) / b.total}`} stroke="var(--ink)" stroke-width={bh} fill="none" />
+  </svg>
+  <figcaption class="mono muted">Top: model-proposed identifiers, {a.wrong} of {a.total} wrong. Bottom: deployed library after omit-then-verify, {b.verified} of {b.total} verified.</figcaption>
+</figure>
+<style>
+  figure { margin: 0; } svg { width: 100%; height: auto; display: block; }
+  figcaption { margin-top: 0.4rem; }
+</style>

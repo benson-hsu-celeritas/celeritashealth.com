@@ -1,0 +1,21 @@
+---
+import Wordmark from './Wordmark.astro';
+import { site } from '../lib/site';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+const sb = site.signature_block;
+---
+<div class:list={['sigblock', { compact }]}>
+  <a class="name" href="/">{sb.name}</a>
+  {!compact && <p class="line">{sb.line}</p>}
+  <hr class="hairline" />
+  <Wordmark width={compact ? '150px' : '220px'} descriptor={!compact} />
+</div>
+<style>
+  .sigblock { display: inline-flex; flex-direction: column; gap: 0.35rem; }
+  .name { font-family: var(--sans); font-weight: 500; font-size: 1rem; text-decoration: none; letter-spacing: 0.01em; }
+  .compact .name { font-size: 0.9rem; }
+  .line { font-size: 0.85rem; color: var(--muted); }
+  .hairline { margin: 0.1rem 0 0.2rem; }
+  @media (max-width: 420px) { .compact :global(.wordmark) { width: 128px; } }
+</style>

@@ -1,0 +1,25 @@
+---
+import { tbd, isTbd } from '../lib/tbd';
+/** The last thing on every card. Neutral ink; the single rubric rule above it marks that a verdict was reached. */
+interface Props { verdict: string; reasoning?: string; value?: string; compact?: boolean }
+const { verdict, reasoning, value, compact = false } = Astro.props;
+const v = verdict.toLowerCase();
+---
+<div class:list={['verdict', `v-${v}`, { compact }]}>
+  <p class="label">
+    <span class="eyebrow">Verdict</span>
+    {isTbd(verdict) ? <span class="chip" set:html={tbd(verdict)} /> : <span class="chip">{verdict}</span>}
+  </p>
+  {reasoning && <p class="why" set:html={tbd(reasoning)} />}
+  {value && <p class="value"><span class="eyebrow">Worth</span> <span set:html={tbd(value)} /></p>}
+</div>
+<style>
+  .verdict { border-top: 2px solid var(--alert); padding-top: 0.6rem; display: grid; gap: 0.45rem; }
+  .verdict.v-tbd { border-top-color: var(--rule); }
+  .label { display: flex; align-items: center; gap: 0.6rem; }
+  .chip { font-family: var(--mono); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.02em; border: 1px solid var(--ink); padding: 0.12rem 0.55rem; border-radius: 2px; }
+  .why { font-size: 0.92rem; }
+  .value { font-size: 0.88rem; color: var(--muted); }
+  .value .eyebrow { margin-right: 0.3rem; }
+  .compact .why, .compact .value { font-size: 0.85rem; }
+</style>

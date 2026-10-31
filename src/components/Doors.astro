@@ -1,0 +1,31 @@
+---
+import { site, type Entry, findEntry, entryHref } from '../lib/site';
+import { tbd } from '../lib/tbd';
+/** Who this is for: three doors by buyer, each naming the piece to read first. A draft never becomes a dead door. */
+interface Props { entries: Entry[] }
+const { entries } = Astro.props;
+const tierFor: Record<string, string> = { 'CH-011': 'tier-2', 'CH-012': 'tier-2', method: 'method' };
+---
+<ul class="doors">
+  {site.doors.map((d) => {
+    const e = d.read_first === 'method' ? undefined : findEntry(entries, d.read_first);
+    const ready = e && !e.data.draft;
+    return <li class="lift">
+      <h3>{d.audience}</h3>
+      <p>{d.line}</p>
+      <p class="read mono">
+        {d.read_first === 'method' && <a href="/advisory/#method">Read first: the method</a>}
+        {ready && <a href={entryHref(e!)}>Read first: {e!.data.id}</a>}
+        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>Read first: the offer</a><br /><span set:html={tbd(`Sample ${e.data.id}: TBD`)} /></>}
+      </p>
+    </li>;
+  })}
+</ul>
+<style>
+  .doors { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .doors { grid-template-columns: repeat(3, 1fr); } }
+  li { border: 1px solid var(--line); background: var(--surface); border-radius: 3px; padding: 1.1rem; display: grid; gap: 0.5rem; align-content: start; }
+  h3 { font-size: 1.25rem; }
+  p { font-size: 0.95rem; }
+  .read { font-size: 0.78rem; }
+</style>

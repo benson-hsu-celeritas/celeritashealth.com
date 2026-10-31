@@ -1,0 +1,32 @@
+---
+import { site, mailto } from '../lib/site';
+/** Offers as structure: for whom, turnaround, inclusions. No prices. */
+---
+<ol class="offers">
+  {site.offers.map((o) => {
+    const m = mailto(`Scope call: ${o.name}`);
+    return <li id={`tier-${o.tier}`} class="offer">
+      <p class="tier mono muted">{o.tier === 'project' ? 'Project' : `Tier ${o.tier}`}</p>
+      <h3>{o.name}</h3>
+      <dl>
+        <div><dt>For</dt><dd>{o.for}</dd></div>
+        {o.turnaround && <div><dt>Turnaround</dt><dd class="mono">{o.turnaround}</dd></div>}
+        <div><dt>Includes</dt><dd>{o.scope}</dd></div>
+        {o.note && <div><dt>Note</dt><dd>{o.note}</dd></div>}
+      </dl>
+      {m ? <a class="btn" href={m}>Book a scope call</a> : <p class="mono muted">Scope call: email <mark class="tbd" title="Placeholder: not yet supplied">TBD</mark></p>}
+    </li>;
+  })}
+</ol>
+<p class="fee lede">{site.fee_line}</p>
+<style>
+  .offers { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .offers { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .offers { grid-template-columns: repeat(4, 1fr); } }
+  .offer { border: 1px solid var(--line); background: var(--surface); border-radius: 3px; padding: 1.1rem; display: grid; gap: 0.75rem; align-content: start; scroll-margin-top: 1rem; }
+  h3 { font-size: 1.3rem; }
+  dl { margin: 0; display: grid; gap: 0.5rem; font-size: 0.92rem; }
+  dt { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  dd { margin: 0.1rem 0 0; }
+  .fee { margin-top: 1.5rem; max-width: 50ch; }
+</style>

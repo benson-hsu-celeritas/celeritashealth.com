@@ -1,0 +1,30 @@
+---
+import data from '../../../content/data/pathways.json';
+/** One line per released pathway (150). Length by the phase-4 external result; a rubric tick where an internal gate caught something in phase 2. */
+const rows = data.pathways;
+const c = data.counts;
+const cols = 30, rowsN = Math.ceil(rows.length / cols);
+const cw = 10, rh = 34, pad = 2;
+const W = cols * cw, H = rowsN * rh;
+const len = (p4: string) => (p4 === 'match' ? 26 : p4 === 'minor_differences' ? 18 : 10);
+---
+<figure class="sig pathways">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="sig-pathways-t" preserveAspectRatio="xMidYMid meet">
+    <title id="sig-pathways-t">{rows.length} released pathways drawn as lines: long where a peer source matched, medium for minor differences, short where no public source was found; a rubric tick marks the {c.phase2_fail} caught by an internal gate.</title>
+    {rows.map((p, i) => {
+      const x = (i % cols) * cw + cw / 2;
+      const y0 = Math.floor(i / cols) * rh + pad;
+      const l = len(p.phase4);
+      return <g>
+        <path class="draw" pathLength="1" d={`M${x} ${y0 + 28} V${y0 + 28 - l}`} stroke={p.phase2 === 'pass' ? 'var(--ink)' : 'var(--muted)'} stroke-width="1.5" fill="none" stroke-linecap="round" />
+        {p.phase2 === 'fail' && <path d={`M${x - 2.5} ${y0 + 31} H${x + 2.5}`} stroke="var(--alert)" stroke-width="2" />}
+      </g>;
+    })}
+  </svg>
+  <figcaption class="mono muted">{c.approved_pathways} released of {c.topics_processed} topics · phase 2 internal gates: {c.phase2_pass} clean, {c.phase2_fail} caught and patched · phase 4 external: {c.phase4_match} matched, {c.phase4_minor_differences} minor differences, {c.phase4_no_source_found} no source found</figcaption>
+</figure>
+<style>
+  figure { margin: 0; }
+  svg { width: 100%; height: auto; display: block; }
+  figcaption { margin-top: 0.4rem; }
+</style>

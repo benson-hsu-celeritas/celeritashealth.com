@@ -1,0 +1,39 @@
+---
+import SignatureBlock from './SignatureBlock.astro';
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/lab/', label: 'Clinical AI Lab' },
+  { href: '/advisory/', label: 'Advisory' },
+  { href: '/about/', label: 'About' },
+];
+const current = (h: string) => (h === '/' ? path === '/' : path.startsWith(h));
+---
+<header class="site-header">
+  <div class="wrap row">
+    <SignatureBlock compact />
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" hidden>
+      <span class="sr-only">Colour mode: </span><span data-label>Dark mode</span>
+    </button>
+    <nav aria-label="Primary">
+      <ul>
+        {nav.map((n) => <li><a href={n.href} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  .site-header { border-bottom: 1px solid var(--line); padding-block: 0.9rem; }
+  .row { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "sb toggle" "nav nav"; align-items: start; gap: 0.5rem 1rem; }
+  @media (min-width: 760px) { .row { grid-template-columns: 1fr auto auto; grid-template-areas: "sb nav toggle"; align-items: end; } }
+  .row > :global(.sigblock) { grid-area: sb; }
+  nav { grid-area: nav; }
+  .theme-toggle { grid-area: toggle; justify-self: end; align-self: start; }
+  nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 0.25rem 1.25rem; flex-wrap: wrap; align-items: center; }
+  nav a { text-decoration: none; font-size: 0.95rem; padding: 0.6rem 0; display: inline-block; border-bottom: 2px solid transparent; }
+  nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+  nav a:hover { border-bottom-color: var(--rule); }
+  .theme-toggle { font: inherit; font-size: 0.8rem; color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; min-height: 32px; margin-top: 0.1rem; }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--ink); }
+  @media (max-width: 640px) { nav a { padding: 0.5rem 0; font-size: 0.9rem; } }
+</style>

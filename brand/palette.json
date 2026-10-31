@@ -1,0 +1,23 @@
+{
+  "palette": {
+    "slate": "#2E3A47",
+    "rubric": "#B0482F",
+    "white": "#FFFFFF",
+    "paper": "#F6F4EE",
+    "rule": "#D9D9D9",
+    "ink": "#161616",
+    "muted": "#5B6470",
+    "line": "#E9E9E9"
+  },
+  "type": {
+    "wordmark": "Cinzel outlines, redrawn; never retyped",
+    "secondary": "Alegreya Sans 400/500/700; italic for the descriptor",
+    "descriptor": "Advisory | Clinical AI lab with a hairline rule, sentence case"
+  },
+  "rules": [
+    "Rubric red only on the C and H of the master",
+    "Name in Alegreya Sans above a hairline; never touches the wordmark",
+    "Minimum 120 px; with descriptor 200 px; below 120 px use the avatar",
+    "Never: AI in the wordmark, icons, second color, gradients, outlines, shadows, photo behind"
+  ]
+}

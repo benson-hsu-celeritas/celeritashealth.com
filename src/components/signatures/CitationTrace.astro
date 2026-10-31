@@ -1,0 +1,22 @@
+---
+/** CH-003: two pathways by two review layers. The externally anchored layer caught both omissions; the model reviewer caught neither. */
+const rows = ['Pathway 1', 'Pathway 2'];
+const cols = [{ k: 'Model review', caught: false }, { k: 'External', caught: true }];
+---
+<figure class="sig citation-trace">
+  <svg viewBox="0 0 300 92" role="img" aria-labelledby="sig-trace-t">
+    <title id="sig-trace-t">A two-by-two grid: for two pathways, the cross-model reviewer flagged neither missing ceftriaxone-calcium neonatal warning; the externally anchored layer flagged both.</title>
+    {cols.map((c, j) => <text x={110 + j * 95} y="12" class="lbl">{c.k}</text>)}
+    {rows.map((r, i) => <>
+      <text x="0" y={42 + i * 30} class="lbl">{r}</text>
+      {cols.map((c, j) => <g>
+        <rect x={110 + j * 95} y={28 + i * 30} width="80" height="20" fill="none" stroke="var(--rule)" />
+        {c.caught
+          ? <path class="draw" pathLength="1" d={`M${118 + j * 95} ${38 + i * 30} l6 6 l12 -12`} stroke="var(--alert)" stroke-width="2" fill="none" />
+          : <text x={118 + j * 95} y={42 + i * 30} class="lbl">missed</text>}
+      </g>)}
+    </>)}
+  </svg>
+  <figcaption class="mono muted">Caught: 0 of 2 by the cross-model reviewer, 2 of 2 by external comparison.</figcaption>
+</figure>
+<style> figure { margin: 0; } svg { width: 100%; height: auto; display: block; } .lbl { font-family: var(--mono); font-size: 10px; fill: var(--muted); } figcaption { margin-top: 0.4rem; } </style>
