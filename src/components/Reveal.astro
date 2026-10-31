@@ -15,8 +15,9 @@ const kindLabel: Record<string, string> = {
 ---
 <section class="reveal" data-reveal={pending ? undefined : ''} aria-labelledby="reveal-h">
   <h2 id="reveal-h" class="h">What validation caught</h2>
-  <p class="intro">A real excerpt from the protocol engine's pathway <span class="mono" set:html={tbd(excerpt.pathway)} />. Move the verification across it to see each catch: a struck identifier, a flagged dose, an omission the model reviewer missed.</p>
-  {pending && <p class="pending" set:html={tbd('TBD: the excerpt is pending, verbatim from the deposit. The reveal runs on the structure until then.')} />}
+  {pending
+    ? <p class="intro">When the excerpt is loaded, verbatim from the deposit, the verification walks across it line by line and shows each catch: a struck identifier, a flagged dose, an omission the model reviewer missed. <span set:html={tbd('TBD: the excerpt, pathway ' + excerpt.pathway)} /></p>
+    : <p class="intro">An excerpt from the protocol engine's pathway <span class="mono">{excerpt.pathway}</span>. Move the verification across it to see each catch: a struck identifier, a flagged dose, an omission the model reviewer missed.</p>}
   {!pending && <div class="controls no-print">
     <button type="button" class="btn btn-ghost" data-prev>Previous catch</button>
     <label class="slider">

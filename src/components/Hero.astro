@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import headshot from '../assets/headshot.jpg';
-import Wordmark from './Wordmark.astro';
 import { site, identityParts, fmtDate } from '../lib/site';
 import { tbd } from '../lib/tbd';
 interface Props { lastUpdated: string; entryCount: number }
@@ -9,7 +8,6 @@ const { lastUpdated, entryCount } = Astro.props;
 const { name, rest } = identityParts();
 ---
 <section class="hero wrap" aria-labelledby="identity">
-  <div class="sb"><Wordmark width="220px" descriptor /></div>
   <div class="text">
     <h1 id="identity" class="identity"><span class="name">{name}</span> <span class="rest">{rest}</span></h1>
     <nav class="doors" aria-label="Start here">
@@ -26,12 +24,11 @@ const { name, rest } = identityParts();
   </div>
 </section>
 <style>
-  .hero { display: grid; gap: 1.5rem 3rem; padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; grid-template-areas: "sb" "text" "photo"; }
-  @media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) 300px; grid-template-areas: "sb sb" "text photo"; align-items: start; } }
-  .sb { grid-area: sb; display: none; }
-  @media (min-width: 760px) { .sb { display: block; } }
+  .hero { display: grid; gap: 1.5rem 3rem; padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; grid-template-areas: "text"; }
+  @media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) 300px; grid-template-areas: "text photo"; align-items: start; } }
   .text { grid-area: text; display: grid; gap: 1.25rem; }
-  .photo { grid-area: photo; max-width: 300px; }
+  .photo { grid-area: photo; max-width: 300px; display: none; }
+  @media (min-width: 900px) { .photo { display: block; } }
   .photo img { border-radius: 3px; width: 100%; height: auto; }
   .identity { font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.25rem); max-width: 28ch; line-height: 1.1; }
   .identity .name { display: block; }

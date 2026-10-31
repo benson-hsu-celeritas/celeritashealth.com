@@ -71,3 +71,27 @@ Gates at the time of the sitting: 12 cards on the wall, no never-list word, no r
 | The identity line repeats on every card | Doc wins (first line of every card); recorded |
 | Prev and next on CH-001 paired a build with a draft | Applied: prev and next move among published entries only |
 | "Claude Science" reads as vendor jargon in the Proof cell | Content; recorded for Benson |
+
+## Red team, second pass on the fixed build
+
+Verified holding from the first pass: drafts collapsed with neutral chips; the reveal static and on CH-001 only; TBD and draft chips neutral; proof line as the Lab H1 and last on About; captions as HTML text; the phone header shown once; the scope-call action in the Advisory fold; prev and next among published entries only. Also verified clean: no never-list word, no "pediatric clinical AI", no retired number, no TBD in titles, alt text or JSON-LD, redirects working, CNAME present, dark-mode borders present.
+
+| Attack | Decision |
+|---|---|
+| The TBD chip stopped at the first closing parenthesis and left the rest of a note as body copy (six places) | Applied: the clause match balances parentheses; the content cache that hid the fix is cleared on build |
+| About states "sixty" and "four billion", then disowns them on the same screen; the bio bullets carried internal options ("60 or 70+", "$8M+ per bio") | Applied: the bio bullets say TBD; the options live in TBD.md item 1; the story keeps one confirm marker, as the plan's draft does |
+| Drafts already carried verdicts | Applied: a draft's chip reads "Provisional verdict"; CH-011 and CH-012 stay TBD |
+| Home sent both paying audiences to unwritten samples with a dangling "TBD" | Applied: "Read first: the offer", then "Sample CH-011: TBD" on its own line |
+| "External comparison" clipped in the CH-003 drawing | Applied: short column heads inside the drawing, full names in the caption |
+| The Home strip's thread was rubric | Applied: ink. The rubric remains on verdict rules (one per verdict reached) and catches only |
+| The reveal lead said "a real excerpt" and gave a dead instruction while static | Applied: a pending lead that says what happens once the excerpt is loaded |
+| The footer carried an instruction to the writer on every page | Applied: "Employers: TBD."; the rule lives in TBD.md item 3 |
+| Desktop hero repeated the wordmark and name under the header | Applied: the header is the signature block on every page; the hero carries the H1 only |
+| Phone Home stranded the portrait mid-page | Applied: the portrait shows from 900 px; About carries it on phones |
+| House rules rendered as reader copy on About ("Employers appear as employers only") | Applied: removed from the Now section; TBD 3 keeps it |
+| Lowercased status text and raw "2026-12-TBD" dates | Applied: one formatter; "Dec 2026, day TBD" |
+| The entry pager was bare codes | Applied: Newer and Older with ID and title |
+| In-body cross references were plain text | Applied: CH-nnn auto-links to its write-up in rendered bodies |
+| A zero-count filter chip was selectable | Applied: disabled with a tooltip until a published entry exists |
+
+Gates after the second pass: 12 cards (6 published, 6 in preparation), no never-list word, no retired number, no hidden TBD, position lines verbatim; script 114 KB of 150; axe clean in both modes; Lighthouse 100/100/100/100 on Home, Lab, CH-001 and About, 99/100/100/100 on Advisory (mobile); every page readable and filterable with JavaScript off; signatures static under reduced motion.

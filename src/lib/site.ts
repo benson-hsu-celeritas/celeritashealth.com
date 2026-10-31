@@ -42,9 +42,11 @@ export const entryHref = (e: Entry) => `/lab/${e.data.id.toLowerCase()}/`;
 export const findEntry = (list: Entry[], id: string) => list.find((e) => e.data.id === id);
 
 export function fmtDate(d: string): string {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const partial = d.match(/^(\d{4})-(\d{2})-TBD$/);
+  if (partial) return `${months[Number(partial[2]) - 1]} ${partial[1]}, day TBD`;
   if (!dateKey(d)) return d;
   const [y, m, day] = d.split('-').map(Number);
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   return `${day} ${months[m - 1]} ${y}`;
 }
 

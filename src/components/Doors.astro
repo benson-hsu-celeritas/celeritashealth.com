@@ -16,7 +16,7 @@ const tierFor: Record<string, string> = { 'CH-011': 'tier-2', 'CH-012': 'tier-2'
       <p class="read mono">
         {d.read_first === 'method' && <a href="/advisory/#method">Read first: the method</a>}
         {ready && <a href={entryHref(e!)}>Read first: {e!.data.id}</a>}
-        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>See the offer</a> · <span set:html={tbd(`Read first: ${e.data.id}, TBD`)} /></>}
+        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>Read first: the offer</a><br /><span set:html={tbd(`Sample ${e.data.id}: TBD`)} /></>}
       </p>
     </li>;
   })}

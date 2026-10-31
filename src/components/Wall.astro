@@ -14,7 +14,7 @@ const draftCount = (t: string) => drafts.filter((e) => e.data.type === t).length
     <fieldset>
       <legend class="eyebrow">Type</legend>
       <button type="button" data-f-type="" aria-pressed="true">All <span class="n mono">{entries.length}</span></button>
-      {types.map((t) => <button type="button" data-f-type={t} aria-pressed="false">{t} <span class="n mono">{count(t)}</span></button>)}
+      {types.map((t) => <button type="button" data-f-type={t} aria-pressed="false" disabled={count(t) === 0 || undefined} title={count(t) === 0 ? `No published ${t} entries yet` : undefined}>{t} <span class="n mono">{count(t)}</span></button>)}
     </fieldset>
     <fieldset>
       <legend class="eyebrow">Stage</legend>
@@ -76,6 +76,7 @@ const draftCount = (t: string) => drafts.filter((e) => e.data.type === t).length
   legend { float: left; margin-right: 0.6rem; padding: 0; }
   button { font: inherit; font-size: 0.88rem; min-height: 36px; padding: 0.25rem 0.7rem; border: 1px solid var(--rule); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
   button[aria-pressed="true"] { background: var(--ink); color: var(--canvas); border-color: var(--ink); }
+  button:disabled { color: var(--muted); border-style: dashed; cursor: not-allowed; }
   .n { opacity: 0.7; margin-left: 0.2rem; }
   .grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
   @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }

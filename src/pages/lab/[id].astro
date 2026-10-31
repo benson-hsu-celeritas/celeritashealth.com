@@ -45,8 +45,8 @@ const title = `${d.id} ${d.title} | Celeritas Health`;
     <footer class="foot">
       <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} />
       <nav class="pn mono" aria-label="Other entries">
-        {next && <a href={entryHref(next)}>← {next.data.id}</a>}
-        {prev && <a href={entryHref(prev)}>{prev.data.id} →</a>}
+        {next && <a href={entryHref(next)}><span class="muted">Newer</span> {next.data.id} <span class="t" set:html={tbd(next.data.title)} /></a>}
+        {prev && <a href={entryHref(prev)} class="right"><span class="muted">Older</span> {prev.data.id} <span class="t" set:html={tbd(prev.data.title)} /></a>}
       </nav>
     </footer>
   </article>
@@ -69,5 +69,9 @@ const title = `${d.id} ${d.title} | Celeritas Health`;
   .links a { display: inline-block; padding: 0.15rem 0; }
   .small { font-size: 0.82rem; }
   .foot { display: grid; gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
-  .pn { display: flex; justify-content: space-between; gap: 1rem; }
+  .pn { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.8rem; }
+  .pn a { text-decoration: none; display: grid; gap: 0.15rem; max-width: 45%; }
+  .pn a:hover .t { text-decoration: underline; }
+  .pn .right { text-align: right; margin-left: auto; }
+  .pn .t { font-family: var(--sans); font-size: 0.9rem; color: var(--ink); }
 </style>

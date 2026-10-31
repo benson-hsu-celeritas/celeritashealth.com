@@ -13,7 +13,7 @@ So in 2026 I built five clinical AI tools myself, with the current models, and m
 TBD: confirm the team size and system revenue figures above.
 
 ## Strategy
-- Vice President, Enterprise Data and Analytics, Sanford Health, 2015 to 2017. A new enterprise role reporting to the system CFO. Team of TBD (60 or 70+), budget TBD ($8M+ per bio). Stood up standardization, data governance, self-service analytics in place of a service-desk model, and an evidence standard for analytics after finding programs that reported regression to the mean as success.
+- Vice President, Enterprise Data and Analytics, Sanford Health, 2015 to 2017. A new enterprise role reporting to the system CFO. Team of TBD, budget TBD. Stood up standardization, data governance, self-service analytics in place of a service-desk model, and an evidence standard for analytics after finding programs that reported regression to the mean as success.
 - Chief Medical Analytics Officer, 2017 to 2018; advisor to the board on data and analytics.
 - Vice President, Population Health, 2018 to 2019. A new enterprise role; integrated payer, contracting and provider functions for value-based care.
 - Senior Advisor to the President, Data and Analytics, Sanford Health Plan, 2020: patient and provider segmentation, value-based payment, the metrics behind it.
@@ -39,7 +39,7 @@ TBD: confirm the team size and system revenue figures above.
 
 ## Now
 - Professor of Pediatrics, University of South Dakota Sanford School of Medicine, since 2021.
-- Pediatric critical care physician, TBD employer name as it should appear, since 2023; also TBD second site since 2022. Employers appear as employers only.
+- Pediatric critical care physician, TBD employer name as it should appear, since 2023; also TBD second site since 2022.
 - Board certified in pediatric critical care medicine (2012) and general pediatrics (2008). Licensed in South Dakota, Minnesota, Iowa and Nebraska.
 - AAP Section on Critical Care: Nominations chair, past chair of the Executive Committee. SCCM Pediatric Section Executive Committee. ACCM Board of Regents, 2025 to 2026; lead, Pediatric Arm, Centers of Excellence Sepsis Workgroup.
 - TBD: current team roles (transport, governance, service line committee).

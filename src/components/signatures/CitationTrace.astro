@@ -1,7 +1,7 @@
 ---
 /** CH-003: two pathways by two review layers. The externally anchored layer caught both omissions; the model reviewer caught neither. */
 const rows = ['Pathway 1', 'Pathway 2'];
-const cols = [{ k: 'Model reviewer', caught: false }, { k: 'External comparison', caught: true }];
+const cols = [{ k: 'Model review', caught: false }, { k: 'External', caught: true }];
 ---
 <figure class="sig citation-trace">
   <svg viewBox="0 0 300 92" role="img" aria-labelledby="sig-trace-t">
@@ -17,6 +17,6 @@ const cols = [{ k: 'Model reviewer', caught: false }, { k: 'External comparison'
       </g>)}
     </>)}
   </svg>
-  <figcaption class="mono muted">Caught: 0 of 2 by model review, 2 of 2 by external grounding.</figcaption>
+  <figcaption class="mono muted">Caught: 0 of 2 by the cross-model reviewer, 2 of 2 by external comparison.</figcaption>
 </figure>
 <style> figure { margin: 0; } svg { width: 100%; height: auto; display: block; } .lbl { font-family: var(--mono); font-size: 10px; fill: var(--muted); } figcaption { margin-top: 0.4rem; } </style>

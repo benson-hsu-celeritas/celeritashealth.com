@@ -1,6 +1,6 @@
 {
   "_note": "For the reveal on CH-001. Replace every TBD with verbatim text from the deposit (results_v2.jsonl, reference_list.jsonl) or the pathway files. Never invent an example.",
-  "pathway": "TBD pathway id, e.g. meningitis_bacterial",
+  "pathway": "TBD pathway id, for example meningitis_bacterial",
   "excerpt": [
     { "text": "TBD: a sentence from a generated pathway with a reference marker [REF-n]", "catch": null },
     { "text": "TBD: a reference line whose PMID the model proposed and the lookup rejected", "catch": { "kind": "fabricated_identifier", "struck": "PMID TBD", "replacement": "TBD verified PMID, title, year" } },

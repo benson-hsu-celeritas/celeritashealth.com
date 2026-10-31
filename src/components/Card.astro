@@ -27,7 +27,7 @@ const finding = drawn ? d.numbers : d.numbers.slice(1);
   </ul>}
   <StageRail lit={d.stages} />
   {compact
-    ? <p class="mono muted vline">Verdict <span set:html={tbd(d.verdict)} /></p>
+    ? <p class="mono muted vline">{/TBD/.test(d.verdict) ? 'Verdict' : 'Provisional verdict'} <span set:html={tbd(d.verdict)} /></p>
     : <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} compact />}
   <p class="more"><a href={href}>{compact ? 'The entry so far' : 'Read the write-up'}</a>{d.doi && <> · <a href={`https://doi.org/${d.doi}`} rel="noopener">Preprint</a></>}</p>
 </article>

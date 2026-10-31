@@ -4,9 +4,9 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 
 | # | Item | File | Owner |
 |---|---|---|---|
-| 1 | Team size and system revenue "at the time": the story says sixty and four billion; the bios say 70+ staff, $8M+ budget, $6B+ revenue today. Confirm which may appear with the employer named | content/about.md | Benson |
+| 1 | Team size, budget and system revenue "at the time": the story says sixty and four billion; the bios say 70+ staff, $8M+ budget, $6B+ revenue today. Confirm which may appear with the employer named; the bio bullets say TBD until then | content/about.md | Benson |
 | 2 | Current transport role wording: "I still fly. I direct a pediatric transport team" or "I take the transport calls" (the CV shows the flight program ending in 2018) | content/about.md | Benson |
-| 3 | Employer names as they should appear | content/site.json, content/about.md | Benson |
+| 3 | Employer names as they should appear in the footer line and the Now section; employers only, never endorsers | content/site.json, content/about.md | Benson |
 | 4 | Outside-activity disclosure wording once filed | content/site.json | Benson |
 | 5 | Email and LinkedIn URL (the site has no working call to action until this closes) | content/site.json | Benson |
 | 6 | Paper E and F venues | content/about.md, CH-005, CH-006 | Benson |
@@ -33,10 +33,10 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 
 | Page | Markers |
 |---|---|
-| / | 6 |
-| /lab/ | 37 |
-| /lab/ch-001/ | 16 |
+| / | 5 |
+| /lab/ | 11 |
+| /lab/ch-001/ | 14 |
 | /lab/ch-002/ to /lab/ch-006/ | 3 to 4 each (footer email, LinkedIn, employers line) |
-| /lab/ch-007/ to /lab/ch-012/ | 7 to 13 each (draft fields) |
+| /lab/ch-007/ to /lab/ch-012/ | 8 to 13 each (draft fields) |
 | /advisory/ | 11 |
 | /about/ | 20 |

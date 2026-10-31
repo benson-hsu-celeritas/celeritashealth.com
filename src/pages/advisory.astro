@@ -43,7 +43,7 @@ const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(
         <p set:html={tbd(e!.data.value)} />
         <p class="mono">
           {e!.data.draft
-            ? <span set:html={tbd(`Download (PDF): TBD, ${e!.data.status.toLowerCase()}`)} />
+            ? <span set:html={tbd(`Download (PDF): TBD, ${e!.data.status}`)} />
             : <a href={entryHref(e!)}>Read</a>}
         </p>
       </li>)}
