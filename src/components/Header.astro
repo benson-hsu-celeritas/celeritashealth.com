@@ -1,19 +1,14 @@
 ---
 import SignatureBlock from './SignatureBlock.astro';
+import { nav, micro } from '../lib/site';
 const path = Astro.url.pathname;
-const nav = [
-  { href: '/', label: 'Home' },
-  { href: '/lab/', label: 'Clinical AI Lab' },
-  { href: '/advisory/', label: 'Advisory' },
-  { href: '/about/', label: 'About' },
-];
 const current = (h: string) => (h === '/' ? path === '/' : path.startsWith(h));
 ---
 <header class="site-header">
   <div class="wrap row">
     <SignatureBlock compact />
-    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" hidden>
-      <span class="sr-only">Colour mode: </span><span data-label>Dark mode</span>
+    <button type="button" class="theme-toggle mono" data-theme-toggle hidden>
+      <span class="sr-only">{micro.color_mode}: </span><span class="opt" data-opt="light">{micro.theme_light}</span><span class="sep" aria-hidden="true"> / </span><span class="opt" data-opt="dark">{micro.theme_dark}</span>
     </button>
     <nav aria-label="Primary">
       <ul>
@@ -28,12 +23,13 @@ const current = (h: string) => (h === '/' ? path === '/' : path.startsWith(h));
   @media (min-width: 760px) { .row { grid-template-columns: 1fr auto auto; grid-template-areas: "sb nav toggle"; align-items: end; } }
   .row > :global(.sigblock) { grid-area: sb; }
   nav { grid-area: nav; }
-  .theme-toggle { grid-area: toggle; justify-self: end; align-self: start; }
   nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 0.25rem 1.25rem; flex-wrap: wrap; align-items: center; }
   nav a { text-decoration: none; font-size: 0.95rem; padding: 0.6rem 0; display: inline-block; border-bottom: 2px solid transparent; }
   nav a[aria-current="page"] { border-bottom-color: var(--ink); }
   nav a:hover { border-bottom-color: var(--rule); }
-  .theme-toggle { font: inherit; font-size: 0.8rem; color: var(--muted); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.7rem; cursor: pointer; min-height: 32px; margin-top: 0.1rem; }
-  .theme-toggle:hover { color: var(--ink); border-color: var(--ink); }
+  .theme-toggle { grid-area: toggle; justify-self: end; align-self: start; font: inherit; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; color: var(--muted); background: none; border: 0; padding: 0.45rem 0; cursor: pointer; min-height: 32px; }
+  .theme-toggle .opt { padding: 0.2rem 0; }
+  .theme-toggle[data-active="light"] [data-opt="light"], .theme-toggle[data-active="dark"] [data-opt="dark"] { color: var(--ink); text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1.5px; }
+  .theme-toggle:hover .opt { color: var(--ink); }
   @media (max-width: 640px) { nav a { padding: 0.5rem 0; font-size: 0.9rem; } }
 </style>

@@ -1,7 +1,8 @@
 ---
 import excerpt from '../../content/data/error-log-excerpt.json';
 import { tbd, isTbd } from '../lib/tbd';
-/** The one reveal on the site (CH-001). Tap a line, use the slider or the arrow keys, or drag the slider, to see what validation caught.
+import { headings, micro } from '../lib/site';
+/** The one reveal on the site (CH-001). Tap a line, use the slider or the arrow keys, or drag the slider, to see what the checks caught.
  *  With JavaScript off, every catch is shown. Every TBD in the excerpt is a visible marker. */
 const lines = excerpt.excerpt;
 const pending = isTbd(excerpt.pathway) || lines.some((l) => isTbd(l.text));
@@ -13,16 +14,16 @@ const kindLabel: Record<string, string> = {
   unverifiable_not_fabricated: 'Unverifiable, not fabricated',
 };
 ---
-<section class="reveal" data-reveal={pending ? undefined : ''} aria-labelledby="reveal-h">
-  <h2 id="reveal-h" class="h">What validation caught</h2>
+<section class="reveal" data-reveal={pending ? undefined : ''} aria-labelledby="reveal-h" id="reveal">
+  <h2 id="reveal-h" class="h">{headings.reveal}</h2>
   {pending
-    ? <p class="intro">When the excerpt is loaded, verbatim from the deposit, the verification walks across it line by line and shows each catch: a struck identifier, a flagged dose, an omission the model reviewer missed. <span set:html={tbd('TBD: the excerpt, pathway ' + excerpt.pathway)} /></p>
-    : <p class="intro">An excerpt from the protocol engine's pathway <span class="mono">{excerpt.pathway}</span>. Move the verification across it to see each catch: a struck identifier, a flagged dose, an omission the model reviewer missed.</p>}
+    ? <p class="intro" set:html={tbd(micro.reveal_pending)} />
+    : <p class="intro">An excerpt from the protocol engine's pathway <span class="mono">{excerpt.pathway}</span>. Move the check across it to see each catch.</p>}
   {!pending && <div class="controls no-print">
     <button type="button" class="btn btn-ghost" data-prev>Previous catch</button>
     <label class="slider">
-      <span class="sr-only">Verification position</span>
-      <input type="range" min="0" max={lines.length} value={lines.length} step="1" data-pos aria-valuetext="all lines verified" />
+      <span class="sr-only">Check position</span>
+      <input type="range" min="0" max={lines.length} value={lines.length} step="1" data-pos aria-valuetext="all lines checked" />
     </label>
     <button type="button" class="btn btn-ghost" data-next>Next catch</button>
   </div>}
@@ -54,7 +55,7 @@ const kindLabel: Record<string, string> = {
       pos.value = String(v);
       let shown = 0;
       lines.forEach((l, i) => { const on = i < v; l.classList.toggle('verified', on); if (on && l.classList.contains('has-catch')) shown++; });
-      pos.setAttribute('aria-valuetext', v === 0 ? 'nothing verified yet' : v === lines.length ? 'all lines verified' : `${v} of ${lines.length} lines verified`);
+      pos.setAttribute('aria-valuetext', v === 0 ? 'nothing checked yet' : v === lines.length ? 'all lines checked' : `${v} of ${lines.length} lines checked`);
       if (announce) count.textContent = `${shown} of ${catchIdx.length} catches shown.`;
     };
     pos.addEventListener('input', () => set(Number(pos.value)));
@@ -66,16 +67,14 @@ const kindLabel: Record<string, string> = {
   }
 </script>
 <style>
-  .reveal { display: grid; gap: 1rem; }
+  .reveal { display: grid; gap: 1rem; scroll-margin-top: 1rem; }
   .h { font-size: 1.6rem; }
-  .pending { font-size: 0.9rem; }
   .controls { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
   :global(.no-js) .controls { display: none; }
   .slider { flex: 1 1 200px; display: flex; }
   input[type="range"] { width: 100%; accent-color: var(--ink); min-height: 44px; }
-  .excerpt { list-style: none; padding: 0; margin: 0; border: 1px solid var(--line); background: var(--surface); border-radius: 3px; counter-reset: l; }
-  .line { border-top: 1px solid var(--line); }
-  .line:first-child { border-top: 0; }
+  .excerpt { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--ink); background: var(--surface); counter-reset: l; }
+  .line { border-bottom: 1px solid var(--line); }
   .linebtn { all: unset; display: grid; grid-template-columns: 2.2rem 1fr; gap: 0.5rem; width: 100%; box-sizing: border-box; padding: 0.7rem 0.9rem; cursor: pointer; font-family: var(--serif); font-size: 1rem; line-height: 1.45; }
   :global(.no-js) .linebtn { cursor: default; }
   .linebtn:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
@@ -83,7 +82,6 @@ const kindLabel: Record<string, string> = {
   .catch { margin: 0 0.9rem 0.8rem 3.6rem; display: grid; gap: 0.25rem; font-size: 0.9rem; border-left: 2px solid var(--alert); padding-left: 0.7rem; }
   .kind { color: var(--alert); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
   .struck { color: var(--muted); text-decoration-color: var(--alert); text-decoration-thickness: 2px; }
-  /* Live: catches hidden until verified; the line text is struck when verification reaches a fabricated or out-of-range item. */
   .live .line.has-catch:not(.verified) .catch { display: none; }
   .live .line.has-catch.verified .text { background: color-mix(in oklab, var(--alert) 10%, transparent); }
   .live .line.verified .n { color: var(--ink); }

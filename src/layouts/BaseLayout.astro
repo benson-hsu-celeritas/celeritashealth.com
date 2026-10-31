@@ -4,10 +4,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/site';
 
-interface Props { title: string; description: string; noindex?: boolean; path?: string; home?: boolean; }
-const { title, description, noindex = false, home = false } = Astro.props;
+interface Props { title: string; description: string; noindex?: boolean; path?: string; home?: boolean; og?: string }
+const { title, description, noindex = false, home = false, og: ogKey = 'home' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const og = new URL('/og.png', Astro.site).href;
+const og = new URL(`/og/${ogKey}.png`, Astro.site).href;
 const ld = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -41,6 +41,7 @@ const ld = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#161616" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F6F4EE" data-theme-color />
     <script is:inline>
       (function () {
         var d = document.documentElement; d.classList.remove('no-js'); d.classList.add('js');

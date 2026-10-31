@@ -1,22 +1,25 @@
 ---
-import { stages, type StageKey } from '../lib/site';
-/** The one structural device: four stages, lit where addressed. */
+import { stages, micro, type StageKey } from '../lib/site';
+/** The one structural device: four stages, a filled square where addressed. Labels always visible. */
 interface Props { lit: StageKey[]; size?: 'sm' | 'md'; links?: boolean }
 const { lit, size = 'sm', links = false } = Astro.props;
 ---
-<ol class:list={['rail', size]} aria-label="Stages addressed">
+<ol class:list={['rail', size]} aria-label={micro.stages_addressed}>
   {stages.map((s) => {
     const on = lit.includes(s.key);
-    const inner = <><span class="dot" aria-hidden="true"></span><span class="lbl">{s.name}</span>{on && <span class="sr-only"> (addressed)</span>}</>;
+    const inner = <><span class="sq" aria-hidden="true"></span><span class="lbl">{s.name}</span><span class="sr-only"> ({on ? micro.addressed : micro.not_addressed})</span></>;
     return <li class:list={{ on }}>{links ? <a href={`/advisory/#${s.key}`}>{inner}</a> : inner}</li>;
   })}
 </ol>
 <style>
-  .rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-  .rail li { position: relative; padding-top: 0.5rem; border-top: 2px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase; }
-  .rail li.on { border-top-color: var(--ink); color: var(--ink); }
-  .rail li a { text-decoration: none; display: block; }
-  .dot { position: absolute; top: -4px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
-  .on .dot { background: var(--ink); }
-  .md li { font-size: 0.75rem; padding-top: 0.65rem; }
+  .rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, max-content); justify-content: space-between; gap: 0.4rem 0.75rem; }
+  .lbl { white-space: nowrap; }
+  @media (max-width: 340px) { .rail { grid-template-columns: repeat(2, max-content); } }
+  .rail li { position: relative; padding-left: 0.85rem; color: var(--muted); font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.3; }
+  .rail li.on { color: var(--ink); }
+  .rail li a { text-decoration: none; display: block; color: inherit; }
+  .rail li a:hover .lbl { text-decoration: underline; }
+  .sq { position: absolute; top: 0.25em; left: 0; width: 7px; height: 7px; border: 1px solid var(--muted); box-sizing: border-box; }
+  .on .sq { background: var(--ink); border-color: var(--ink); }
+  .md li { font-size: 0.72rem; }
 </style>

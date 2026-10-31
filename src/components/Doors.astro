@@ -1,31 +1,34 @@
 ---
 import { site, type Entry, findEntry, entryHref } from '../lib/site';
 import { tbd } from '../lib/tbd';
-/** Who this is for: three doors by buyer, each naming the piece to read first. A draft never becomes a dead door. */
+/** Who this is for: three ruled rows by buyer, each naming where to start. A draft never becomes a dead door. */
 interface Props { entries: Entry[] }
 const { entries } = Astro.props;
 const tierFor: Record<string, string> = { 'CH-011': 'tier-2', 'CH-012': 'tier-2', method: 'method' };
+const doors = site.doors as Array<{ audience: string; read_first: string; line: string; link_label: string; sample_label?: string }>;
 ---
 <ul class="doors">
-  {site.doors.map((d) => {
+  {doors.map((d) => {
     const e = d.read_first === 'method' ? undefined : findEntry(entries, d.read_first);
     const ready = e && !e.data.draft;
-    return <li class="lift">
-      <h3>{d.audience}</h3>
-      <p>{d.line}</p>
+    return <li class="row">
+      <p class="aud mono">{d.audience}</p>
+      <p class="line">{d.line}</p>
       <p class="read mono">
-        {d.read_first === 'method' && <a href="/advisory/#method">Read first: the method</a>}
-        {ready && <a href={entryHref(e!)}>Read first: {e!.data.id}</a>}
-        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>Read first: the offer</a><br /><span set:html={tbd(`Sample ${e.data.id}: TBD`)} /></>}
+        {d.read_first === 'method' && <a href="/advisory/#method">{d.link_label}</a>}
+        {ready && <a href={entryHref(e!)}>{d.link_label}: {e!.data.id}</a>}
+        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>{d.link_label}</a> <span title={e.data.id} set:html={tbd(`${d.sample_label}: TBD`)} /></>}
       </p>
     </li>;
   })}
 </ul>
 <style>
-  .doors { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 760px) { .doors { grid-template-columns: repeat(3, 1fr); } }
-  li { border: 1px solid var(--line); background: var(--surface); border-radius: 3px; padding: 1.1rem; display: grid; gap: 0.5rem; align-content: start; }
-  h3 { font-size: 1.25rem; }
-  p { font-size: 0.95rem; }
+  .doors { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+  .row { display: grid; gap: 0.35rem 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--line); grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .row { grid-template-columns: 11rem minmax(0, 1fr) 14rem; align-items: baseline; } }
+  .aud { color: var(--ink); font-weight: 600; }
+  .line { font-size: 0.98rem; max-width: 52ch; }
   .read { font-size: 0.78rem; }
+  .read a { display: inline-block; padding: 0.4rem 0; }
+  .read span { display: inline-block; margin-left: 0.5rem; }
 </style>

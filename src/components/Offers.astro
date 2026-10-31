@@ -1,32 +1,41 @@
 ---
-import { site, mailto } from '../lib/site';
-/** Offers as structure: for whom, turnaround, inclusions. No prices. */
+import { site, micro, headings } from '../lib/site';
+/** Offers as one table: for whom, turnaround, what is included. No prices. The tier 1 credit is a footnote; the fee line sits beneath. */
+const offers = site.offers as Array<{ tier: string; name: string; for: string; scope: string; turnaround?: string; note?: string }>;
+const noted = offers.filter((o) => o.note);
 ---
-<ol class="offers">
-  {site.offers.map((o) => {
-    const m = mailto(`Scope call: ${o.name}`);
-    return <li id={`tier-${o.tier}`} class="offer">
-      <p class="tier mono muted">{o.tier === 'project' ? 'Project' : `Tier ${o.tier}`}</p>
-      <h3>{o.name}</h3>
-      <dl>
-        <div><dt>For</dt><dd>{o.for}</dd></div>
-        {o.turnaround && <div><dt>Turnaround</dt><dd class="mono">{o.turnaround}</dd></div>}
-        <div><dt>Includes</dt><dd>{o.scope}</dd></div>
-        {o.note && <div><dt>Note</dt><dd>{o.note}</dd></div>}
-      </dl>
-      {m ? <a class="btn" href={m}>Book a scope call</a> : <p class="mono muted">Scope call: email <mark class="tbd" title="Placeholder: not yet supplied">TBD</mark></p>}
-    </li>;
-  })}
-</ol>
+<table class="offers">
+  <caption class="sr-only">{headings.advisory_offers}</caption>
+  <thead>
+    <tr><th scope="col" class="mono">{micro.tier}</th><th scope="col">{micro.offers_for}</th><th scope="col">{micro.offers_turnaround}</th><th scope="col">{micro.offers_includes}</th></tr>
+  </thead>
+  <tbody>
+    {offers.map((o) => <tr id={o.tier === 'project' ? 'project' : `tier-${o.tier}`}>
+      <th scope="row"><span class="mono muted tier">{o.tier === 'project' ? micro.project : `${micro.tier} ${o.tier}`}</span><span class="name">{o.name}</span></th>
+      <td data-label={micro.offers_for}>{o.for}</td>
+      <td data-label={micro.offers_turnaround} class="ta">{o.turnaround ? <span class="mono">{o.turnaround}</span> : <span class="mono muted">{(site.offers as any)[3].scope.split(',').pop()?.trim()}</span>}</td>
+      <td data-label={micro.offers_includes}>{o.scope}{o.note && <sup><a href="#offer-note" class="fn" aria-label={`${micro.note_label} ${noted.indexOf(o) + 1}`}>{noted.indexOf(o) + 1}</a></sup>}</td>
+    </tr>)}
+  </tbody>
+</table>
+{noted.length > 0 && <ol class="notes" id="offer-note">{noted.map((o) => <li>{o.note}</li>)}</ol>}
 <p class="fee lede">{site.fee_line}</p>
 <style>
-  .offers { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 760px) { .offers { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1100px) { .offers { grid-template-columns: repeat(4, 1fr); } }
-  .offer { border: 1px solid var(--line); background: var(--surface); border-radius: 3px; padding: 1.1rem; display: grid; gap: 0.75rem; align-content: start; scroll-margin-top: 1rem; }
-  h3 { font-size: 1.3rem; }
-  dl { margin: 0; display: grid; gap: 0.5rem; font-size: 0.92rem; }
-  dt { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-  dd { margin: 0.1rem 0 0; }
+  .offers { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  .offers thead th { text-align: left; font-weight: 400; color: var(--muted); font-size: 0.75rem; padding: 0 0.8rem 0.5rem 0; border-bottom: 1px solid var(--ink); font-family: var(--mono); }
+  .offers tbody th, .offers td { text-align: left; vertical-align: top; padding: 0.9rem 0.8rem 0.9rem 0; border-bottom: 1px solid var(--line); font-weight: 400; }
+  .offers tbody th { display: grid; gap: 0.15rem; min-width: 11rem; }
+  .name { font-family: var(--serif); font-size: 1.15rem; line-height: 1.2; }
+  .ta { white-space: nowrap; }
+  .fn { text-decoration: none; font-family: var(--mono); font-size: 0.7rem; padding: 0 0.15rem; }
+  .notes { margin: 0.75rem 0 0; padding-left: 1.2rem; font-size: 0.85rem; color: var(--muted); list-style: decimal; }
+  .notes li::marker { font-family: var(--mono); font-size: 0.72rem; }
   .fee { margin-top: 1.5rem; max-width: 50ch; }
+  @media (max-width: 759px) {
+    .offers thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+    .offers tr { display: grid; gap: 0.3rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
+    .offers tbody th, .offers td { border: 0; padding: 0; }
+    .offers td::before { content: attr(data-label); display: block; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.3rem; }
+    .ta { white-space: normal; }
+  }
 </style>

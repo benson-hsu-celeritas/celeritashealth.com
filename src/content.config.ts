@@ -18,6 +18,15 @@ const entries = defineCollection({
     doi: z.string().optional(),
     deposit: z.string().optional(),
     draft: z.boolean().default(false),
+    figure: z.object({
+      title: z.string(),
+      src_light: z.string(),
+      src_dark: z.string(),
+      width: z.number(),
+      height: z.number(),
+      alt: z.string(),
+      notes: z.array(z.string()),
+    }).optional(),
   }),
 });
 

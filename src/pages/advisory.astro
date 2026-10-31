@@ -2,40 +2,38 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Cells from '../components/Cells.astro';
 import Offers from '../components/Offers.astro';
-import Steps from '../components/Steps.astro';
+import EngagementFlowsheet from '../components/EngagementFlowsheet.astro';
 import Contact from '../components/Contact.astro';
-import { site, allEntries, findEntry, entryHref } from '../lib/site';
-import { tbd } from '../lib/tbd';
+import { site, headings, micro, allEntries, findEntry, entryHref } from '../lib/site';
+import { tbd, tbdHtml } from '../lib/tbd';
 const entries = await allEntries();
 const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(Boolean);
+const drafts = entries.filter((e) => e.data.draft).length;
+const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) => `<a class="xref" href="/lab/ch-${n}/">${m}</a>`));
 ---
-<BaseLayout title={site.seo.advisory_title} description={site.seo.advisory_description}>
+<BaseLayout title={site.seo.advisory_title} description={site.seo.advisory_description} og="advisory">
   <section class="wrap head">
-    <p class="eyebrow">Advisory</p>
     <h1>{site.position.promise}</h1>
     <p class="lede">{site.rules.sells}</p>
-    <p class="muted">{site.lines.lab_scope}</p>
-    <p><a class="btn" href="#contact">Start with a scope call</a></p>
+    <p class="summary">{site.offers_summary}</p>
+    <p><a class="btn" href="#contact">{micro.scope_call}</a></p>
   </section>
   <section class="section wrap" id="method" aria-labelledby="method-h">
-    <p class="eyebrow">Method</p>
-    <h2 id="method-h">{site.position.method}</h2>
+    <h2 id="method-h" class="lede methodline">{site.position.method}</h2>
     <Cells entries={entries} />
-    {entries.some((e) => e.data.draft) && <p class="mono muted prep">{entries.filter((e) => e.data.draft).length} entries in preparation, listed on the <a href="/lab/">lab wall</a>.</p>}
+    {drafts > 0 && <p class="mono muted prep">{drafts} {micro.entries_in_preparation} <a href="/lab/">{micro.lab_wall_link}</a>.</p>}
+    <p class="muted scope">{site.lines.lab_scope}</p>
   </section>
   <section class="section wrap" id="offers" aria-labelledby="offers-h">
-    <p class="eyebrow">Offers</p>
-    <h2 id="offers-h">What you can buy</h2>
+    <h2 id="offers-h">{headings.advisory_offers}</h2>
     <Offers />
   </section>
   <section class="section wrap" aria-labelledby="steps-h">
-    <p class="eyebrow">Engagement</p>
-    <h2 id="steps-h">How an engagement runs</h2>
-    <Steps />
+    <h2 id="steps-h">{headings.advisory_steps}</h2>
+    <EngagementFlowsheet />
   </section>
   <section class="section wrap" id="samples" aria-labelledby="samples-h">
-    <p class="eyebrow">Samples</p>
-    <h2 id="samples-h">What you receive, in the format you receive it</h2>
+    <h2 id="samples-h">{headings.advisory_samples}</h2>
     <ul class="samples">
       {samples.map((e) => <li>
         <p class="mono muted">{e!.data.id} · {e!.data.type}</p>
@@ -43,33 +41,35 @@ const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(
         <p set:html={tbd(e!.data.value)} />
         <p class="mono">
           {e!.data.draft
-            ? <span set:html={tbd(`Download (PDF): TBD, ${e!.data.status}`)} />
-            : <a href={entryHref(e!)}>Read</a>}
+            ? <span set:html={tbd(`${micro.sample_pdf} ${e!.data.status}.`)} />
+            : <a href={entryHref(e!)}>{micro.read_entry}</a>}
         </p>
       </li>)}
     </ul>
+    <p class="memo" set:html={memoLine} />
   </section>
-  <section class="section wrap" id="rules" aria-labelledby="rules-h">
-    <p class="eyebrow">Rules</p>
-    <h2 id="rules-h">The seat rule, and what the practice does not do</h2>
+  <section class="section wrap" id="seat" aria-labelledby="seat-h">
+    <h2 id="seat-h">{headings.advisory_rules}</h2>
     <p class="lede seat">{site.rules.seat}</p>
-    <ul class="willnot">{site.rules.will_not.map((w) => <li>{w}</li>)}</ul>
+    <p class="willnot">{site.rules.will_not.join(' ')}</p>
   </section>
   <section class="section wrap" id="contact" aria-labelledby="contact-h">
-    <p class="eyebrow">Contact</p>
-    <h2 id="contact-h">Start with a scope call</h2>
+    <h2 id="contact-h">{headings.advisory_contact}</h2>
     <Contact subject="Scope call" />
   </section>
 </BaseLayout>
 <style>
   .head { padding-block: clamp(1.5rem, 4vw, 3rem) 0; display: grid; gap: 1rem; }
   h1 { font-size: clamp(1.6rem, 1rem + 2vw, 2.7rem); max-width: 30ch; }
-  h2 { font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin: 0.3rem 0 1.25rem; max-width: 30ch; }
-  .samples { list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 760px) { .samples { grid-template-columns: 1fr 1fr; } }
-  .samples li { border: 1px dashed var(--rule); border-radius: 3px; padding: 1.1rem; display: grid; gap: 0.5rem; background: var(--surface); }
+  .summary { max-width: 46ch; font-size: 1.02rem; }
+  h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin: 0 0 1.25rem; max-width: 30ch; }
+  .methodline { max-width: 40ch; margin-bottom: 1.5rem; }
+  .samples { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
+  .samples li { border-bottom: 1px solid var(--line); padding: 1.1rem 0; display: grid; gap: 0.5rem; }
   .samples h3 { font-size: 1.25rem; }
+  .memo { margin-top: 1.25rem; max-width: 60ch; font-size: 0.95rem; }
   .seat { max-width: 40ch; }
-  .prep { margin-top: 1rem; }
-  .willnot { margin-top: 1rem; display: grid; gap: 0.3rem; font-family: var(--serif); font-size: 1.1rem; }
+  .willnot { margin-top: 0.75rem; font-family: var(--serif); font-size: 1.1rem; max-width: 50ch; }
+  .prep, .scope { margin-top: 1rem; }
+  .scope { font-size: 0.92rem; }
 </style>

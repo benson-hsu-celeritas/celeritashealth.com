@@ -26,13 +26,13 @@
       "key": "strategy",
       "name": "Strategy",
       "question": "Is it worth doing, worth investing in, and what will it cost, save or earn?",
-      "background": "Former health system VP, payer side, Duke MBA, McKinsey and Bain advisory."
+      "background": "I was a health system vice president and worked on the payer side. Duke MBA. Advisory roles at McKinsey and Bain. TBD: what may be said publicly about McKinsey and Bain."
     },
     {
       "key": "build-or-buy",
       "name": "Build or buy",
-      "question": "Build it, buy it, partner, or wait? Is the vendor's claim real? What should we innovate around?",
-      "background": "Five tools built with current AI and agents in 2026; a data function run at scale."
+      "question": "Build, buy, partner or wait? Is the vendor's claim true, and where is it worth building our own?",
+      "background": "I built five tools with current models and agents in 2026, and before that ran a health system's data function."
     },
     {
       "key": "rules",
@@ -45,13 +45,13 @@
         "TRIPOD-LLM",
         "DECIDE-AI"
       ],
-      "background": "Guideline panels, national society protocols, health system AI governance."
+      "background": "I have sat on guideline panels, written national society protocols, and worked on health system AI governance."
     },
     {
       "key": "proof",
       "name": "Proof",
-      "question": "Is it working at our site, for our patients, and is it still true with this year's models?",
-      "background": "Enterprise data and analytics; a validation pipeline that retired its own claims; quarterly re-tests."
+      "question": "Does it work here, on our patients, and does it still work on this year's models?",
+      "background": "I ran enterprise data and analytics. In 2026 I checked my own papers against their files and retired two. A verdict is dated, and a re-test gets its own entry."
     }
   ],
   "verdicts": [
@@ -76,17 +76,22 @@
     {
       "audience": "Health systems",
       "read_first": "CH-011",
-      "line": "A decision memo that ends in Build, Buy, Skip or Wait, with the governance requirements attached."
+      "line": "One memo on one tool. It says Build, Buy, Skip or Wait, and lists what your governance committee will need to see.",
+      "link_label": "See the offer",
+      "sample_label": "Sample memo"
     },
     {
       "audience": "Funds",
       "read_first": "CH-012",
-      "line": "A diligence read that says whether the clinical AI is real, safe and defensible, in five to ten business days."
+      "line": "A diligence read in ten business days, or a red-flag read in five. It says whether the clinical AI is real and safe, and what you could not defend later.",
+      "link_label": "See the offer",
+      "sample_label": "Sample read"
     },
     {
       "audience": "Consulting partners",
       "read_first": "method",
-      "line": "The clinical half of an engagement: the four-stage method, by the day or by the project."
+      "line": "The clinical half of your engagement, by the day or by the project, run on the four-stage method.",
+      "link_label": "See the method"
     }
   ],
   "offers": [
@@ -96,50 +101,48 @@
       "for": "Funds, health systems",
       "scope": "One tool or one company, deal-breakers only, one-page verdict",
       "turnaround": "5 business days",
-      "note": "Credited against a tier 2 read on the same target within 90 days"
+      "note": "If you go on to a tier 2 read of the same target within 90 days, this fee counts toward it."
     },
     {
       "tier": "2",
       "name": "Decision memo or diligence read",
       "for": "Health systems, funds",
-      "scope": "Full four-stage memo, verdict, cost and governance requirements, one revision round, questions included",
+      "scope": "The full four-stage memo with a verdict, the cost, and the governance requirements. One revision round.",
       "turnaround": "10 business days"
     },
     {
       "tier": "3",
       "name": "Multi-vendor or portfolio read",
       "for": "Health systems, funds",
-      "scope": "Up to three tools or companies against one thesis",
+      "scope": "Up to three tools or companies, read against one thesis",
       "turnaround": "15 business days"
     },
     {
       "tier": "project",
       "name": "Clinical AI expert on a project",
       "for": "Consulting partners",
-      "scope": "Clinical judgment on a client engagement, by the day or by the project"
+      "scope": "Clinical judgment on a client engagement."
     }
   ],
   "fee_line": "Fixed fee, quoted in writing before work starts. No hourly billing inside an engagement; questions are included.",
   "engagement_steps": [
-    "A free 30-minute scope call.",
-    "Written scope, fee and turnaround.",
-    "The work.",
-    "The memo, and one revision round."
+    "A 30-minute scope call, free.",
+    "I send scope, fee and turnaround in writing.",
+    "I do the work.",
+    "You get the memo, and one round of revisions."
   ],
   "rules": {
     "seat": "On any one company I sit on one side only: the fund's or the company's, never both.",
     "will_not": [
-      "No implementation.",
-      "No product sales.",
-      "No expert networks.",
-      "Conflicts disclosed per engagement."
+      "I do not implement, sell product, or take expert-network calls.",
+      "I disclose conflicts for every engagement."
     ],
     "sells": "The practice sells decisions, not software."
   },
   "lines": {
     "lab_scope": "The lab's evidence to date is pediatric. The method is not.",
-    "candidate_not_clinical": "Pathways are research candidates for physician adjudication, not clinical documents.",
-    "verdict_definition": "A verdict is what a buyer should do: Build, Buy, Skip or Wait. It is not a grade of the work."
+    "candidate_not_clinical": "The pathways are candidates for a physician to review. None is for clinical use.",
+    "verdict_definition": "The verdict tells a buyer what to do, Build, Buy, Skip or Wait. It does not grade the work."
   },
   "how_entries_written": [
     "Four sections in one order: worth doing, build or buy, rules, is it working.",
@@ -155,7 +158,7 @@
   "contact": {
     "email": "TBD",
     "linkedin": "TBD",
-    "reply": "Reply within two business days."
+    "reply": "I reply within two business days."
   },
   "never_words": [
     "audit",
@@ -194,5 +197,119 @@
     "advisory_description": "Decision memos and diligence reads on clinical AI for health systems, funds and consulting partners. Fixed fee, quoted in writing, ending in a verdict.",
     "about_title": "About Benson S. Hsu | Celeritas Health",
     "about_description": "The two-minute story, the bio by the four stages, papers and deposits, disclosures."
+  },
+  "offers_summary": "Three reads, in 5, 10 or 15 business days, and a day rate for consulting partners. One fixed fee, in writing, before I start.",
+  "how_i_write": "Every entry runs in the same order: is it worth doing, build or buy, what rules apply, is it working. It opens with who I am and closes with a verdict, one line on why, and one line on what it is worth to you. Every number comes from a public deposit or a named source, and a figure I have retired does not come back in another form. I name the models I used and report what each did. Where a paper is under review I say so, and its numbers may move. From 2027, one entry a quarter.",
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Lab",
+      "href": "/lab/"
+    },
+    {
+      "label": "Advisory",
+      "href": "/advisory/"
+    },
+    {
+      "label": "About",
+      "href": "/about/"
+    }
+  ],
+  "headings": {
+    "home_stages": "The four questions, in order.",
+    "home_pivot": "How I got here",
+    "home_for": "If you run a health system, a fund, or an engagement",
+    "lab_how": "How I write these",
+    "lab_in_progress": "In progress",
+    "advisory_offers": "Three reads and a day rate",
+    "advisory_steps": "From first call to memo",
+    "advisory_samples": "A sample memo and a sample read",
+    "advisory_rules": "The seat rule",
+    "advisory_contact": "Email me",
+    "about_bio": "What I have done, by stage",
+    "reveal": "What the checks caught"
+  },
+  "microcopy": {
+    "color_mode": "Color mode",
+    "theme_light": "Light",
+    "theme_dark": "Dark",
+    "newest_label": "Newest verdict",
+    "door_lab_suffix": "Each one gets a verdict.",
+    "door_advisory": "Decision memos and diligence reads. One fixed fee, in writing.",
+    "whole_wall": "The whole wall",
+    "lab_updated": "Last updated",
+    "lab_published": "entries published",
+    "lab_in_progress": "more in progress",
+    "provisional": "(provisional)",
+    "read_entry": "Read the entry",
+    "worth_label": "Worth to a buyer",
+    "verdict_label": "Verdict",
+    "from_the_lab": "From the lab",
+    "rules_frame": "The Rules section of every memo is written against these five, and lists what your governance committee will ask for.",
+    "scope_call": "Start with a scope call",
+    "write_to": "Write to me at",
+    "sample_pdf": "PDF: TBD.",
+    "published_memo": "Until the samples exist, CH-004 is the one published memo on the wall. It is about my own papers, not a vendor, and it runs in the same four sections a client memo does. It will not show you a cost or a governance list; it shows how a verdict is reasoned.",
+    "reveal_link": "See what the checks caught, line by line, on CH-001.",
+    "reveal_pending": "This space will hold a real excerpt from one pathway, copied from the deposit, with every line the gates caught marked. TBD: the excerpt.",
+    "footer_copyright": "Nothing on this site is a clinical document.",
+    "footer_disclosures": "Disclosures",
+    "not_found": "No entry at this address.",
+    "newest_entry": "Newest entry",
+    "figure_pending": "Figure: TBD, Canva export pending.",
+    "figure_notes": "Notes to the figure",
+    "engagement_caption": "Turnaround in business days from the written scope.",
+    "preprint": "Preprint",
+    "deposit": "Deposit",
+    "stages_addressed": "Stages addressed",
+    "entries_in_preparation": "entries in preparation, listed on the",
+    "door_lab_label": "Clinical AI Lab",
+    "door_advisory_label": "Advisory",
+    "start_here": "Start here",
+    "filter_type": "Type",
+    "filter_stage": "Stage",
+    "filter_all": "All",
+    "col_date": "Date",
+    "col_id": "ID",
+    "col_entry": "Entry",
+    "col_verdict": "Verdict",
+    "offers_for": "For",
+    "offers_turnaround": "Turnaround",
+    "offers_includes": "Includes",
+    "tier": "Tier",
+    "project": "Project",
+    "newer": "Newer",
+    "older": "Older",
+    "cv": "CV (PDF)",
+    "showing_all": "Showing all",
+    "newest_first": "entries, newest first.",
+    "no_match": "No published entries match.",
+    "addressed": "addressed",
+    "not_addressed": "not addressed",
+    "lab_crumb": "Clinical AI Lab",
+    "draft": "Draft",
+    "flowsheet_caption": "Every entry by date, stage and verdict",
+    "other_entries": "Other entries",
+    "filter_entries": "Filter entries",
+    "in_preparation_note": "in preparation",
+    "lab_wall_link": "lab wall",
+    "no_published_type": "No published entries of this type yet",
+    "bio_nav": "Sections of the bio",
+    "note_label": "Note"
+  },
+  "figures": {
+    "method": {
+      "entry_label": "A tool, a vendor, a company",
+      "diamond_label": "Verdict",
+      "alt": "An algorithm: an entry arrow, four numbered boxes in sequence, 01 to 04, a decision diamond labelled Verdict, and four exits labelled Build, Buy, Skip and Wait."
+    },
+    "engagement": {
+      "axis_label": "business days",
+      "project_label": "by the day or by the project",
+      "alt": "A flowsheet of an engagement: four steps across the top, scope call, written scope, the work, the memo and one revision. Under the work, a day axis from 0 to 15 business days with three bars, 5 days for a red-flag read, 10 for a decision memo or diligence read, 15 for a multi-vendor or portfolio read, and an open dashed line for project work. Each bar ends in a small page drawn with four sections."
+    }
   }
 }

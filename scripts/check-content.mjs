@@ -1,5 +1,6 @@
 // Content gate on the built site. Fails the build on: a never-list word, a retired number,
-// "pediatric clinical AI" in a hero, a TBD outside a visible marker, or a missing verbatim position line.
+// "pediatric clinical AI" in a hero, a TBD outside a visible marker, a missing verbatim position line,
+// or fewer than twelve entries (cards or flowsheet rows) on the Lab page.
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 const site = JSON.parse(readFileSync('content/site.json', 'utf8'));
@@ -18,16 +19,17 @@ for (const f of files) {
   for (const n of site.retired_numbers_never) if (t.includes(n)) fails.push(`${page}: retired number "${n}"`);
   const hero = (html.match(/<h1[\s\S]*?<\/h1>/i) || [''])[0];
   if (/pediatric\s+clinical\s+AI/i.test(text(hero))) fails.push(`${page}: "pediatric clinical AI" in a hero`);
-  // Hidden TBD: any TBD in text that is not inside <mark class="tbd">
   const stripped = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ').replace(/<mark class="tbd"[^>]*>[\s\S]*?<\/mark>/g, ' ');
   const tbdText = stripped.replace(/<[^>]+>/g, ' ');
   if (/\bTBD\b/.test(tbdText)) fails.push(`${page}: a TBD outside a visible marker`);
+  if (/—/.test(t)) fails.push(`${page}: an em dash in the copy`);
   const marks = (html.match(/<mark class="tbd"/g) || []).length;
   if (marks) tbdByPage[page] = marks;
 }
 const home = text(readFileSync('dist/index.html', 'utf8'));
 for (const [k, v] of Object.entries(site.position)) if (!home.includes(v)) fails.push(`/: position line "${k}" not verbatim on the page`);
-const lab = text(readFileSync('dist/lab/index.html', 'utf8'));
+const labHtml = readFileSync('dist/lab/index.html', 'utf8');
+const lab = text(labHtml);
 if (!lab.includes(site.position.identity)) fails.push('/lab/: identity line not verbatim');
 if (!lab.includes(site.position.proof)) fails.push('/lab/: proof line not verbatim');
 const adv = text(readFileSync('dist/advisory/index.html', 'utf8'));
@@ -35,8 +37,11 @@ if (!adv.includes(site.position.promise)) fails.push('/advisory/: promise line n
 const about = text(readFileSync('dist/about/index.html', 'utf8'));
 if (!about.includes(site.position.proof)) fails.push('/about/: proof line not verbatim');
 if (/open to roles/i.test(about)) fails.push('/about/: "open to roles" present');
-const cards = (readFileSync('dist/lab/index.html', 'utf8').match(/<article class="card/g) || []).length;
-console.log(`Content check: ${files.length} pages, ${cards} cards on the wall.`);
+const cards = (labHtml.match(/<article class="card/g) || []).length;
+const ids = new Set([...labHtml.matchAll(/data-entry="(CH-\d{3})"/g)].map((m) => m[1]));
+const expected = readdirSync('content/entries').filter((f) => f.endsWith('.md')).length;
+if (site.site.show_drafts && ids.size < expected) fails.push(`/lab/: ${ids.size} entries render, ${expected} exist`);
+console.log(`Content check: ${files.length} pages, ${cards} cards on the wall, ${ids.size} entries in the flowsheet.`);
 console.log('Visible TBD markers by page:'); for (const [p, n] of Object.entries(tbdByPage).sort()) console.log(`  ${p}  ${n}`);
 if (fails.length) { console.error('\nFAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
-console.log('No never-list word, no retired number, no hidden TBD, position lines verbatim.');
+console.log('No never-list word, no retired number, no hidden TBD, no em dash, position lines verbatim.');
