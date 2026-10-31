@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { micro, publishedEntries, fmtDate, entryHref } from '../lib/site';
+const newest = (await publishedEntries())[0];
 ---
 <BaseLayout title="Not found | Celeritas Health" description="That page does not exist." noindex>
   <section class="wrap section">
     <p class="eyebrow">404</p>
-    <h1>No entry at this address.</h1>
+    <h1>{micro.not_found}</h1>
+    {newest && <p class="mono">{micro.newest_entry}: <a href={entryHref(newest)}>{newest.data.id}, {fmtDate(newest.data.date)}</a></p>}
     <p><a href="/lab/">The lab</a> · <a href="/advisory/">Advisory</a> · <a href="/about/">About</a></p>
   </section>
 </BaseLayout>
-<style> h1 { font-size: 2rem; margin: 0.5rem 0 1rem; } </style>
+<style> h1 { font-size: 2rem; margin: 0.5rem 0 1rem; } p + p { margin-top: 0.75rem; } </style>

@@ -1,0 +1,80 @@
+---
+import { stages, headings, figures, site } from '../lib/site';
+/** Figure 1: the method drawn as a pathway algorithm. Four numbered boxes, a decision diamond, four exits. Labels are HTML from site.json; the drawing is SVG.
+ *  The one GSAP moment on Home draws the thread through the boxes. Static under reduced motion and with JavaScript off. */
+const f = figures.method;
+const verdicts = site.verdicts as string[];
+---
+<section class="section algo" aria-labelledby="stages-h" data-strip>
+  <div class="wrap">
+    <h2 id="stages-h">{headings.home_stages}</h2>
+    <div class="fig" role="group" aria-label={f.alt}>
+      <p class="entry mono muted"><span>{f.entry_label}</span></p>
+      <div class="track">
+        <svg class="thread h" viewBox="0 0 100 2" preserveAspectRatio="none" aria-hidden="true"><path d="M0 1 H100" pathLength="1" data-thread /></svg>
+        <svg class="thread v" viewBox="0 0 2 100" preserveAspectRatio="none" aria-hidden="true"><path d="M1 0 V100" pathLength="1" data-thread /></svg>
+        <ol class="nodes">
+          {stages.map((s, i) => <li data-cell>
+            <a href={`/advisory/#${s.key}`}>
+              <span class="box mono">0{i + 1}</span>
+              <span class="name">{s.name}</span>
+              <span class="q">{s.question}</span>
+            </a>
+          </li>)}
+        </ol>
+      </div>
+      <div class="exit">
+        <svg class="diamond" viewBox="0 0 240 160" width="240" height="160" aria-hidden="true">
+          <path d="M0 80 H20" pathLength="1" data-thread />
+          <path d="M20 80 L80 20 L140 80 L80 140 Z" />
+          <text x="80" y="84" text-anchor="middle" class="mono">{f.diamond_label}</text>
+          <path d="M140 80 H160 V20 H240" pathLength="1" data-thread />
+          <path d="M160 80 V60 H240" pathLength="1" data-thread />
+          <path d="M160 80 V100 H240" pathLength="1" data-thread />
+          <path d="M160 80 V140 H240" pathLength="1" data-thread />
+        </svg>
+        <ul class="verdicts mono" aria-label="Verdicts">{verdicts.map((v) => <li>{v}</li>)}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // One motion moment: the thread draws through the algorithm as it scrolls into view. Lazy, idle, never under reduced motion.
+  const strip = document.querySelector<HTMLElement>('[data-strip]');
+  const ok = strip && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const run = async () => {
+    const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo('[data-thread]', { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, ease: 'none', stagger: 0.05, scrollTrigger: { trigger: strip, start: 'top 80%', end: 'bottom 70%', scrub: 0.4 } });
+  };
+  if (ok) ('requestIdleCallback' in window ? requestIdleCallback : (f: () => void) => setTimeout(f, 300))(run);
+</script>
+<style>
+  h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); max-width: 28ch; margin-bottom: 1.5rem; }
+  .fig { display: grid; gap: 1rem; }
+  .entry { font-size: 0.78rem; }
+  .track { position: relative; }
+  .thread { position: absolute; display: block; }
+  .thread path { stroke: var(--ink); stroke-width: 2; fill: none; }
+  .thread.h { left: 0; right: 0; top: 21px; width: 100%; height: 2px; display: none; }
+  .thread.v { left: 21px; top: 0; bottom: 0; width: 2px; height: 100%; }
+  .nodes { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; grid-template-columns: 1fr; position: relative; }
+  .nodes a { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0.15rem 1rem; align-items: start; text-decoration: none; }
+  .box { grid-row: 1 / 3; width: 44px; height: 44px; border: 1.5px solid var(--ink); background: var(--canvas); display: grid; place-items: center; font-size: 0.8rem; box-sizing: border-box; }
+  .name { font-family: var(--serif); font-size: 1.3rem; line-height: 1.15; }
+  .q { font-size: 0.92rem; color: var(--muted); max-width: 34ch; }
+  .nodes a:hover .name { text-decoration: underline; text-decoration-color: var(--rule); }
+  .exit { display: flex; align-items: center; gap: 0; padding-left: 0; }
+  .diamond { flex: none; width: 240px; height: 160px; max-width: 60%; }
+  .diamond path { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+  .diamond text { fill: var(--ink); font-size: 13px; font-family: var(--mono); }
+  .verdicts { list-style: none; padding: 0 0 0 0.6rem; margin: 0; display: grid; grid-auto-rows: 40px; align-items: center; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+  @media (min-width: 900px) {
+    .thread.h { display: block; }
+    .thread.v { display: none; }
+    .nodes { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .nodes a { grid-template-columns: 1fr; gap: 0.5rem; }
+    .box { grid-row: auto; }
+    .exit { padding-left: 0; }
+  }
+</style>

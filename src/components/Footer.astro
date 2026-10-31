@@ -1,46 +1,27 @@
 ---
 import Wordmark from './Wordmark.astro';
-import { site } from '../lib/site';
+import { site, micro } from '../lib/site';
 import { tbd } from '../lib/tbd';
+/** The colophon: every item the brief lists for the footer, as three short rows. The header is the nav. */
 const c = site.contact;
 const email = /TBD/.test(c.email) ? null : c.email;
 const linkedin = /TBD/.test(c.linkedin) ? null : c.linkedin;
 ---
 <footer class="site-footer">
   <div class="wrap grid">
-    <div>
-      <Wordmark width="240px" descriptor />
+    <div class="mark"><Wordmark width="220px" descriptor /></div>
+    <div class="rows">
+      <p class="mono row1">{email ? <a href={`mailto:${email}`}>{email}</a> : <Fragment set:html={tbd('Email: TBD')} />} · {linkedin ? <a href={linkedin} rel="me">LinkedIn</a> : <Fragment set:html={tbd('LinkedIn: TBD')} />}</p>
+      <p class="row2">{site.disclosure} {site.aequitas_separation} <span set:html={tbd(site.employers_line)} /></p>
+      <p class="row3 muted">© {new Date().getFullYear()} Celeritas Health LLC. {micro.footer_copyright} <a href="/about/#disclosures">{micro.footer_disclosures}</a>.</p>
     </div>
-    <div class="col">
-      <p class="eyebrow">Contact</p>
-      <p>{email ? <a href={`mailto:${email}`}>{email}</a> : <Fragment set:html={tbd('Email: TBD')} />}</p>
-      <p>{linkedin ? <a href={linkedin} rel="me">LinkedIn</a> : <Fragment set:html={tbd('LinkedIn: TBD')} />}</p>
-      <p class="muted">{c.reply}</p>
-    </div>
-    <div class="col">
-      <p class="eyebrow">Disclosure</p>
-      <p>{site.disclosure}</p>
-      <p>{site.aequitas_separation}</p>
-      <p set:html={tbd(site.employers_line)} />
-    </div>
-    <nav class="col" aria-label="Footer">
-      <p class="eyebrow">Pages</p>
-      <ul>
-        <li><a href="/lab/">Clinical AI Lab</a></li>
-        <li><a href="/advisory/">Advisory</a></li>
-        <li><a href="/about/">About</a></li>
-      </ul>
-      <p class="muted small">© {new Date().getFullYear()} Celeritas Health LLC. Research artifacts on this site are candidates, not clinical documents.</p>
-    </nav>
   </div>
 </footer>
 <style>
-  .site-footer { border-top: 1px solid var(--line); padding-block: 2.5rem 3rem; font-size: 0.9rem; }
-  .grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
-  @media (min-width: 760px) { .grid { grid-template-columns: 1.2fr 1fr 1.4fr 0.8fr; } }
-  .col p { max-width: 36ch; }
-  .col p + p { margin-top: 0.5rem; }
-  ul { list-style: none; padding: 0; }
-  li + li { margin-top: 0.35rem; }
-  .small { font-size: 0.8rem; margin-top: 1rem; }
+  .site-footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; font-size: 0.88rem; }
+  .grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .grid { grid-template-columns: 240px minmax(0, 1fr); align-items: start; } }
+  .rows { display: grid; gap: 0.6rem; }
+  .rows p { max-width: 70ch; }
+  .row3 { font-size: 0.8rem; }
 </style>

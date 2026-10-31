@@ -4,8 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import StageRail from '../../components/StageRail.astro';
 import VerdictChip from '../../components/VerdictChip.astro';
 import Signature from '../../components/Signature.astro';
+import Figure from '../../components/Figure.astro';
 import Reveal from '../../components/Reveal.astro';
-import { site, allEntries, fmtDate, entryHref } from '../../lib/site';
+import { site, micro, allEntries, fmtDate, entryHref } from '../../lib/site';
 import { tbd } from '../../lib/tbd';
 
 export async function getStaticPaths() {
@@ -20,11 +21,12 @@ const { entry, prev, next } = Astro.props;
 const d = entry.data;
 const { Content } = await render(entry);
 const title = `${d.id} ${d.title} | Celeritas Health`;
+const aboutPathways = ['pathways', 'citation-trace', 'access-gap'].includes(d.signature);
 ---
-<BaseLayout title={title} description={d.reasoning} noindex={d.draft}>
+<BaseLayout title={title} description={d.reasoning} noindex={d.draft} og={d.draft ? 'lab' : d.id.toLowerCase()}>
   <article class="wrap writeup">
     <header class="head">
-      <p class="meta mono"><a href="/lab/">Clinical AI Lab</a> · <span class="id">{d.id}</span> · <span set:html={tbd(fmtDate(d.date))} /> · {d.type}{d.draft && <> · <span class="draftflag">Draft</span></>}</p>
+      <p class="meta mono"><a href="/lab/">{micro.lab_crumb}</a> · <span class="id">{d.id}</span> · <span set:html={tbd(fmtDate(d.date))} /> · {d.type}{d.draft && <> · <span class="draftflag">{micro.draft}</span></>}</p>
       <h1 set:html={tbd(d.title)} />
       <p class="identity muted">{site.position.identity}</p>
       <p class="status mono muted" set:html={tbd(d.status)} />
@@ -33,24 +35,27 @@ const title = `${d.id} ${d.title} | Celeritas Health`;
     <div class="grid">
       <div class="side">
         <div class="sigwrap"><Signature kind={d.signature} numbers={d.numbers} /></div>
-        <ul class="finding">{d.numbers.map((n) => <li set:html={tbd(n)} />)}</ul>
+        <ol class="finding">{d.numbers.map((n) => <li set:html={tbd(n)} />)}</ol>
         {(d.doi || d.deposit) && <p class="links mono">
-          {d.doi && <a href={`https://doi.org/${d.doi}`} rel="noopener">Preprint doi:{d.doi}</a>}
-          {d.deposit && <><br /><a href={`https://doi.org/${d.deposit}`} rel="noopener">Deposit doi:{d.deposit}</a></>}
+          {d.doi && <a href={`https://doi.org/${d.doi}`} rel="noopener">{micro.preprint} doi:{d.doi}</a>}
+          {d.deposit && <><br /><a href={`https://doi.org/${d.deposit}`} rel="noopener">{micro.deposit} doi:{d.deposit}</a></>}
         </p>}
-        <p class="muted small">{site.lines.candidate_not_clinical}</p>
+        {aboutPathways && <p class="muted small">{site.lines.candidate_not_clinical}</p>}
       </div>
-      <div class="prose body"><Content /></div>
+      <div class="body">
+        {d.figure && <Figure figure={d.figure} status={d.status} />}
+        <div class="prose"><Content /></div>
+      </div>
     </div>
+    {d.id === 'CH-001' && <div class="revealwrap"><Reveal /></div>}
     <footer class="foot">
       <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} />
-      <nav class="pn mono" aria-label="Other entries">
-        {next && <a href={entryHref(next)}><span class="muted">Newer</span> {next.data.id} <span class="t" set:html={tbd(next.data.title)} /></a>}
-        {prev && <a href={entryHref(prev)} class="right"><span class="muted">Older</span> {prev.data.id} <span class="t" set:html={tbd(prev.data.title)} /></a>}
+      <nav class="pn mono" aria-label={micro.other_entries}>
+        {next && <a href={entryHref(next)}><span class="muted">{micro.newer}</span> {next.data.id} <span class="t" set:html={tbd(next.data.title)} /></a>}
+        {prev && <a href={entryHref(prev)} class="right"><span class="muted">{micro.older}</span> {prev.data.id} <span class="t" set:html={tbd(prev.data.title)} /></a>}
       </nav>
     </footer>
   </article>
-  {d.id === 'CH-001' && <section class="section wrap"><Reveal /></section>}
 </BaseLayout>
 <style>
   .writeup { padding-block: clamp(1.5rem, 4vw, 3rem) 2rem; display: grid; gap: 2rem; }
@@ -60,14 +65,15 @@ const title = `${d.id} ${d.title} | Celeritas Health`;
   h1 { font-size: clamp(1.7rem, 1.1rem + 2.2vw, 2.9rem); max-width: 24ch; }
   .identity { font-size: 0.9rem; }
   .grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
-  @media (min-width: 900px) { .grid { grid-template-columns: 320px minmax(0, 1fr); align-items: start; } .side { position: sticky; top: 1rem; } }
+  @media (min-width: 900px) { .grid { grid-template-columns: 320px minmax(0, 1fr); align-items: start; } }
   .side { display: grid; gap: 1rem; }
-  .finding { list-style: none; padding: 0; display: grid; gap: 0.4rem; font-size: 0.92rem; }
-  .finding li { padding-left: 0.9rem; text-indent: -0.9rem; }
-  .finding li::before { content: "–"; display: inline-block; width: 0.9rem; text-indent: 0; color: var(--muted); }
+  .finding { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; font-size: 0.92rem; counter-reset: f; }
+  .finding li { counter-increment: f; padding-left: 1.4rem; position: relative; }
+  .finding li::before { content: counter(f); position: absolute; left: 0; top: 0.15em; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
   .links { font-size: 0.78rem; word-break: break-all; line-height: 2; }
   .links a { display: inline-block; padding: 0.15rem 0; }
   .small { font-size: 0.82rem; }
+  .revealwrap { border-top: 1px solid var(--line); padding-top: 2rem; }
   .foot { display: grid; gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
   .pn { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.8rem; }
   .pn a { text-decoration: none; display: grid; gap: 0.15rem; max-width: 45%; }

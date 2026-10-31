@@ -10,19 +10,18 @@ if (reduced || !('IntersectionObserver' in window)) {
   targets.forEach((t) => io.observe(t));
 }
 
-// Theme toggle (system preference by default; the choice is kept locally).
+// Color mode: system preference by default; the choice is kept locally. The control reads "Light / Dark" with the active word underlined.
 document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((btn) => {
   const sync = () => {
     const dark = document.documentElement.dataset.theme === 'dark' ||
       (!document.documentElement.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
-    btn.setAttribute('aria-pressed', String(dark));
-    btn.querySelector('[data-label]')!.textContent = dark ? 'Light mode' : 'Dark mode';
+    btn.dataset.active = dark ? 'dark' : 'light';
+    btn.setAttribute('aria-label', `Light / Dark. Color mode is ${dark ? 'dark' : 'light'}; switch to ${dark ? 'light' : 'dark'}.`);
   };
   btn.hidden = false;
   sync();
   btn.addEventListener('click', () => {
-    const dark = btn.getAttribute('aria-pressed') === 'true';
-    const next = dark ? 'light' : 'dark';
+    const next = btn.dataset.active === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch {}
     sync();

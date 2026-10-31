@@ -1,0 +1,60 @@
+---
+import { site, micro, figures } from '../lib/site';
+/** Figure 3: the engagement as a flowsheet. The four steps head it; under them a day axis with one bar per read, each ending in a small page (four sections). Ink only. */
+const steps = site.engagement_steps as string[];
+const offers = site.offers as Array<{ tier: string; name: string; turnaround?: string; note?: string }>;
+const f = figures.engagement;
+const days = (o: { turnaround?: string }) => Number((o.turnaround || '').match(/\d+/)?.[0] ?? 0);
+const MAX = 15, W = 160, PX = W / MAX * 0.85;
+const noted = offers.filter((o) => o.note);
+---
+<figure class="eng" role="group" aria-label={f.alt}>
+  <ol class="steps">{steps.map((s) => <li class="serif">{s}</li>)}</ol>
+  <div class="chart">
+    <div class="axis mono muted" aria-hidden="true">
+      <svg viewBox={`0 0 ${W} 6`} preserveAspectRatio="none" class="axis-svg"><path d={`M0 5.5 H${W}`} class="hair" />{[0, 5, 10, 15].map((d) => <rect x={d * PX - 0.25} y="1" width="0.5" height="5" class="tick" />)}</svg>
+      <span class="ticks">{[0, 5, 10, 15].map((d) => <span style={`left:${(d * PX / W) * 100}%`}>{d}</span>)} <span class="unit">{f.axis_label}</span></span>
+    </div>
+    {offers.map((o) => {
+      const d = days(o);
+      return <div class="tier">
+        <p class="name"><span class="mono muted">{o.tier === 'project' ? micro.project : `${micro.tier} ${o.tier}`}</span> <span class="serif">{o.name}</span>{o.note && <sup><a class="fn" href="#eng-note">{noted.indexOf(o) + 1}</a></sup>}</p>
+        <svg viewBox={`0 0 ${W} 16`} class="bar" aria-hidden="true">
+          {d > 0
+            ? <><rect x="0" y="6" width={d * PX} height="4" class="ink" /><g transform={`translate(${d * PX + 3} 1.5)`}><rect x="0" y="0" width="7" height="11" class="page" /><path d="M1.5 2.5 H5.5 M1.5 4.5 H5.5 M1.5 6.5 H5.5 M1.5 8.5 H5.5" class="hairs" /></g></>
+            : <path d={`M0 8 H${W}`} class="dash" />}
+        </svg>
+        {d === 0 && <p class="mono muted open">{f.project_label}</p>}
+      </div>;
+    })}
+  </div>
+  <figcaption class="mono muted">{micro.engagement_caption}</figcaption>
+  {noted.length > 0 && <ol class="notes" id="eng-note">{noted.map((o) => <li>{o.note}</li>)}</ol>}
+</figure>
+<style>
+  .eng { margin: 0; display: grid; gap: 1.25rem; }
+  .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; background: var(--line); grid-template-columns: 1fr; border-top: 1px solid var(--ink); counter-reset: s; }
+  @media (min-width: 760px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .steps li { background: var(--canvas); padding: 0.8rem 1rem 0.8rem 0; font-size: 1.05rem; line-height: 1.3; }
+  @media (min-width: 760px) { .steps li { padding-inline: 1rem; } .steps li:first-child { padding-left: 0; } }
+  .chart { display: grid; gap: 0.6rem; max-width: 46rem; }
+  .axis { display: grid; gap: 0.1rem; font-size: 0.7rem; }
+  .axis-svg { width: 100%; height: 8px; display: block; }
+  .hair { stroke: var(--rule); stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
+  .tick { fill: var(--rule); }
+  .ticks { position: relative; height: 1.1rem; display: block; }
+  .ticks span { position: absolute; transform: translateX(-50%); }
+  .ticks .unit { position: absolute; right: 0; left: auto; transform: none; }
+  .tier { display: grid; gap: 0.25rem; }
+  .name { font-size: 0.95rem; display: flex; gap: 0.5rem; align-items: baseline; flex-wrap: wrap; }
+  .bar { width: 100%; height: auto; display: block; }
+  .ink { fill: var(--ink); }
+  .page { fill: var(--surface); stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .hairs { stroke: var(--ink); stroke-width: 0.8; vector-effect: non-scaling-stroke; }
+  .dash { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 4 4; fill: none; vector-effect: non-scaling-stroke; }
+  .open { font-size: 0.72rem; }
+  .fn { text-decoration: none; font-family: var(--mono); font-size: 0.68rem; }
+  figcaption { font-size: 0.75rem; }
+  .notes { margin: 0; padding-left: 1.2rem; font-size: 0.85rem; color: var(--muted); max-width: 50ch; list-style: decimal; }
+  .notes li::marker { font-family: var(--mono); font-size: 0.72rem; }
+</style>

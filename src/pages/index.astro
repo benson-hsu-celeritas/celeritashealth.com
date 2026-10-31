@@ -1,47 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import StageStrip from '../components/StageStrip.astro';
-import Card from '../components/Card.astro';
+import MethodAlgorithm from '../components/MethodAlgorithm.astro';
+import Ledger from '../components/Ledger.astro';
 import Doors from '../components/Doors.astro';
-import { site, publishedEntries, allEntries, lastUpdated } from '../lib/site';
+import { site, headings, publishedEntries, allEntries, monthRange } from '../lib/site';
 const published = await publishedEntries();
 const all = await allEntries();
 const newest = published.slice(0, 6);
-const updated = await lastUpdated();
 ---
-<BaseLayout title={site.seo.home_title} description={site.seo.home_description} home>
-  <Hero lastUpdated={updated} entryCount={published.length} />
-  <StageStrip />
-  <section class="section" aria-labelledby="newest-h">
-    <div class="wrap">
-      <p class="eyebrow">Clinical AI Lab</p>
-      <h2 id="newest-h" class="h2">Newest from the lab</h2>
-      <div class="grid">{newest.map((e) => <Card entry={e} />)}</div>
-      <p class="more"><a class="btn btn-ghost" href="/lab/">The whole wall</a></p>
-    </div>
-  </section>
+<BaseLayout title={site.seo.home_title} description={site.seo.home_description} home og="home">
+  <Hero newest={published[0]} count={published.length} range={monthRange(published)} />
+  <MethodAlgorithm />
+  <Ledger entries={newest} />
   <section class="section" aria-labelledby="pivot-h">
-    <div class="wrap pivot" data-rise>
-      <p class="eyebrow">Why this practice</p>
-      <h2 id="pivot-h" class="sr-only">The pivot story</h2>
-      <ol class="story">{site.pivot_story.map((s) => <li class="serif">{s}</li>)}</ol>
+    <div class="wrap" data-rise>
+      <h2 id="pivot-h" class="h2">{headings.home_pivot}</h2>
+      <p class="story serif">{site.pivot_story.join(' ')}</p>
     </div>
   </section>
   <section class="section" aria-labelledby="for-h">
     <div class="wrap">
-      <p class="eyebrow">Who this is for</p>
-      <h2 id="for-h" class="h2">Same evidence, different door</h2>
+      <h2 id="for-h" class="h2">{headings.home_for}</h2>
       <Doors entries={all} />
     </div>
   </section>
 </BaseLayout>
 <style>
-  .h2 { font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin: 0.4rem 0 1.5rem; }
-  .grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1080px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-  .more { margin-top: 1.5rem; }
-  .story { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; max-width: 34ch; font-size: clamp(1.3rem, 1rem + 1.2vw, 1.9rem); line-height: 1.25; }
-  .story li { counter-increment: s; }
+  .h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin: 0 0 1.25rem; }
+  .story { max-width: 44ch; font-size: clamp(1.35rem, 1rem + 1.4vw, 2.1rem); line-height: 1.3; }
 </style>

@@ -1,40 +1,36 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Wall from '../../components/Wall.astro';
-import { site, wallEntries, lastUpdated, fmtDate } from '../../lib/site';
+import { site, headings, micro, wallEntries, lastUpdated, fmtDate, spell } from '../../lib/site';
 import { tbd } from '../../lib/tbd';
 const entries = await wallEntries();
 const updated = await lastUpdated();
 const drafts = entries.filter((e) => e.data.draft).length;
+const published = entries.length - drafts;
 ---
-<BaseLayout title={site.seo.lab_title} description={site.seo.lab_description}>
+<BaseLayout title={site.seo.lab_title} description={site.seo.lab_description} og="lab">
   <section class="wrap head">
-    <p class="eyebrow">Clinical AI Lab</p>
-    <p class="identity">{site.position.identity}</p>
+    <p class="identity muted">{site.position.identity}</p>
     <h1 class="proof">{site.position.proof}</h1>
-    <p class="lede">{site.site.tagline}</p>
-    <p class="mono muted">Last updated <time datetime={updated} set:html={tbd(fmtDate(updated))} /> · {entries.length - drafts} published entries{drafts > 0 && <>, {drafts} drafts shown with their placeholders</>}</p>
-    <p class="scope muted">{site.lines.lab_scope} {site.lines.candidate_not_clinical}</p>
+    <p class="mono muted">{micro.lab_updated} <time datetime={updated} set:html={tbd(fmtDate(updated))} />. {spell(published, true)} {micro.lab_published}{drafts > 0 && <>, {spell(drafts)} {micro.lab_in_progress}</>}.</p>
   </section>
   <section class="section wrap" aria-label="The wall">
     <Wall entries={entries} />
   </section>
   <section class="section wrap" aria-labelledby="how-h">
-    <p class="eyebrow">Method</p>
-    <h2 id="how-h">How entries are written</h2>
-    <ol class="how">{site.how_entries_written.map((l) => <li>{l}</li>)}</ol>
+    <h2 id="how-h">{headings.lab_how}</h2>
+    <p class="how serif">{site.how_i_write}</p>
     <p class="muted def">{site.lines.verdict_definition}</p>
-    <p class="reveal-link"><a href="/lab/ch-001/#reveal-h">What validation caught: the reveal on CH-001</a></p>
+    <p class="muted def">{site.lines.lab_scope}</p>
+    <p class="reveal-link"><a href="/lab/ch-001/#reveal">{micro.reveal_link}</a></p>
   </section>
 </BaseLayout>
 <style>
   .head { padding-block: clamp(1.5rem, 4vw, 3rem) 0; display: grid; gap: 0.9rem; }
-  .identity { font-size: 0.95rem; color: var(--muted); max-width: var(--measure); }
+  .identity { font-size: 0.95rem; max-width: var(--measure); }
   .proof { font-size: clamp(1.5rem, 1rem + 1.8vw, 2.4rem); max-width: 30ch; }
-  .reveal-link { margin-top: 1rem; }
-  .scope { font-size: 0.92rem; }
-  h2 { font-size: clamp(1.4rem, 1rem + 1.4vw, 2rem); margin: 0.3rem 0 1rem; }
-  .how { max-width: var(--measure); display: grid; gap: 0.5rem; font-family: var(--serif); font-size: 1.1rem; padding-left: 1.4rem; }
-  .how li::marker { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
-  .def { margin-top: 1rem; }
+  h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin: 0 0 1rem; }
+  .how { max-width: var(--measure); font-size: 1.1rem; line-height: 1.45; }
+  .def { margin-top: 1rem; font-size: 0.95rem; }
+  .reveal-link { margin-top: 1.25rem; }
 </style>

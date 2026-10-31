@@ -21,7 +21,7 @@ const len = (p4: string) => (p4 === 'match' ? 26 : p4 === 'minor_differences' ? 
       </g>;
     })}
   </svg>
-  <figcaption class="mono muted">{c.approved_pathways} released of {c.topics_processed} topics · phase 2 internal gates: {c.phase2_pass} clean, {c.phase2_fail} caught and patched · phase 4 external: {c.phase4_match} matched, {c.phase4_minor_differences} minor differences, {c.phase4_no_source_found} no source found</figcaption>
+  <figcaption class="mono muted">{c.approved_pathways} released of {c.topics_processed} topics · phase 2 internal gates: {c.phase2_pass} clean, {c.phase2_fail} caught and patched · phase 4 external: {c.phase4_match} matched, {c.phase4_minor_differences} minor differences, {c.phase4_no_source_found} with no comparator at 18 peer sources</figcaption>
 </figure>
 <style>
   figure { margin: 0; }

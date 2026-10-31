@@ -13,7 +13,7 @@ So in 2026 I built five clinical AI tools myself, with the current models, and m
 TBD: confirm the team size and system revenue figures above.
 
 ## Strategy
-- Vice President, Enterprise Data and Analytics, Sanford Health, 2015 to 2017. A new enterprise role reporting to the system CFO. Team of TBD, budget TBD. Stood up standardization, data governance, self-service analytics in place of a service-desk model, and an evidence standard for analytics after finding programs that reported regression to the mean as success.
+- Vice President, Enterprise Data and Analytics, Sanford Health, 2015 to 2017. A new enterprise role reporting to the system CFO. Team of TBD, budget TBD. Set the data standards and governance, replaced the service-desk model with self-service analytics, and wrote the rule that an analytics program counts only if it beats what would have happened anyway.
 - Chief Medical Analytics Officer, 2017 to 2018; advisor to the board on data and analytics.
 - Vice President, Population Health, 2018 to 2019. A new enterprise role; integrated payer, contracting and provider functions for value-based care.
 - Senior Advisor to the President, Data and Analytics, Sanford Health Plan, 2020: patient and provider segmentation, value-based payment, the metrics behind it.
@@ -23,19 +23,19 @@ TBD: confirm the team size and system revenue figures above.
 ## Build or buy
 - Five clinical AI tools built in 2026 with current models and agents: the protocol engine, CodeBlue Peds, the self-assessment builder, the call scheduler, Aequitas on agents. See the lab.
 - A 217-topic pathway pipeline: 150 approved candidate pathways, deterministic citation and dosing gates, cross-model review, external comparison. $55.31 in API spend, about 38 hours.
-- Two organizations built from zero: Aequitas Health (co-founded 2021; chapters at more than 15% of MD-granting medical schools; McNulty Catalyst Fund, 2023) and the Preparedness and Treatment Equity Coalition (co-founder and Chief Scientific Officer, 2020 to 2023; more than $450,000 in research funding awarded).
+- Two organizations I co-founded: Aequitas Health (co-founded 2021; chapters at more than 15% of MD-granting medical schools; McNulty Catalyst Fund, 2023) and the Preparedness and Treatment Equity Coalition (co-founder and Chief Scientific Officer, 2020 to 2023; more than $450,000 in research funding awarded).
 
 ## Rules
 - More than fifteen national practice guidelines, including the 2026 Surviving Sepsis Campaign children's guideline, the 2019 PICU leveling update, the 2022 pediatric intermediate care guidance, and the 2023 AAP organ donation policy statement.
 - Health system AI governance work. TBD: scope wording.
-- Reporting standards completed for the lab's own papers: TRIPOD-LLM, DECIDE-AI. The Rules section of every memo names FDA clinical decision support criteria, ONC HTI-1 decision-support transparency and NIST AI RMF.
+- Reporting standards completed for the lab's own papers: TRIPOD-LLM, DECIDE-AI.
 - Fellow of the American College of Critical Care Medicine, 2020; at the time the only critical care physician in North or South Dakota with that designation.
 
 ## Proof
 - Ran an enterprise data and analytics function at a $TBD billion system.
 - Code-to-claims reconciliation of my own manuscripts, June to July 2026: seven headline numbers failed, two papers retired.
 - Four public Zenodo records with DOIs; four manuscripts under review.
-- Claude Science research protocol: pre-registration, verification tags, red team before and after; two of three briefs killed on re-check.
+- A research protocol run on Claude Science: pre-registered, every claim tagged with how it was verified, red-teamed before and after. Two of three briefs did not survive the re-check.
 
 ## Now
 - Professor of Pediatrics, University of South Dakota Sanford School of Medicine, since 2021.
@@ -46,15 +46,15 @@ TBD: confirm the team size and system revenue figures above.
 - Presidential Leadership Scholars, 2025 class. Bush Fellow, 2018 to 2020. Aspen Health Innovators Fellow, 2019 to 2022.
 
 ## Papers and deposits
-Under review (title, venue, status only; the finding is on its lab card):
+Title, venue and status. The findings are on the lab cards.
 - Omit-Then-Verify: A Deployed Defense Against Fabricated Citations in LLM-Generated Medical Content. Applied Clinical Informatics. Under review. Preprint doi:10.5281/zenodo.21141544. Deposit doi:10.5281/zenodo.21185113.
 - Externally Grounded Validation of LLM-Generated Pediatric Clinical Pathways. International Journal of Medical Informatics. Under review. Preprint doi:10.5281/zenodo.21286951.
 - The Pediatric Decision-Support Access Gap. TBD venue. Under review. Preprint doi:10.5281/zenodo.21212699. Deposit doi:10.5281/zenodo.21198499 (TBD: link after the median correction is uploaded).
 - Executability as a readiness measure (Perspective). TBD venue. Under review.
 - More than 110 peer-reviewed publications and abstracts; more than 55 invited talks; NIH NIGMS P20 principal investigator, 2020 to 2021.
 
-## Evidence (for medical affairs readers)
-Guideline author on more than fifteen national documents; more than 110 publications; a published verification standard for referenced, AI-produced medical content (omit-then-verify, with an open deposit); evidence synthesis with AI agents under a pre-registered, red-teamed protocol (Q1 2027 lab entry).
+## For medical affairs readers
+I have authored more than fifteen national guideline documents and more than 110 publications. I published a verification standard for referenced, AI-produced medical content, omit-then-verify, with an open deposit. Evidence synthesis with AI agents under a pre-registered, red-teamed protocol is a Q1 2027 lab entry.
 
 ## Disclosures
 - Tools were built on my own time with no institutional data. Advisory work is disclosed to my employer.
