@@ -70,7 +70,7 @@ const draftCount = (t: string) => drafts.filter((e) => e.data.type === t).length
   }
 </script>
 <style>
-  .no-js .filters { display: none; }
+  :global(.no-js) .filters { display: none; }
   .filters { display: grid; gap: 0.75rem; margin-bottom: 1.5rem; }
   fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
   legend { float: left; margin-right: 0.6rem; padding: 0; }
