@@ -13,18 +13,18 @@ const kindLabel: Record<string, string> = {
   unverifiable_not_fabricated: 'Unverifiable, not fabricated',
 };
 ---
-<section class="reveal" data-reveal aria-labelledby="reveal-h">
+<section class="reveal" data-reveal={pending ? undefined : ''} aria-labelledby="reveal-h">
   <h2 id="reveal-h" class="h">What validation caught</h2>
   <p class="intro">A real excerpt from the protocol engine's pathway <span class="mono" set:html={tbd(excerpt.pathway)} />. Move the verification across it to see each catch: a struck identifier, a flagged dose, an omission the model reviewer missed.</p>
   {pending && <p class="pending" set:html={tbd('TBD: the excerpt is pending, verbatim from the deposit. The reveal runs on the structure until then.')} />}
-  <div class="controls no-print">
+  {!pending && <div class="controls no-print">
     <button type="button" class="btn btn-ghost" data-prev>Previous catch</button>
     <label class="slider">
       <span class="sr-only">Verification position</span>
       <input type="range" min="0" max={lines.length} value={lines.length} step="1" data-pos aria-valuetext="all lines verified" />
     </label>
     <button type="button" class="btn btn-ghost" data-next>Next catch</button>
-  </div>
+  </div>}
   <ol class="excerpt" data-lines>
     {lines.map((l, i) => <li class:list={['line', { 'has-catch': !!l.catch }]} data-i={i} data-kind={l.catch?.kind}>
       <button type="button" class="linebtn" data-line>
@@ -39,7 +39,7 @@ const kindLabel: Record<string, string> = {
       </div>}
     </li>)}
   </ol>
-  <p class="mono muted count" data-count aria-live="polite">{catches} catches in {lines.length} lines.</p>
+  {!pending && <p class="mono muted count" data-count aria-live="polite">{catches} catches in {lines.length} lines.</p>}
 </section>
 <script>
   const root = document.querySelector<HTMLElement>('[data-reveal]');
@@ -71,7 +71,7 @@ const kindLabel: Record<string, string> = {
   .controls { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
   .no-js .controls { display: none; }
   .slider { flex: 1 1 200px; display: flex; }
-  input[type="range"] { width: 100%; accent-color: var(--alert); min-height: 44px; }
+  input[type="range"] { width: 100%; accent-color: var(--ink); min-height: 44px; }
   .excerpt { list-style: none; padding: 0; margin: 0; border: 1px solid var(--line); background: var(--surface); border-radius: 3px; counter-reset: l; }
   .line { border-top: 1px solid var(--line); }
   .line:first-child { border-top: 0; }

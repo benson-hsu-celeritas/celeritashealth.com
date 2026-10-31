@@ -9,8 +9,12 @@ import { site, allEntries, fmtDate, entryHref } from '../../lib/site';
 import { tbd } from '../../lib/tbd';
 
 export async function getStaticPaths() {
-  const list = await allEntries();
-  return list.map((entry, i) => ({ params: { id: entry.data.id.toLowerCase() }, props: { entry, prev: list[i + 1], next: list[i - 1] } }));
+  const all = await allEntries();
+  return all.map((entry) => {
+    const list = all.filter((e) => e.data.draft === entry.data.draft);
+    const i = list.indexOf(entry);
+    return { params: { id: entry.data.id.toLowerCase() }, props: { entry, prev: list[i + 1], next: list[i - 1] } };
+  });
 }
 const { entry, prev, next } = Astro.props;
 const d = entry.data;

@@ -33,8 +33,9 @@ const now = by('Now'), papers = by('Papers'), evidence = by('Evidence'), disclos
     </section>
     {now && <section class="section" id="now" aria-labelledby="now-h"><h2 id="now-h">Now</h2><div class="prose" set:html={now.html} /></section>}
     {papers && <section class="section" id="papers" aria-labelledby="papers-h"><h2 id="papers-h">Papers and deposits</h2><p class="muted">Findings live on the lab cards; this list carries title, venue and status only.</p><div class="prose" set:html={papers.html} /></section>}
-    {evidence && <section class="section" id="evidence" aria-labelledby="evidence-h"><h2 id="evidence-h">Evidence</h2><div class="prose" set:html={evidence.html} /><p class="proofline lede">{site.position.proof}</p></section>}
+    {evidence && <section class="section" id="evidence" aria-labelledby="evidence-h"><h2 id="evidence-h">Evidence</h2><div class="prose" set:html={evidence.html} /></section>}
     {disclosures && <section class="section" id="disclosures" aria-labelledby="disc-h"><h2 id="disc-h">Disclosures</h2><div class="prose" set:html={disclosures.html} /></section>}
+    <p class="proofline lede">{site.position.proof}</p>
     <section class="section" id="contact" aria-labelledby="contact-h">
       <h2 id="contact-h">Contact</h2>
       <Contact subject="Hello" />
@@ -56,6 +57,6 @@ const now = by('Now'), papers = by('Papers'), evidence = by('Evidence'), disclos
   @media (min-width: 900px) { .stages { grid-template-columns: 1fr 1fr; } }
   .stage { display: grid; gap: 0.75rem; align-content: start; }
   .stage h3 { font-size: 1.4rem; }
-  .proofline { margin-top: 1.5rem; }
+  .proofline { margin-top: 2.5rem; max-width: 40ch; }
   .cv { margin-top: 1rem; }
 </style>

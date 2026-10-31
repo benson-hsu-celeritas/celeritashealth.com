@@ -19,7 +19,6 @@ const { entries } = Astro.props;
       <p class="eyebrow">Shown in the lab</p>
       <ul class="cards">
         {cards.map((e) => <li><a href={entryHref(e)} class="mono">{e.data.id}</a> <span set:html={tbd(e.data.title)} /></li>)}
-        {drafts > 0 && <li class="mono muted">{drafts} more in preparation</li>}
       </ul>
     </li>;
   })}

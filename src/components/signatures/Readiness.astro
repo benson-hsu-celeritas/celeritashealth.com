@@ -8,7 +8,8 @@ const W = 300;
     <title id="sig-ready-t">A scale from 0 to 100 with two marks: 70, the national median readiness score, and 64 in the lowest-volume departments.</title>
     <path class="draw" pathLength="1" d="M0 30 H300" stroke="var(--rule)" stroke-width="2" />
     {[0, 25, 50, 75, 100].map((t) => <g><path d={`M${t * 3} 26 V34`} stroke="var(--rule)" /><text x={t * 3} y="48" text-anchor={t === 0 ? 'start' : t === 100 ? 'end' : 'middle'} class="lbl">{t}</text></g>)}
-    {marks.map((m, i) => <g><path d={`M${m.v * 3} 20 V40`} stroke="var(--ink)" stroke-width="2" /><text x={m.v * 3} y={i ? 58 : 12} text-anchor="middle" class="lbl ink">{m.v} {m.l}</text></g>)}
+    {marks.map((m) => <g><path d={`M${m.v * 3} 20 V40`} stroke="var(--ink)" stroke-width="2" /><text x={m.v * 3} y="14" text-anchor="middle" class="lbl ink">{m.v}</text></g>)}
   </svg>
+  <figcaption class="mono muted">Readiness score, 0 to 100: {marks.map((m) => `${m.v} ${m.l}`).join('; ')}.</figcaption>
 </figure>
-<style> figure { margin: 0; } svg { width: 100%; height: auto; display: block; } .lbl { font-family: var(--mono); font-size: 8.5px; fill: var(--muted); } .ink { fill: var(--ink); } </style>
+<style> figure { margin: 0; } figcaption { margin-top: 0.4rem; } svg { width: 100%; height: auto; display: block; } .lbl { font-family: var(--mono); font-size: 10px; fill: var(--muted); } .ink { fill: var(--ink); } </style>

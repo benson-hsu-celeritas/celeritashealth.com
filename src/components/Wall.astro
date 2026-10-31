@@ -2,10 +2,12 @@
 import Card from './Card.astro';
 import { site, stages, type Entry } from '../lib/site';
 interface Props { entries: Entry[] }
-const { entries } = Astro.props;
+const { entries: all } = Astro.props;
+const entries = all.filter((e) => !e.data.draft);
+const drafts = all.filter((e) => e.data.draft);
 const types = site.card_types as string[];
 const count = (t: string) => entries.filter((e) => e.data.type === t).length;
-const draftCount = (t: string) => entries.filter((e) => e.data.type === t && e.data.draft).length;
+const draftCount = (t: string) => drafts.filter((e) => e.data.type === t).length;
 ---
 <div class="wall" data-wall>
   <form class="filters no-print" aria-label="Filter entries" onsubmit="return false">
@@ -23,7 +25,12 @@ const draftCount = (t: string) => entries.filter((e) => e.data.type === t && e.d
   <div class="grid" data-cards>
     {entries.map((e) => <Card entry={e} heading="h2" />)}
   </div>
-  <p class="empty mono muted" data-f-empty hidden>No entries match. {types.filter((t) => count(t) === draftCount(t) && draftCount(t) > 0).map((t) => `${t}: ${draftCount(t)} in preparation.`).join(' ')}</p>
+  <p class="empty mono muted" data-f-empty hidden>No published entries match. {types.filter((t) => count(t) === 0 && draftCount(t) > 0).map((t) => `${t}: ${draftCount(t)} in preparation.`).join(' ')}</p>
+  {drafts.length > 0 && <section class="prep" aria-labelledby="prep-h">
+    <h2 id="prep-h" class="prep-h">In preparation <span class="mono muted">{drafts.length}</span></h2>
+    <p class="muted">Dated and numbered when written. Each keeps its placeholders visible until then.</p>
+    <div class="grid">{drafts.map((e) => <Card entry={e} heading="h3" compact />)}</div>
+  </section>}
 </div>
 <script>
   const wall = document.querySelector<HTMLElement>('[data-wall]');
@@ -74,4 +81,7 @@ const draftCount = (t: string) => entries.filter((e) => e.data.type === t && e.d
   @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1080px) { .grid { grid-template-columns: repeat(3, 1fr); } }
   .empty { margin-top: 1rem; }
+  .prep { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; display: grid; gap: 0.75rem; }
+  .prep-h { font-size: 1.3rem; }
+  .prep .grid { margin-top: 0.5rem; }
 </style>

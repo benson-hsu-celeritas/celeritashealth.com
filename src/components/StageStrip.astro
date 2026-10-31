@@ -35,7 +35,7 @@ import { stages } from '../lib/site';
   .cells { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); }
   @media (min-width: 640px) { .cells { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1000px) { .cells { grid-template-columns: repeat(4, 1fr); } }
-  .cells a { display: grid; gap: 0.4rem; padding: 1.1rem 0; background: var(--canvas); text-decoration: none; padding-inline: 1rem; min-height: 100%; box-sizing: border-box; }
+  .cells a { display: grid; gap: 0.4rem; align-content: start; padding: 1.1rem 0; background: var(--canvas); text-decoration: none; padding-inline: 1rem; min-height: 100%; box-sizing: border-box; }
   @media (min-width: 1000px) { .cells li:first-child a { padding-left: 0; } }
   .name { font-family: var(--serif); font-size: 1.35rem; }
   .q { font-size: 0.92rem; color: var(--muted); }

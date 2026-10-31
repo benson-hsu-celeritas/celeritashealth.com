@@ -15,11 +15,13 @@ const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(
     <h1>{site.position.promise}</h1>
     <p class="lede">{site.rules.sells}</p>
     <p class="muted">{site.lines.lab_scope}</p>
+    <p><a class="btn" href="#contact">Start with a scope call</a></p>
   </section>
   <section class="section wrap" id="method" aria-labelledby="method-h">
     <p class="eyebrow">Method</p>
     <h2 id="method-h">{site.position.method}</h2>
     <Cells entries={entries} />
+    {entries.some((e) => e.data.draft) && <p class="mono muted prep">{entries.filter((e) => e.data.draft).length} entries in preparation, listed on the <a href="/lab/">lab wall</a>.</p>}
   </section>
   <section class="section wrap" id="offers" aria-labelledby="offers-h">
     <p class="eyebrow">Offers</p>
@@ -68,5 +70,6 @@ const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(
   .samples li { border: 1px dashed var(--rule); border-radius: 3px; padding: 1.1rem; display: grid; gap: 0.5rem; background: var(--surface); }
   .samples h3 { font-size: 1.25rem; }
   .seat { max-width: 40ch; }
+  .prep { margin-top: 1rem; }
   .willnot { margin-top: 1rem; display: grid; gap: 0.3rem; font-family: var(--serif); font-size: 1.1rem; }
 </style>

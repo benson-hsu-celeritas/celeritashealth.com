@@ -6,6 +6,6 @@
     { "text": "TBD: a reference line whose PMID the model proposed and the lookup rejected", "catch": { "kind": "fabricated_identifier", "struck": "PMID TBD", "replacement": "TBD verified PMID, title, year" } },
     { "text": "TBD: a dosing line flagged by the range check", "catch": { "kind": "dose_out_of_range", "struck": "TBD", "replacement": "TBD" } },
     { "text": "TBD: the neonatal section lacking the ceftriaxone-calcium contraindication", "catch": { "kind": "omission_caught_externally", "struck": null, "replacement": "Ceftriaxone is contraindicated with calcium-containing IV solutions in neonates (Bradley et al., Pediatrics 2009; PMID 19289450)" } },
-    { "text": "TBD: a NOT_FOUND reference that is a legitimate non-PubMed source (e.g. a WHO guideline)", "catch": { "kind": "unverifiable_not_fabricated", "struck": null, "replacement": "Marked unverified; not a fabrication" } }
+    { "text": "TBD: a NOT_FOUND reference that is a legitimate non-PubMed source (for example a WHO guideline)", "catch": { "kind": "unverifiable_not_fabricated", "struck": null, "replacement": "Marked unverified; not a fabrication" } }
   ]
 }
