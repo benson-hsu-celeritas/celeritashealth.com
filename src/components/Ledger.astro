@@ -1,26 +1,25 @@
 ---
 import Card from './Card.astro';
 import StageRail from './StageRail.astro';
-import { site, micro, fmtDate, entryHref, monthRange, type Entry } from '../lib/site';
+import { micro, headings, fmtDate, entryHref, monthRange, type Entry } from '../lib/site';
 import { tbd } from '../lib/tbd';
-/** Home: the newest entries as a summary of verdicts, one ruled row each. CH-001 renders as the full card in its place, because its drawing is the one no one else has. */
+/** Home: the newest entries as ruled rows. CH-001 renders as the full card in its place, because its drawing is the one no one else has. */
 interface Props { entries: Entry[]; expand?: string }
 const { entries, expand = 'CH-001' } = Astro.props;
 ---
-<section class="section" aria-labelledby="ledger-h">
+<section class="section ruled" aria-labelledby="ledger-h">
   <div class="wrap">
-    <h2 id="ledger-h" class="h2">{site.site.tagline} <span class="mono muted range">{monthRange(entries)}</span></h2>
+    <h2 id="ledger-h" class="h2">{headings.home_ledger} <span class="mono muted range">{monthRange(entries)}</span></h2>
     <ol class="ledger">
       {entries.map((e) => e.data.id === expand
         ? <li class="full"><Card entry={e} heading="h3" /></li>
         : <li>
           <article class="row" data-entry={e.data.id}>
-            <p class="byline">{site.position.identity}</p>
             <p class="meta mono"><span class="id">{e.data.id}</span> · <span set:html={tbd(fmtDate(e.data.date))} /> · {e.data.type}</p>
             <h3 class="title"><a href={entryHref(e)} set:html={tbd(e.data.title)} /></h3>
-            <StageRail lit={e.data.stages} />
+            <StageRail lit={e.data.stages} compact />
             <div class="v">
-              <p class="label"><span class="eyebrow">{micro.verdict_label}</span> <span class="vw">{e.data.verdict}</span></p>
+              <p class="label"><span class="eyebrow">{micro.verdict_label}</span> <span class="vw">{e.data.verdict}.</span></p>
               <p class="why" set:html={tbd(e.data.reasoning)} />
               {e.data.doi && <p class="mono doi"><a href={`https://doi.org/${e.data.doi}`} rel="noopener">{micro.preprint}</a></p>}
             </div>
@@ -38,18 +37,17 @@ const { entries, expand = 'CH-001' } = Astro.props;
   .ledger > li.full { padding: 1rem 0 1.5rem; }
   .ledger > li.full > :global(.card) { max-width: 44rem; border-top: 0; padding-inline: 0; background: transparent; }
   .ledger > li.full :global(.sigwrap) { max-width: 36rem; }
-  .row { display: grid; gap: 0.5rem 2rem; padding: 1.1rem 0; grid-template-columns: 1fr; grid-template-areas: "byline" "meta" "title" "rail" "v"; }
-  @media (min-width: 900px) { .row { grid-template-columns: minmax(0, 1fr) 20rem; grid-template-areas: "byline byline" "meta v" "title v" "rail v"; align-items: start; } }
-  .byline { grid-area: byline; }
+  .row { display: grid; gap: 0.5rem 2rem; padding: 1.1rem 0; grid-template-columns: 1fr; grid-template-areas: "meta" "title" "rail" "v"; }
+  @media (min-width: 900px) { .row { grid-template-columns: minmax(0, 1fr) 20rem; grid-template-areas: "meta v" "title v" "rail v"; align-items: start; } }
   .meta { grid-area: meta; color: var(--muted); }
   .id { color: var(--ink); font-weight: 600; }
   .title { grid-area: title; font-size: 1.35rem; max-width: 30ch; }
   .title a { text-decoration: none; }
   .title a:hover { text-decoration: underline; text-decoration-color: var(--rule); }
-  .row > :global(.rail) { grid-area: rail; max-width: 22rem; }
-  .v { grid-area: v; border-top: 2px solid var(--alert); padding-top: 0.5rem; display: grid; gap: 0.4rem; }
+  .row > :global(.rail) { grid-area: rail; }
+  .v { grid-area: v; border-top: 1px solid var(--ink); padding-top: 0.5rem; display: grid; gap: 0.4rem; }
   .label { display: flex; gap: 0.6rem; align-items: baseline; }
-  .vw { font-family: var(--mono); font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; }
+  .vw { font-family: var(--serif); font-style: italic; font-size: 1.3rem; line-height: 1; }
   .why { font-size: 0.92rem; }
   .doi { font-size: 0.78rem; }
   .more { margin-top: 0; }

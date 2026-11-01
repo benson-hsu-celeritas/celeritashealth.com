@@ -2,9 +2,9 @@
 import StageRail from './StageRail.astro';
 import VerdictChip from './VerdictChip.astro';
 import Signature from './Signature.astro';
-import { site, micro, fmtDate, entryHref, type Entry } from '../lib/site';
+import { micro, fmtDate, entryHref, type Entry } from '../lib/site';
 import { tbd } from '../lib/tbd';
-/** A published entry in its fixed anatomy. The identity line is the byline (first on every card, as the plan requires). */
+/** A published entry. The page header carries the identity line once; the card carries the work: drawing, numbers, stages addressed, verdict. */
 interface Props { entry: Entry; heading?: 'h2' | 'h3' }
 const { entry, heading: H = 'h3' } = Astro.props;
 const d = entry.data;
@@ -12,19 +12,18 @@ const href = entryHref(entry);
 const drawn = ['pathways', 'fabrication', 'access-gap', 'citation-trace', 'subtraction', 'agent-flow'].includes(d.signature);
 const finding = drawn ? d.numbers : d.numbers.slice(1);
 ---
-<article class="card lift" data-type={d.type} data-stages={d.stages.join(' ')} data-entry={d.id} id={d.id.toLowerCase()}>
+<article class="card" data-type={d.type} data-stages={d.stages.join(' ')} data-entry={d.id} id={d.id.toLowerCase()}>
   <header class="meta mono">
     <span class="id">{d.id}</span>
     <span class="date" set:html={tbd(fmtDate(d.date))} />
     <span class="type">{d.type}</span>
   </header>
   <H class="title"><a href={href} set:html={tbd(d.title)} /></H>
-  <p class="byline">{site.position.identity}</p>
   <div class="sigwrap"><Signature kind={d.signature} numbers={d.numbers} /></div>
   <p class="status mono muted" set:html={tbd(d.status)} />
   {finding.length > 0 && <ol class="finding">{finding.map((n) => <li set:html={tbd(n)} />)}</ol>}
-  <StageRail lit={d.stages} />
-  <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} compact />
+  <StageRail lit={d.stages} compact />
+  <VerdictChip verdict={d.verdict} reasoning={d.reasoning} compact />
   <p class="more"><a href={href}>{micro.read_entry}</a>{d.doi && <> · <a href={`https://doi.org/${d.doi}`} rel="noopener">{micro.preprint}</a></>}</p>
 </article>
 <style>

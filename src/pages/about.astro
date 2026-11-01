@@ -16,12 +16,15 @@ const now = by('Now'), papers = by('Papers'), evidence = by('For medical affairs
 <BaseLayout title={site.seo.about_title} description={site.seo.about_description} og="about">
   <article class="wrap about">
     <header class="head">
-      <div class="photo"><Image src={headshot} alt="Benson S. Hsu" widths={[160, 320]} sizes="96px" format="webp" quality={78} /></div>
-      <h1>{site.signature_block.name}</h1>
-      <p class="line muted">{site.signature_block.line}</p>
+      <div class="photo"><Image src={headshot} alt="Benson S. Hsu" widths={[240, 480]} sizes="(min-width: 760px) 220px, 40vw" format="webp" quality={78} loading="eager" /></div>
+      <div class="id">
+        <h1>{site.signature_block.name}</h1>
+        <p class="line muted">{site.signature_block.line}</p>
+        <p class="proofline">{site.position.proof}</p>
+      </div>
     </header>
     {story && <section class="section" id="story" aria-labelledby="story-h"><h2 id="story-h">{story.heading}</h2><div class="prose story" set:html={story.html} /></section>}
-    <section class="section" id="bio" aria-labelledby="bio-h">
+    <section class="section ruled" id="bio" aria-labelledby="bio-h">
       <h2 id="bio-h">{headings.about_bio}</h2>
       <nav class="railnav" aria-label={micro.bio_nav}>
         <ol class="rail md">
@@ -39,7 +42,6 @@ const now = by('Now'), papers = by('Papers'), evidence = by('For medical affairs
     {papers && <section class="section" id="papers" aria-labelledby="papers-h"><h2 id="papers-h">{papers.heading}</h2><div class="prose" set:html={papers.html} /></section>}
     {evidence && <section class="section" id="evidence" aria-labelledby="evidence-h"><h2 id="evidence-h">{evidence.heading}</h2><div class="prose" set:html={evidence.html} /></section>}
     {disclosures && <section class="section" id="disclosures" aria-labelledby="disc-h"><h2 id="disc-h">{disclosures.heading}</h2><div class="prose" set:html={disclosures.html} /></section>}
-    <p class="proofline lede">{site.position.proof}</p>
     <section class="section" id="contact" aria-labelledby="contact-h">
       <h2 id="contact-h">{headings.advisory_contact}</h2>
       <Contact subject="Hello" />
@@ -49,16 +51,20 @@ const now = by('Now'), papers = by('Papers'), evidence = by('For medical affairs
 </BaseLayout>
 <style>
   .about { padding-top: clamp(1.5rem, 4vw, 3rem); }
-  .head { display: grid; gap: 0.15rem 1rem; grid-template-columns: 96px minmax(0, 1fr); grid-template-areas: "p h" "p l"; align-items: center; }
-  .photo { grid-area: p; width: 96px; }
-  h1 { grid-area: h; font-size: 1.35rem; font-family: var(--sans); font-weight: 500; }
-  .line { grid-area: l; font-size: 0.95rem; }
+  .head { display: grid; gap: 1.25rem 2rem; grid-template-columns: minmax(0, 1fr); align-items: end; max-width: 60rem; }
+  @media (min-width: 760px) { .head { grid-template-columns: 220px minmax(0, 1fr); } }
+  .photo { width: min(40vw, 220px); }
+  .id { display: grid; gap: 0.5rem; }
+  h1 { font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); }
+  .line { font-size: 1.05rem; }
+  .proofline { font-family: var(--serif); font-size: 1.15rem; line-height: 1.35; max-width: 44ch; margin-top: 0.5rem; }
   h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin-bottom: 1rem; }
   .story :global(p) { font-family: var(--serif); font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem); line-height: 1.4; max-width: 60ch; }
+  .story :global(p:first-of-type::first-letter) { float: left; font-size: 3.4em; line-height: 0.8; padding: 0.08em 0.1em 0 0; font-weight: 300; }
   .story :global(blockquote) { display: none; }
   .railnav { margin-bottom: 1.5rem; max-width: 40rem; }
   .rail { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
-  .rail li { position: relative; padding-left: 0.85rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  .rail li { position: relative; padding-left: 0.85rem; font-family: var(--sans); font-size: 0.85rem; }
   .rail a { text-decoration: none; display: inline-block; padding: 0.4rem 0; }
   .rail a:hover .lbl { text-decoration: underline; }
   .sq { position: absolute; top: 0.75em; left: 0; width: 7px; height: 7px; background: var(--ink); }
@@ -66,6 +72,5 @@ const now = by('Now'), papers = by('Papers'), evidence = by('For medical affairs
   @media (min-width: 900px) { .stages { grid-template-columns: 1fr 1fr; } }
   .stage { display: grid; gap: 0.75rem; align-content: start; scroll-margin-top: 1rem; border-top: 1px solid var(--line); padding-top: 1rem; }
   .stage h3 { font-size: 1.4rem; }
-  .proofline { margin-top: 2.5rem; max-width: 40ch; }
   .cv { margin-top: 1rem; }
 </style>

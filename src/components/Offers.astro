@@ -13,7 +13,7 @@ const noted = offers.filter((o) => o.note);
     {offers.map((o) => <tr id={o.tier === 'project' ? 'project' : `tier-${o.tier}`}>
       <th scope="row"><span class="mono muted tier">{o.tier === 'project' ? micro.project : `${micro.tier} ${o.tier}`}</span><span class="name">{o.name}</span></th>
       <td data-label={micro.offers_for}>{o.for}</td>
-      <td data-label={micro.offers_turnaround} class="ta">{o.turnaround ? <span class="mono">{o.turnaround}</span> : <span class="mono muted">{(site.offers as any)[3].scope.split(',').pop()?.trim()}</span>}</td>
+      <td data-label={micro.offers_turnaround} class="ta">{o.turnaround && <span class="mono">{o.turnaround}</span>}</td>
       <td data-label={micro.offers_includes}>{o.scope}{o.note && <sup><a href="#offer-note" class="fn" aria-label={`${micro.note_label} ${noted.indexOf(o) + 1}`}>{noted.indexOf(o) + 1}</a></sup>}</td>
     </tr>)}
   </tbody>

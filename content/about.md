@@ -8,7 +8,7 @@ In 2015 I became the first vice president of enterprise data and analytics at a 
 
 Then I went back to the bedside. TBD: current transport role wording. The call I take at two in the morning is from a six-bed emergency department holding a child in septic shock with one physician and one nurse. The right answer is on their screen. It assumes a second clinician they do not have and a drug they do not stock. Nobody scores decision support on whether the building can do what it says. I decided that someone should, and that it might as well be me.
 
-So in 2026 I built five clinical AI tools myself, with the current models, and measured them the way I measured those analytics programs. The protocol engine asked a model for citations and 458 of 460 were wrong. I fixed it so the model never supplies an identifier again. Then I checked my own papers against the code and two of them did not hold. I retired them. That is the whole practice: build it, measure it, report what broke, and only then say what it is worth.
+So in 2026 I built five clinical AI tools myself, with the current models, and measured them the way I measured those analytics programs. The protocol engine asked a model for citations and 458 of 460 were wrong. I fixed it so the model never supplies an identifier again. Then I checked my own papers against the code and two of them did not hold. I retired them. That, more or less, is the practice. The measuring takes longer than the building, and the part I had not planned on was the retractions.
 
 TBD: confirm the team size and system revenue figures above.
 
@@ -53,14 +53,14 @@ Title, venue and status. The findings are on the lab cards.
 - More than 110 peer-reviewed publications and abstracts; more than 55 invited talks; NIH NIGMS P20 principal investigator, 2020 to 2021.
 
 ## For medical affairs readers
-I have authored more than fifteen national guideline documents and more than 110 publications. I wrote omit-then-verify, a verification method for referenced, AI-produced medical content, with an open deposit; the paper is under review. The next lab entry, due in the first quarter of 2027, is evidence synthesis with AI agents under a pre-registered, red-teamed protocol.
+If you are in medical affairs, the relevant piece is omit-then-verify, a way of checking references in AI-produced medical content; the deposit is open and the paper is under review. The more than fifteen national guideline documents and more than 110 publications are the usual proof that I can write to a reporting standard. The next entry, planned for the first quarter of 2027, is evidence synthesis with AI agents under a pre-registered, red-teamed protocol.
 
 ## Disclosures
 - Tools were built on my own time with no institutional data. Advisory work is disclosed to my employer.
 - Aequitas Health shares no money, staff or data with Celeritas Health.
 - Past vendor advisory: GetWellNetwork (2020 to 2021). No current vendor ties.
 - Founder and president of Aequitas Health and of Celeritas Health. TBD: the ownership and compensation wording for each (Aequitas is a nonprofit).
-- On any one company I sit on one side only: the fund's or the company's.
+- On a given deal I advise either the fund or the company, not both. The full rule is on the advisory page.
 
 ## Contact
 - Email: TBD

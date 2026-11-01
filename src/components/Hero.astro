@@ -16,11 +16,8 @@ const { name, rest } = identityParts();
     </div>
     {newest && <p class="newest">
       <span class="eyebrow">{micro.newest_label}</span>
-      <a class="nv" href={entryHref(newest)}>
-        <span class="vw">{newest.data.verdict}</span>
-        <span class="mono muted">{newest.data.id} · <span set:html={tbd(fmtDate(newest.data.date))} /></span>
-        <span class="t" set:html={tbd(newest.data.title)} />
-      </a>
+      <span class="mono muted">{newest.data.id} · <span set:html={tbd(fmtDate(newest.data.date))} /></span>
+      <a class="nv" href={entryHref(newest)}><span class="t" set:html={tbd(newest.data.title)} />. <span class="vw">{newest.data.verdict}.</span></a>
     </p>}
     <nav class="doors" aria-label={micro.start_here}>
       <a class="door" href="/lab/"><span class="label">{micro.door_lab_label}</span><span class="d">{spell(count, true)} entries, {range}. {micro.door_lab_suffix}</span></a>
@@ -31,23 +28,22 @@ const { name, rest } = identityParts();
     <p class="method muted">{site.position.method}</p>
   </div>
   <div class="photo">
-    <Image src={headshot} alt="Benson S. Hsu" widths={[320, 480, 720]} sizes="(min-width: 900px) 300px, 60vw" format="webp" quality={78} loading="eager" />
+    <Image src={headshot} alt="Benson S. Hsu" widths={[320, 480, 720]} sizes="(min-width: 900px) 340px, 60vw" format="webp" quality={78} loading="eager" />
   </div>
 </section>
 <style>
   .hero { display: grid; gap: 1.5rem 3rem; padding-block: clamp(1.5rem, 4vw, 3.5rem) clamp(2rem, 5vw, 4rem); grid-template-columns: 1fr; grid-template-areas: "text"; }
-  @media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) 300px; grid-template-areas: "text photo"; align-items: start; } }
+  @media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) 340px; grid-template-areas: "text photo"; align-items: start; } }
   .text { grid-area: text; display: grid; gap: 1.25rem; }
-  .photo { grid-area: photo; max-width: 300px; display: none; }
+  .photo { grid-area: photo; max-width: 340px; display: none; }
   @media (min-width: 900px) { .photo { display: block; } }
   .photo img { width: 100%; height: auto; }
   .identity { font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.25rem); max-width: 28ch; line-height: 1.1; }
   .identity .name { display: block; }
   .identity .rest { display: block; font-size: 0.72em; color: var(--slate); margin-top: 0.35em; font-weight: 300; line-height: 1.2; }
-  .newest { display: grid; gap: 0.35rem; max-width: 40rem; }
-  .nv { display: grid; grid-template-columns: auto 1fr; gap: 0.15rem 0.9rem; align-items: baseline; text-decoration: none; padding: 0.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .nv .vw { grid-row: 1 / 3; font-family: var(--mono); font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; border-top: 2px solid var(--alert); padding-top: 0.2rem; align-self: start; }
-  .nv .t { font-family: var(--serif); font-size: 1.1rem; line-height: 1.3; }
+  .newest { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; align-items: baseline; max-width: 40rem; padding: 0.5rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .nv { text-decoration: none; flex-basis: 100%; font-family: var(--serif); font-size: 1.15rem; line-height: 1.3; }
+  .nv .vw { font-style: italic; }
   .nv:hover .t { text-decoration: underline; text-decoration-color: var(--rule); }
   .doors { display: grid; max-width: 40rem; border-top: 1px solid var(--ink); }
   .door { display: grid; gap: 0.1rem 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--ink); text-decoration: none; min-height: 44px; grid-template-columns: 1fr; }

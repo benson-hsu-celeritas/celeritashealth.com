@@ -25,19 +25,19 @@
     {
       "key": "strategy",
       "name": "Strategy",
-      "question": "Is it worth doing, worth investing in, and what will it cost, save or earn?",
-      "background": "I was a health system vice president and worked on the payer side. Duke MBA. Advisory roles at McKinsey and Bain. TBD: what may be said publicly about McKinsey and Bain."
+      "question": "Should we do this at all, or put money into it, and what will it cost or earn?",
+      "background": "I was a health system vice president and worked on the payer side. Duke MBA. Senior Advisor at McKinsey, 2021 to 2023, and External Advisor at Bain, 2024, on healthcare strategy, organizational change and private equity work. Clients and engagements are confidential. TBD: what may be said publicly about McKinsey and Bain."
     },
     {
       "key": "build-or-buy",
       "name": "Build or buy",
-      "question": "Build, buy, partner or wait? Is the vendor's claim true, and where is it worth building our own?",
+      "question": "Is what the vendor says true? And is there a part of this we should build ourselves?",
       "background": "I built five tools with current models and agents in 2026, and before that ran a health system's data function."
     },
     {
       "key": "rules",
       "name": "Rules",
-      "question": "How do we approve, govern, and keep it safe as it grows?",
+      "question": "What will the committee ask for before it signs, and who is watching after go-live?",
       "frameworks": [
         "FDA clinical decision support criteria",
         "ONC HTI-1 decision-support transparency",
@@ -50,8 +50,8 @@
     {
       "key": "proof",
       "name": "Proof",
-      "question": "Does it work here, on our patients, and does it still work on this year's models?",
-      "background": "I ran enterprise data and analytics. In 2026 I checked my own papers against their files and retired two. A verdict is dated, and a re-test gets its own entry."
+      "question": "Does it work on our patients, and did anyone check again after the model changed?",
+      "background": "I ran enterprise data and analytics for a health system, and in 2026 I checked my own papers against their files and retired two. Every verdict here carries its date; when I re-run one on a newer model it gets a new entry rather than a quiet edit."
     }
   ],
   "verdicts": [
@@ -67,30 +67,27 @@
     "Decision"
   ],
   "pivot_story": [
-    "I built five clinical AI tools in a year.",
-    "I tested whether any had a moat, and none did.",
-    "I learned the hard part is deciding what's safe and worth it, and proving it.",
-    "This site is how I do that, for my own tools and for yours."
+    "In 2026 I built five clinical AI tools on my own time, then asked whether any of them had a moat. None did. What I had instead was a way of deciding whether a tool is safe and worth paying for, which is harder than building one and, I think, more useful. This site is where I do that in public, on my own tools first and then on yours."
   ],
   "doors": [
     {
       "audience": "Health systems",
       "read_first": "CH-011",
-      "line": "One memo on one tool. It says Build, Buy, Skip or Wait, and lists what your governance committee will need to see.",
+      "line": "You name the tool. I write one memo on it, short enough to read in a sitting, with a recommendation and the list of what your governance committee will ask you for next.",
       "link_label": "See the offer",
       "sample_label": "Sample memo"
     },
     {
       "audience": "Funds",
       "read_first": "CH-012",
-      "line": "A diligence read in ten business days, or a red-flag read in five. It says whether the clinical AI is real and safe, and what you could not defend later.",
+      "line": "Ten business days for a full read, five if you only need to know whether to walk away. I will tell you whether the clinical claims hold, and which ones you would have trouble defending in a year.",
       "link_label": "See the offer",
       "sample_label": "Sample read"
     },
     {
       "audience": "Consulting partners",
       "read_first": "method",
-      "line": "The clinical half of your engagement, by the day or by the project, run on the four-stage method.",
+      "line": "When a client engagement needs a physician who has run a health system data shop and built with current models. Your template, my judgment, by the day or by the project.",
       "link_label": "See the method"
     }
   ],
@@ -98,8 +95,8 @@
     {
       "tier": "1",
       "name": "Red-flag read",
-      "for": "Funds, health systems",
-      "scope": "One tool or one company, deal-breakers only, one-page verdict",
+      "for": "Health systems, funds",
+      "scope": "One tool or one company. One page: the deal-breakers I found, or a statement that I looked and found none, and what I did not look at",
       "turnaround": "5 business days",
       "note": "If you go on to a tier 2 read of the same target within 90 days, this fee counts toward it."
     },
@@ -121,32 +118,33 @@
       "tier": "project",
       "name": "Clinical AI expert on a project",
       "for": "Consulting partners",
-      "scope": "Clinical judgment on a client engagement."
+      "scope": "A physician on your team for the clinical parts: what the tool does to a workflow, what the committee will ask, whether the vendor's study holds up",
+      "turnaround": "By the day or by the project"
     }
   ],
-  "fee_line": "Fixed fee, quoted in writing before work starts. No hourly billing inside an engagement; questions are included.",
+  "fee_line": "The fee is fixed. If you have questions while the work is under way, ask them; they are not billed.",
   "engagement_steps": [
-    "A 30-minute scope call, free.",
-    "I send scope, fee and turnaround in writing.",
-    "I do the work.",
-    "You get the memo, and one round of revisions."
+    "Half an hour on the phone, no charge, mostly so I can tell you whether I am the right person.",
+    "A one-page scope with the fee and the date.",
+    "The read itself. You will hear from me if I need a document, otherwise not until the memo.",
+    "The memo, and one more pass on it if you want changes."
   ],
   "rules": {
-    "seat": "On any one company I sit on one side only: the fund's or the company's, never both.",
+    "seat": "If I have advised a company I will not do diligence on it for a fund, and the other way round. Ask and I will tell you.",
     "will_not": [
       "I do not implement, sell product, or take expert-network calls.",
       "I disclose conflicts for every engagement."
     ],
-    "sells": "The practice sells decisions, not software."
+    "sells": "There is no product here. You get a recommendation in writing and the reasoning behind it."
   },
   "lines": {
-    "lab_scope": "The lab's evidence to date is pediatric. The method is not.",
+    "lab_scope": "Everything on the wall so far is pediatric, because that is where I practice. Nothing in the method depends on that.",
     "candidate_not_clinical": "The pathways are candidates for a physician to review. None is for clinical use.",
-    "verdict_definition": "The verdict tells a buyer what to do, Build, Buy, Skip or Wait. It does not grade the work."
+    "verdict_definition": "Build, Buy, Skip or Wait is advice to a buyer. It is not a grade on the paper."
   },
   "how_entries_written": [
     "Four sections in one order: worth doing, build or buy, rules, is it working.",
-    "The identity line first; the verdict last, with one line of reasoning and one line on what it is worth to a buyer.",
+    "The identity line once, at the top of the write-up; the verdict last, with one line of reasoning and one line on what it is worth to a buyer.",
     "Dated. Numbers only from a public deposit or a named source; retired figures never reappear.",
     "Model names reported neutrally. Pathways are candidates, not clinical documents.",
     "Journal status appears only in the status line; numbers may change after review.",
@@ -198,8 +196,8 @@
     "about_title": "About Benson S. Hsu | Celeritas Health",
     "about_description": "The two-minute story, the bio by the four stages, papers and deposits, disclosures."
   },
-  "offers_summary": "Three reads, in 5, 10 or 15 business days, and a day rate for consulting partners. One fixed fee, in writing, before I start.",
-  "how_i_write": "Every entry runs in the same order: is it worth doing, build or buy, what rules apply, is it working. It opens with who I am and closes with a verdict, one line on why, and one line on what it is worth to you. Every number comes from a public deposit or a named source, and a figure I have retired does not come back in another form. I name the models I used and report what each did. Where a paper is under review I say so, and its numbers may move. From 2027, one entry a quarter.",
+  "offers_summary": "Three kinds of read, taking 5, 10 or 15 business days, and a day rate for consulting partners. I quote one fee before I start and I do not bill hours against it.",
+  "how_i_write": "Each entry asks the same four questions in the same order, so you can skip to the one you care about. The numbers come from a public deposit or a named source; if I have retired a figure it stays retired, even rounded. I name the models and say what each one did, because by the time you read this they may have changed. Where a paper is still under review I say so, and the numbers may move. I expect about one entry a quarter in 2027, fewer if the clinical work gets busy.",
   "nav": [
     {
       "label": "Home",
@@ -219,40 +217,41 @@
     }
   ],
   "headings": {
-    "home_stages": "The four questions, in order.",
+    "home_stages": "What I ask about any tool, vendor or company",
     "home_pivot": "How I got here",
-    "home_for": "If you run a health system, a fund, or an engagement",
+    "home_for": "Who hires me",
     "lab_how": "How I write these",
     "lab_in_progress": "In progress",
     "advisory_offers": "Three reads and a day rate",
     "advisory_steps": "From first call to memo",
     "advisory_samples": "A sample memo and a sample read",
-    "advisory_rules": "The seat rule",
+    "advisory_rules": "Which side I sit on",
     "advisory_contact": "Email me",
     "about_bio": "What I have done, by stage",
-    "reveal": "What the checks caught"
+    "reveal": "What the checks caught",
+    "home_ledger": "The wall so far"
   },
   "microcopy": {
     "color_mode": "Color mode",
     "theme_light": "Light",
     "theme_dark": "Dark",
-    "newest_label": "Newest verdict",
-    "door_lab_suffix": "Each one gets a verdict.",
-    "door_advisory": "Decision memos and diligence reads. One fixed fee, in writing.",
+    "newest_label": "Latest",
+    "door_lab_suffix": "Start with CH-004 if you want to watch me get something wrong.",
+    "door_advisory": "Memos for health systems, diligence reads for funds. You get the fee before I start and it does not move.",
     "whole_wall": "The whole wall",
     "lab_updated": "Last updated",
     "lab_published": "entries published",
     "lab_in_progress": "more in progress",
     "provisional": "(provisional)",
     "read_entry": "Read the entry",
-    "worth_label": "Worth to a buyer",
+    "worth_label": "If you are buying",
     "verdict_label": "Verdict",
     "from_the_lab": "From the lab",
-    "rules_frame": "The Rules section of every memo is written against these five, and lists what your governance committee will ask for.",
+    "rules_frame": "When a committee asks which framework the memo used, the answer is these five:",
     "scope_call": "Start with a scope call",
     "write_to": "Write to me at",
     "sample_pdf": "PDF: TBD.",
-    "published_memo": "Until the samples exist, CH-004 is the one published memo on the wall. It is about my own papers, not a vendor, and it runs in the same four sections a client memo does. It will not show you a cost or a governance list; it shows how a verdict is reasoned.",
+    "published_memo": "The samples are not written yet. In the meantime CH-004 is the closest thing: a memo about my own papers, in the same four sections. There is no cost line or governance list in it, because the subject was me, but you can see how I get from evidence to a call.",
     "reveal_link": "See what the checks caught, line by line, on CH-001.",
     "reveal_pending": "This space will hold a real excerpt from one pathway, copied from the deposit, with every line the gates caught marked. TBD: the excerpt.",
     "footer_copyright": "Nothing on this site is a clinical document.",
@@ -298,7 +297,9 @@
     "lab_wall_link": "lab wall",
     "no_published_type": "No published entries of this type yet",
     "bio_nav": "Sections of the bio",
-    "note_label": "Note"
+    "note_label": "Note",
+    "colophon": "Set in Newsreader, Alegreya Sans and JetBrains Mono. Last built",
+    "stages_prefix": "Stages"
   },
   "figures": {
     "method": {

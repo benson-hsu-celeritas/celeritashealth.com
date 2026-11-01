@@ -7,7 +7,7 @@ The storefront for Celeritas Health: a one-person clinical AI advisory practice 
 - `src/` is the Astro site: `pages/` (Home, Lab wall, write-ups, Advisory, About), `components/` (SignatureBlock, Wordmark, StageRail, VerdictChip, Card, Ledger, Wall with its flowsheet, Signature drawings, Figure, MethodAlgorithm, EngagementFlowsheet, Reveal, Offers, Doors), `lib/` (content helpers, TBD markers).
 - `scripts/` run in `npm run build`: one OG image per page in the site's fonts, the content gate (never-list words, retired numbers, hidden TBDs, em dashes, verbatim position lines, twelve entries on the Lab page) and the script and raster budgets. `npm run audit:a11y` (axe), `npm run audit:lh` (Lighthouse), `npm run shots` (Panel screenshots).
 - `public/figures/` holds the two drawn figures (CH-001's pipeline, CH-002's omit-then-verify), made in the Canva design "Celeritas figures" and exported as transparent PNGs; `node scripts/figures-dark.mjs` derives the dark variants from the light files.
-- `TBD.md` lists every visible placeholder and who closes it. `reviews/` holds panel and red team conclusions.
+- `TBD.md` lists every visible placeholder and who closes it. `reviews/` holds panel and red team conclusions (04 is the buyer panel and the "AI made it" red team).
 - Deploy: GitHub Pages through `.github/workflows/pages.yml` on push to `main`; `public/CNAME` carries the domain. The Pages source must be switched to GitHub Actions when the rebuild merges.
 
 ```bash

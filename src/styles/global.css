@@ -73,8 +73,8 @@ mark.tbd { background: color-mix(in oklab, var(--muted) 12%, transparent); color
 .xref { font-family: var(--mono); font-size: 0.9em; }
 .wrap { width: min(100% - 2 * var(--gutter), 1200px); margin-inline: auto; }
 .section { padding-block: clamp(2.5rem, 6vw, 5rem); }
-.section + .section { border-top: 1px solid var(--line); }
-.eyebrow { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+.section.ruled { border-top: 2px solid var(--ink); }
+.eyebrow { font-family: var(--sans); font-style: italic; font-size: 0.9rem; color: var(--muted); }
 .lede { font-family: var(--serif); font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem); line-height: 1.35; }
 .hairline { border: 0; border-top: 1px solid var(--rule); margin: 0; }
 .btn { display: inline-flex; align-items: center; gap: 0.5em; min-height: 44px; padding: 0.5rem 1rem; border: 1px solid var(--ink); text-decoration: none; font-weight: 500; background: var(--surface); color: var(--ink); }
@@ -94,16 +94,12 @@ mark.tbd { background: color-mix(in oklab, var(--muted) 12%, transparent); color
 .prose a { word-break: break-word; }
 .prose img { max-width: 100%; }
 
-/* Motion: draw-on and rise, once, honoring reduced motion */
+/* Motion: signatures draw once on entry, honoring reduced motion. No fades, no lifts. */
 .sig svg .draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
 @media (prefers-reduced-motion: no-preference) {
   .js .sig:not(.in) svg .draw { stroke-dashoffset: 1; }
   .js .sig.in svg .draw { transition: stroke-dashoffset 900ms ease-out; }
   .js .sig svg .draw { stroke-dasharray: 1; }
-  .js [data-rise]:not(.in) { opacity: 0; transform: translateY(6px); }
-  .js [data-rise].in { opacity: 1; transform: none; transition: opacity 500ms ease-out, transform 500ms ease-out; }
-  .lift { transition: transform 160ms ease-out, box-shadow 160ms ease-out; }
-  .lift:hover { transform: translateY(-2px); }
 }
 
 /* Print: light, no chrome */

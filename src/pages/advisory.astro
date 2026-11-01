@@ -16,15 +16,14 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
     <h1>{site.position.promise}</h1>
     <p class="lede">{site.rules.sells}</p>
     <p class="summary">{site.offers_summary}</p>
-    <p><a class="btn" href="#contact">{micro.scope_call}</a></p>
+    <p class="cta"><a href="#contact">{micro.scope_call}</a></p>
   </section>
   <section class="section wrap" id="method" aria-labelledby="method-h">
     <h2 id="method-h" class="lede methodline">{site.position.method}</h2>
     <Cells entries={entries} />
     {drafts > 0 && <p class="mono muted prep">{drafts} {micro.entries_in_preparation} <a href="/lab/">{micro.lab_wall_link}</a>.</p>}
-    <p class="muted scope">{site.lines.lab_scope}</p>
   </section>
-  <section class="section wrap" id="offers" aria-labelledby="offers-h">
+  <section class="section wrap ruled" id="offers" aria-labelledby="offers-h">
     <h2 id="offers-h">{headings.advisory_offers}</h2>
     <Offers />
   </section>
@@ -60,7 +59,8 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
 </BaseLayout>
 <style>
   .head { padding-block: clamp(1.5rem, 4vw, 3rem) 0; display: grid; gap: 1rem; }
-  h1 { font-size: clamp(1.6rem, 1rem + 2vw, 2.7rem); max-width: 30ch; }
+  h1 { font-size: clamp(1.6rem, 1rem + 2vw, 2.7rem); max-width: 36ch; }
+  .cta a { font-family: var(--serif); font-size: 1.2rem; text-decoration-color: var(--ink); }
   .summary { max-width: 46ch; font-size: 1.02rem; }
   h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin: 0 0 1.25rem; max-width: 30ch; }
   .methodline { max-width: 40ch; margin-bottom: 1.5rem; }
@@ -70,6 +70,5 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
   .memo { margin-top: 1.25rem; max-width: 60ch; font-size: 0.95rem; }
   .seat { max-width: 40ch; }
   .willnot { margin-top: 0.75rem; font-family: var(--serif); font-size: 1.1rem; max-width: 50ch; }
-  .prep, .scope { margin-top: 1rem; }
-  .scope { font-size: 0.92rem; }
+  .prep { margin-top: 1rem; }
 </style>
