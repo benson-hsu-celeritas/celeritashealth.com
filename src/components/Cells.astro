@@ -1,20 +1,19 @@
 ---
 import { stages, micro, type Entry, entryHref } from '../lib/site';
 import { tbd } from '../lib/tbd';
-/** The Advisory page's four stages as one ruled column: the stage name in the margin, the buyer's question run in, what stands behind it, the entries that show it. */
+/** The Advisory page's four stages as one margin column: the stage name in the margin, the buyer's question, what stands behind it, the two newest entries that show it. */
 interface Props { entries: Entry[] }
 const { entries } = Astro.props;
 ---
 <ol class="cells">
   {stages.map((s) => {
-    const cards = entries.filter((e) => e.data.stages.includes(s.key) && !e.data.draft);
+    const cards = entries.filter((e) => e.data.stages.includes(s.key) && !e.data.draft).slice(0, 2);
     return <li id={s.key} class="cell">
       <h3>{s.name}</h3>
       <div class="body">
         <p class="q lede">{s.question}</p>
         <p class="bg" set:html={tbd(s.background)} />
         {s.frameworks && <p class="fw">{micro.rules_frame} <span class="names">{s.frameworks.join(' · ')}.</span></p>}
-        <p class="from"><span class="eyebrow">{micro.from_the_lab}</span></p>
         <ul class="cards">
           {cards.map((e) => <li><a href={entryHref(e)} class="mono">{e.data.id}</a> <span set:html={tbd(e.data.title)} /></li>)}
         </ul>
@@ -23,14 +22,13 @@ const { entries } = Astro.props;
   })}
 </ol>
 <style>
-  .cells { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
-  .cell { display: grid; gap: 0.6rem 2rem; grid-template-columns: 1fr; padding: 1.4rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
+  .cells { list-style: none; padding: 0; margin: 0; display: grid; gap: 2.5rem; }
+  .cell { display: grid; gap: 0.6rem 2rem; grid-template-columns: 1fr; scroll-margin-top: 1rem; }
   @media (min-width: 760px) { .cell { grid-template-columns: 11rem minmax(0, 1fr); align-items: start; } }
-  h3 { font-size: 1.5rem; }
+  h3 { font-size: var(--s3); }
   .body { display: grid; gap: 0.6rem; }
   .q { max-width: 40ch; }
-  .bg, .fw { font-size: 0.95rem; color: var(--muted); max-width: 60ch; }
+  .bg, .fw { color: var(--muted); max-width: var(--measure); }
   .names { color: var(--ink); }
-  .from { margin-top: 0.4rem; }
-  .cards { list-style: none; padding: 0; display: grid; gap: 0.35rem; font-size: 0.92rem; }
+  .cards { list-style: none; padding: 0; display: grid; gap: 0.35rem; margin-top: 0.4rem; }
 </style>

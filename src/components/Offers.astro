@@ -7,7 +7,7 @@ const noted = offers.filter((o) => o.note);
 <table class="offers">
   <caption class="sr-only">{headings.advisory_offers}</caption>
   <thead>
-    <tr><th scope="col" class="mono">{micro.tier}</th><th scope="col">{micro.offers_for}</th><th scope="col">{micro.offers_turnaround}</th><th scope="col">{micro.offers_includes}</th></tr>
+    <tr><th scope="col">{micro.tier}</th><th scope="col">{micro.offers_for}</th><th scope="col">{micro.offers_turnaround}</th><th scope="col">{micro.offers_includes}</th></tr>
   </thead>
   <tbody>
     {offers.map((o) => <tr id={o.tier === 'project' ? 'project' : `tier-${o.tier}`}>
@@ -21,21 +21,21 @@ const noted = offers.filter((o) => o.note);
 {noted.length > 0 && <ol class="notes" id="offer-note">{noted.map((o) => <li>{o.note}</li>)}</ol>}
 <p class="fee lede">{site.fee_line}</p>
 <style>
-  .offers { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-  .offers thead th { text-align: left; font-weight: 400; color: var(--muted); font-size: 0.75rem; padding: 0 0.8rem 0.5rem 0; border-bottom: 1px solid var(--ink); font-family: var(--mono); }
+  .offers { width: 100%; border-collapse: collapse; font-size: 1rem; }
+  .offers thead th { text-align: left; font-weight: 400; color: var(--muted); font-size: var(--s1); padding: 0 0.8rem 0.5rem 0; border-bottom: 1px solid var(--ink); font-family: var(--sans); }
   .offers tbody th, .offers td { text-align: left; vertical-align: top; padding: 0.9rem 0.8rem 0.9rem 0; border-bottom: 1px solid var(--line); font-weight: 400; }
   .offers tbody th { display: grid; gap: 0.15rem; min-width: 11rem; }
-  .name { font-family: var(--serif); font-size: 1.15rem; line-height: 1.2; }
+  .name { font-family: var(--serif); font-size: var(--s3); line-height: 1.2; }
   .ta { white-space: nowrap; }
-  .fn { text-decoration: none; font-family: var(--mono); font-size: 0.7rem; padding: 0 0.15rem; }
-  .notes { margin: 0.75rem 0 0; padding-left: 1.2rem; font-size: 0.85rem; color: var(--muted); list-style: decimal; }
-  .notes li::marker { font-family: var(--mono); font-size: 0.72rem; }
+  .fn { text-decoration: none; font-family: var(--mono); font-size: var(--s1); padding: 0 0.15rem; }
+  .notes { margin: 0.75rem 0 0; padding-left: 1.2rem; font-size: var(--s1); color: var(--muted); list-style: decimal; }
+  .notes li::marker { font-family: var(--mono); font-size: var(--s1); }
   .fee { margin-top: 1.5rem; max-width: 50ch; }
   @media (max-width: 759px) {
     .offers thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
     .offers tr { display: grid; gap: 0.3rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
     .offers tbody th, .offers td { border: 0; padding: 0; }
-    .offers td::before { content: attr(data-label); display: block; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 0.3rem; }
+    .offers td::before { content: attr(data-label); display: block; font-family: var(--sans); font-size: var(--s1); color: var(--muted); margin-top: 0.3rem; }
     .ta { white-space: normal; }
   }
 </style>

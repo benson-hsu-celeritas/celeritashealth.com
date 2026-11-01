@@ -60,22 +60,22 @@ const aboutPathways = ['pathways', 'citation-trace', 'access-gap'].includes(d.si
   .head { display: grid; gap: 0.8rem; }
   .id { color: var(--ink); font-weight: 600; }
   .draftflag { color: var(--muted); }
-  h1 { font-size: clamp(1.7rem, 1.1rem + 2.2vw, 2.9rem); max-width: 24ch; }
-  .identity { font-size: 0.9rem; }
+  h1 { font-size: var(--s5); max-width: 24ch; }
+  .identity { font-size: var(--s1); }
   .grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
   @media (min-width: 900px) { .grid { grid-template-columns: 320px minmax(0, 1fr); align-items: start; } .figcol { grid-column: 2; } .body { grid-column: 1 / -1; max-width: var(--measure); } }
   .side { display: grid; gap: 1rem; }
-  .finding { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; font-size: 0.92rem; counter-reset: f; }
+  .finding { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; font-size: 1rem; counter-reset: f; }
   .finding li { counter-increment: f; padding-left: 1.4rem; position: relative; }
-  .finding li::before { content: counter(f); position: absolute; left: 0; top: 0.15em; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
-  .links { font-size: 0.78rem; word-break: break-all; line-height: 2; }
+  .finding li::before { content: counter(f); position: absolute; left: 0; top: 0.15em; font-family: var(--mono); font-size: var(--s1); color: var(--muted); }
+  .links { font-size: var(--s1); word-break: break-all; line-height: 2; }
   .links a { display: inline-block; padding: 0.15rem 0; }
-  .small { font-size: 0.82rem; }
+  .small { font-size: var(--s1); }
   .revealwrap { border-top: 1px solid var(--line); padding-top: 2rem; }
   .foot { display: grid; gap: 1.5rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
-  .pn { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.8rem; }
+  .pn { display: flex; justify-content: space-between; gap: 1rem; font-size: var(--s1); }
   .pn a { text-decoration: none; display: grid; gap: 0.15rem; max-width: 45%; }
   .pn a:hover .t { text-decoration: underline; }
   .pn .right { text-align: right; margin-left: auto; }
-  .pn .t { font-family: var(--sans); font-size: 0.9rem; color: var(--ink); }
+  .pn .t { font-family: var(--sans); font-size: var(--s1); color: var(--ink); }
 </style>

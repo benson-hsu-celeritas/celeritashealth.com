@@ -1,32 +1,66 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import MethodAlgorithm from '../components/MethodAlgorithm.astro';
-import Ledger from '../components/Ledger.astro';
 import Doors from '../components/Doors.astro';
-import { site, headings, publishedEntries, allEntries, monthRange } from '../lib/site';
+import Card from '../components/Card.astro';
+import Contact from '../components/Contact.astro';
+import { site, headings, micro, publishedEntries, allEntries, findEntry, monthRange, fmtDate, entryHref, spell } from '../lib/site';
+import { tbd } from '../lib/tbd';
+/** Home, in the owner's order: the position, the offer as terms, the person in four lines, the Lab as evidence (one card, the counts, the link), contact.
+ *  Nothing here repeats another page at full length. The proof card is CH-004 until a sample memo exists. */
 const published = await publishedEntries();
 const all = await allEntries();
-const newest = published.slice(0, 6);
+const drafts = all.length - published.length;
+const proof = findEntry(published, 'CH-011') ?? findEntry(published, 'CH-004') ?? published[0];
+const latest = published[0];
+const tally = (site.verdicts as string[]).map((v) => [v, published.filter((e) => e.data.verdict === v).length] as const).filter(([, n]) => n > 0);
+const person = site.person_lines as string[];
 ---
 <BaseLayout title={site.seo.home_title} description={site.seo.home_description} home og="home">
-  <Hero newest={published[0]} count={published.length} range={monthRange(published)} />
-  <MethodAlgorithm />
-  <Ledger entries={newest} />
-  <section class="section" aria-labelledby="pivot-h">
+  <Hero />
+  <section class="section ruled" id="offer" aria-labelledby="offer-h">
     <div class="wrap">
-      <h2 id="pivot-h" class="h2">{headings.home_pivot}</h2>
-      <p class="story serif">{site.pivot_story.join(' ')}</p>
+      <h2 id="offer-h">{headings.home_offer}</h2>
+      <Doors entries={all} />
+      <p class="after"><a href="/advisory/#method">{micro.method_link}</a></p>
     </div>
   </section>
-  <section class="section" aria-labelledby="for-h">
+  <section class="section" id="person" aria-labelledby="person-h">
     <div class="wrap">
-      <h2 id="for-h" class="h2">{headings.home_for}</h2>
-      <Doors entries={all} />
+      <h2 id="person-h">{headings.home_person}</h2>
+      <ul class="person">{person.map((l) => <li set:html={tbd(l)} />)}</ul>
+      <p class="after"><a href="/about/#story">{micro.story_link}</a></p>
+    </div>
+  </section>
+  <section class="section ruled" id="evidence" aria-labelledby="evidence-h">
+    <div class="wrap evidence">
+      <h2 id="evidence-h">{headings.home_evidence}</h2>
+      {proof && <Card entry={proof} heading="h3" />}
+      <div class="counts">
+        <p>{spell(published.length, true)} entries, {monthRange(published)}{drafts > 0 && <>; {spell(drafts)} {micro.in_progress_short}</>}. {micro.verdicts_so_far}: {tally.map(([v, n], i) => <>{i > 0 && ', '}{v} {n}</>)}.</p>
+        {latest && latest !== proof && <p><span class="mono muted">{latest.data.id} · <span set:html={tbd(fmtDate(latest.data.date))} /></span> <a href={entryHref(latest)}><span set:html={tbd(latest.data.title)} />. <span class="vw">{latest.data.verdict}.</span></a></p>}
+        <p class="wall"><a href="/lab/">{micro.whole_wall}</a></p>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h">{headings.advisory_contact}</h2>
+      <Contact subject="Hello" />
     </div>
   </section>
 </BaseLayout>
 <style>
-  .h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin: 0 0 1.25rem; }
-  .story { max-width: 44ch; font-size: clamp(1.35rem, 1rem + 1.4vw, 2.1rem); line-height: 1.3; }
+  h2 { font-size: var(--s4); margin: 0 0 1.25rem; }
+  .after { margin-top: 1.25rem; font-family: var(--serif); font-size: var(--s3); }
+  .after a { text-decoration-color: var(--rule); }
+  .person { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; max-width: var(--measure); }
+  .evidence { display: grid; gap: 1.5rem 3rem; grid-template-columns: 1fr; grid-template-areas: "h" "card" "counts"; }
+  @media (min-width: 900px) { .evidence { grid-template-columns: minmax(0, 1fr) 20rem; grid-template-areas: "h h" "card counts"; align-items: start; } }
+  .evidence h2 { grid-area: h; margin: 0; }
+  .evidence > :global(.card) { grid-area: card; max-width: 40rem; }
+  .counts { grid-area: counts; display: grid; gap: 0.75rem; }
+  .counts a { text-decoration-color: var(--rule); }
+  .counts .vw { font-family: var(--serif); }
+  .counts .wall { font-family: var(--serif); font-size: var(--s3); }
 </style>

@@ -1,27 +1,22 @@
 ---
 import { tbd, isTbd } from '../lib/tbd';
 import { micro } from '../lib/site';
-/** The last thing on every card: the verdict as a word, set in the serif, then one line of reasoning. Rubric is kept for the checks that caught something. */
+/** The last thing on every card: the verdict as one word in the serif, then one line of reasoning. No label, no rule, no red. */
 interface Props { verdict: string; reasoning?: string; value?: string; compact?: boolean }
 const { verdict, reasoning, value, compact = false } = Astro.props;
 const v = verdict.toLowerCase();
 ---
 <div class:list={['verdict', `v-${v}`, { compact }]}>
   <p class="label">
-    <span class="eyebrow">{micro.verdict_label}</span>
     {isTbd(verdict) ? <span class="vw" set:html={tbd(verdict)} /> : <span class="vw">{verdict}.</span>}
   </p>
   {reasoning && <p class="why" set:html={tbd(reasoning)} />}
-  {value && <p class="value"><span class="eyebrow">{micro.worth_label}</span> <span set:html={tbd(value)} /></p>}
+  {value && <p class="value"><span class="eyebrow">{micro.worth_label}.</span> <span set:html={tbd(value)} /></p>}
 </div>
 <style>
-  .verdict { border-top: 1px solid var(--ink); padding-top: 0.6rem; display: grid; gap: 0.45rem; }
-  .verdict.v-tbd { border-top-color: var(--rule); }
-  .label { display: flex; align-items: baseline; gap: 0.6rem; }
-  .vw { font-family: var(--serif); font-style: italic; font-size: 1.45rem; line-height: 1; }
-  .why { font-size: 0.92rem; }
-  .value { font-size: 0.92rem; margin-top: 0.35rem; }
+  .verdict { display: grid; gap: 0.4rem; padding-top: 0.25rem; }
+  .vw { font-family: var(--serif); font-size: var(--s4); line-height: 1; }
+  .value { margin-top: 0.35rem; }
   .value .eyebrow { margin-right: 0.3rem; }
-  .compact .why { font-size: 0.85rem; }
-  .compact .vw { font-size: 1.3rem; }
+  .compact .vw { font-size: var(--s3); }
 </style>

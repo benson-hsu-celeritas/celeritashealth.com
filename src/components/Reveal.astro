@@ -68,7 +68,7 @@ const kindLabel: Record<string, string> = {
 </script>
 <style>
   .reveal { display: grid; gap: 1rem; scroll-margin-top: 1rem; }
-  .h { font-size: 1.6rem; }
+  .h { font-size: var(--s4); }
   .controls { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
   :global(.no-js) .controls { display: none; }
   .slider { flex: 1 1 200px; display: flex; }
@@ -79,8 +79,8 @@ const kindLabel: Record<string, string> = {
   :global(.no-js) .linebtn { cursor: default; }
   .linebtn:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
   .n { color: var(--muted); padding-top: 0.15rem; }
-  .catch { margin: 0 0.9rem 0.8rem 3.6rem; display: grid; gap: 0.25rem; font-size: 0.9rem; border-left: 2px solid var(--alert); padding-left: 0.7rem; }
-  .kind { color: var(--alert); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .catch { margin: 0 0.9rem 0.8rem 3.6rem; display: grid; gap: 0.25rem; font-size: var(--s1); border-left: 2px solid var(--alert); padding-left: 0.7rem; }
+  .kind { color: var(--alert); font-size: var(--s1); }
   .struck { color: var(--muted); text-decoration-color: var(--alert); text-decoration-thickness: 2px; }
   .live .line.has-catch:not(.verified) .catch { display: none; }
   .live .line.has-catch.verified .text { background: color-mix(in oklab, var(--alert) 10%, transparent); }

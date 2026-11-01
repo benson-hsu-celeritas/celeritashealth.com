@@ -1,6 +1,7 @@
 // Content gate on the built site. Fails the build on: a never-list word, a retired number,
 // "pediatric clinical AI" in a hero, a TBD outside a visible marker, a missing verbatim position line,
-// or fewer than twelve entries (cards or flowsheet rows) on the Lab page.
+// fewer than twelve entries on the Lab page, a page over its word cap, first person over 2 per 100 words on Advisory,
+// a self-evaluating phrase, a Home sentence repeated from the Lab outside the proof card, or rubric red on the flowsheet.
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 const site = JSON.parse(readFileSync('content/site.json', 'utf8'));
@@ -37,6 +38,24 @@ if (!adv.includes(site.position.promise)) fails.push('/advisory/: promise line n
 const about = text(readFileSync('dist/about/index.html', 'utf8'));
 if (!about.includes(site.position.proof)) fails.push('/about/: proof line not verbatim');
 if (/open to roles/i.test(about)) fails.push('/about/: "open to roles" present');
+// Iteration 4 gates: page length, repetition, register, and red kept off the flowsheet.
+const words = (t) => t.trim().split(/\s+/).length;
+const mainText = (p) => text((readFileSync(p, 'utf8').match(/<main[\s\S]*?<\/main>/) || [''])[0]);
+const caps = { '/': 460, '/advisory/': 880, '/about/': 1000 };
+const pageText = { '/': mainText('dist/index.html'), '/advisory/': mainText('dist/advisory/index.html'), '/about/': mainText('dist/about/index.html') };
+const labMain = mainText('dist/lab/index.html');
+for (const [p, cap] of Object.entries(caps)) if (words(pageText[p]) > cap) fails.push(`${p}: ${words(pageText[p])} words, cap ${cap}`);
+const firstPerson = (t) => (t.match(/\b(I|I'm|I've|I'll|I'd|my|me|mine|myself)\b/g) || []).length;
+const advRate = firstPerson(adv) / words(adv) * 100;
+if (advRate > 2.0) fails.push(`/advisory/: first person at ${advRate.toFixed(1)} per 100 words, cap 2.0`);
+const selfPraise = [/highest honors/i, /the only critical care/i, /usual proof/i, /did not exist before me/i, /most useful thing I own/i];
+for (const [p, t] of Object.entries(pageText)) for (const re of selfPraise) if (re.test(t)) fails.push(`${p}: self-evaluating phrase ${re}`);
+const homeSentences = pageText['/'].split(/(?<=[.!?])\s+/).map((x) => x.trim()).filter((x) => x.split(' ').length >= 8);
+const proofCard = text((readFileSync('dist/index.html', 'utf8').match(/<article class="card[\s\S]*?<\/article>/) || [''])[0]);
+const allowed = (x) => Object.values(site.position).some((v) => v.includes(x)) || proofCard.includes(x);
+const repeated = homeSentences.filter((x) => labMain.includes(x) && !allowed(x));
+if (repeated.length) fails.push(`/: ${repeated.length} sentences repeated from /lab/ outside the proof card: ${repeated[0].slice(0, 60)}...`);
+if (/var\(--alert\)/.test(readFileSync('src/components/Wall.astro', 'utf8'))) fails.push('Wall.astro: rubric red on the flowsheet');
 const cards = (labHtml.match(/<article class="card/g) || []).length;
 const ids = new Set([...labHtml.matchAll(/data-entry="(CH-\d{3})"/g)].map((m) => m[1]));
 const expected = readdirSync('content/entries').filter((f) => f.endsWith('.md')).length;
@@ -44,4 +63,5 @@ if (site.site.show_drafts && ids.size < expected) fails.push(`/lab/: ${ids.size}
 console.log(`Content check: ${files.length} pages, ${cards} cards on the wall, ${ids.size} entries in the flowsheet.`);
 console.log('Visible TBD markers by page:'); for (const [p, n] of Object.entries(tbdByPage).sort()) console.log(`  ${p}  ${n}`);
 if (fails.length) { console.error('\nFAILED:\n  ' + fails.join('\n  ')); process.exit(1); }
-console.log('No never-list word, no retired number, no hidden TBD, no em dash, position lines verbatim.');
+console.log(`Words in main: / ${words(pageText['/'])}, /advisory/ ${words(pageText['/advisory/'])} (first person ${advRate.toFixed(1)} per 100 on the page), /about/ ${words(pageText['/about/'])}, /lab/ ${words(labMain)}.`);
+console.log('No never-list word, no retired number, no hidden TBD, no em dash, position lines verbatim, Home does not repeat the Lab.');

@@ -1,16 +1,15 @@
 ---
-import StageRail from './StageRail.astro';
 import VerdictChip from './VerdictChip.astro';
 import Signature from './Signature.astro';
 import { micro, fmtDate, entryHref, type Entry } from '../lib/site';
 import { tbd } from '../lib/tbd';
-/** A published entry. The page header carries the identity line once; the card carries the work: drawing, numbers, stages addressed, verdict. */
+/** A published entry in six elements: meta, title, drawing, up to three findings, the verdict with its sentence, the link. The flowsheet carries the stages. */
 interface Props { entry: Entry; heading?: 'h2' | 'h3' }
 const { entry, heading: H = 'h3' } = Astro.props;
 const d = entry.data;
 const href = entryHref(entry);
 const drawn = ['pathways', 'fabrication', 'access-gap', 'citation-trace', 'subtraction', 'agent-flow'].includes(d.signature);
-const finding = drawn ? d.numbers : d.numbers.slice(1);
+const finding = (drawn ? d.numbers : d.numbers.slice(1)).slice(0, 3);
 ---
 <article class="card" data-type={d.type} data-stages={d.stages.join(' ')} data-entry={d.id} id={d.id.toLowerCase()}>
   <header class="meta mono">
@@ -20,21 +19,19 @@ const finding = drawn ? d.numbers : d.numbers.slice(1);
   </header>
   <H class="title"><a href={href} set:html={tbd(d.title)} /></H>
   <div class="sigwrap"><Signature kind={d.signature} numbers={d.numbers} /></div>
-  <p class="status mono muted" set:html={tbd(d.status)} />
   {finding.length > 0 && <ol class="finding">{finding.map((n) => <li set:html={tbd(n)} />)}</ol>}
-  <StageRail lit={d.stages} compact />
   <VerdictChip verdict={d.verdict} reasoning={d.reasoning} compact />
   <p class="more"><a href={href}>{micro.read_entry}</a>{d.doi && <> · <a href={`https://doi.org/${d.doi}`} rel="noopener">{micro.preprint}</a></>}</p>
 </article>
 <style>
-  .card { background: var(--surface); border-top: 2px solid var(--ink); padding: 1rem 1.1rem 1.1rem; display: grid; gap: 0.8rem; align-content: start; }
+  .card { border-top: 1px solid var(--ink); padding-top: 1rem; display: grid; gap: 0.9rem; align-content: start; }
   .meta { display: flex; gap: 0.75rem; flex-wrap: wrap; color: var(--muted); }
   .id { color: var(--ink); font-weight: 600; }
-  .title { font-size: 1.3rem; }
+  .title { font-size: var(--s3); }
   .title a { text-decoration: none; }
   .title a:hover { text-decoration: underline; text-decoration-color: var(--rule); }
-  .finding { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; font-size: 0.92rem; counter-reset: f; }
+  .finding { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; counter-reset: f; }
   .finding li { counter-increment: f; padding-left: 1.4rem; position: relative; }
-  .finding li::before { content: counter(f); position: absolute; left: 0; top: 0.15em; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
-  .more { font-size: 0.88rem; }
+  .finding li::before { content: counter(f); position: absolute; left: 0; top: 0.2em; font-family: var(--mono); font-size: var(--s1); color: var(--muted); }
+  .more { font-size: var(--s1); font-family: var(--sans); }
 </style>

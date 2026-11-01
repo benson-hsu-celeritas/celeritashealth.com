@@ -15,3 +15,18 @@ export function aboutSections(): AboutSection[] {
     return { heading, slug, html: tbdHtml(marked.parse(body, { async: false }) as string) };
   });
 }
+
+export type RecordRow = { when: string; what: string; stage: string };
+
+/** The "## Record" section as rows: "- when | what | stage" per line. Everything else in that section is its lede. */
+export function recordRows(): { lede: string; rows: RecordRow[] } {
+  const part = src.split(/^## /m).slice(1).find((p) => p.startsWith('Record'));
+  if (!part) return { lede: '', rows: [] };
+  const lines = part.split('\n').slice(1);
+  const rows = lines.filter((l) => l.startsWith('- ')).map((l) => {
+    const [when = '', what = '', stage = ''] = l.slice(2).split('|').map((s) => s.trim());
+    return { when, what, stage };
+  });
+  const lede = lines.filter((l) => l.trim() && !l.startsWith('- ')).join(' ').trim();
+  return { lede, rows };
+}

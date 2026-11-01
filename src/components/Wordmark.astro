@@ -21,6 +21,6 @@ const { width = '200px', descriptor = false, class: cls = '', label = 'Celeritas
   .wm-accent { fill: var(--alert); }
   :root[data-theme="dark"] .wm-ink, :root[data-theme="dark"] .wm-accent { fill: var(--ink); }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .wm-ink, :root:not([data-theme="light"]) .wm-accent { fill: var(--ink); } }
-  .descriptor { display: flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-style: italic; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; border-top: 1px solid var(--rule); padding-top: 0.3rem; }
+  .descriptor { display: flex; align-items: center; gap: 0.5rem; font-family: var(--sans); font-style: italic; font-size: var(--s1); color: var(--muted); letter-spacing: 0.02em; border-top: 1px solid var(--rule); padding-top: 0.3rem; }
   .bar { display: inline-block; width: 1px; height: 0.9em; background: var(--rule); }
 </style>

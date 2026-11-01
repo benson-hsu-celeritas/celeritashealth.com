@@ -26,13 +26,13 @@
       "key": "strategy",
       "name": "Strategy",
       "question": "Should we do this at all, or put money into it, and what will it cost or earn?",
-      "background": "I was a health system vice president and worked on the payer side. Duke MBA. Senior Advisor at McKinsey, 2021 to 2023, and External Advisor at Bain, 2024, on healthcare strategy, organizational change and private equity work. Clients and engagements are confidential. TBD: what may be said publicly about McKinsey and Bain."
+      "background": "Health system executive, 2015 to 2019, two of the roles as vice president; the payer side, 2020. Senior Advisor, McKinsey, 2021 to 2023; External Advisor, Bain, 2024: healthcare strategy, organizational change, private equity. Duke MBA. Clients and engagements are confidential. TBD: what may be said publicly about McKinsey and Bain."
     },
     {
       "key": "build-or-buy",
       "name": "Build or buy",
       "question": "Is what the vendor says true? And is there a part of this we should build ourselves?",
-      "background": "I built five tools with current models and agents in 2026, and before that ran a health system's data function."
+      "background": "Five clinical AI tools built with current models and agents, 2026. Enterprise data and analytics for a health system, 2015 to 2017."
     },
     {
       "key": "rules",
@@ -45,13 +45,13 @@
         "TRIPOD-LLM",
         "DECIDE-AI"
       ],
-      "background": "I have sat on guideline panels, written national society protocols, and worked on health system AI governance."
+      "background": "More than fifteen national practice guidelines, the latest the 2026 Surviving Sepsis Campaign children's guideline. Health system AI governance work; TBD: scope wording."
     },
     {
       "key": "proof",
       "name": "Proof",
       "question": "Does it work on our patients, and did anyone check again after the model changed?",
-      "background": "I ran enterprise data and analytics for a health system, and in 2026 I checked my own papers against their files and retired two. Every verdict here carries its date; when I re-run one on a newer model it gets a new entry rather than a quiet edit."
+      "background": "June to July 2026: I checked my own papers against their files. Seven numbers failed; two papers retired. Every verdict here carries its date; a re-run on a newer model gets a new entry rather than a quiet edit."
     }
   ],
   "verdicts": [
@@ -66,28 +66,25 @@
     "Memo",
     "Decision"
   ],
-  "pivot_story": [
-    "In 2026 I built five clinical AI tools on my own time, then asked whether any of them had a moat. None did. What I had instead was a way of deciding whether a tool is safe and worth paying for, which is harder than building one and, I think, more useful. This site is where I do that in public, on my own tools first and then on yours."
-  ],
   "doors": [
     {
       "audience": "Health systems",
       "read_first": "CH-011",
-      "line": "You name the tool. I write one memo on it, short enough to read in a sitting, with a recommendation and the list of what your governance committee will ask you for next.",
+      "line": "You name the tool. One memo, ten business days, one fixed fee: a recommendation and the list your governance committee will ask for next.",
       "link_label": "See the offer",
       "sample_label": "Sample memo"
     },
     {
       "audience": "Funds",
       "read_first": "CH-012",
-      "line": "Ten business days for a full read, five if you only need to know whether to walk away. I will tell you whether the clinical claims hold, and which ones you would have trouble defending in a year.",
+      "line": "A full read in ten business days, or five to know whether to walk away. Whether the clinical claims hold, and which ones you would have trouble defending in a year.",
       "link_label": "See the offer",
       "sample_label": "Sample read"
     },
     {
       "audience": "Consulting partners",
       "read_first": "method",
-      "line": "When a client engagement needs a physician who has run a health system data shop and built with current models. Your template, my judgment, by the day or by the project.",
+      "line": "A physician who has run a health system data shop and built with current models, on your team for the clinical parts. By the day or by the project.",
       "link_label": "See the method"
     }
   ],
@@ -96,7 +93,7 @@
       "tier": "1",
       "name": "Red-flag read",
       "for": "Health systems, funds",
-      "scope": "One tool or one company. One page: the deal-breakers I found, or a statement that I looked and found none, and what I did not look at",
+      "scope": "One tool or one company. One page: the deal-breakers, or a statement that there were none, and what the read did not cover",
       "turnaround": "5 business days",
       "note": "If you go on to a tier 2 read of the same target within 90 days, this fee counts toward it."
     },
@@ -122,18 +119,18 @@
       "turnaround": "By the day or by the project"
     }
   ],
-  "fee_line": "The fee is fixed. If you have questions while the work is under way, ask them; they are not billed.",
+  "fee_line": "Questions while the work is under way are not billed.",
   "engagement_steps": [
     "Half an hour on the phone, no charge, mostly so I can tell you whether I am the right person.",
     "A one-page scope with the fee and the date.",
-    "The read itself. You will hear from me if I need a document, otherwise not until the memo.",
+    "The read itself. A message if a document is missing, otherwise nothing until the memo.",
     "The memo, and one more pass on it if you want changes."
   ],
   "rules": {
-    "seat": "If I have advised a company I will not do diligence on it for a fund, and the other way round. Ask and I will tell you.",
+    "seat": "Advisor to a company, or diligence reader on it for a fund, never both. Ask and I will tell you.",
     "will_not": [
-      "I do not implement, sell product, or take expert-network calls.",
-      "I disclose conflicts for every engagement."
+      "No implementation, no product sales, no expert-network calls.",
+      "Conflicts disclosed for every engagement."
     ],
     "sells": "There is no product here. You get a recommendation in writing and the reasoning behind it."
   },
@@ -194,10 +191,10 @@
     "advisory_title": "Advisory | Celeritas Health",
     "advisory_description": "Decision memos and diligence reads on clinical AI for health systems, funds and consulting partners. Fixed fee, quoted in writing, ending in a verdict.",
     "about_title": "About Benson S. Hsu | Celeritas Health",
-    "about_description": "The two-minute story, the bio by the four stages, papers and deposits, disclosures."
+    "about_description": "The two-minute story, a dated record by the four stages, papers and deposits, disclosures."
   },
-  "offers_summary": "Three kinds of read, taking 5, 10 or 15 business days, and a day rate for consulting partners. I quote one fee before I start and I do not bill hours against it.",
-  "how_i_write": "Each entry asks the same four questions in the same order, so you can skip to the one you care about. The numbers come from a public deposit or a named source; if I have retired a figure it stays retired, even rounded. I name the models and say what each one did, because by the time you read this they may have changed. Where a paper is still under review I say so, and the numbers may move. I expect about one entry a quarter in 2027, fewer if the clinical work gets busy.",
+  "offers_summary": "Three kinds of read, taking 5, 10 or 15 business days, and a day rate for consulting partners. One fee, quoted in writing before I start, and no hours billed against it.",
+  "how_i_write": "Numbers come from a public deposit or a named source. A retired figure stays retired, even rounded. Each entry names the models and what each did, because by the time you read it they may have changed. Under review means the numbers may move. Pace in 2027: about one entry a quarter, fewer if the clinical work gets busy.",
   "nav": [
     {
       "label": "Home",
@@ -217,27 +214,23 @@
     }
   ],
   "headings": {
-    "home_stages": "What I ask about any tool, vendor or company",
-    "home_pivot": "How I got here",
-    "home_for": "Who hires me",
-    "lab_how": "How I write these",
+    "lab_how": "Sources and pace",
     "lab_in_progress": "In progress",
     "advisory_offers": "Three reads and a day rate",
     "advisory_steps": "From first call to memo",
     "advisory_samples": "A sample memo and a sample read",
     "advisory_rules": "Which side I sit on",
     "advisory_contact": "Email me",
-    "about_bio": "What I have done, by stage",
+    "about_bio": "Record",
     "reveal": "What the checks caught",
-    "home_ledger": "The wall so far"
+    "home_offer": "What I do",
+    "home_person": "Who I am",
+    "home_evidence": "The evidence"
   },
   "microcopy": {
     "color_mode": "Color mode",
     "theme_light": "Light",
     "theme_dark": "Dark",
-    "newest_label": "Latest",
-    "door_lab_suffix": "Start with CH-004 if you want to watch me get something wrong.",
-    "door_advisory": "Memos for health systems, diligence reads for funds. You get the fee before I start and it does not move.",
     "whole_wall": "The whole wall",
     "lab_updated": "Last updated",
     "lab_published": "entries published",
@@ -245,13 +238,11 @@
     "provisional": "(provisional)",
     "read_entry": "Read the entry",
     "worth_label": "If you are buying",
-    "verdict_label": "Verdict",
-    "from_the_lab": "From the lab",
     "rules_frame": "When a committee asks which framework the memo used, the answer is these five:",
     "scope_call": "Start with a scope call",
     "write_to": "Write to me at",
     "sample_pdf": "PDF: TBD.",
-    "published_memo": "The samples are not written yet. In the meantime CH-004 is the closest thing: a memo about my own papers, in the same four sections. There is no cost line or governance list in it, because the subject was me, but you can see how I get from evidence to a call.",
+    "published_memo": "The samples are not written yet. CH-004, a memo about my own papers in the same four sections, is the closest thing so far.",
     "reveal_link": "See what the checks caught, line by line, on CH-001.",
     "reveal_pending": "This space will hold a real excerpt from one pathway, copied from the deposit, with every line the gates caught marked. TBD: the excerpt.",
     "footer_copyright": "Nothing on this site is a clinical document.",
@@ -265,9 +256,6 @@
     "deposit": "Deposit",
     "stages_addressed": "Stages addressed",
     "entries_in_preparation": "entries in preparation, listed on the",
-    "door_lab_label": "Clinical AI Lab",
-    "door_advisory_label": "Advisory",
-    "start_here": "Start here",
     "filter_type": "Type",
     "filter_stage": "Stage",
     "filter_all": "All",
@@ -299,18 +287,23 @@
     "bio_nav": "Sections of the bio",
     "note_label": "Note",
     "colophon": "Set in Newsreader, Alegreya Sans and JetBrains Mono. Last built",
-    "stages_prefix": "Stages"
+    "method_link": "How a read runs, stage by stage",
+    "story_link": "The two-minute story",
+    "verdicts_so_far": "Verdicts so far",
+    "in_progress_short": "in progress",
+    "record_undated": "Undated"
   },
   "figures": {
-    "method": {
-      "entry_label": "A tool, a vendor, a company",
-      "diamond_label": "Verdict",
-      "alt": "An algorithm: an entry arrow, four numbered boxes in sequence, 01 to 04, a decision diamond labelled Verdict, and four exits labelled Build, Buy, Skip and Wait."
-    },
     "engagement": {
       "axis_label": "business days",
       "project_label": "by the day or by the project",
       "alt": "A flowsheet of an engagement: four steps across the top, scope call, written scope, the work, the memo and one revision. Under the work, a day axis from 0 to 15 business days with three bars, 5 days for a red-flag read, 10 for a decision memo or diligence read, 15 for a multi-vendor or portfolio read, and an open dashed line for project work. Each bar ends in a small page drawn with four sections."
     }
-  }
+  },
+  "person_lines": [
+    "Pediatric intensivist. Professor of Pediatrics since 2021.",
+    "Vice President, Enterprise Data and Analytics, then Population Health, 2015 to 2019. Senior Advisor, McKinsey, 2021 to 2023; External Advisor, Bain, 2024.",
+    "More than fifteen national practice guidelines, the latest in 2026.",
+    "Five clinical AI tools built in 2026. Seven headline numbers checked against their code failed; two papers retired."
+  ]
 }

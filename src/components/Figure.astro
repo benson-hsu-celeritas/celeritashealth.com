@@ -32,8 +32,8 @@ const have = existsSync(`public${f.src_light}`) && existsSync(`public${f.src_dar
   }
   @media print { .art .light { display: block !important; } .art .dark { display: none !important; } }
   .pending { padding: 1rem; border: 1px dashed var(--rule); }
-  figcaption { display: grid; gap: 0.5rem; font-size: 0.9rem; }
-  .cap .t { font-size: 1.05rem; }
+  figcaption { display: grid; gap: 0.5rem; font-size: var(--s1); }
+  .cap .t { font-size: 1rem; }
   .notes { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.3rem; list-style: decimal; }
-  .notes li::marker { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+  .notes li::marker { font-family: var(--mono); font-size: var(--s1); color: var(--muted); }
 </style>
