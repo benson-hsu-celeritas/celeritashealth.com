@@ -1,7 +1,7 @@
 ---
 import { site, type Entry, findEntry, entryHref } from '../lib/site';
 import { tbd } from '../lib/tbd';
-/** Who this is for: three ruled rows by buyer, each naming where to start. A draft never becomes a dead door. */
+/** The offer as three rows by buyer, in terms: what you get, in how many days, at one fee. A draft never becomes a dead door. */
 interface Props { entries: Entry[] }
 const { entries } = Astro.props;
 const tierFor: Record<string, string> = { 'CH-011': 'tier-2', 'CH-012': 'tier-2', method: 'method' };
@@ -12,23 +12,23 @@ const doors = site.doors as Array<{ audience: string; read_first: string; line: 
     const e = d.read_first === 'method' ? undefined : findEntry(entries, d.read_first);
     const ready = e && !e.data.draft;
     return <li class="row">
-      <p class="aud mono">{d.audience}</p>
+      <h3 class="aud">{d.audience}</h3>
       <p class="line">{d.line}</p>
-      <p class="read mono">
+      <p class="read">
         {d.read_first === 'method' && <a href="/advisory/#method">{d.link_label}</a>}
         {ready && <a href={entryHref(e!)}>{d.link_label}: {e!.data.id}</a>}
-        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>{d.link_label}</a> <span title={e.data.id} set:html={tbd(`${d.sample_label}: TBD`)} /></>}
+        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>{d.link_label}</a> <a class="smp" href="/advisory/#samples" title={e.data.id} set:html={tbd(`${d.sample_label}: TBD`)} /></>}
       </p>
     </li>;
   })}
 </ul>
 <style>
-  .doors { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
-  .row { display: grid; gap: 0.35rem 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--line); grid-template-columns: 1fr; }
-  @media (min-width: 760px) { .row { grid-template-columns: 11rem minmax(0, 1fr) 14rem; align-items: baseline; } }
-  .aud { color: var(--ink); font-weight: 600; }
-  .line { font-size: 0.98rem; max-width: 52ch; }
-  .read { font-size: 0.78rem; }
-  .read a { display: inline-block; padding: 0.4rem 0; }
-  .read span { display: inline-block; margin-left: 0.5rem; }
+  .doors { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem; }
+  .row { display: grid; gap: 0.35rem 2rem; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .row { grid-template-columns: 11rem minmax(0, 1fr); align-items: baseline; } .read { grid-column: 2; } }
+  .aud { font-family: var(--serif); font-size: var(--s3); }
+  .line { max-width: 52ch; }
+  .read { font-size: var(--s1); }
+  .read a { display: inline-block; padding: 0.3rem 0; }
+  .smp { margin-left: 0.5rem; text-decoration: none; }
 </style>

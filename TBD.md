@@ -20,7 +20,7 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 | 14 | USPTO search, classes 35, 42, 44, before the site goes public | n/a | Benson |
 | 15 | Governance work scope wording | content/about.md | Benson |
 | 16 | Why 160 approved dispositions became 150 released pathways (CH-001 numbers vs pathways.json) | content/entries/CH-001.md | Benson |
-| 17 | Ownership and compensation wording for Aequitas (nonprofit) and Celeritas | content/about.md | Benson |
+| 17 | (The entity name now prints from `site.site.legal_name`, "Celeritas Health LLC".) Ownership and compensation wording for Aequitas (nonprofit) and Celeritas | content/about.md | Benson |
 | 18 | CV (PDF) for the About page, or strike the link | src/pages/about.astro | Benson |
 | 19 | Current team roles (transport, governance, service line committee) | content/about.md | Benson |
 | 20 | Verify PMID 19289450 (Bradley et al., Pediatrics 2009) with the omit-then-verify lookup before the excerpt ships | content/data/error-log-excerpt.json | Claude |
@@ -28,7 +28,7 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 | 22 | Set `site.show_drafts` to false for launch (hides CH-007 to CH-012 from the wall; they stay out of the sitemap either way) | content/site.json | Benson |
 | 23 | Switch the GitHub Pages source from the `main` branch to GitHub Actions when the PR merges; main keeps serving the old site until then | repository settings | Benson |
 | 24 | Analytics: none at launch (no script, no banner); decide whether to add a cookieless counter later | n/a | Benson |
-| 25 | The identity line opens every card and every Home ledger row (doc rule). Six repetitions in one scroll on Home is the loudest machine tell the panels found. Set as a byline until decided; option: let the H1 stand for it on Home rows | content/site.json, Card.astro, Ledger.astro | Benson |
+| 25 | The identity line opened every card and Home ledger row (doc rule). Iteration 3 removed it from cards and rows after all six reviewers named the repetition as the loudest machine tell; it now appears once per page (Home hero, Lab header, entry header). Iteration 4 removed the Home ledger altogether (see 51). Confirm, and amend the plan of record, or reverse | Card.astro, index.astro | Benson |
 | 26 | Figures made in Canva: design `DAHZm3dxXfg` ("Celeritas figures"; edit at https://www.canva.com/d/ozcFJ92vG9QCB5G), page 2 is CH-001's pipeline, page 4 is CH-002's omit-then-verify; pages 3 and 5 are empty placeholders. The dark variants are derived from the light exports by `scripts/figures-dark.mjs`. To change a figure: edit in Canva, export the page as a transparent PNG to `public/figures/*-light.png`, run the script | public/figures, scripts/figures-dark.mjs | Benson + Claude |
 | 27 | Figure labels inside the PNGs (three words or fewer each) are set in Canva's default sans, not JetBrains Mono; approve, or replace with a Canva font closer to the site's mono | Canva design | Benson |
 | 28 | `lines.lab_scope` (folds into TBD 21): both copy panels want a reason for the pediatric scope ("because that is where I work" / "where I practice"). The reason is not in any source file; approve one, keep the current line, or strike. The line now sits under the wall and at the end of the Advisory method section, not in the folds | content/site.json | Benson |
@@ -41,21 +41,37 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 | 35 | `stages[0].background` in first person once TBD 13 clears what may be said about McKinsey and Bain; it now reads "I was a health system vice president and worked on the payer side. Duke MBA. Advisory roles at McKinsey and Bain." | content/site.json | Benson |
 | 36 | `offers[3].name` "Clinical AI expert on a project" to "The clinician on your engagement" | content/site.json | Benson |
 | 37 | Footer contents (brief section 4): the three copy panels want the two disclosure sentences on About only, the footer carrying "Disclosures" as a link and "Employers: TBD."; the colophon keeps all five items until decided | Footer.astro, BUILD_PROMPT.md | Benson |
-| 38 | Three cards on Home instead of six (story panel: thirty seconds on a phone ends inside the second card); the ledger rows now fit six in about two phone screens, which may settle it | Ledger.astro | Benson |
+| 38 | Settled by iteration 4: Home carries one proof card (CH-004) and a line of counts; see 51 | index.astro | Benson |
 | 39 | `disclosure` (doc-fixed) passive: "Tools were built on my own time with no institutional data." to "I built the tools on my own time with no institutional data." | content/site.json | Benson |
 | 40 | `lines.candidate_not_clinical` and `lines.verdict_definition` reworded (plainer, same meaning) while TBD 21 is open; `how_entries_written` is no longer rendered as a list and `how_i_write` carries the same six facts in one paragraph. Approve with TBD 21, or strike | content/site.json | Benson |
 | 41 | Link previews: `scripts/og.mjs` now renders one OG image per page with the site's fonts; check one in iMessage, Mail and LinkedIn after deploy | scripts/og.mjs | Benson |
 | 42 | The master lockup's C and H are filled with the alert token, which is #D9694E in dark mode, so the wordmark's rubric lightens with the page. Brand call: keep it tied to the alert token, or hold it at #B0482F in both modes (a glyph, not text, so contrast rules do not bind) | src/components/Wordmark.astro | Benson |
+| 43 | The four position lines (brief section 1) are kept verbatim; the prose red team judged all four model-shaped and wrote one alternative each (reviews/04). Keep, or adopt | content/site.json, BUILD_PROMPT.md | Benson |
+| 44 | Terms the fund partner asked for: a price range or floor per tier; "follow-up questions answered for 30 days" instead of "one revision round"; turnaround counted from data-room access; the 90-day credit as a table row; a rush option; whether you join the IC call | content/site.json | Benson |
+| 45 | Consulting partners: rate basis (full day, half-day minimum, travel), days per month and lead time, "references on request", whether you sign the client's conflict check and NDA | content/site.json | Benson |
+| 46 | "I do not take expert-network calls" cuts off the channel funds use to find you; give the reason in one line, or drop it | content/site.json | Benson |
+| 47 | "I reply within two business days" reads as a no-hire on a live deal; state what you do inside an engagement | content/site.json | Benson |
+| 48 | "Advisory work is disclosed to my employer": a governance committee reads disclosed as not approved; confirm the wording once TBD 4 is filed | content/site.json | Benson |
+| 49 | CH-004 as a two-page memo PDF now, so a writing sample exists before CH-011 and CH-012 in December | content/entries/CH-004.md | Benson |
+| 50 | The CEO reader wanted "How I got here" as the first screen and the offer card in hospital words; the brief fixes the first screen as the position lines. Iteration 4 kept the position lines first and put the offer second, in terms; the story moved to About. Keep, or reorder | src/pages/index.astro, BUILD_PROMPT.md | Benson |
+| 51 | Home order reversed from the plan of record (owner's instruction, 1 Nov 2026): position lines, the offer as terms, the person in four lines, the Lab as one proof card (CH-004, CH-011 once it exists) plus counts and a link, contact. The "six newest cards", stage strip and pivot story left Home. CLAUDE.md's "the lab is the brand" now reads as: an advisor whose claims can be checked, with the Lab as the receipt. Amend the plan, or reverse | src/pages/index.astro, BUILD_PROMPT.md, CLAUDE.md | Benson |
+| 52 | Header as one row (wordmark left, nav right, name into the hero): the design panel's move 6, deferred because the plan prescribes the signature block in the header | Header.astro, SignatureBlock.astro | Benson |
+| 53 | About's publication and talk counts, the three fellowships and the committee roles moved off the page to the CV PDF, which is itself TBD (the NIH P20 line stays). Supply the CV, or restore the lines | content/about.md | Benson |
+| 54 | The year of the return to the bedside is not on the site; the story's second paragraph cannot open on a date without it | content/about.md | Benson |
+| 55 | Cards no longer carry the stage rail or the status line (six elements: meta, title, drawing, three findings, verdict, link); the flowsheet carries the stages. The plan's card anatomy lists both. Amend, or restore | Card.astro | Benson |
+| 56 | The offers table has no row a company buys, though the seat rule and the promise line name companies as clients. Decide which read a company buys, or add a sentence under "Which side I sit on" saying it buys none | content/site.json | Benson |
+| 57 | The verb for the fifteen national practice guidelines (co-author, panel member, lead) is nowhere on the site; once chosen it goes in the same words on Home, Advisory and About | content/site.json, content/about.md | Benson |
+| 58 | Fees and terms the panels asked for and iteration 5 did not add: a Fee column or floor per tier (44), "questions answered for 30 days" in place of "one revision round" (44), a same-day reply inside an engagement (47), CH-004 as a two-page PDF now (49). Marketing ranks 5, 49, 44 and 45 as the order to close | content/site.json | Benson |
 
-## Visible markers by page (build of Oct 31, 2026, iteration 2)
+## Visible markers by page (build of Nov 1, 2026, iteration 5)
 
 | Page | Markers |
 |---|---|
-| / | 5 |
+| / | 8 |
 | /lab/ | 11 |
 | /lab/ch-001/ | 15 |
 | /lab/ch-002/ to /lab/ch-006/ | 3 to 4 each (footer email, LinkedIn, employers line; the CH-005 deposit) |
 | /lab/ch-007/ to /lab/ch-012/ | 8 to 13 each (draft fields) |
-| /advisory/ | 8 |
-| /about/ | 19 |
+| /advisory/ | 9 |
+| /about/ | 20 |
 | /404 | 3 |

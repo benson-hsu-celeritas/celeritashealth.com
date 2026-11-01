@@ -1,6 +1,6 @@
-// Signatures draw once on entry; sections rise once. Nothing runs under reduced motion.
+// Signatures draw once on entry. Nothing runs under reduced motion.
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const targets = document.querySelectorAll<HTMLElement>('.sig, [data-rise]');
+const targets = document.querySelectorAll<HTMLElement>('.sig');
 if (reduced || !('IntersectionObserver' in window)) {
   targets.forEach((t) => t.classList.add('in'));
 } else {

@@ -24,12 +24,12 @@ const current = (h: string) => (h === '/' ? path === '/' : path.startsWith(h));
   .row > :global(.sigblock) { grid-area: sb; }
   nav { grid-area: nav; }
   nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 0.25rem 1.25rem; flex-wrap: wrap; align-items: center; }
-  nav a { text-decoration: none; font-size: 0.95rem; padding: 0.6rem 0; display: inline-block; border-bottom: 2px solid transparent; }
+  nav a { text-decoration: none; font-size: 1rem; padding: 0.6rem 0; display: inline-block; border-bottom: 2px solid transparent; }
   nav a[aria-current="page"] { border-bottom-color: var(--ink); }
   nav a:hover { border-bottom-color: var(--rule); }
-  .theme-toggle { grid-area: toggle; justify-self: end; align-self: start; font: inherit; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; color: var(--muted); background: none; border: 0; padding: 0.45rem 0; cursor: pointer; min-height: 32px; }
+  .theme-toggle { grid-area: toggle; justify-self: end; align-self: start; font: inherit; font-family: var(--mono); font-size: var(--s1); letter-spacing: 0.02em; color: var(--muted); background: none; border: 0; padding: 0.45rem 0; cursor: pointer; min-height: 32px; }
   .theme-toggle .opt { padding: 0.2rem 0; }
   .theme-toggle[data-active="light"] [data-opt="light"], .theme-toggle[data-active="dark"] [data-opt="dark"] { color: var(--ink); text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1.5px; }
   .theme-toggle:hover .opt { color: var(--ink); }
-  @media (max-width: 640px) { nav a { padding: 0.5rem 0; font-size: 0.9rem; } }
+  @media (max-width: 640px) { nav a { padding: 0.5rem 0; font-size: var(--s1); } }
 </style>

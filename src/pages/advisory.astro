@@ -4,7 +4,7 @@ import Cells from '../components/Cells.astro';
 import Offers from '../components/Offers.astro';
 import EngagementFlowsheet from '../components/EngagementFlowsheet.astro';
 import Contact from '../components/Contact.astro';
-import { site, headings, micro, allEntries, findEntry, entryHref } from '../lib/site';
+import { site, headings, micro, allEntries, findEntry, entryHref, spell } from '../lib/site';
 import { tbd, tbdHtml } from '../lib/tbd';
 const entries = await allEntries();
 const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(Boolean);
@@ -16,15 +16,15 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
     <h1>{site.position.promise}</h1>
     <p class="lede">{site.rules.sells}</p>
     <p class="summary">{site.offers_summary}</p>
-    <p><a class="btn" href="#contact">{micro.scope_call}</a></p>
+    <p class="cta"><a href="#contact">{micro.scope_call}</a></p>
   </section>
   <section class="section wrap" id="method" aria-labelledby="method-h">
-    <h2 id="method-h" class="lede methodline">{site.position.method}</h2>
+    <h2 id="method-h">{headings.advisory_method}</h2>
+    <p class="lede methodline">{site.position.method}</p>
     <Cells entries={entries} />
-    {drafts > 0 && <p class="mono muted prep">{drafts} {micro.entries_in_preparation} <a href="/lab/">{micro.lab_wall_link}</a>.</p>}
-    <p class="muted scope">{site.lines.lab_scope}</p>
+    {drafts > 0 && <p class="muted prep">{spell(drafts, true)} {micro.more_in_progress} <a href="/lab/">{micro.lab_wall_link}</a>.</p>}
   </section>
-  <section class="section wrap" id="offers" aria-labelledby="offers-h">
+  <section class="section wrap ruled" id="offers" aria-labelledby="offers-h">
     <h2 id="offers-h">{headings.advisory_offers}</h2>
     <Offers />
   </section>
@@ -60,16 +60,16 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
 </BaseLayout>
 <style>
   .head { padding-block: clamp(1.5rem, 4vw, 3rem) 0; display: grid; gap: 1rem; }
-  h1 { font-size: clamp(1.6rem, 1rem + 2vw, 2.7rem); max-width: 30ch; }
-  .summary { max-width: 46ch; font-size: 1.02rem; }
-  h2 { font-size: clamp(1.3rem, 1rem + 1.2vw, 1.8rem); margin: 0 0 1.25rem; max-width: 30ch; }
+  h1 { font-size: var(--s5); max-width: 36ch; }
+  .cta a { font-family: var(--serif); font-size: var(--s3); text-decoration-color: var(--ink); }
+  .summary { max-width: 46ch; font-size: 1rem; }
+  h2 { font-size: var(--s4); margin: 0 0 1.25rem; max-width: 30ch; }
   .methodline { max-width: 40ch; margin-bottom: 1.5rem; }
-  .samples { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
-  .samples li { border-bottom: 1px solid var(--line); padding: 1.1rem 0; display: grid; gap: 0.5rem; }
-  .samples h3 { font-size: 1.25rem; }
-  .memo { margin-top: 1.25rem; max-width: 60ch; font-size: 0.95rem; }
+  .samples { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem; }
+  .samples li { display: grid; gap: 0.4rem; }
+  .samples h3 { font-size: var(--s3); }
+  .memo { margin-top: 1.25rem; max-width: 60ch; font-size: 1rem; }
   .seat { max-width: 40ch; }
-  .willnot { margin-top: 0.75rem; font-family: var(--serif); font-size: 1.1rem; max-width: 50ch; }
-  .prep, .scope { margin-top: 1rem; }
-  .scope { font-size: 0.92rem; }
+  .willnot { margin-top: 0.75rem; font-family: var(--serif); font-size: var(--s3); max-width: 50ch; }
+  .prep { margin-top: 1rem; }
 </style>
