@@ -2,11 +2,11 @@
 import { tbd, isTbd } from '../lib/tbd';
 import { micro } from '../lib/site';
 /** The last thing on every card: the verdict as one word in the serif, then one line of reasoning. No label, no rule, no red. */
-interface Props { verdict: string; reasoning?: string; value?: string; compact?: boolean }
-const { verdict, reasoning, value, compact = false } = Astro.props;
+interface Props { verdict: string; reasoning?: string; value?: string; compact?: boolean; large?: boolean }
+const { verdict, reasoning, value, compact = false, large = false } = Astro.props;
 const v = verdict.toLowerCase();
 ---
-<div class:list={['verdict', `v-${v}`, { compact }]}>
+<div class:list={['verdict', `v-${v}`, { compact, large }]}>
   <p class="label">
     {isTbd(verdict) ? <span class="vw" set:html={tbd(verdict)} /> : <span class="vw">{verdict}.</span>}
   </p>
@@ -19,4 +19,5 @@ const v = verdict.toLowerCase();
   .value { margin-top: 0.35rem; }
   .value .eyebrow { margin-right: 0.3rem; }
   .compact .vw { font-size: var(--s3); }
+  .large .vw { font-size: var(--s5); }
 </style>

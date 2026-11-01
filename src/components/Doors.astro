@@ -17,7 +17,7 @@ const doors = site.doors as Array<{ audience: string; read_first: string; line: 
       <p class="read">
         {d.read_first === 'method' && <a href="/advisory/#method">{d.link_label}</a>}
         {ready && <a href={entryHref(e!)}>{d.link_label}: {e!.data.id}</a>}
-        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>{d.link_label}</a> <span title={e.data.id} set:html={tbd(`${d.sample_label}: TBD`)} /></>}
+        {e && !ready && <><a href={`/advisory/#${tierFor[d.read_first]}`}>{d.link_label}</a> <a class="smp" href="/advisory/#samples" title={e.data.id} set:html={tbd(`${d.sample_label}: TBD`)} /></>}
       </p>
     </li>;
   })}
@@ -30,5 +30,5 @@ const doors = site.doors as Array<{ audience: string; read_first: string; line: 
   .line { max-width: 52ch; }
   .read { font-size: var(--s1); }
   .read a { display: inline-block; padding: 0.3rem 0; }
-  .read span { display: inline-block; margin-left: 0.5rem; }
+  .smp { margin-left: 0.5rem; text-decoration: none; }
 </style>

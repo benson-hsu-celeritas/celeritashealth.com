@@ -8,17 +8,17 @@ In 2015 I became the first vice president of enterprise data and analytics at a 
 
 Then I went back to the bedside. TBD: current transport role wording. The call I take at two in the morning is from a six-bed emergency department holding a child in septic shock with one physician and one nurse. The right answer is on their screen. It assumes a second clinician they do not have and a drug they do not stock. Nobody scores decision support on whether the building can do what it says. I decided that someone should, and that it might as well be me.
 
-So in 2026 I built five clinical AI tools myself, with the current models, and measured them the way I measured those analytics programs. The protocol engine asked a model for citations and 458 of 460 were wrong. I fixed it so the model never supplies an identifier again. Then I checked my own papers against the code and two of them did not hold. I retired them. That, more or less, is the practice. The measuring takes longer than the building, and the part I had not planned on was the retractions.
+So in 2026 I built five clinical AI tools myself, with the current models, and measured them the way I measured those analytics programs. The protocol engine asked a model for citations and 458 of 460 were wrong. I fixed it so the model never supplies an identifier again. Then I checked my own papers against the code and two of them did not hold. I retired them. That, more or less, is the practice. The measuring takes longer than the building, and the part I had not planned on was retiring two of my own papers.
 
 TBD: confirm the team size and system revenue figures above.
 
 ## Record
 
-Year, event, number; stage in the margin. Counts, fellowships and committee roles are in the CV.
+Counts, fellowships and committee roles are in the CV (PDF: TBD).
 
 - 2008 | Board certified, general pediatrics. |
 - 2012 | Board certified, pediatric critical care medicine. |
-- 2015 to 2017 | Vice President, Enterprise Data and Analytics, Sanford Health. A new enterprise role reporting to the system CFO; team of TBD, budget TBD. The rule that an analytics program counts only if it beats what would have happened anyway. | Strategy
+- 2015 to 2017 | Vice President, Enterprise Data and Analytics, Sanford Health. A new role reporting to the system CFO; team of TBD, budget TBD. The rule that an analytics program counts only if it beats what would have happened anyway. | Strategy
 - 2017 to 2018 | Chief Medical Analytics Officer; advisor to the board on data and analytics. | Strategy
 - 2018 to 2019 | Vice President, Population Health, a new enterprise role integrating payer, contracting and provider functions. | Strategy
 - 2019 | PICU leveling update, national practice guideline. | Rules
@@ -47,14 +47,14 @@ Findings are on the lab cards.
 - Externally Grounded Validation of LLM-Generated Pediatric Clinical Pathways. International Journal of Medical Informatics. Under review. Preprint doi:10.5281/zenodo.21286951.
 - The Pediatric Decision-Support Access Gap. TBD venue. Under review. Preprint doi:10.5281/zenodo.21212699. Deposit doi:10.5281/zenodo.21198499 (TBD: link after the median correction is uploaded).
 - Executability as a readiness measure (Perspective). TBD venue. Under review.
-- For medical affairs: the relevant piece is omit-then-verify, a way of checking references in AI-produced medical content. Next, planned for the first quarter of 2027: evidence synthesis with AI agents under a pre-registered, red-teamed protocol.
+- For medical affairs, the relevant piece is omit-then-verify, a way of checking references in AI-produced medical content. The next paper, planned for the first quarter of 2027, is evidence synthesis with AI agents under a pre-registered, red-teamed protocol.
 
 ## Disclosures
 - Tools were built on my own time with no institutional data. Advisory work is disclosed to my employer.
 - Aequitas Health shares no money, staff or data with Celeritas Health.
 - Past vendor advisory: GetWellNetwork (2020 to 2021). No current vendor ties.
 - Founder and president of Aequitas Health and of Celeritas Health. TBD: the ownership and compensation wording for each (Aequitas is a nonprofit).
-- Advisor to a company or diligence reader on it for a fund, never both. The full rule is on the advisory page.
+- Advisor to a company or diligence reader on it, never both; the full rule is on the advisory page.
 
 ## Contact
 - Email: TBD

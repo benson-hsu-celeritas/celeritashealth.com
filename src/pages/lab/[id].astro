@@ -47,7 +47,7 @@ const aboutPathways = ['pathways', 'citation-trace', 'access-gap'].includes(d.si
     </div>
     {d.id === 'CH-001' && <div class="revealwrap"><Reveal /></div>}
     <footer class="foot">
-      <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} />
+      <VerdictChip verdict={d.verdict} reasoning={d.reasoning} value={d.value} large />
       <nav class="pn mono" aria-label={micro.other_entries}>
         {next && <a href={entryHref(next)}><span class="muted">{micro.newer}</span> {next.data.id} <span class="t" set:html={tbd(next.data.title)} /></a>}
         {prev && <a href={entryHref(prev)} class="right"><span class="muted">{micro.older}</span> {prev.data.id} <span class="t" set:html={tbd(prev.data.title)} /></a>}

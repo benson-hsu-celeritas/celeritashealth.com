@@ -7,7 +7,7 @@ const f = figures.engagement;
 const days = (o: { turnaround?: string }) => Number((o.turnaround || '').match(/\d+/)?.[0] ?? 0);
 const MAX = 15, W = 160, PX = W / MAX * 0.85;
 ---
-<figure class="eng" role="group" aria-label={f.alt}>
+<figure class="eng" aria-label={f.alt}>
   <ol class="steps">{steps.map((s) => <li class="serif">{s}</li>)}</ol>
   <div class="chart">
     <div class="axis mono muted" aria-hidden="true">

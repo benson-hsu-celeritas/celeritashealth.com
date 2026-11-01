@@ -4,7 +4,8 @@
     "domain": "celeritashealth.com",
     "last_updated": "derived from the newest non-draft entry at build",
     "show_drafts": true,
-    "tagline": "Every experiment ends in a decision."
+    "tagline": "Every experiment ends in a decision.",
+    "legal_name": "Celeritas Health LLC"
   },
   "position": {
     "identity": "Benson S. Hsu, MD, MBA. Pediatric intensivist and former health system executive. I build with AI, run the data, and decide what's worth it.",
@@ -26,13 +27,13 @@
       "key": "strategy",
       "name": "Strategy",
       "question": "Should we do this at all, or put money into it, and what will it cost or earn?",
-      "background": "Health system executive, 2015 to 2019, two of the roles as vice president; the payer side, 2020. Senior Advisor, McKinsey, 2021 to 2023; External Advisor, Bain, 2024: healthcare strategy, organizational change, private equity. Duke MBA. Clients and engagements are confidential. TBD: what may be said publicly about McKinsey and Bain."
+      "background": "2015 to 2019: three health system executive roles, two of them as vice president. 2020: the payer side. 2021 to 2023: Senior Advisor, McKinsey; 2024: External Advisor, Bain, on healthcare strategy, organizational change and private equity. MBA, Duke. Clients and engagements are confidential. TBD: what may be said publicly about McKinsey and Bain."
     },
     {
       "key": "build-or-buy",
       "name": "Build or buy",
       "question": "Is what the vendor says true? And is there a part of this we should build ourselves?",
-      "background": "Five clinical AI tools built with current models and agents, 2026. Enterprise data and analytics for a health system, 2015 to 2017."
+      "background": "2026: five clinical AI tools built with current models and agents. 2015 to 2017: enterprise data and analytics for a health system."
     },
     {
       "key": "rules",
@@ -45,7 +46,7 @@
         "TRIPOD-LLM",
         "DECIDE-AI"
       ],
-      "background": "More than fifteen national practice guidelines, the latest the 2026 Surviving Sepsis Campaign children's guideline. Health system AI governance work; TBD: scope wording."
+      "background": "2026: the Surviving Sepsis Campaign children's guideline, the latest of more than fifteen national practice guidelines. Health system AI governance work; TBD: scope wording."
     },
     {
       "key": "proof",
@@ -70,14 +71,14 @@
     {
       "audience": "Health systems",
       "read_first": "CH-011",
-      "line": "You name the tool. One memo, ten business days, one fixed fee: a recommendation and the list your governance committee will ask for next.",
+      "line": "You name the tool: a sepsis alert, say. One memo, ten business days, one fixed fee: a recommendation and the list your governance committee will ask for next.",
       "link_label": "See the offer",
       "sample_label": "Sample memo"
     },
     {
       "audience": "Funds",
       "read_first": "CH-012",
-      "line": "A full read in ten business days, or five to know whether to walk away. Whether the clinical claims hold, and which ones you would have trouble defending in a year.",
+      "line": "A full read in ten business days, or five to know whether to walk away. You find out whether the clinical claims hold, and which ones you would have trouble defending in a year.",
       "link_label": "See the offer",
       "sample_label": "Sample read"
     },
@@ -93,7 +94,7 @@
       "tier": "1",
       "name": "Red-flag read",
       "for": "Health systems, funds",
-      "scope": "One tool or one company. One page: the deal-breakers, or a statement that there were none, and what the read did not cover",
+      "scope": "One tool or one company. One page: the deal-breakers, or a statement that there were none, and what the read did not cover.",
       "turnaround": "5 business days",
       "note": "If you go on to a tier 2 read of the same target within 90 days, this fee counts toward it."
     },
@@ -101,21 +102,21 @@
       "tier": "2",
       "name": "Decision memo or diligence read",
       "for": "Health systems, funds",
-      "scope": "The full four-stage memo with a verdict, the cost, and the governance requirements. One revision round.",
+      "scope": "The four-stage memo: a verdict, what it will cost you, and what the committee will want before it signs. One revision round.",
       "turnaround": "10 business days"
     },
     {
       "tier": "3",
       "name": "Multi-vendor or portfolio read",
       "for": "Health systems, funds",
-      "scope": "Up to three tools or companies, read against one thesis",
+      "scope": "Up to three tools or companies, read against one thesis.",
       "turnaround": "15 business days"
     },
     {
       "tier": "project",
-      "name": "Clinical AI expert on a project",
+      "name": "A physician on your project",
       "for": "Consulting partners",
-      "scope": "A physician on your team for the clinical parts: what the tool does to a workflow, what the committee will ask, whether the vendor's study holds up",
+      "scope": "A physician on your team for the clinical parts: what the tool does to a workflow, what the committee will ask, whether the vendor's study holds up.",
       "turnaround": "By the day or by the project"
     }
   ],
@@ -130,9 +131,9 @@
     "seat": "Advisor to a company, or diligence reader on it for a fund, never both. Ask and I will tell you.",
     "will_not": [
       "No implementation, no product sales, no expert-network calls.",
-      "Conflicts disclosed for every engagement."
+      "I disclose conflicts on every engagement."
     ],
-    "sells": "There is no product here. You get a recommendation in writing and the reasoning behind it."
+    "sells": "You get a recommendation in writing and the reasoning behind it. There is no product."
   },
   "lines": {
     "lab_scope": "Everything on the wall so far is pediatric, because that is where I practice. Nothing in the method depends on that.",
@@ -184,16 +185,16 @@
     "53 reclassified"
   ],
   "seo": {
-    "home_title": "Benson S. Hsu, MD, MBA | Celeritas Health",
+    "home_title": "Clinical AI advisory backed by a public lab | Benson S. Hsu, MD, MBA",
     "home_description": "Pediatric intensivist and former health system executive. Clinical AI advisory backed by a public lab: dated builds, reported results, a verdict on each.",
     "lab_title": "Clinical AI Lab | Celeritas Health",
     "lab_description": "An evidence wall of dated entries. Builds with current models, results reported including what broke, and a verdict on each: Build, Buy, Skip or Wait.",
-    "advisory_title": "Advisory | Celeritas Health",
+    "advisory_title": "Clinical AI diligence reads and decision memos | Celeritas Health",
     "advisory_description": "Decision memos and diligence reads on clinical AI for health systems, funds and consulting partners. Fixed fee, quoted in writing, ending in a verdict.",
     "about_title": "About Benson S. Hsu | Celeritas Health",
     "about_description": "The two-minute story, a dated record by the four stages, papers and deposits, disclosures."
   },
-  "offers_summary": "Three kinds of read, taking 5, 10 or 15 business days, and a day rate for consulting partners. One fee, quoted in writing before I start, and no hours billed against it.",
+  "offers_summary": "Three kinds of read take 5, 10 or 15 business days; consulting partners by the day or by the project. One fee, quoted before I start, and no hours billed against it.",
   "how_i_write": "Numbers come from a public deposit or a named source. A retired figure stays retired, even rounded. Each entry names the models and what each did, because by the time you read it they may have changed. Under review means the numbers may move. Pace in 2027: about one entry a quarter, fewer if the clinical work gets busy.",
   "nav": [
     {
@@ -225,14 +226,15 @@
     "reveal": "What the checks caught",
     "home_offer": "What I do",
     "home_person": "Who I am",
-    "home_evidence": "The evidence"
+    "home_evidence": "The evidence",
+    "advisory_method": "How a read runs"
   },
   "microcopy": {
     "color_mode": "Color mode",
     "theme_light": "Light",
     "theme_dark": "Dark",
     "whole_wall": "The whole wall",
-    "lab_updated": "Last updated",
+    "lab_updated": "Newest entry",
     "lab_published": "entries published",
     "lab_in_progress": "more in progress",
     "provisional": "(provisional)",
@@ -255,7 +257,6 @@
     "preprint": "Preprint",
     "deposit": "Deposit",
     "stages_addressed": "Stages addressed",
-    "entries_in_preparation": "entries in preparation, listed on the",
     "filter_type": "Type",
     "filter_stage": "Stage",
     "filter_all": "All",
@@ -281,7 +282,6 @@
     "flowsheet_caption": "Every entry by date, stage and verdict",
     "other_entries": "Other entries",
     "filter_entries": "Filter entries",
-    "in_preparation_note": "in preparation",
     "lab_wall_link": "lab wall",
     "no_published_type": "No published entries of this type yet",
     "bio_nav": "Sections of the bio",
@@ -291,7 +291,16 @@
     "story_link": "The two-minute story",
     "verdicts_so_far": "Verdicts so far",
     "in_progress_short": "in progress",
-    "record_undated": "Undated"
+    "record_undated": "Undated",
+    "more_in_progress": "more entries are in progress, listed on the",
+    "in_progress_of_type": "entries are in progress",
+    "scope_call_home": "Start with a scope call: half an hour, no charge.",
+    "stages_key": "Stages, left to right: Strategy, Build or buy, Rules, Proof.",
+    "placeholders": "placeholders on this page",
+    "rss_line": "New entries also go out by",
+    "rss_label": "RSS",
+    "field_link": "CH-001, the entry",
+    "credit": "Credit"
   },
   "figures": {
     "engagement": {
@@ -302,7 +311,7 @@
   },
   "person_lines": [
     "Pediatric intensivist. Professor of Pediatrics since 2021.",
-    "Vice President, Enterprise Data and Analytics, then Population Health, 2015 to 2019. Senior Advisor, McKinsey, 2021 to 2023; External Advisor, Bain, 2024.",
+    "Vice President, Enterprise Data and Analytics, then Population Health, 2015 to 2019. Senior Advisor, McKinsey, 2021 to 2023; External Advisor, Bain, 2024. TBD: what may be said publicly.",
     "More than fifteen national practice guidelines, the latest in 2026.",
     "Five clinical AI tools built in 2026. Seven headline numbers checked against their code failed; two papers retired."
   ]

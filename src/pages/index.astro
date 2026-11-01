@@ -47,6 +47,7 @@ const person = site.person_lines as string[];
     <div class="wrap">
       <h2 id="contact-h">{headings.advisory_contact}</h2>
       <Contact subject="Hello" />
+      <p class="scope"><a href="/advisory/#contact">{micro.scope_call_home}</a></p>
     </div>
   </section>
 </BaseLayout>
@@ -63,4 +64,5 @@ const person = site.person_lines as string[];
   .counts a { text-decoration-color: var(--rule); }
   .counts .vw { font-family: var(--serif); }
   .counts .wall { font-family: var(--serif); font-size: var(--s3); }
+  .scope { margin-top: 1rem; font-family: var(--serif); font-size: var(--s3); }
 </style>

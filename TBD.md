@@ -20,7 +20,7 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 | 14 | USPTO search, classes 35, 42, 44, before the site goes public | n/a | Benson |
 | 15 | Governance work scope wording | content/about.md | Benson |
 | 16 | Why 160 approved dispositions became 150 released pathways (CH-001 numbers vs pathways.json) | content/entries/CH-001.md | Benson |
-| 17 | Ownership and compensation wording for Aequitas (nonprofit) and Celeritas | content/about.md | Benson |
+| 17 | (The entity name now prints from `site.site.legal_name`, "Celeritas Health LLC".) Ownership and compensation wording for Aequitas (nonprofit) and Celeritas | content/about.md | Benson |
 | 18 | CV (PDF) for the About page, or strike the link | src/pages/about.astro | Benson |
 | 19 | Current team roles (transport, governance, service line committee) | content/about.md | Benson |
 | 20 | Verify PMID 19289450 (Bradley et al., Pediatrics 2009) with the omit-then-verify lookup before the excerpt ships | content/data/error-log-excerpt.json | Claude |
@@ -59,16 +59,19 @@ The build fails on a TBD that is not rendered as a visible marker (`scripts/chec
 | 53 | About's publication and talk counts, the three fellowships and the committee roles moved off the page to the CV PDF, which is itself TBD (the NIH P20 line stays). Supply the CV, or restore the lines | content/about.md | Benson |
 | 54 | The year of the return to the bedside is not on the site; the story's second paragraph cannot open on a date without it | content/about.md | Benson |
 | 55 | Cards no longer carry the stage rail or the status line (six elements: meta, title, drawing, three findings, verdict, link); the flowsheet carries the stages. The plan's card anatomy lists both. Amend, or restore | Card.astro | Benson |
+| 56 | The offers table has no row a company buys, though the seat rule and the promise line name companies as clients. Decide which read a company buys, or add a sentence under "Which side I sit on" saying it buys none | content/site.json | Benson |
+| 57 | The verb for the fifteen national practice guidelines (co-author, panel member, lead) is nowhere on the site; once chosen it goes in the same words on Home, Advisory and About | content/site.json, content/about.md | Benson |
+| 58 | Fees and terms the panels asked for and iteration 5 did not add: a Fee column or floor per tier (44), "questions answered for 30 days" in place of "one revision round" (44), a same-day reply inside an engagement (47), CH-004 as a two-page PDF now (49). Marketing ranks 5, 49, 44 and 45 as the order to close | content/site.json | Benson |
 
-## Visible markers by page (build of Nov 1, 2026, iteration 4)
+## Visible markers by page (build of Nov 1, 2026, iteration 5)
 
 | Page | Markers |
 |---|---|
-| / | 7 |
+| / | 8 |
 | /lab/ | 11 |
 | /lab/ch-001/ | 15 |
 | /lab/ch-002/ to /lab/ch-006/ | 3 to 4 each (footer email, LinkedIn, employers line; the CH-005 deposit) |
 | /lab/ch-007/ to /lab/ch-012/ | 8 to 13 each (draft fields) |
 | /advisory/ | 9 |
-| /about/ | 19 |
+| /about/ | 20 |
 | /404 | 3 |

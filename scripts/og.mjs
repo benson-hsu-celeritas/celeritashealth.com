@@ -25,7 +25,7 @@ html,body{margin:0}body{width:1200px;height:630px;background:#2E3A47;color:#F6F4
 .wm{width:420px}.eyebrow{font:500 20px/1.3 "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:#C9D1DB;margin-top:28px}
 .big{font-weight:400;font-size:${p.big.length > 110 ? 44 : p.big.length > 70 ? 52 : 60}px;line-height:1.12;letter-spacing:-.012em;margin:0;align-self:center;max-width:1056px;text-wrap:balance}
 .foot{display:flex;justify-content:space-between;align-items:flex-end;font:20px/1 "JetBrains Mono",monospace;color:#C9D1DB}
-.v{font-weight:700;color:#F6F4EE;border-top:3px solid #D9694E;padding-top:10px;font-size:26px}
+.v{font-weight:700;color:#F6F4EE;border-top:3px solid #C9D1DB;padding-top:10px;font-size:26px}
 </style></head><body>
 <div><svg class="wm" viewBox="0 -20 11506 760" xmlns="http://www.w3.org/2000/svg">${wm}</svg>${p.eyebrow ? `<div class="eyebrow">${esc(p.eyebrow)}</div>` : ''}</div>
 <h1 class="big">${esc(p.big)}</h1>

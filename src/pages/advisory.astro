@@ -4,7 +4,7 @@ import Cells from '../components/Cells.astro';
 import Offers from '../components/Offers.astro';
 import EngagementFlowsheet from '../components/EngagementFlowsheet.astro';
 import Contact from '../components/Contact.astro';
-import { site, headings, micro, allEntries, findEntry, entryHref } from '../lib/site';
+import { site, headings, micro, allEntries, findEntry, entryHref, spell } from '../lib/site';
 import { tbd, tbdHtml } from '../lib/tbd';
 const entries = await allEntries();
 const samples = ['CH-011', 'CH-012'].map((id) => findEntry(entries, id)).filter(Boolean);
@@ -19,9 +19,10 @@ const memoLine = tbdHtml(micro.published_memo.replace(/\bCH-(\d{3})\b/g, (m, n) 
     <p class="cta"><a href="#contact">{micro.scope_call}</a></p>
   </section>
   <section class="section wrap" id="method" aria-labelledby="method-h">
-    <h2 id="method-h" class="lede methodline">{site.position.method}</h2>
+    <h2 id="method-h">{headings.advisory_method}</h2>
+    <p class="lede methodline">{site.position.method}</p>
     <Cells entries={entries} />
-    {drafts > 0 && <p class="mono muted prep">{drafts} {micro.entries_in_preparation} <a href="/lab/">{micro.lab_wall_link}</a>.</p>}
+    {drafts > 0 && <p class="muted prep">{spell(drafts, true)} {micro.more_in_progress} <a href="/lab/">{micro.lab_wall_link}</a>.</p>}
   </section>
   <section class="section wrap ruled" id="offers" aria-labelledby="offers-h">
     <h2 id="offers-h">{headings.advisory_offers}</h2>

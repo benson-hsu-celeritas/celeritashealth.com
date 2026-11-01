@@ -41,7 +41,7 @@ if (/open to roles/i.test(about)) fails.push('/about/: "open to roles" present')
 // Iteration 4 gates: page length, repetition, register, and red kept off the flowsheet.
 const words = (t) => t.trim().split(/\s+/).length;
 const mainText = (p) => text((readFileSync(p, 'utf8').match(/<main[\s\S]*?<\/main>/) || [''])[0]);
-const caps = { '/': 460, '/advisory/': 880, '/about/': 1000 };
+const caps = { '/': 480, '/advisory/': 900, '/about/': 1000 };
 const pageText = { '/': mainText('dist/index.html'), '/advisory/': mainText('dist/advisory/index.html'), '/about/': mainText('dist/about/index.html') };
 const labMain = mainText('dist/lab/index.html');
 for (const [p, cap] of Object.entries(caps)) if (words(pageText[p]) > cap) fails.push(`${p}: ${words(pageText[p])} words, cap ${cap}`);
@@ -55,7 +55,14 @@ const proofCard = text((readFileSync('dist/index.html', 'utf8').match(/<article 
 const allowed = (x) => Object.values(site.position).some((v) => v.includes(x)) || proofCard.includes(x);
 const repeated = homeSentences.filter((x) => labMain.includes(x) && !allowed(x));
 if (repeated.length) fails.push(`/: ${repeated.length} sentences repeated from /lab/ outside the proof card: ${repeated[0].slice(0, 60)}...`);
-if (/var\(--alert\)/.test(readFileSync('src/components/Wall.astro', 'utf8'))) fails.push('Wall.astro: rubric red on the flowsheet');
+// Rubric red only where a check caught something: the wordmark, the signature drawings and the Reveal. Never in a page, the flowsheet or an OG image.
+const srcFiles = [];
+(function walkSrc(d) { for (const f of readdirSync(d)) { const p = join(d, f); statSync(p).isDirectory() ? walkSrc(p) : /\.(astro|css|ts)$/.test(f) && srcFiles.push(p); } })('src');
+const redOk = (p) => /Wordmark\.astro$|\/signatures\/|Reveal\.astro$|global\.css$/.test(p);
+for (const p of srcFiles) if (!redOk(p) && /var\(--alert\)|--color-alert/.test(readFileSync(p, 'utf8'))) fails.push(`${p}: rubric red outside the wordmark, the drawings and the Reveal`);
+if (/#D9694E|#B0482F/i.test(readFileSync('scripts/og.mjs', 'utf8'))) fails.push('og.mjs: rubric red in a link preview');
+const pathwaysOnLab = (labHtml.match(/data-sig="pathways"/g) || []).length;
+if (pathwaysOnLab !== 1) fails.push(`/lab/: the Pathways drawing appears ${pathwaysOnLab} times, expected once`);
 const cards = (labHtml.match(/<article class="card/g) || []).length;
 const ids = new Set([...labHtml.matchAll(/data-entry="(CH-\d{3})"/g)].map((m) => m[1]));
 const expected = readdirSync('content/entries').filter((f) => f.endsWith('.md')).length;

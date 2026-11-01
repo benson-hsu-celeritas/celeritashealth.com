@@ -18,7 +18,7 @@
   --muted: #5B6470;
   --rule: #D9D9D9;
   --line: #E9E9E9;
-  --alert: #B0482F;      /* rubric: validation caught something, or a verdict */
+  --alert: #B0482F;      /* rubric: a check caught something. Never a verdict, never a TBD. */
   --focus: #2E3A47;
   --serif: "Newsreader", Georgia, "Times New Roman", serif;
   --sans: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
